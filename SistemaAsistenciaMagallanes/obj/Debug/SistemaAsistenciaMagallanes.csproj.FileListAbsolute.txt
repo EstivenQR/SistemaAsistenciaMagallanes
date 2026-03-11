@@ -1,0 +1,17 @@
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\bin\Debug\SistemaAsistenciaMagallanes.exe.config
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\bin\Debug\SistemaAsistenciaMagallanes.exe
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\bin\Debug\SistemaAsistenciaMagallanes.pdb
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.csproj.AssemblyReference.cache
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Properties.Resources.resources
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.csproj.GenerateResource.cache
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.csproj.CoreCompileInputs.cache
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.exe
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.pdb
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmHome.resources
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmUsuarios.resources
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmEditarUsuario.resources
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmMaterias.resources
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmSecciones.resources
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmAsignarDocente.resources
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmEstudiantes.resources
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmEditarEstudiante.resources
