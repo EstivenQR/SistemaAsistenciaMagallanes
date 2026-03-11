@@ -81,7 +81,7 @@
 			this.btnLogout.ForeColor = System.Drawing.Color.White;
 			this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
 			this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLogout.Location = new System.Drawing.Point(0, 833);
+			this.btnLogout.Location = new System.Drawing.Point(0, 654);
 			this.btnLogout.Name = "btnLogout";
 			this.btnLogout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
 			this.btnLogout.Size = new System.Drawing.Size(230, 89);
@@ -101,7 +101,7 @@
 			this.btnTareas.ForeColor = System.Drawing.Color.White;
 			this.btnTareas.Image = ((System.Drawing.Image)(resources.GetObject("btnTareas.Image")));
 			this.btnTareas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnTareas.Location = new System.Drawing.Point(0, 744);
+			this.btnTareas.Location = new System.Drawing.Point(0, 565);
 			this.btnTareas.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
 			this.btnTareas.Name = "btnTareas";
 			this.btnTareas.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -122,7 +122,7 @@
 			this.btnBoletas.ForeColor = System.Drawing.Color.White;
 			this.btnBoletas.Image = ((System.Drawing.Image)(resources.GetObject("btnBoletas.Image")));
 			this.btnBoletas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnBoletas.Location = new System.Drawing.Point(0, 661);
+			this.btnBoletas.Location = new System.Drawing.Point(0, 482);
 			this.btnBoletas.Name = "btnBoletas";
 			this.btnBoletas.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
 			this.btnBoletas.Size = new System.Drawing.Size(230, 83);
@@ -142,7 +142,7 @@
 			this.btnAsistencia.ForeColor = System.Drawing.Color.White;
 			this.btnAsistencia.Image = ((System.Drawing.Image)(resources.GetObject("btnAsistencia.Image")));
 			this.btnAsistencia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnAsistencia.Location = new System.Drawing.Point(0, 581);
+			this.btnAsistencia.Location = new System.Drawing.Point(0, 402);
 			this.btnAsistencia.Name = "btnAsistencia";
 			this.btnAsistencia.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
 			this.btnAsistencia.Size = new System.Drawing.Size(230, 80);
@@ -162,7 +162,7 @@
 			this.panelAdminSubmenu.Location = new System.Drawing.Point(0, 402);
 			this.panelAdminSubmenu.Name = "panelAdminSubmenu";
 			this.panelAdminSubmenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-			this.panelAdminSubmenu.Size = new System.Drawing.Size(230, 179);
+			this.panelAdminSubmenu.Size = new System.Drawing.Size(230, 0);
 			this.panelAdminSubmenu.TabIndex = 0;
 			// 
 			// btnMaterias
