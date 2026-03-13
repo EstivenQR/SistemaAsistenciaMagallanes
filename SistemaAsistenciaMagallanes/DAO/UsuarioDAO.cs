@@ -12,6 +12,28 @@ namespace SistemaAsistenciaMagallanes.DAO
 	internal class UsuarioDAO
 	{
 
+		public SqlDataReader Login(string usuario, string password)
+		{
+			ConexionBD conexionBD = new ConexionBD();
+			SqlConnection conexion = conexionBD.ObtenerConexion();
+
+			string consulta = @"SELECT IdUsuario, Nombre, IdRol
+                        FROM Usuarios
+                        WHERE Usuario = @usuario
+                        AND Password = @password
+                        AND Estado = 1";
+
+			SqlCommand cmd = new SqlCommand(consulta, conexion);
+
+			cmd.Parameters.AddWithValue("@usuario", usuario);
+			cmd.Parameters.AddWithValue("@password", password);
+
+			conexion.Open();
+
+			return cmd.ExecuteReader();
+		}
+
+
 		public void InsertarUsuario(string nombre, string usuario, string password, int rol, int estado)
 		{
 			ConexionBD conexionBD = new ConexionBD();

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SistemaAsistenciaMagallanes.Conexion_BD;
+using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace SistemaAsistenciaMagallanes.Services
 {
@@ -23,6 +25,26 @@ namespace SistemaAsistenciaMagallanes.Services
 		{
 			UsuarioDAO dao = new UsuarioDAO();
 			return dao.ObtenerUsuarios(buscar, mostrarInactivos);
+		}
+
+		public bool Login(string usuario, string password)
+		{
+			UsuarioDAO dao = new UsuarioDAO();
+
+			string hash = Seguridad.Encriptar(password);
+
+			SqlDataReader reader = dao.Login(usuario, hash);
+
+			if (reader.Read())
+			{
+				Sesion.IdUsuario = Convert.ToInt32(reader["IdUsuario"]);
+				Sesion.Nombre = reader["Nombre"].ToString();
+				Sesion.IdRol = Convert.ToInt32(reader["IdRol"]);
+
+				return true;
+			}
+
+			return false;
 		}
 
 		public DataRow ObtenerUsuarioPorId(int id)
