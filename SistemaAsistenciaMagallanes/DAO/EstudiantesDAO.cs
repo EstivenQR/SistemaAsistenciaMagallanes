@@ -13,15 +13,15 @@ namespace SistemaAsistenciaMagallanes.DAO
 	{
 
 		public void InsertarEstudiante(string cedula, string nombre, string apellido,
-										DateTime fechaNacimiento, string numeroEncargado, int idSeccion)
+										DateTime fechaNacimiento, string numeroEncargado, int idSeccion, int RecibeReligion)
 		{
 			ConexionBD conexionBD = new ConexionBD();
 			SqlConnection conexion = conexionBD.ObtenerConexion();
 
 			string consulta = @"INSERT INTO Estudiantes
-                        (Cedula,Nombre,Apellido,FechaNacimiento,NumeroEncargado,IdSeccion,Estado)
+                        (Cedula,Nombre,Apellido,FechaNacimiento,NumeroEncargado,IdSeccion,Estado, RecibeReligion)
                         VALUES
-                        (@cedula,@nombre,@apellido,@fecha,@encargado,@seccion,1)";
+                        (@cedula,@nombre,@apellido,@fecha,@encargado,@seccion,1,@RecibeReligion)";
 
 			SqlCommand cmd = new SqlCommand(consulta, conexion);
 
@@ -31,6 +31,7 @@ namespace SistemaAsistenciaMagallanes.DAO
 			cmd.Parameters.AddWithValue("@fecha", fechaNacimiento);
 			cmd.Parameters.AddWithValue("@encargado", numeroEncargado);
 			cmd.Parameters.AddWithValue("@seccion", idSeccion);
+			cmd.Parameters.AddWithValue("@RecibeReligion", RecibeReligion);
 
 			conexion.Open();
 			cmd.ExecuteNonQuery();
@@ -51,9 +52,14 @@ namespace SistemaAsistenciaMagallanes.DAO
 							e.IdSeccion,
 							s.NombreSeccion AS Seccion,
 							CASE 
+								WHEN e.RecibeReligion = 1 THEN 'Si'
+								ELSE 'No'
+							END AS RecibeReligion,
+							CASE 
 								WHEN e.Estado = 1 THEN 'Activo'
 								ELSE 'Inactivo'
 							END AS Estado
+
 							FROM Estudiantes e
 							INNER JOIN Secciones s
 							ON e.IdSeccion = s.IdSeccion
@@ -83,7 +89,7 @@ namespace SistemaAsistenciaMagallanes.DAO
 		}
 
 		public void EditarEstudiante(int id, string cedula, string nombre, string apellido,
-									DateTime fechaNacimiento, string numeroEncargado, int idSeccion, bool estado)
+									DateTime fechaNacimiento, string numeroEncargado, int idSeccion, bool estado, int RecibeReligion)
 		{
 			ConexionBD conexionBD = new ConexionBD();
 			SqlConnection conexion = conexionBD.ObtenerConexion();
@@ -95,7 +101,8 @@ namespace SistemaAsistenciaMagallanes.DAO
                             FechaNacimiento = @fecha,
                             NumeroEncargado = @encargado,
                             IdSeccion = @seccion,
-                            Estado = @estado
+                            Estado = @estado,
+							RecibeReligion= @RecibeReligion
                         WHERE IdEstudiante = @id";
 
 			SqlCommand cmd = new SqlCommand(consulta, conexion);
@@ -108,6 +115,7 @@ namespace SistemaAsistenciaMagallanes.DAO
 			cmd.Parameters.AddWithValue("@encargado", numeroEncargado);
 			cmd.Parameters.AddWithValue("@seccion", idSeccion);
 			cmd.Parameters.AddWithValue("@estado", estado);
+			cmd.Parameters.AddWithValue("@RecibeReligion", RecibeReligion);
 
 			conexion.Open();
 			cmd.ExecuteNonQuery();

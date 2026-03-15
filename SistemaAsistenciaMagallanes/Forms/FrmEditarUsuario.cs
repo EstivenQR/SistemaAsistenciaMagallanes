@@ -129,5 +129,10 @@ namespace SistemaAsistenciaMagallanes.Forms
 			txtPassword.UseSystemPasswordChar = !txtPassword.UseSystemPasswordChar;
 
 		}
+
+		private void chkEstado_CheckedChanged(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

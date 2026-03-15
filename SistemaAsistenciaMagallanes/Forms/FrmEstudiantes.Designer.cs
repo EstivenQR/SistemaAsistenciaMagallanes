@@ -35,6 +35,8 @@
 			this.panelprincipal = new System.Windows.Forms.Panel();
 			this.panelcontenido = new System.Windows.Forms.Panel();
 			this.panelformulario = new System.Windows.Forms.Panel();
+			this.label9 = new System.Windows.Forms.Label();
+			this.chkReligion = new System.Windows.Forms.CheckBox();
 			this.btnEditar = new System.Windows.Forms.Button();
 			this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
 			this.cmbSeccion = new System.Windows.Forms.ComboBox();
@@ -130,6 +132,8 @@
 			// panelformulario
 			// 
 			this.panelformulario.BackColor = System.Drawing.Color.Transparent;
+			this.panelformulario.Controls.Add(this.label9);
+			this.panelformulario.Controls.Add(this.chkReligion);
 			this.panelformulario.Controls.Add(this.btnEditar);
 			this.panelformulario.Controls.Add(this.dtpFechaNacimiento);
 			this.panelformulario.Controls.Add(this.cmbSeccion);
@@ -151,6 +155,25 @@
 			this.panelformulario.Name = "panelformulario";
 			this.panelformulario.Size = new System.Drawing.Size(1090, 251);
 			this.panelformulario.TabIndex = 2;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label9.Location = new System.Drawing.Point(443, 116);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(136, 21);
+			this.label9.TabIndex = 29;
+			this.label9.Text = "Recibe Religión:";
+			// 
+			// chkReligion
+			// 
+			this.chkReligion.AutoSize = true;
+			this.chkReligion.Location = new System.Drawing.Point(608, 123);
+			this.chkReligion.Name = "chkReligion";
+			this.chkReligion.Size = new System.Drawing.Size(15, 14);
+			this.chkReligion.TabIndex = 28;
+			this.chkReligion.UseVisualStyleBackColor = true;
 			// 
 			// btnEditar
 			// 
@@ -184,9 +207,9 @@
 			// cmbSeccion
 			// 
 			this.cmbSeccion.FormattingEnabled = true;
-			this.cmbSeccion.Location = new System.Drawing.Point(630, 89);
+			this.cmbSeccion.Location = new System.Drawing.Point(608, 89);
 			this.cmbSeccion.Name = "cmbSeccion";
-			this.cmbSeccion.Size = new System.Drawing.Size(171, 21);
+			this.cmbSeccion.Size = new System.Drawing.Size(227, 21);
 			this.cmbSeccion.TabIndex = 25;
 			// 
 			// label8
@@ -320,9 +343,9 @@
 			this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
 			this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnAgregar.Location = new System.Drawing.Point(849, 113);
+			this.btnAgregar.Location = new System.Drawing.Point(844, 113);
 			this.btnAgregar.Name = "btnAgregar";
-			this.btnAgregar.Size = new System.Drawing.Size(109, 50);
+			this.btnAgregar.Size = new System.Drawing.Size(114, 50);
 			this.btnAgregar.TabIndex = 11;
 			this.btnAgregar.Text = "Agregar";
 			this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -343,7 +366,7 @@
 			// chkMostrarInactivos
 			// 
 			this.chkMostrarInactivos.AutoSize = true;
-			this.chkMostrarInactivos.Location = new System.Drawing.Point(992, 23);
+			this.chkMostrarInactivos.Location = new System.Drawing.Point(1008, 23);
 			this.chkMostrarInactivos.Name = "chkMostrarInactivos";
 			this.chkMostrarInactivos.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
 			this.chkMostrarInactivos.Size = new System.Drawing.Size(15, 16);
@@ -476,5 +499,7 @@
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Button btnEditar;
 		private System.Windows.Forms.CheckBox chkMostrarInactivos;
+		private System.Windows.Forms.CheckBox chkReligion;
+		private System.Windows.Forms.Label label9;
 	}
 }

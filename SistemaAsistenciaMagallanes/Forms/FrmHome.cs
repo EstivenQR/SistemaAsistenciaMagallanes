@@ -136,5 +136,13 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 
 		}
+
+		private void btnAsistencia_Click_1(object sender, EventArgs e)
+		{
+
+			FrmAsistencia frm = new FrmAsistencia();
+			frm.Show();
+
+		}
 	}
 }

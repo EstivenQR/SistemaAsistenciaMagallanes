@@ -63,14 +63,15 @@ namespace SistemaAsistenciaMagallanes.Forms
 		private void btnAgregar_Click(object sender, EventArgs e)
 		{
 			EstudiantesService service = new EstudiantesService();
-
+			int RecibeReligion = chkReligion.Checked ? 1 : 0;
 			service.InsertarEstudiante(
 				txtCedula.Text,
 				txtNombre.Text,
 				txtApellido.Text,
 				dtpFechaNacimiento.Value,
 				txtNumeroEncargado.Text,
-				Convert.ToInt32(cmbSeccion.SelectedValue)
+				Convert.ToInt32(cmbSeccion.SelectedValue),
+				RecibeReligion
 			);
 
 			MessageBox.Show("Estudiante guardado correctamente");
@@ -128,6 +129,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 					}
 				}
 			}
+
 		}
 
 		private void dgvEstudiantes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -147,6 +149,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 				txtNumeroEncargado.Text = fila.Cells["NumeroEncargado"].Value.ToString();
 
 				cmbSeccion.Text = fila.Cells["Seccion"].Value.ToString();
+				chkReligion.Checked = fila.Cells["RecibeReligion"].Value.ToString() == "Si";
 
 			}
 
@@ -166,6 +169,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 				frm.NumeroEncargado = txtNumeroEncargado.Text;
 				frm.IdSeccion = Convert.ToInt32(dgvEstudiantes.CurrentRow.Cells["IdSeccion"].Value);
 				frm.Estado = dgvEstudiantes.CurrentRow.Cells["Estado"].Value.ToString() == "Activo";
+				frm.RecibeReligion = dgvEstudiantes.CurrentRow.Cells["RecibeReligion"].Value.ToString() == "Si";
 
 				if (frm.ShowDialog() == DialogResult.OK)
 				{

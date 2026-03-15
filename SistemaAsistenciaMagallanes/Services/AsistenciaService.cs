@@ -1,0 +1,35 @@
+﻿using SistemaAsistenciaMagallanes.DAO;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SistemaAsistenciaMagallanes.Services
+{
+	public class AsistenciaService
+	{
+		AsistenciaDAO dao = new AsistenciaDAO();
+
+		public DataTable ObtenerEstudiantesPorSeccion(int idSeccion)
+		{
+			return dao.ObtenerEstudiantesPorSeccion(idSeccion);
+		}
+
+		public void GuardarAsistencia(int idEstudiante, int idSeccion, int idMateria, DateTime fecha, string estado, int idDocente)
+		{
+			dao.GuardarAsistencia(idEstudiante, idSeccion, idMateria, fecha, estado, idDocente);
+		}
+
+		public DataTable ObtenerSeccionesDocente(int idUsuario)
+		{
+			return dao.ObtenerSeccionesDocente(idUsuario);
+		}
+
+		public DataTable ObtenerMateriasDocente(int idUsuario, int idSeccion)
+		{
+			return dao.ObtenerMateriasDocente(idUsuario, idSeccion);
+		}
+	}
+}

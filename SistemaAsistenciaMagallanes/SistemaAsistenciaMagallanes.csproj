@@ -50,10 +50,17 @@
     <Compile Include="Conexion_BD\ConexionBD.cs" />
     <Compile Include="Conexion_BD\Seguridad.cs" />
     <Compile Include="DAO\AsignacionDocenteDAO.cs" />
+    <Compile Include="DAO\AsistenciaDAO.cs" />
     <Compile Include="DAO\EstudiantesDAO.cs" />
     <Compile Include="DAO\MateriaDAO.cs" />
     <Compile Include="DAO\SeccionesDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="Forms\FrmAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAsistencia.Designer.cs">
+      <DependentUpon>FrmAsistencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmEditarEstudiante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,11 +119,15 @@
     <Compile Include="Conexion_BD\Sesion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AsistenciaService.cs" />
     <Compile Include="Services\EstudiantesService.cs" />
     <Compile Include="Services\MateriaService.cs" />
     <Compile Include="Services\SeccionesService.cs" />
     <Compile Include="Services\ServiceAsignacionDocente.cs" />
     <Compile Include="Services\UsuarioService.cs" />
+    <EmbeddedResource Include="Forms\FrmAsistencia.resx">
+      <DependentUpon>FrmAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmEditarEstudiante.resx">
       <DependentUpon>FrmEditarEstudiante.cs</DependentUpon>
     </EmbeddedResource>

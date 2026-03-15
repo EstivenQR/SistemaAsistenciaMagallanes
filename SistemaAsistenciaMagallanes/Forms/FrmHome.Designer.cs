@@ -42,10 +42,10 @@
 			this.btnEstudiantes = new System.Windows.Forms.Button();
 			this.BtnAdministracion = new System.Windows.Forms.Button();
 			this.panelLogo = new System.Windows.Forms.Panel();
+			this.lblUsuario = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.timerMenu = new System.Windows.Forms.Timer(this.components);
 			this.panelPrincipal = new System.Windows.Forms.Panel();
-			this.lblUsuario = new System.Windows.Forms.Label();
 			this.panelMenu.SuspendLayout();
 			this.panelAdminSubmenu.SuspendLayout();
 			this.panelLogo.SuspendLayout();
@@ -154,6 +154,7 @@
 			this.btnAsistencia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnAsistencia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnAsistencia.UseVisualStyleBackColor = true;
+			this.btnAsistencia.Click += new System.EventHandler(this.btnAsistencia_Click_1);
 			// 
 			// panelAdminSubmenu
 			// 
@@ -279,6 +280,17 @@
 			this.panelLogo.TabIndex = 5;
 			this.panelLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLogo_Paint);
 			// 
+			// lblUsuario
+			// 
+			this.lblUsuario.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold);
+			this.lblUsuario.ForeColor = System.Drawing.Color.White;
+			this.lblUsuario.Location = new System.Drawing.Point(3, 216);
+			this.lblUsuario.Name = "lblUsuario";
+			this.lblUsuario.Size = new System.Drawing.Size(300, 30);
+			this.lblUsuario.TabIndex = 1;
+			this.lblUsuario.Text = "Bienvenida";
+			this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -303,17 +315,6 @@
 			this.panelPrincipal.Name = "panelPrincipal";
 			this.panelPrincipal.Size = new System.Drawing.Size(1183, 716);
 			this.panelPrincipal.TabIndex = 1;
-			// 
-			// lblUsuario
-			// 
-			this.lblUsuario.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold);
-			this.lblUsuario.ForeColor = System.Drawing.Color.White;
-			this.lblUsuario.Location = new System.Drawing.Point(3, 216);
-			this.lblUsuario.Name = "lblUsuario";
-			this.lblUsuario.Size = new System.Drawing.Size(300, 30);
-			this.lblUsuario.TabIndex = 1;
-			this.lblUsuario.Text = "Bienvenida";
-			this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// FrmHome
 			// 

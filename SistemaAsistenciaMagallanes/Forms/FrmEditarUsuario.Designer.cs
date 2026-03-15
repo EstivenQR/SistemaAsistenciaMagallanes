@@ -162,6 +162,7 @@
 			this.chkEstado.Text = "Activo";
 			this.chkEstado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.chkEstado.UseVisualStyleBackColor = true;
+			this.chkEstado.CheckedChanged += new System.EventHandler(this.chkEstado_CheckedChanged);
 			// 
 			// btnmostrar
 			// 

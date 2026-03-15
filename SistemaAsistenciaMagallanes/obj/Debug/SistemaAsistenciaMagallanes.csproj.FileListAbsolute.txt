@@ -16,3 +16,4 @@ C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagalla
 C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmEstudiantes.resources
 C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmEditarEstudiante.resources
 C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmLogin.resources
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmAsistencia.resources

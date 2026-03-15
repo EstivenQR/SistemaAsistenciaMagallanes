@@ -21,6 +21,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 		public string NumeroEncargado;
 		public int IdSeccion;
 		public bool Estado;
+		public bool RecibeReligion;
 		public FrmEditarEstudiante()
 		{
 			InitializeComponent();
@@ -50,7 +51,9 @@ namespace SistemaAsistenciaMagallanes.Forms
 			dtpFechaNacimiento.Value = FechaNacimiento;
 			txtNumeroEncargado.Text = NumeroEncargado;
 			cmbSeccion.SelectedValue = IdSeccion;
+			// Reflejar los checks
 			chkEstado.Checked = Estado;
+			chkReligion.Checked = RecibeReligion;
 
 
 		}
@@ -61,6 +64,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			txtNombre.Clear();
 			txtApellido.Clear();
 			txtNumeroEncargado.Clear();
+
 		}
 
 
@@ -69,7 +73,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			EstudiantesService service = new EstudiantesService();
 
 			bool estado = chkEstado.Checked;
-
+			int recibe = chkReligion.Checked ? 1 : 0;
 			service.EditarEstudiante(
 				IdEstudiante,
 				txtCedula.Text,
@@ -78,7 +82,9 @@ namespace SistemaAsistenciaMagallanes.Forms
 				dtpFechaNacimiento.Value,
 				txtNumeroEncargado.Text,
 				Convert.ToInt32(cmbSeccion.SelectedValue),
-				estado
+				estado,
+				recibe
+
 			);
 
 			MessageBox.Show("Estudiante actualizado");

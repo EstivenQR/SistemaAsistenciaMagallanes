@@ -49,6 +49,9 @@
 			this.btnSalir = new System.Windows.Forms.Button();
 			this.btnGuardar = new System.Windows.Forms.Button();
 			this.chkEstado = new System.Windows.Forms.CheckBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.chkReligion = new System.Windows.Forms.CheckBox();
+			this.label9 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panel2.SuspendLayout();
@@ -102,6 +105,9 @@
 			// 
 			// panel3
 			// 
+			this.panel3.Controls.Add(this.label9);
+			this.panel3.Controls.Add(this.chkReligion);
+			this.panel3.Controls.Add(this.label2);
 			this.panel3.Controls.Add(this.dtpFechaNacimiento);
 			this.panel3.Controls.Add(this.cmbSeccion);
 			this.panel3.Controls.Add(this.label8);
@@ -138,9 +144,9 @@
 			// cmbSeccion
 			// 
 			this.cmbSeccion.FormattingEnabled = true;
-			this.cmbSeccion.Location = new System.Drawing.Point(646, 153);
+			this.cmbSeccion.Location = new System.Drawing.Point(624, 153);
 			this.cmbSeccion.Name = "cmbSeccion";
-			this.cmbSeccion.Size = new System.Drawing.Size(171, 21);
+			this.cmbSeccion.Size = new System.Drawing.Size(227, 21);
 			this.cmbSeccion.TabIndex = 37;
 			// 
 			// label8
@@ -238,7 +244,7 @@
 			this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnSalir.ForeColor = System.Drawing.Color.Transparent;
-			this.btnSalir.Location = new System.Drawing.Point(467, 232);
+			this.btnSalir.Location = new System.Drawing.Point(433, 264);
 			this.btnSalir.Name = "btnSalir";
 			this.btnSalir.Size = new System.Drawing.Size(97, 36);
 			this.btnSalir.TabIndex = 23;
@@ -254,7 +260,7 @@
 			this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnGuardar.ForeColor = System.Drawing.SystemColors.Control;
-			this.btnGuardar.Location = new System.Drawing.Point(343, 232);
+			this.btnGuardar.Location = new System.Drawing.Point(309, 264);
 			this.btnGuardar.Name = "btnGuardar";
 			this.btnGuardar.Size = new System.Drawing.Size(97, 36);
 			this.btnGuardar.TabIndex = 22;
@@ -267,13 +273,41 @@
 			this.chkEstado.AutoSize = true;
 			this.chkEstado.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.chkEstado.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.chkEstado.Location = new System.Drawing.Point(687, 189);
+			this.chkEstado.Location = new System.Drawing.Point(624, 189);
 			this.chkEstado.Name = "chkEstado";
-			this.chkEstado.Size = new System.Drawing.Size(80, 25);
+			this.chkEstado.Size = new System.Drawing.Size(15, 14);
 			this.chkEstado.TabIndex = 21;
-			this.chkEstado.Text = "Activo";
 			this.chkEstado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.chkEstado.UseVisualStyleBackColor = true;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(49, 181);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(136, 21);
+			this.label2.TabIndex = 39;
+			this.label2.Text = "Recibe Religion:";
+			// 
+			// chkReligion
+			// 
+			this.chkReligion.AutoSize = true;
+			this.chkReligion.Location = new System.Drawing.Point(216, 186);
+			this.chkReligion.Name = "chkReligion";
+			this.chkReligion.Size = new System.Drawing.Size(15, 14);
+			this.chkReligion.TabIndex = 40;
+			this.chkReligion.UseVisualStyleBackColor = true;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label9.Location = new System.Drawing.Point(496, 181);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(68, 21);
+			this.label9.TabIndex = 41;
+			this.label9.Text = "Estado:";
 			// 
 			// FrmEditarEstudiante
 			// 
@@ -317,5 +351,8 @@
 		private System.Windows.Forms.TextBox txtNombre;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.CheckBox chkReligion;
+		private System.Windows.Forms.Label label2;
 	}
 }
