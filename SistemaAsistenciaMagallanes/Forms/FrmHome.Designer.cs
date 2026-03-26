@@ -30,8 +30,9 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHome));
-			this.panelMenu = new System.Windows.Forms.Panel();
+			this.subpanel = new System.Windows.Forms.Panel();
 			this.btnLogout = new System.Windows.Forms.Button();
+			this.btnReportes = new System.Windows.Forms.Button();
 			this.btnTareas = new System.Windows.Forms.Button();
 			this.btnBoletas = new System.Windows.Forms.Button();
 			this.btnAsistencia = new System.Windows.Forms.Button();
@@ -46,31 +47,32 @@
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.timerMenu = new System.Windows.Forms.Timer(this.components);
 			this.panelPrincipal = new System.Windows.Forms.Panel();
-			this.panelMenu.SuspendLayout();
+			this.subpanel.SuspendLayout();
 			this.panelAdminSubmenu.SuspendLayout();
 			this.panelLogo.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panelPrincipal.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// panelMenu
+			// subpanel
 			// 
-			this.panelMenu.AutoScroll = true;
-			this.panelMenu.BackColor = System.Drawing.Color.Orange;
-			this.panelMenu.Controls.Add(this.btnLogout);
-			this.panelMenu.Controls.Add(this.btnTareas);
-			this.panelMenu.Controls.Add(this.btnBoletas);
-			this.panelMenu.Controls.Add(this.btnAsistencia);
-			this.panelMenu.Controls.Add(this.panelAdminSubmenu);
-			this.panelMenu.Controls.Add(this.BtnAdministracion);
-			this.panelMenu.Controls.Add(this.panelLogo);
-			this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-			this.panelMenu.Location = new System.Drawing.Point(0, 0);
-			this.panelMenu.Name = "panelMenu";
-			this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-			this.panelMenu.Size = new System.Drawing.Size(247, 716);
-			this.panelMenu.TabIndex = 0;
-			this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
+			this.subpanel.AutoScroll = true;
+			this.subpanel.BackColor = System.Drawing.Color.Orange;
+			this.subpanel.Controls.Add(this.btnLogout);
+			this.subpanel.Controls.Add(this.btnReportes);
+			this.subpanel.Controls.Add(this.btnTareas);
+			this.subpanel.Controls.Add(this.btnBoletas);
+			this.subpanel.Controls.Add(this.btnAsistencia);
+			this.subpanel.Controls.Add(this.panelAdminSubmenu);
+			this.subpanel.Controls.Add(this.BtnAdministracion);
+			this.subpanel.Controls.Add(this.panelLogo);
+			this.subpanel.Dock = System.Windows.Forms.DockStyle.Left;
+			this.subpanel.Location = new System.Drawing.Point(0, 0);
+			this.subpanel.Name = "subpanel";
+			this.subpanel.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+			this.subpanel.Size = new System.Drawing.Size(247, 716);
+			this.subpanel.TabIndex = 0;
+			this.subpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
 			// 
 			// btnLogout
 			// 
@@ -83,15 +85,34 @@
 			this.btnLogout.ForeColor = System.Drawing.Color.White;
 			this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
 			this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLogout.Location = new System.Drawing.Point(0, 609);
+			this.btnLogout.Location = new System.Drawing.Point(0, 698);
 			this.btnLogout.Name = "btnLogout";
 			this.btnLogout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-			this.btnLogout.Size = new System.Drawing.Size(247, 89);
+			this.btnLogout.Size = new System.Drawing.Size(230, 89);
 			this.btnLogout.TabIndex = 9;
 			this.btnLogout.Text = " Salir";
 			this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnLogout.UseVisualStyleBackColor = true;
 			this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+			// 
+			// btnReportes
+			// 
+			this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
+			this.btnReportes.FlatAppearance.BorderSize = 0;
+			this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnReportes.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnReportes.ForeColor = System.Drawing.Color.White;
+			this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
+			this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnReportes.Location = new System.Drawing.Point(0, 609);
+			this.btnReportes.Name = "btnReportes";
+			this.btnReportes.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+			this.btnReportes.Size = new System.Drawing.Size(230, 89);
+			this.btnReportes.TabIndex = 10;
+			this.btnReportes.Text = "Reportes";
+			this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.btnReportes.UseVisualStyleBackColor = true;
+			this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
 			// 
 			// btnTareas
 			// 
@@ -108,7 +129,7 @@
 			this.btnTareas.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
 			this.btnTareas.Name = "btnTareas";
 			this.btnTareas.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-			this.btnTareas.Size = new System.Drawing.Size(247, 89);
+			this.btnTareas.Size = new System.Drawing.Size(230, 89);
 			this.btnTareas.TabIndex = 8;
 			this.btnTareas.Text = "Tareas";
 			this.btnTareas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -128,7 +149,7 @@
 			this.btnBoletas.Location = new System.Drawing.Point(0, 437);
 			this.btnBoletas.Name = "btnBoletas";
 			this.btnBoletas.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-			this.btnBoletas.Size = new System.Drawing.Size(247, 83);
+			this.btnBoletas.Size = new System.Drawing.Size(230, 83);
 			this.btnBoletas.TabIndex = 7;
 			this.btnBoletas.Text = "Amonestaciones";
 			this.btnBoletas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -148,7 +169,7 @@
 			this.btnAsistencia.Location = new System.Drawing.Point(0, 357);
 			this.btnAsistencia.Name = "btnAsistencia";
 			this.btnAsistencia.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-			this.btnAsistencia.Size = new System.Drawing.Size(247, 80);
+			this.btnAsistencia.Size = new System.Drawing.Size(230, 80);
 			this.btnAsistencia.TabIndex = 6;
 			this.btnAsistencia.Text = " ASISTENCIA ";
 			this.btnAsistencia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -166,7 +187,7 @@
 			this.panelAdminSubmenu.Location = new System.Drawing.Point(0, 357);
 			this.panelAdminSubmenu.Name = "panelAdminSubmenu";
 			this.panelAdminSubmenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-			this.panelAdminSubmenu.Size = new System.Drawing.Size(247, 0);
+			this.panelAdminSubmenu.Size = new System.Drawing.Size(230, 0);
 			this.panelAdminSubmenu.TabIndex = 0;
 			// 
 			// btnMaterias
@@ -181,7 +202,7 @@
 			this.btnMaterias.Location = new System.Drawing.Point(0, 108);
 			this.btnMaterias.Name = "btnMaterias";
 			this.btnMaterias.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-			this.btnMaterias.Size = new System.Drawing.Size(247, 35);
+			this.btnMaterias.Size = new System.Drawing.Size(230, 35);
 			this.btnMaterias.TabIndex = 3;
 			this.btnMaterias.Text = "Materias";
 			this.btnMaterias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -201,7 +222,7 @@
 			this.btnUsuarios.Location = new System.Drawing.Point(0, 72);
 			this.btnUsuarios.Name = "btnUsuarios";
 			this.btnUsuarios.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-			this.btnUsuarios.Size = new System.Drawing.Size(247, 36);
+			this.btnUsuarios.Size = new System.Drawing.Size(230, 36);
 			this.btnUsuarios.TabIndex = 2;
 			this.btnUsuarios.Text = "Docentes";
 			this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -221,7 +242,7 @@
 			this.btnSecciones.Location = new System.Drawing.Point(0, 36);
 			this.btnSecciones.Name = "btnSecciones";
 			this.btnSecciones.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-			this.btnSecciones.Size = new System.Drawing.Size(247, 36);
+			this.btnSecciones.Size = new System.Drawing.Size(230, 36);
 			this.btnSecciones.TabIndex = 1;
 			this.btnSecciones.Text = "Secciones";
 			this.btnSecciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -241,7 +262,7 @@
 			this.btnEstudiantes.Location = new System.Drawing.Point(0, 0);
 			this.btnEstudiantes.Name = "btnEstudiantes";
 			this.btnEstudiantes.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-			this.btnEstudiantes.Size = new System.Drawing.Size(247, 36);
+			this.btnEstudiantes.Size = new System.Drawing.Size(230, 36);
 			this.btnEstudiantes.TabIndex = 0;
 			this.btnEstudiantes.Text = "Estudiantes";
 			this.btnEstudiantes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -261,7 +282,7 @@
 			this.BtnAdministracion.Location = new System.Drawing.Point(0, 275);
 			this.BtnAdministracion.Name = "BtnAdministracion";
 			this.BtnAdministracion.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-			this.BtnAdministracion.Size = new System.Drawing.Size(247, 82);
+			this.BtnAdministracion.Size = new System.Drawing.Size(230, 82);
 			this.BtnAdministracion.TabIndex = 4;
 			this.BtnAdministracion.Text = " Administración ▼";
 			this.BtnAdministracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -276,7 +297,7 @@
 			this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panelLogo.Location = new System.Drawing.Point(0, 20);
 			this.panelLogo.Name = "panelLogo";
-			this.panelLogo.Size = new System.Drawing.Size(247, 255);
+			this.panelLogo.Size = new System.Drawing.Size(230, 255);
 			this.panelLogo.TabIndex = 5;
 			this.panelLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLogo_Paint);
 			// 
@@ -309,7 +330,7 @@
 			// panelPrincipal
 			// 
 			this.panelPrincipal.BackColor = System.Drawing.Color.White;
-			this.panelPrincipal.Controls.Add(this.panelMenu);
+			this.panelPrincipal.Controls.Add(this.subpanel);
 			this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
 			this.panelPrincipal.Name = "panelPrincipal";
@@ -327,7 +348,7 @@
 			this.Text = "FrmHome";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.FrmHome_Load);
-			this.panelMenu.ResumeLayout(false);
+			this.subpanel.ResumeLayout(false);
 			this.panelAdminSubmenu.ResumeLayout(false);
 			this.panelLogo.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -338,7 +359,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.Panel panelMenu;
+		private System.Windows.Forms.Panel subpanel;
 		private System.Windows.Forms.Button BtnAdministracion;
 		private System.Windows.Forms.Panel panelAdminSubmenu;
 		private System.Windows.Forms.Button btnMaterias;
@@ -354,5 +375,6 @@
 		private System.Windows.Forms.Button btnBoletas;
 		private System.Windows.Forms.Button btnLogout;
 		private System.Windows.Forms.Label lblUsuario;
+		private System.Windows.Forms.Button btnReportes;
 	}
 }

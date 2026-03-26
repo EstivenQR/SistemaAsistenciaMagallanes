@@ -24,10 +24,10 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		private void FrmAsistencia_Load(object sender, EventArgs e)
 		{
+			cmbMateria.DataSource = null;
 			dgvAsistencia.AutoGenerateColumns = false;
 			ConfigurarTabla();
 			CargarSecciones();
-			CargarMaterias();
 			dgvAsistencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			dgvAsistencia.CellValueChanged += dgvAsistencia_CellValueChanged;
 			dgvAsistencia.CurrentCellDirtyStateChanged += dgvAsistencia_CurrentCellDirtyStateChanged;
@@ -73,26 +73,28 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 			AsistenciaService service = new AsistenciaService();
 
-			
-			cmbSeccion.DataSource = service.ObtenerSeccionesDocente(Sesion.IdUsuario);
+			DataTable dt = service.ObtenerSeccionesDocente(Sesion.IdUsuario);
 
+			// 🔥 Agregar opción por defecto
+			DataRow fila = dt.NewRow();
+			fila["IdSeccion"] = 0;
+			fila["NombreSeccion"] = "-- Seleccione una sección --";
+			dt.Rows.InsertAt(fila, 0);
+
+			cmbSeccion.DataSource = dt;
 			cmbSeccion.DisplayMember = "NombreSeccion";
 			cmbSeccion.ValueMember = "IdSeccion";
 		}
 
-		private void CargarMaterias()
+		private void CargarMaterias(int idSeccion)
 		{
-			int idSeccion = Convert.ToInt32(cmbSeccion.SelectedValue);
-
 			AsistenciaService service = new AsistenciaService();
 
-		
 			cmbMateria.DataSource = service.ObtenerMateriasDocente(Sesion.IdUsuario, idSeccion);
 
 			cmbMateria.DisplayMember = "NombreMateria";
-			cmbMateria.ValueMember = "IdMateria";
+			cmbMateria.ValueMember = "IdAsignacion";
 
-			CargarEstudiantes(idSeccion);
 		}
 		private void CargarEstudiantes(int idSeccion)
 		{
@@ -110,7 +112,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		}
 
-		private void btnGuardar_Click(object sender, EventArgs e)
+		/*private void btnGuardar_Click(object sender, EventArgs e)
 		{
 			foreach (DataGridViewRow fila in dgvAsistencia.Rows)
 			{
@@ -129,7 +131,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			}
 
 			MessageBox.Show("Asistencia guardada correctamente");
-		}
+		}*/
 
 		private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -140,7 +142,9 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 			if (cmbSeccion.SelectedValue != null && cmbSeccion.SelectedValue is int)
 			{
-				int idSeccion = (int)cmbSeccion.SelectedValue;
+				int idSeccion = Convert.ToInt32(cmbSeccion.SelectedValue);
+
+				CargarMaterias(idSeccion);
 				CargarEstudiantes(idSeccion);
 			}
 		}
@@ -149,15 +153,9 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 			int idSeccion = Convert.ToInt32(cmbSeccion.SelectedValue);
 
-			AsistenciaService service = new AsistenciaService();
+			if (idSeccion == 0) return; // no hace nada si no selecciona
 
-			cmbMateria.DataSource = null;
-
-			cmbMateria.DataSource = service.ObtenerMateriasDocente(Sesion.IdUsuario, idSeccion);
-
-			cmbMateria.DisplayMember = "NombreMateria";
-			cmbMateria.ValueMember = "IdMateria";
-
+			CargarMaterias(idSeccion);
 			CargarEstudiantes(idSeccion);
 		}
 
@@ -204,20 +202,24 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		private void btnGuardar_Click_1(object sender, EventArgs e)
 		{
+			AsistenciaService service = new AsistenciaService();
+
+			int idAsignacion = Convert.ToInt32(cmbMateria.SelectedValue);
+			DateTime fecha = DateTime.Now;
+
+			// 1Crear la clase
+			int idClase = service.CrearClase(idAsignacion, fecha);
+
+			// 2Recorre el DataGridView
 			foreach (DataGridViewRow fila in dgvAsistencia.Rows)
 			{
-				int idEstudiante = Convert.ToInt32(fila.Cells["IdEstudiante"].Value);
+				if (fila.Cells["IdEstudiante"].Value != null)
+				{
+					int idEstudiante = Convert.ToInt32(fila.Cells["IdEstudiante"].Value);
+					string estado = fila.Cells["Estado"].Value?.ToString() ?? "Presente";
 
-				string estado = fila.Cells["Estado"].Value.ToString();
-
-				service.GuardarAsistencia(
-					idEstudiante,
-					Convert.ToInt32(cmbSeccion.SelectedValue),
-					Convert.ToInt32(cmbMateria.SelectedValue),
-					dtpFecha.Value,
-					estado,
-					Sesion.IdUsuario
-				);
+					service.GuardarDetalleAsistencia(idClase, idEstudiante, estado);
+				}
 			}
 
 			MessageBox.Show("Asistencia guardada correctamente");

@@ -86,9 +86,11 @@ namespace SistemaAsistenciaMagallanes.DAO
 
 			using (SqlConnection conn = conexionBD.ObtenerConexion())
 			{
-				string query = @"SELECT m.IdMateria, m.NombreMateria
+				string query = @"SELECT 
+								dsm.IdAsignacion,
+								m.NombreMateria
 								FROM DocenteSeccionMateria dsm
-								INNER JOIN Materias m ON m.IdMateria = dsm.IdMateria
+								INNER JOIN Materias m ON dsm.IdMateria = m.IdMateria
 								WHERE dsm.IdUsuario = @IdUsuario
 								AND dsm.IdSeccion = @IdSeccion";
 
@@ -101,6 +103,49 @@ namespace SistemaAsistenciaMagallanes.DAO
 			}
 
 			return tabla;
+		}
+
+		public int CrearClase(int idAsignacion, DateTime fecha)
+		{
+			int idClase = 0;
+
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				conn.Open();
+
+				string query = @"
+				INSERT INTO Clase (IdAsignacion, Fecha)
+				OUTPUT INSERTED.IdClase
+				VALUES (@IdAsignacion, @Fecha)";
+
+				SqlCommand cmd = new SqlCommand(query, conn);
+				cmd.Parameters.AddWithValue("@IdAsignacion", idAsignacion);
+				cmd.Parameters.AddWithValue("@Fecha", fecha);
+
+				idClase = (int)cmd.ExecuteScalar();
+			}
+
+			return idClase;
+		}
+
+		public void GuardarDetalleAsistencia(int idClase, int idEstudiante, string estado)
+		{
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				conn.Open();
+
+				string query = @"
+				INSERT INTO DetalleAsistencia (IdClase, IdEstudiante, Estado)
+				VALUES (@IdClase, @IdEstudiante, @Estado)";
+
+				SqlCommand cmd = new SqlCommand(query, conn);
+
+				cmd.Parameters.AddWithValue("@IdClase", idClase);
+				cmd.Parameters.AddWithValue("@IdEstudiante", idEstudiante);
+				cmd.Parameters.AddWithValue("@Estado", estado);
+
+				cmd.ExecuteNonQuery();
+			}
 		}
 
 	}

@@ -3,44 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\forms\\frmasistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\forms\\frmasistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\forms\\frmreportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\forms\\frmreportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\forms\\frmeditarestudiante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\forms\\frmeditarestudiante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\sistemaasistenciamagallanes\\services\\reportesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\services\\reportesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\forms\\frmestudiantes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\forms\\frmestudiantes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\forms\\frmestudiantes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\forms\\frmestudiantes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\dao\\estudiantesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\dao\\estudiantesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\forms\\frmeditarestudiante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\forms\\frmeditarestudiante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\forms\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\forms\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\dao\\usuariodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\dao\\usuariodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\services\\estudiantesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\services\\estudiantesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\forms\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\forms\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\sistemaasistenciamagallanes\\forms\\frmreportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\forms\\frmreportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -307,127 +279,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FrmAsistencia.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmAsistencia.cs",
-              "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\Forms\\FrmAsistencia.cs",
-              "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmAsistencia.cs [Design]*",
-              "RelativeToolTip": "SistemaAsistenciaMagallanes\\Forms\\FrmAsistencia.cs [Design]*",
+              "Title": "FrmReportes.cs",
+              "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmReportes.cs",
+              "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\Forms\\FrmReportes.cs",
+              "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmReportes.cs*",
+              "RelativeToolTip": "SistemaAsistenciaMagallanes\\Forms\\FrmReportes.cs*",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAQwJEAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T10:43:02.127Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-03-25T18:13:27.321Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FrmEditarEstudiante.cs",
-              "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmEditarEstudiante.cs",
-              "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\Forms\\FrmEditarEstudiante.cs",
-              "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmEditarEstudiante.cs",
-              "RelativeToolTip": "SistemaAsistenciaMagallanes\\Forms\\FrmEditarEstudiante.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwDgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ReportesService.cs",
+              "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Services\\ReportesService.cs",
+              "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\Services\\ReportesService.cs",
+              "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Services\\ReportesService.cs",
+              "RelativeToolTip": "SistemaAsistenciaMagallanes\\Services\\ReportesService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAiwCcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T10:38:11.24Z",
+              "WhenOpened": "2026-03-18T08:11:35.186Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FrmEstudiantes.cs",
-              "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmEstudiantes.cs",
-              "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\Forms\\FrmEstudiantes.cs",
-              "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmEstudiantes.cs",
-              "RelativeToolTip": "SistemaAsistenciaMagallanes\\Forms\\FrmEstudiantes.cs",
-              "ViewState": "AgIAAHkAAAAAAAAAAADwv5cAAABOAAAAAAAAAA==",
+              "Title": "FrmReportes.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmReportes.cs",
+              "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\Forms\\FrmReportes.cs",
+              "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmReportes.cs [Design]*",
+              "RelativeToolTip": "SistemaAsistenciaMagallanes\\Forms\\FrmReportes.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T09:59:57.408Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FrmEstudiantes.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmEstudiantes.cs",
-              "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\Forms\\FrmEstudiantes.cs",
-              "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmEstudiantes.cs [Design]",
-              "RelativeToolTip": "SistemaAsistenciaMagallanes\\Forms\\FrmEstudiantes.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T09:44:03.069Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FrmEditarEstudiante.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmEditarEstudiante.cs",
-              "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\Forms\\FrmEditarEstudiante.cs",
-              "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmEditarEstudiante.cs [Design]",
-              "RelativeToolTip": "SistemaAsistenciaMagallanes\\Forms\\FrmEditarEstudiante.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T09:34:46.198Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EstudiantesDAO.cs",
-              "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\DAO\\EstudiantesDAO.cs",
-              "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\DAO\\EstudiantesDAO.cs",
-              "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\DAO\\EstudiantesDAO.cs",
-              "RelativeToolTip": "SistemaAsistenciaMagallanes\\DAO\\EstudiantesDAO.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAvwDQAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T09:25:18.382Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EstudiantesService.cs",
-              "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Services\\EstudiantesService.cs",
-              "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\Services\\EstudiantesService.cs",
-              "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Services\\EstudiantesService.cs",
-              "RelativeToolTip": "SistemaAsistenciaMagallanes\\Services\\EstudiantesService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T09:21:22.483Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UsuarioDAO.cs",
-              "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\DAO\\UsuarioDAO.cs",
-              "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\DAO\\UsuarioDAO.cs",
-              "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\DAO\\UsuarioDAO.cs",
-              "RelativeToolTip": "SistemaAsistenciaMagallanes\\DAO\\UsuarioDAO.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAowDMAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T09:24:59.861Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FrmUsuarios.cs",
-              "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmUsuarios.cs",
-              "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\Forms\\FrmUsuarios.cs",
-              "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmUsuarios.cs",
-              "RelativeToolTip": "SistemaAsistenciaMagallanes\\Forms\\FrmUsuarios.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAcwJIAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T09:22:58.621Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FrmUsuarios.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmUsuarios.cs",
-              "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\Forms\\FrmUsuarios.cs",
-              "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmUsuarios.cs [Design]",
-              "RelativeToolTip": "SistemaAsistenciaMagallanes\\Forms\\FrmUsuarios.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T09:22:56.727Z",
+              "WhenOpened": "2026-03-18T03:56:02.91Z",
               "EditorCaption": " [Design]"
             }
           ]

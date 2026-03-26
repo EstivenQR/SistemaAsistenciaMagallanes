@@ -31,5 +31,15 @@ namespace SistemaAsistenciaMagallanes.Services
 		{
 			return dao.ObtenerMateriasDocente(idUsuario, idSeccion);
 		}
+
+		public int CrearClase(int idAsignacion, DateTime fecha)
+		{
+			return dao.CrearClase(idAsignacion, fecha);
+		}
+
+		public void GuardarDetalleAsistencia(int idClase, int idEstudiante, string estado)
+		{
+			dao.GuardarDetalleAsistencia(idClase, idEstudiante, estado);
+		}
 	}
 }
