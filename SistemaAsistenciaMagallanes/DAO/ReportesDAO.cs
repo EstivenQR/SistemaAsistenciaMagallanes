@@ -21,10 +21,11 @@ namespace SistemaAsistenciaMagallanes.DAO
 				conn.Open();
 
 				string query = @"SELECT 
+									e.IdEstudiante,
 									c.Fecha,
 									e.Nombre + ' ' + e.Apellido AS Estudiante,
-									m.NombreMateria,
-									s.NombreSeccion,
+									m.NombreMateria AS Materia,
+									s.NombreSeccion AS Sección,
 									da.Estado
 								FROM DetalleAsistencia da
 								INNER JOIN Clase c ON da.IdClase = c.IdClase
@@ -132,6 +133,7 @@ namespace SistemaAsistenciaMagallanes.DAO
 			{
 				string query = @"
                 SELECT 
+					e.IdEstudiante
                     e.Nombre + ' ' + e.Apellido AS Estudiante,
                     s.NombreSeccion,
                     m.NombreMateria,

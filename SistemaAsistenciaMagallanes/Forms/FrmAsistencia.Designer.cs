@@ -44,12 +44,14 @@
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.btnMarcarTodos = new System.Windows.Forms.Button();
 			this.btnGuardar = new System.Windows.Forms.Button();
+			this.panel3 = new System.Windows.Forms.Panel();
 			this.paneltop.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.pnlfiltros.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
+			this.panel3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// paneltop
@@ -97,7 +99,7 @@
 			this.pnlfiltros.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlfiltros.Location = new System.Drawing.Point(0, 99);
 			this.pnlfiltros.Name = "pnlfiltros";
-			this.pnlfiltros.Size = new System.Drawing.Size(1151, 55);
+			this.pnlfiltros.Size = new System.Drawing.Size(1151, 58);
 			this.pnlfiltros.TabIndex = 1;
 			// 
 			// label3
@@ -163,18 +165,18 @@
 			// dgvAsistencia
 			// 
 			this.dgvAsistencia.AllowUserToAddRows = false;
-			this.dgvAsistencia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvAsistencia.BackgroundColor = System.Drawing.Color.White;
 			this.dgvAsistencia.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvAsistencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvAsistencia.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvAsistencia.Location = new System.Drawing.Point(0, 154);
+			this.dgvAsistencia.Location = new System.Drawing.Point(0, 0);
 			this.dgvAsistencia.Name = "dgvAsistencia";
 			this.dgvAsistencia.RowHeadersVisible = false;
 			this.dgvAsistencia.RowTemplate.Height = 35;
 			this.dgvAsistencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvAsistencia.Size = new System.Drawing.Size(1151, 474);
+			this.dgvAsistencia.Size = new System.Drawing.Size(1151, 401);
 			this.dgvAsistencia.TabIndex = 2;
+			this.dgvAsistencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAsistencia_CellContentClick);
 			this.dgvAsistencia.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAsistencia_CellValueChanged);
 			this.dgvAsistencia.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvAsistencia_CurrentCellDirtyStateChanged);
 			// 
@@ -226,13 +228,22 @@
 			this.btnGuardar.UseVisualStyleBackColor = false;
 			this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
 			// 
+			// panel3
+			// 
+			this.panel3.Controls.Add(this.dgvAsistencia);
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel3.Location = new System.Drawing.Point(0, 157);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(1151, 401);
+			this.panel3.TabIndex = 4;
+			// 
 			// FrmAsistencia
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1151, 628);
+			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.dgvAsistencia);
 			this.Controls.Add(this.pnlfiltros);
 			this.Controls.Add(this.paneltop);
 			this.Name = "FrmAsistencia";
@@ -247,6 +258,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
+			this.panel3.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -268,5 +280,6 @@
 		private System.Windows.Forms.Button btnMarcarTodos;
 		private System.Windows.Forms.Button btnGuardar;
 		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Panel panel3;
 	}
 }

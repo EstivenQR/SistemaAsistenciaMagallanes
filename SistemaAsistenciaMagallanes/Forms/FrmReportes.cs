@@ -1,11 +1,13 @@
 ﻿using SistemaAsistenciaMagallanes.Conexion_BD;
 using SistemaAsistenciaMagallanes.Reportes;
 using SistemaAsistenciaMagallanes.Services;
+using SistemaAsistenciaMagallanes.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,8 +33,6 @@ namespace SistemaAsistenciaMagallanes.Forms
 			DateTime? desde = null;
 			DateTime? hasta = null;
 
-			dgvReporte.DataSource = service.FiltrarReportes(idSeccion, idMateria, idEstudiante);
-
 			// VALIDAR COMBOS 
 			if (cmbEstudiante.SelectedValue != null && Convert.ToInt32(cmbEstudiante.SelectedValue) != 0)
 				idEstudiante = Convert.ToInt32(cmbEstudiante.SelectedValue);
@@ -51,6 +51,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			DataTable dt = service.ObtenerReporte(idEstudiante, idSeccion, idMateria, desde, hasta);
 
 			dgvReporte.DataSource = dt;
+			dgvReporte.Columns["IdEstudiante"].Visible = false;
 
 			// COLORES
 			PintarEstados();
@@ -95,15 +96,23 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 				if (estado == "Ausente")
 				{
-					row.DefaultCellStyle.ForeColor = Color.Red;
+					row.DefaultCellStyle.BackColor = Color.Red;
+					row.DefaultCellStyle.ForeColor = Color.White;
 				}
 				else if (estado == "Tardía")
 				{
-					row.DefaultCellStyle.ForeColor = Color.Goldenrod; 
+					row.DefaultCellStyle.BackColor = Color.Goldenrod;
+					row.DefaultCellStyle.ForeColor = Color.White;
 				}
 				else if (estado == "Presente")
 				{
-					row.DefaultCellStyle.ForeColor = Color.Green;
+					row.DefaultCellStyle.BackColor = Color.Green;
+					row.DefaultCellStyle.ForeColor = Color.White;
+				}
+				else if (estado == "Justificado")
+				{
+					row.DefaultCellStyle.BackColor = Color.Blue;
+					row.DefaultCellStyle.ForeColor = Color.White;
 				}
 			}
 		}
@@ -121,6 +130,9 @@ namespace SistemaAsistenciaMagallanes.Forms
 			int tardias = dt.AsEnumerable()
 				.Count(r => r["Estado"].ToString() == "Tardía");
 
+			int justificadas = dt.AsEnumerable()
+				.Count(r => r["Estado"].ToString() == "Justificado");
+
 
 
 
@@ -129,32 +141,39 @@ namespace SistemaAsistenciaMagallanes.Forms
 			AnimarContador(lblTotalCentro, presentes);
 			AnimarContador(lblAusenciasCentro, ausentes);
 			AnimarContador(lblTotalTardias, tardias);
+			AnimarContador(lblTotalJustificado, justificadas);
 
 			// LABELS KPI 
 			lblTotalCentro.Text = presentes.ToString();
 			lblAusenciasCentro.Text = ausentes.ToString();
 			lblTotalTardias.Text=tardias.ToString();
+			lblTotalJustificado.Text=justificadas.ToString();
 
 			lblTotalCentro.Font = new Font("Arial", 28, FontStyle.Bold);
 			lblTotalTardias.Font = new Font("Arial", 28, FontStyle.Bold);
 			lblAusenciasCentro.Font = new Font("Arial", 28, FontStyle.Bold);
+			lblTotalJustificado.Font = new Font("Arial", 28, FontStyle.Bold);
 
 			lblTotalCentro.ForeColor = Color.FromArgb(52, 152, 219);   // azul
 			lblAusenciasCentro.ForeColor = Color.FromArgb(220, 53, 69); // rojo
-			lblTotalTardias.ForeColor = Color.Goldenrod; 
+			lblTotalTardias.ForeColor = Color.Goldenrod;
+			lblTotalJustificado.ForeColor = Color.Blue;
 
 			lblTotalCentro.BackColor = Color.Transparent;
 			lblAusenciasCentro.BackColor = Color.Transparent;
 			lblAusenciasCentro.BackColor = Color.Transparent;
+			lblTotalJustificado.BackColor= Color.Transparent;
 
 			lblTotalCentro.TextAlign = ContentAlignment.MiddleCenter;
 			lblAusenciasCentro.TextAlign = ContentAlignment.MiddleCenter;
 			lblAusenciasCentro.TextAlign = ContentAlignment.MiddleCenter;
+			lblTotalJustificado.TextAlign= ContentAlignment.MiddleCenter;
 
 			//títulos pequeños
 			lblTituloTotal.Text = "Total Presentes";
 			lblTituloAusencias.Text = "Ausencias";
 			lblTituloTardias.Text = "Tardias";
+			lblJustificado.Text = "Justificadas";
 
 			//LIMPIA el chart antes de cargar datos
 			chartporcentaje.Series.Clear();
@@ -229,6 +248,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			pnlAusencia.Visible = true;
 			pnlTardias.Visible = true;
 			pnlTotal.Visible = true;
+			pnlJustificado.Visible = true;
 
 
 		}
@@ -236,22 +256,40 @@ namespace SistemaAsistenciaMagallanes.Forms
 		private void btnPDF_Click(object sender, EventArgs e)
 		{
 			PdfHelper pdf = new PdfHelper();
-			
+
+			if (dgvReporte.Columns.Contains("IdEstudiante"))
+				dgvReporte.Columns["IdEstudiante"].Visible = false;
+
 			pdf.GenerarPDF(
 				dgvReporte,
-				chartporcentaje.Text,
-				lblAusenciasCentro.Text,
-				lblTotalCentro.Text
+				lblTotalCentro.Text,      // presentes
+				lblAusenciasCentro.Text,  // ausencias
+				lblTotalTardias.Text,	  // tardias
+				lblTotalJustificado.Text  // justificadas
 			);
 		}
 
 		private void FrmReportes_Load(object sender, EventArgs e)
 		{
+			if (Sesion.IdRol == 1 || Sesion.IdRol == 2 || Sesion.IdRol == 4)
+			{
+				btnJustificarSeleccionado.Visible = true;
+			}
+			else
+			{
+				btnJustificarSeleccionado.Visible = false;
+			}
 			CargarSecciones();
 			chartporcentaje.ChartAreas[0].BackColor = Color.Transparent;
 			pnlAusencia.Visible = false;
 			pnlTardias.Visible = false;
 			pnlTotal.Visible = false;
+			pnlJustificado.Visible = false;
+			RedondearBoton(btnBuscar, 20);
+			RedondearBoton(btnSalir, 20);
+			RedondearBoton(btnExcel, 20);
+			RedondearBoton(btnPDF, 20);
+			RedondearBoton(btnSalir, 20);
 
 		}
 
@@ -259,32 +297,51 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 			ReportesService service = new ReportesService();
 
-			cmbSeccion.DataSource = service.ObtenerSecciones(Sesion.IdUsuario);
+			//Agregar opción por defecto
+			DataTable dt = service.ObtenerSecciones(Sesion.IdUsuario);
+
+			DataRow fila = dt.NewRow();
+			fila["IdSeccion"] = 0;
+			fila["NombreSeccion"] = "-- Seleccione una sección --";
+			dt.Rows.InsertAt(fila, 0);
+
+			cmbSeccion.DataSource = dt;
 			cmbSeccion.DisplayMember = "NombreSeccion";
 			cmbSeccion.ValueMember = "IdSeccion";
 
-			cmbSeccion.SelectedIndex = -1; 
 		}
 
 		private void CargarMaterias(int idSeccion)
 		{
 			ReportesService service = new ReportesService();
 
-			cmbMateria.DataSource = service.ObtenerMaterias(Sesion.IdUsuario, idSeccion);
+			DataTable dt = service.ObtenerMaterias(Sesion.IdUsuario, idSeccion);
+
+			DataRow fila = dt.NewRow();
+			fila["IdMateria"] = 0;
+			fila["NombreMateria"] = "-- Seleccione una Materia --";
+			dt.Rows.InsertAt(fila, 0);
+
+			cmbMateria.DataSource = dt;
 			cmbMateria.DisplayMember = "NombreMateria";
 			cmbMateria.ValueMember = "IdMateria";
-
-			cmbMateria.SelectedIndex = -1;
 		}
 		private void CargarEstudiantes(int idSeccion)
 		{
 			ReportesService service = new ReportesService();
 
-			cmbEstudiante.DataSource = service.ObtenerEstudiantes(idSeccion);
+			DataTable dt = service.ObtenerEstudiantes(idSeccion);
+
+			DataRow fila = dt.NewRow();
+			fila["IdEstudiante"] = 0;
+			fila["NombreCompleto"] = "-- Seleccione un Estudiante --";
+			dt.Rows.InsertAt(fila, 0);
+
+			cmbEstudiante.DataSource = dt;
 			cmbEstudiante.DisplayMember = "NombreCompleto";
 			cmbEstudiante.ValueMember = "IdEstudiante";
 
-			cmbEstudiante.SelectedIndex = -1;
+	
 		}
 
 		private void cmbSeccion_SelectedIndexChanged(object sender, EventArgs e)
@@ -301,6 +358,22 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		}
 
+
+		private void RedondearBoton(Button btn, int radio)
+		{
+			GraphicsPath path = new GraphicsPath();
+			path.StartFigure();
+
+			path.AddArc(new Rectangle(0, 0, radio, radio), 180, 90);
+			path.AddArc(new Rectangle(btn.Width - radio, 0, radio, radio), 270, 90);
+			path.AddArc(new Rectangle(btn.Width - radio, btn.Height - radio, radio, radio), 0, 90);
+			path.AddArc(new Rectangle(0, btn.Height - radio, radio, radio), 90, 90);
+
+			path.CloseFigure();
+
+			btn.Region = new Region(path);
+		}
+
 		private void lblPorcentaje_Click(object sender, EventArgs e)
 		{
 
@@ -309,6 +382,62 @@ namespace SistemaAsistenciaMagallanes.Forms
 		private void chartporcentaje_Click(object sender, EventArgs e)
 		{
 
+		}
+
+		private void pnlBotones_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void cmbEstudiante_SelectionChangeCommitted(object sender, EventArgs e)
+		{
+		
+		}
+
+		private void btnJustificarSeleccionado_Click(object sender, EventArgs e)
+		{
+			if (dgvReporte.CurrentRow == null)
+			{
+				MessageBox.Show("Seleccione una fila");
+				return;
+			}
+
+			var row = dgvReporte.CurrentRow;
+
+			string estado = row.Cells["Estado"].Value.ToString();
+
+			// VALIDACIÓN
+			if (estado != "Ausente" && estado != "Tardía")
+			{
+				MessageBox.Show("Solo se pueden justificar ausencias o tardías");
+				return;
+			}
+
+			int idEstudiante = Convert.ToInt32(row.Cells["IdEstudiante"].Value);
+			DateTime fecha = Convert.ToDateTime(row.Cells["Fecha"].Value);
+
+			// ABRIR FORM
+			string nombre = row.Cells["Estudiante"].Value.ToString();
+			FrmJustificar frm = new FrmJustificar(idEstudiante,nombre, fecha);
+			frm.ShowDialog();
+		}
+
+		private void btnSalir_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		private void btnExcel_Click(object sender, EventArgs e)
+		{
+			ExcelHelper excel = new ExcelHelper();
+
+			excel.ExportarExcel(
+			dgvReporte,
+			int.Parse(lblTotalCentro.Text),
+			int.Parse(lblAusenciasCentro.Text),
+			int.Parse(lblTotalTardias.Text),
+			int.Parse(lblTotalJustificado.Text)
+			);
 		}
 	}
 }

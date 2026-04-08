@@ -29,10 +29,12 @@ namespace SistemaAsistenciaMagallanes.Forms
 			if (Sesion.IdRol == 1 || Sesion.IdRol == 2 || Sesion.IdRol == 4)
 			{
 				BtnAdministracion.Visible = true;
+				btnJustificacion.Visible = true;
 			}
 			else
 			{
 				BtnAdministracion.Visible = false;
+				btnJustificacion.Visible = false;
 			}
 
 		}
@@ -148,6 +150,12 @@ namespace SistemaAsistenciaMagallanes.Forms
 		private void btnReportes_Click(object sender, EventArgs e)
 		{
 			FrmReportes frm = new FrmReportes();
+			frm.Show();
+		}
+
+		private void btnJustificacion_Click(object sender, EventArgs e)
+		{
+			FrmJustificaciones frm = new FrmJustificaciones();
 			frm.Show();
 		}
 	}

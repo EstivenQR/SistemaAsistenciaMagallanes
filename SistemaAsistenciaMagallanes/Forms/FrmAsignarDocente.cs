@@ -47,20 +47,64 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		private void CargarSecciones()
 		{
-			SeccionesService service = new SeccionesService();
+			ServiceAsignacionDocente service = new ServiceAsignacionDocente();
 
-			cmbSeccion.DataSource = service.ListarSecciones("");
-			cmbSeccion.DisplayMember = "Sección";
-			cmbSeccion.ValueMember = "IdSeccion";
+			var anios = ObtenerAniosAMostrar();
+
+			DataTable dt = service.ListarSeccionesPorAnios(anios);
+
+
+			if (dt.Rows.Count == 0)
+			{
+				MessageBox.Show("No hay datos para esos años");
+				return;
+			}
+
+			dt.Columns.Add("NombreCompleto", typeof(string));
+
+			foreach (DataRow row in dt.Rows)
+			{
+				row["NombreCompleto"] = row["NombreSeccion"] + " " + row["Anio"];
+			}
+
+			clbSecciones.DataSource = null;
+			clbSecciones.DataSource = dt;
+			clbSecciones.DisplayMember = "NombreCompleto";
+			clbSecciones.ValueMember = "IdSeccion";
+		}
+
+		private List<int> ObtenerAniosAMostrar()
+		{
+			int anio = DateTime.Now.Year;
+			int mes = DateTime.Now.Month;
+
+			List<int> anios = new List<int>();
+
+			if (mes == 12)
+			{
+				// transición (matrícula)
+				anios.Add(anio);       // ejemplo 2025-2026
+				anios.Add(anio + 1);
+				anios.Add(anio + 2);
+			}
+			else
+			{
+				// año normal
+				anios.Add(anio);
+				anios.Add(anio + 1);
+			}
+
+			return anios;
 		}
 
 		private void CargarMaterias()
 		{
 			MateriaService service = new MateriaService();
+			DataTable dt = service.ListarMaterias("");
 
-			cmbMateria.DataSource = service.ListarMaterias("");
-			cmbMateria.DisplayMember = "Materia";
-			cmbMateria.ValueMember = "IdMateria";
+			clbMaterias.DataSource = dt;
+			clbMaterias.DisplayMember = "Materia";
+			clbMaterias.ValueMember = "IdMateria";
 		}
 
 		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,32 +117,51 @@ namespace SistemaAsistenciaMagallanes.Forms
 			try
 			{
 				if (cmbDocente.SelectedIndex == -1 ||
-					cmbSeccion.SelectedIndex == -1 ||
-					cmbMateria.SelectedIndex == -1)
+					clbSecciones.CheckedItems.Count == 0 ||
+					clbMaterias.CheckedItems.Count == 0)
 				{
-					MessageBox.Show("Debe seleccionar docente, sección y materia");
+					MessageBox.Show("Seleccione docente, al menos una sección y una materia");
 					return;
 				}
 
 				int idDocente = Convert.ToInt32(cmbDocente.SelectedValue);
-				int idSeccion = Convert.ToInt32(cmbSeccion.SelectedValue);
-				int idMateria = Convert.ToInt32(cmbMateria.SelectedValue);
 
 				ServiceAsignacionDocente service = new ServiceAsignacionDocente();
 
-				service.CrearAsignacion(idDocente, idSeccion, idMateria);
+				//DOBLE LOOP (SECCIONES + MATERIAS)
+				foreach (DataRowView sec in clbSecciones.CheckedItems)
+				{
+					int idSeccion = Convert.ToInt32(sec["IdSeccion"]);
 
-				MessageBox.Show("Asignación realizada correctamente");
+					foreach (DataRowView mat in clbMaterias.CheckedItems)
+					{
+						int idMateria = Convert.ToInt32(mat["IdMateria"]);
+
+						service.CrearAsignacion(idDocente, idSeccion, idMateria);
+					}
+				}
+
+				MessageBox.Show("Asignaciones realizadas correctamente");
 
 				CargarAsignaciones("");
 
+				// limpiar
 				cmbDocente.SelectedIndex = -1;
-				cmbSeccion.SelectedIndex = -1;
-				cmbMateria.SelectedIndex = -1;
+
+				LimpiarCheckedList(clbSecciones);
+				LimpiarCheckedList(clbMaterias);
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
+			}
+		}
+
+		private void LimpiarCheckedList(CheckedListBox clb)
+		{
+			for (int i = 0; i < clb.Items.Count; i++)
+			{
+				clb.SetItemChecked(i, false);
 			}
 		}
 
@@ -142,6 +205,11 @@ namespace SistemaAsistenciaMagallanes.Forms
 		}
 
 		private void btnbuscar_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void dgvAsignaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 
 		}

@@ -22,6 +22,13 @@ namespace SistemaAsistenciaMagallanes.Services
 			dao.InsertarAsignacion(usuario, seccion, materia);
 		}
 
+		public DataTable ListarSeccionesPorAnios(List<int> anios)
+		{
+			return dao.ListarSeccionesPorAnios(anios);
+		}
+
+
+
 		public DataTable ListarAsignaciones(string buscar)
 		{
 			AsignacionDocenteDAO dao = new AsignacionDocenteDAO();

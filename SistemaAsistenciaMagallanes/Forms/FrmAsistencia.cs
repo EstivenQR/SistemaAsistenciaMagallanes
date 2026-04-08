@@ -75,7 +75,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 			DataTable dt = service.ObtenerSeccionesDocente(Sesion.IdUsuario);
 
-			// 🔥 Agregar opción por defecto
+			//Agregar opción por defecto
 			DataRow fila = dt.NewRow();
 			fila["IdSeccion"] = 0;
 			fila["NombreSeccion"] = "-- Seleccione una sección --";
@@ -234,6 +234,16 @@ namespace SistemaAsistenciaMagallanes.Forms
 		}
 
 		private void cmbMateria_SelectionChangeCommitted(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnJustificarSeleccionado_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void dgvAsistencia_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 
 		}

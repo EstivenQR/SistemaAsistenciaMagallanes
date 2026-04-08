@@ -34,6 +34,9 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.panel3 = new System.Windows.Forms.Panel();
+			this.label9 = new System.Windows.Forms.Label();
+			this.chkReligion = new System.Windows.Forms.CheckBox();
+			this.label2 = new System.Windows.Forms.Label();
 			this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
 			this.cmbSeccion = new System.Windows.Forms.ComboBox();
 			this.label8 = new System.Windows.Forms.Label();
@@ -49,9 +52,6 @@
 			this.btnSalir = new System.Windows.Forms.Button();
 			this.btnGuardar = new System.Windows.Forms.Button();
 			this.chkEstado = new System.Windows.Forms.CheckBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.chkReligion = new System.Windows.Forms.CheckBox();
-			this.label9 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panel2.SuspendLayout();
@@ -129,6 +129,35 @@
 			this.panel3.Size = new System.Drawing.Size(870, 348);
 			this.panel3.TabIndex = 0;
 			this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label9.Location = new System.Drawing.Point(496, 181);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(68, 21);
+			this.label9.TabIndex = 41;
+			this.label9.Text = "Estado:";
+			// 
+			// chkReligion
+			// 
+			this.chkReligion.AutoSize = true;
+			this.chkReligion.Location = new System.Drawing.Point(216, 186);
+			this.chkReligion.Name = "chkReligion";
+			this.chkReligion.Size = new System.Drawing.Size(15, 14);
+			this.chkReligion.TabIndex = 40;
+			this.chkReligion.UseVisualStyleBackColor = true;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(49, 181);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(136, 21);
+			this.label2.TabIndex = 39;
+			this.label2.Text = "Recibe Religion:";
 			// 
 			// dtpFechaNacimiento
 			// 
@@ -244,11 +273,13 @@
 			this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnSalir.ForeColor = System.Drawing.Color.Transparent;
-			this.btnSalir.Location = new System.Drawing.Point(433, 264);
+			this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
+			this.btnSalir.Location = new System.Drawing.Point(463, 259);
 			this.btnSalir.Name = "btnSalir";
-			this.btnSalir.Size = new System.Drawing.Size(97, 36);
+			this.btnSalir.Size = new System.Drawing.Size(134, 47);
 			this.btnSalir.TabIndex = 23;
 			this.btnSalir.Text = "Salir";
+			this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnSalir.UseVisualStyleBackColor = false;
 			this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
 			// 
@@ -260,11 +291,13 @@
 			this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnGuardar.ForeColor = System.Drawing.SystemColors.Control;
-			this.btnGuardar.Location = new System.Drawing.Point(309, 264);
+			this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+			this.btnGuardar.Location = new System.Drawing.Point(273, 259);
 			this.btnGuardar.Name = "btnGuardar";
-			this.btnGuardar.Size = new System.Drawing.Size(97, 36);
+			this.btnGuardar.Size = new System.Drawing.Size(134, 47);
 			this.btnGuardar.TabIndex = 22;
 			this.btnGuardar.Text = "Guardar";
+			this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnGuardar.UseVisualStyleBackColor = false;
 			this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
 			// 
@@ -279,35 +312,6 @@
 			this.chkEstado.TabIndex = 21;
 			this.chkEstado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.chkEstado.UseVisualStyleBackColor = true;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(49, 181);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(136, 21);
-			this.label2.TabIndex = 39;
-			this.label2.Text = "Recibe Religion:";
-			// 
-			// chkReligion
-			// 
-			this.chkReligion.AutoSize = true;
-			this.chkReligion.Location = new System.Drawing.Point(216, 186);
-			this.chkReligion.Name = "chkReligion";
-			this.chkReligion.Size = new System.Drawing.Size(15, 14);
-			this.chkReligion.TabIndex = 40;
-			this.chkReligion.UseVisualStyleBackColor = true;
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.Location = new System.Drawing.Point(496, 181);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(68, 21);
-			this.label9.TabIndex = 41;
-			this.label9.Text = "Estado:";
 			// 
 			// FrmEditarEstudiante
 			// 

@@ -35,8 +35,8 @@
 			this.panelprincipal = new System.Windows.Forms.Panel();
 			this.panelcontenido = new System.Windows.Forms.Panel();
 			this.panelformulario = new System.Windows.Forms.Panel();
-			this.cmbMateria = new System.Windows.Forms.ComboBox();
-			this.cmbSeccion = new System.Windows.Forms.ComboBox();
+			this.clbSecciones = new System.Windows.Forms.CheckedListBox();
+			this.clbMaterias = new System.Windows.Forms.CheckedListBox();
 			this.cmbDocente = new System.Windows.Forms.ComboBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -122,8 +122,8 @@
 			// panelformulario
 			// 
 			this.panelformulario.BackColor = System.Drawing.Color.Transparent;
-			this.panelformulario.Controls.Add(this.cmbMateria);
-			this.panelformulario.Controls.Add(this.cmbSeccion);
+			this.panelformulario.Controls.Add(this.clbSecciones);
+			this.panelformulario.Controls.Add(this.clbMaterias);
 			this.panelformulario.Controls.Add(this.cmbDocente);
 			this.panelformulario.Controls.Add(this.label5);
 			this.panelformulario.Controls.Add(this.label4);
@@ -137,23 +137,21 @@
 			this.panelformulario.Size = new System.Drawing.Size(1069, 203);
 			this.panelformulario.TabIndex = 2;
 			// 
-			// cmbMateria
+			// clbSecciones
 			// 
-			this.cmbMateria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.cmbMateria.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.cmbMateria.FormattingEnabled = true;
-			this.cmbMateria.Location = new System.Drawing.Point(181, 104);
-			this.cmbMateria.Name = "cmbMateria";
-			this.cmbMateria.Size = new System.Drawing.Size(209, 21);
-			this.cmbMateria.TabIndex = 19;
+			this.clbSecciones.FormattingEnabled = true;
+			this.clbSecciones.Location = new System.Drawing.Point(181, 63);
+			this.clbSecciones.Name = "clbSecciones";
+			this.clbSecciones.Size = new System.Drawing.Size(209, 64);
+			this.clbSecciones.TabIndex = 20;
 			// 
-			// cmbSeccion
+			// clbMaterias
 			// 
-			this.cmbSeccion.FormattingEnabled = true;
-			this.cmbSeccion.Location = new System.Drawing.Point(181, 65);
-			this.cmbSeccion.Name = "cmbSeccion";
-			this.cmbSeccion.Size = new System.Drawing.Size(209, 21);
-			this.cmbSeccion.TabIndex = 18;
+			this.clbMaterias.FormattingEnabled = true;
+			this.clbMaterias.Location = new System.Drawing.Point(181, 136);
+			this.clbMaterias.Name = "clbMaterias";
+			this.clbMaterias.Size = new System.Drawing.Size(209, 64);
+			this.clbMaterias.TabIndex = 19;
 			// 
 			// cmbDocente
 			// 
@@ -170,7 +168,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(67, 101);
+			this.label5.Location = new System.Drawing.Point(66, 158);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(77, 21);
 			this.label5.TabIndex = 16;
@@ -180,7 +178,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(66, 62);
+			this.label4.Location = new System.Drawing.Point(66, 77);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(74, 21);
 			this.label4.TabIndex = 14;
@@ -273,6 +271,7 @@
 			this.dgvAsignaciones.ReadOnly = true;
 			this.dgvAsignaciones.Size = new System.Drawing.Size(1069, 125);
 			this.dgvAsignaciones.TabIndex = 0;
+			this.dgvAsignaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAsignaciones_CellContentClick);
 			// 
 			// panelbuscador
 			// 
@@ -371,7 +370,7 @@
 		private System.Windows.Forms.Button btnbuscar;
 		private System.Windows.Forms.TextBox txtbuscar;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.ComboBox cmbMateria;
-		private System.Windows.Forms.ComboBox cmbSeccion;
+		private System.Windows.Forms.CheckedListBox clbMaterias;
+		private System.Windows.Forms.CheckedListBox clbSecciones;
 	}
 }

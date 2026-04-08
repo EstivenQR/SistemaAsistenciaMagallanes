@@ -35,6 +35,7 @@
 			this.btnReportes = new System.Windows.Forms.Button();
 			this.btnTareas = new System.Windows.Forms.Button();
 			this.btnBoletas = new System.Windows.Forms.Button();
+			this.btnJustificacion = new System.Windows.Forms.Button();
 			this.btnAsistencia = new System.Windows.Forms.Button();
 			this.panelAdminSubmenu = new System.Windows.Forms.Panel();
 			this.btnMaterias = new System.Windows.Forms.Button();
@@ -63,6 +64,7 @@
 			this.subpanel.Controls.Add(this.btnTareas);
 			this.subpanel.Controls.Add(this.btnBoletas);
 			this.subpanel.Controls.Add(this.btnAsistencia);
+			this.subpanel.Controls.Add(this.btnJustificacion);
 			this.subpanel.Controls.Add(this.panelAdminSubmenu);
 			this.subpanel.Controls.Add(this.BtnAdministracion);
 			this.subpanel.Controls.Add(this.panelLogo);
@@ -85,7 +87,7 @@
 			this.btnLogout.ForeColor = System.Drawing.Color.White;
 			this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
 			this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLogout.Location = new System.Drawing.Point(0, 698);
+			this.btnLogout.Location = new System.Drawing.Point(0, 778);
 			this.btnLogout.Name = "btnLogout";
 			this.btnLogout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
 			this.btnLogout.Size = new System.Drawing.Size(230, 89);
@@ -104,7 +106,7 @@
 			this.btnReportes.ForeColor = System.Drawing.Color.White;
 			this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
 			this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnReportes.Location = new System.Drawing.Point(0, 609);
+			this.btnReportes.Location = new System.Drawing.Point(0, 689);
 			this.btnReportes.Name = "btnReportes";
 			this.btnReportes.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
 			this.btnReportes.Size = new System.Drawing.Size(230, 89);
@@ -125,7 +127,7 @@
 			this.btnTareas.ForeColor = System.Drawing.Color.White;
 			this.btnTareas.Image = ((System.Drawing.Image)(resources.GetObject("btnTareas.Image")));
 			this.btnTareas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnTareas.Location = new System.Drawing.Point(0, 520);
+			this.btnTareas.Location = new System.Drawing.Point(0, 600);
 			this.btnTareas.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
 			this.btnTareas.Name = "btnTareas";
 			this.btnTareas.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -146,7 +148,7 @@
 			this.btnBoletas.ForeColor = System.Drawing.Color.White;
 			this.btnBoletas.Image = ((System.Drawing.Image)(resources.GetObject("btnBoletas.Image")));
 			this.btnBoletas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnBoletas.Location = new System.Drawing.Point(0, 437);
+			this.btnBoletas.Location = new System.Drawing.Point(0, 517);
 			this.btnBoletas.Name = "btnBoletas";
 			this.btnBoletas.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
 			this.btnBoletas.Size = new System.Drawing.Size(230, 83);
@@ -154,6 +156,28 @@
 			this.btnBoletas.Text = "Amonestaciones";
 			this.btnBoletas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnBoletas.UseVisualStyleBackColor = true;
+			// 
+			// btnJustificacion
+			// 
+			this.btnJustificacion.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnJustificacion.Dock = System.Windows.Forms.DockStyle.Top;
+			this.btnJustificacion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.btnJustificacion.FlatAppearance.BorderSize = 0;
+			this.btnJustificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnJustificacion.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnJustificacion.ForeColor = System.Drawing.Color.White;
+			this.btnJustificacion.Image = ((System.Drawing.Image)(resources.GetObject("btnJustificacion.Image")));
+			this.btnJustificacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnJustificacion.Location = new System.Drawing.Point(0, 357);
+			this.btnJustificacion.Name = "btnJustificacion";
+			this.btnJustificacion.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+			this.btnJustificacion.Size = new System.Drawing.Size(230, 80);
+			this.btnJustificacion.TabIndex = 11;
+			this.btnJustificacion.Text = "Justificaciones";
+			this.btnJustificacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnJustificacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.btnJustificacion.UseVisualStyleBackColor = true;
+			this.btnJustificacion.Click += new System.EventHandler(this.btnJustificacion_Click);
 			// 
 			// btnAsistencia
 			// 
@@ -166,7 +190,7 @@
 			this.btnAsistencia.ForeColor = System.Drawing.Color.White;
 			this.btnAsistencia.Image = ((System.Drawing.Image)(resources.GetObject("btnAsistencia.Image")));
 			this.btnAsistencia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnAsistencia.Location = new System.Drawing.Point(0, 357);
+			this.btnAsistencia.Location = new System.Drawing.Point(0, 437);
 			this.btnAsistencia.Name = "btnAsistencia";
 			this.btnAsistencia.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
 			this.btnAsistencia.Size = new System.Drawing.Size(230, 80);
@@ -376,5 +400,6 @@
 		private System.Windows.Forms.Button btnLogout;
 		private System.Windows.Forms.Label lblUsuario;
 		private System.Windows.Forms.Button btnReportes;
+		private System.Windows.Forms.Button btnJustificacion;
 	}
 }

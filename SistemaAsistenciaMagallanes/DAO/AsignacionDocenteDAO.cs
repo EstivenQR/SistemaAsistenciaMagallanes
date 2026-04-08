@@ -11,6 +11,8 @@ namespace SistemaAsistenciaMagallanes.DAO
 {
 	public class AsignacionDocenteDAO
 	{
+
+
 		public void InsertarAsignacion(int idUsuario, int idSeccion, int idMateria)
 		{
 			ConexionBD conexionBD = new ConexionBD();
@@ -41,6 +43,7 @@ namespace SistemaAsistenciaMagallanes.DAO
                         d.IdAsignacion,
                         u.Nombre AS Docente,
                         s.NombreSeccion AS Seccion,
+						s.Anio AS Año,
                         m.NombreMateria AS Materia
                         FROM DocenteSeccionMateria d
                         INNER JOIN Usuarios u ON d.IdUsuario = u.IdUsuario
@@ -59,6 +62,32 @@ namespace SistemaAsistenciaMagallanes.DAO
 			adapter.Fill(tabla);
 
 			return tabla;
+		}
+
+
+		public DataTable ListarSeccionesPorAnios(List<int> anios)
+		{
+			ConexionBD conexionBD = new ConexionBD();
+			SqlConnection conexion = conexionBD.ObtenerConexion();
+
+			DataTable dt = new DataTable();
+
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				conn.Open();
+
+				string listaAnios = string.Join(",", anios);
+
+				string query = $@" SELECT IdSeccion, NombreSeccion, Anio
+									FROM Secciones
+									WHERE Anio IN ({listaAnios})
+									ORDER BY Anio DESC, NombreSeccion DESC";
+
+				SqlDataAdapter da = new SqlDataAdapter(query, conn);
+				da.Fill(dt);
+			}
+
+			return dt;
 		}
 
 		public bool ExisteAsignacion(int idSeccion, int idMateria)
