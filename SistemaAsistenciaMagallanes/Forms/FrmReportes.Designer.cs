@@ -44,6 +44,22 @@
 			this.cmbSeccion = new System.Windows.Forms.ComboBox();
 			this.cmbEstudiante = new System.Windows.Forms.ComboBox();
 			this.pnlResumen = new System.Windows.Forms.Panel();
+			this.pnlPromedio = new System.Windows.Forms.Panel();
+			this.pictureBox9 = new System.Windows.Forms.PictureBox();
+			this.lblPromedio = new System.Windows.Forms.Label();
+			this.lblTituloPromedio = new System.Windows.Forms.Label();
+			this.pnlNoEntregados = new System.Windows.Forms.Panel();
+			this.pictureBox8 = new System.Windows.Forms.PictureBox();
+			this.lblTituloNoEntregados = new System.Windows.Forms.Label();
+			this.lblNoEntregados = new System.Windows.Forms.Label();
+			this.pnlEntregados = new System.Windows.Forms.Panel();
+			this.pictureBox7 = new System.Windows.Forms.PictureBox();
+			this.lblTituloEntregados = new System.Windows.Forms.Label();
+			this.lblEntregados = new System.Windows.Forms.Label();
+			this.pnlTareas = new System.Windows.Forms.Panel();
+			this.pictureBox6 = new System.Windows.Forms.PictureBox();
+			this.lblTotalTareas = new System.Windows.Forms.Label();
+			this.lblTituloTotalTareas = new System.Windows.Forms.Label();
 			this.pnlJustificado = new System.Windows.Forms.Panel();
 			this.pictureBox5 = new System.Windows.Forms.PictureBox();
 			this.lblJustificado = new System.Windows.Forms.Label();
@@ -70,6 +86,14 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panel2.SuspendLayout();
 			this.pnlResumen.SuspendLayout();
+			this.pnlPromedio.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+			this.pnlNoEntregados.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+			this.pnlEntregados.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+			this.pnlTareas.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
 			this.pnlJustificado.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
 			this.pnlTardias.SuspendLayout();
@@ -110,7 +134,7 @@
 			this.label1.ForeColor = System.Drawing.Color.White;
 			this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
 			this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.label1.Location = new System.Drawing.Point(422, 20);
+			this.label1.Location = new System.Drawing.Point(461, 18);
 			this.label1.Name = "label1";
 			this.label1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
 			this.label1.Size = new System.Drawing.Size(350, 67);
@@ -215,6 +239,10 @@
 			// pnlResumen
 			// 
 			this.pnlResumen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.pnlResumen.Controls.Add(this.pnlPromedio);
+			this.pnlResumen.Controls.Add(this.pnlNoEntregados);
+			this.pnlResumen.Controls.Add(this.pnlEntregados);
+			this.pnlResumen.Controls.Add(this.pnlTareas);
 			this.pnlResumen.Controls.Add(this.pnlJustificado);
 			this.pnlResumen.Controls.Add(this.pnlTardias);
 			this.pnlResumen.Controls.Add(this.pnlAusencia);
@@ -223,8 +251,165 @@
 			this.pnlResumen.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlResumen.Location = new System.Drawing.Point(0, 226);
 			this.pnlResumen.Name = "pnlResumen";
-			this.pnlResumen.Size = new System.Drawing.Size(1189, 198);
+			this.pnlResumen.Size = new System.Drawing.Size(1189, 245);
 			this.pnlResumen.TabIndex = 4;
+			// 
+			// pnlPromedio
+			// 
+			this.pnlPromedio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.pnlPromedio.Controls.Add(this.pictureBox9);
+			this.pnlPromedio.Controls.Add(this.lblPromedio);
+			this.pnlPromedio.Controls.Add(this.lblTituloPromedio);
+			this.pnlPromedio.Location = new System.Drawing.Point(952, 138);
+			this.pnlPromedio.Name = "pnlPromedio";
+			this.pnlPromedio.Size = new System.Drawing.Size(172, 100);
+			this.pnlPromedio.TabIndex = 16;
+			// 
+			// pictureBox9
+			// 
+			this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+			this.pictureBox9.Location = new System.Drawing.Point(19, 42);
+			this.pictureBox9.Name = "pictureBox9";
+			this.pictureBox9.Size = new System.Drawing.Size(39, 37);
+			this.pictureBox9.TabIndex = 12;
+			this.pictureBox9.TabStop = false;
+			// 
+			// lblPromedio
+			// 
+			this.lblPromedio.AutoSize = true;
+			this.lblPromedio.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold);
+			this.lblPromedio.Location = new System.Drawing.Point(48, 35);
+			this.lblPromedio.Name = "lblPromedio";
+			this.lblPromedio.Size = new System.Drawing.Size(82, 44);
+			this.lblPromedio.TabIndex = 7;
+			this.lblPromedio.Text = "100";
+			this.lblPromedio.Click += new System.EventHandler(this.lblPromedio_Click);
+			// 
+			// lblTituloPromedio
+			// 
+			this.lblTituloPromedio.AutoSize = true;
+			this.lblTituloPromedio.Location = new System.Drawing.Point(63, 13);
+			this.lblTituloPromedio.Name = "lblTituloPromedio";
+			this.lblTituloPromedio.Size = new System.Drawing.Size(51, 13);
+			this.lblTituloPromedio.TabIndex = 6;
+			this.lblTituloPromedio.Text = "Promedio";
+			// 
+			// pnlNoEntregados
+			// 
+			this.pnlNoEntregados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.pnlNoEntregados.Controls.Add(this.pictureBox8);
+			this.pnlNoEntregados.Controls.Add(this.lblTituloNoEntregados);
+			this.pnlNoEntregados.Controls.Add(this.lblNoEntregados);
+			this.pnlNoEntregados.Location = new System.Drawing.Point(763, 138);
+			this.pnlNoEntregados.Name = "pnlNoEntregados";
+			this.pnlNoEntregados.Size = new System.Drawing.Size(172, 100);
+			this.pnlNoEntregados.TabIndex = 15;
+			// 
+			// pictureBox8
+			// 
+			this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+			this.pictureBox8.Location = new System.Drawing.Point(21, 42);
+			this.pictureBox8.Name = "pictureBox8";
+			this.pictureBox8.Size = new System.Drawing.Size(39, 37);
+			this.pictureBox8.TabIndex = 11;
+			this.pictureBox8.TabStop = false;
+			// 
+			// lblTituloNoEntregados
+			// 
+			this.lblTituloNoEntregados.AutoSize = true;
+			this.lblTituloNoEntregados.Location = new System.Drawing.Point(46, 13);
+			this.lblTituloNoEntregados.Name = "lblTituloNoEntregados";
+			this.lblTituloNoEntregados.Size = new System.Drawing.Size(77, 13);
+			this.lblTituloNoEntregados.TabIndex = 2;
+			this.lblTituloNoEntregados.Text = "No entregados";
+			// 
+			// lblNoEntregados
+			// 
+			this.lblNoEntregados.AutoSize = true;
+			this.lblNoEntregados.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold);
+			this.lblNoEntregados.Location = new System.Drawing.Point(65, 35);
+			this.lblNoEntregados.Name = "lblNoEntregados";
+			this.lblNoEntregados.Size = new System.Drawing.Size(40, 44);
+			this.lblNoEntregados.TabIndex = 5;
+			this.lblNoEntregados.Text = "1";
+			// 
+			// pnlEntregados
+			// 
+			this.pnlEntregados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.pnlEntregados.Controls.Add(this.pictureBox7);
+			this.pnlEntregados.Controls.Add(this.lblTituloEntregados);
+			this.pnlEntregados.Controls.Add(this.lblEntregados);
+			this.pnlEntregados.Location = new System.Drawing.Point(573, 138);
+			this.pnlEntregados.Name = "pnlEntregados";
+			this.pnlEntregados.Size = new System.Drawing.Size(172, 100);
+			this.pnlEntregados.TabIndex = 14;
+			// 
+			// pictureBox7
+			// 
+			this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+			this.pictureBox7.Location = new System.Drawing.Point(22, 42);
+			this.pictureBox7.Name = "pictureBox7";
+			this.pictureBox7.Size = new System.Drawing.Size(39, 37);
+			this.pictureBox7.TabIndex = 10;
+			this.pictureBox7.TabStop = false;
+			// 
+			// lblTituloEntregados
+			// 
+			this.lblTituloEntregados.AutoSize = true;
+			this.lblTituloEntregados.Location = new System.Drawing.Point(60, 13);
+			this.lblTituloEntregados.Name = "lblTituloEntregados";
+			this.lblTituloEntregados.Size = new System.Drawing.Size(61, 13);
+			this.lblTituloEntregados.TabIndex = 1;
+			this.lblTituloEntregados.Text = "Entregados";
+			// 
+			// lblEntregados
+			// 
+			this.lblEntregados.AutoSize = true;
+			this.lblEntregados.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold);
+			this.lblEntregados.Location = new System.Drawing.Point(67, 35);
+			this.lblEntregados.Name = "lblEntregados";
+			this.lblEntregados.Size = new System.Drawing.Size(40, 44);
+			this.lblEntregados.TabIndex = 4;
+			this.lblEntregados.Text = "1";
+			// 
+			// pnlTareas
+			// 
+			this.pnlTareas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.pnlTareas.Controls.Add(this.pictureBox6);
+			this.pnlTareas.Controls.Add(this.lblTotalTareas);
+			this.pnlTareas.Controls.Add(this.lblTituloTotalTareas);
+			this.pnlTareas.Location = new System.Drawing.Point(384, 138);
+			this.pnlTareas.Name = "pnlTareas";
+			this.pnlTareas.Size = new System.Drawing.Size(172, 100);
+			this.pnlTareas.TabIndex = 13;
+			// 
+			// pictureBox6
+			// 
+			this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+			this.pictureBox6.Location = new System.Drawing.Point(16, 42);
+			this.pictureBox6.Name = "pictureBox6";
+			this.pictureBox6.Size = new System.Drawing.Size(38, 37);
+			this.pictureBox6.TabIndex = 9;
+			this.pictureBox6.TabStop = false;
+			// 
+			// lblTotalTareas
+			// 
+			this.lblTotalTareas.AutoSize = true;
+			this.lblTotalTareas.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold);
+			this.lblTotalTareas.Location = new System.Drawing.Point(60, 35);
+			this.lblTotalTareas.Name = "lblTotalTareas";
+			this.lblTotalTareas.Size = new System.Drawing.Size(40, 44);
+			this.lblTotalTareas.TabIndex = 3;
+			this.lblTotalTareas.Text = "1";
+			// 
+			// lblTituloTotalTareas
+			// 
+			this.lblTituloTotalTareas.AutoSize = true;
+			this.lblTituloTotalTareas.Location = new System.Drawing.Point(44, 13);
+			this.lblTituloTotalTareas.Name = "lblTituloTotalTareas";
+			this.lblTituloTotalTareas.Size = new System.Drawing.Size(82, 13);
+			this.lblTituloTotalTareas.TabIndex = 0;
+			this.lblTituloTotalTareas.Text = "Total de Tareas";
 			// 
 			// pnlJustificado
 			// 
@@ -401,10 +586,10 @@
 			this.dgvReporte.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvReporte.Dock = System.Windows.Forms.DockStyle.Top;
-			this.dgvReporte.Location = new System.Drawing.Point(0, 424);
+			this.dgvReporte.Location = new System.Drawing.Point(0, 471);
 			this.dgvReporte.Name = "dgvReporte";
 			this.dgvReporte.ReadOnly = true;
-			this.dgvReporte.Size = new System.Drawing.Size(1189, 260);
+			this.dgvReporte.Size = new System.Drawing.Size(1189, 202);
 			this.dgvReporte.TabIndex = 5;
 			// 
 			// pnlBotones
@@ -413,9 +598,9 @@
 			this.pnlBotones.Controls.Add(this.btnExcel);
 			this.pnlBotones.Controls.Add(this.btnPDF);
 			this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.pnlBotones.Location = new System.Drawing.Point(0, 679);
+			this.pnlBotones.Location = new System.Drawing.Point(0, 673);
 			this.pnlBotones.Name = "pnlBotones";
-			this.pnlBotones.Size = new System.Drawing.Size(1189, 57);
+			this.pnlBotones.Size = new System.Drawing.Size(1189, 63);
 			this.pnlBotones.TabIndex = 6;
 			this.pnlBotones.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBotones_Paint);
 			// 
@@ -489,6 +674,18 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.panel2.ResumeLayout(false);
 			this.pnlResumen.ResumeLayout(false);
+			this.pnlPromedio.ResumeLayout(false);
+			this.pnlPromedio.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+			this.pnlNoEntregados.ResumeLayout(false);
+			this.pnlNoEntregados.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+			this.pnlEntregados.ResumeLayout(false);
+			this.pnlEntregados.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+			this.pnlTareas.ResumeLayout(false);
+			this.pnlTareas.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
 			this.pnlJustificado.ResumeLayout(false);
 			this.pnlJustificado.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -544,5 +741,21 @@
 		private System.Windows.Forms.PictureBox pictureBox5;
 		private System.Windows.Forms.Label lblJustificado;
 		private System.Windows.Forms.Label lblTotalJustificado;
+		private System.Windows.Forms.Panel pnlTareas;
+		private System.Windows.Forms.Label lblEntregados;
+		private System.Windows.Forms.Label lblTotalTareas;
+		private System.Windows.Forms.Label lblTituloNoEntregados;
+		private System.Windows.Forms.Label lblTituloEntregados;
+		private System.Windows.Forms.Label lblTituloTotalTareas;
+		private System.Windows.Forms.Label lblNoEntregados;
+		private System.Windows.Forms.Label lblPromedio;
+		private System.Windows.Forms.Label lblTituloPromedio;
+		private System.Windows.Forms.Panel pnlPromedio;
+		private System.Windows.Forms.Panel pnlNoEntregados;
+		private System.Windows.Forms.Panel pnlEntregados;
+		private System.Windows.Forms.PictureBox pictureBox8;
+		private System.Windows.Forms.PictureBox pictureBox7;
+		private System.Windows.Forms.PictureBox pictureBox6;
+		private System.Windows.Forms.PictureBox pictureBox9;
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using SistemaAsistenciaMagallanes.DAO;
+using SistemaAsistenciaMagallanes.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,9 +13,9 @@ namespace SistemaAsistenciaMagallanes.Services
 	{
 		AsistenciaDAO dao = new AsistenciaDAO();
 
-		public DataTable ObtenerEstudiantesPorSeccion(int idSeccion)
+		public DataTable ObtenerEstudiantesPorSeccion(int idSeccion, int idAsignacion)
 		{
-			return dao.ObtenerEstudiantesPorSeccion(idSeccion);
+			return dao.ObtenerEstudiantesPorSeccion(idSeccion, idAsignacion);
 		}
 
 		public void GuardarAsistencia(int idEstudiante, int idSeccion, int idMateria, DateTime fecha, string estado, int idDocente)

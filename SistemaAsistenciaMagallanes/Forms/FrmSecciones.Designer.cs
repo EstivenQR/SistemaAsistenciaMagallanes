@@ -29,6 +29,8 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSecciones));
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -258,12 +260,22 @@
 			this.dgvSecciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvSecciones.BackgroundColor = System.Drawing.SystemColors.Control;
 			this.dgvSecciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvSecciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvSecciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvSecciones.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvSecciones.GridColor = System.Drawing.SystemColors.Control;
 			this.dgvSecciones.Location = new System.Drawing.Point(0, 20);
 			this.dgvSecciones.Name = "dgvSecciones";
 			this.dgvSecciones.ReadOnly = true;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.dgvSecciones.RowsDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvSecciones.Size = new System.Drawing.Size(1069, 125);
 			this.dgvSecciones.TabIndex = 0;
 			// 

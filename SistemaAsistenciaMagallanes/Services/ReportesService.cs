@@ -36,5 +36,15 @@ namespace SistemaAsistenciaMagallanes.Services
 		{
 			return dao.FiltrarReportes(idSeccion, idMateria, idEstudiante);
 		}
+
+		public DataTable ObtenerReporteTareas(int? idSeccion, int? idMateria, DateTime? desde, DateTime? hasta, int idDocente)
+		{
+			return dao.ObtenerReporteTareas(idSeccion, idMateria, desde, hasta, idDocente);
+		}
+
+		public DataTable ObtenerReporteTareas(int? idSeccion, int? idMateria, int? idEstudiante)
+		{
+			return dao.ObtenerReporteTareasPDF(idSeccion, idMateria, idEstudiante);
+		}
 	}
 }

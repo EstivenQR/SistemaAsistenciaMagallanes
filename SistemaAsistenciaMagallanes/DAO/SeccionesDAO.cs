@@ -17,11 +17,12 @@ namespace SistemaAsistenciaMagallanes.DAO
 			SqlConnection conexion = conexionBD.ObtenerConexion();
 
 			string consulta = @"SELECT 
-                            IdSeccion,
-                            NombreSeccion AS Sección,
-							Anio AS Año
-                            FROM Secciones
-                            WHERE NombreSeccion LIKE @buscar";
+									IdSeccion,
+									(NombreSeccion + ' ' + CAST(Anio AS VARCHAR)) AS Sección
+								FROM Secciones
+								WHERE NombreSeccion LIKE @buscar
+								AND Anio IN (YEAR(GETDATE()), YEAR(GETDATE()) + 1)
+								ORDER BY  Anio, NombreSeccion ASC";
 
 			SqlCommand cmd = new SqlCommand(consulta, conexion);
 			cmd.Parameters.AddWithValue("@buscar", "%" + buscar + "%");

@@ -28,6 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAsistencia));
 			this.paneltop = new System.Windows.Forms.Panel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -45,6 +47,7 @@
 			this.btnMarcarTodos = new System.Windows.Forms.Button();
 			this.btnGuardar = new System.Windows.Forms.Button();
 			this.panel3 = new System.Windows.Forms.Panel();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.paneltop.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.pnlfiltros.SuspendLayout();
@@ -52,11 +55,13 @@
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// paneltop
 			// 
 			this.paneltop.BackColor = System.Drawing.Color.Orange;
+			this.paneltop.Controls.Add(this.pictureBox2);
 			this.paneltop.Controls.Add(this.pictureBox1);
 			this.paneltop.Controls.Add(this.label1);
 			this.paneltop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -167,12 +172,29 @@
 			this.dgvAsistencia.AllowUserToAddRows = false;
 			this.dgvAsistencia.BackgroundColor = System.Drawing.Color.White;
 			this.dgvAsistencia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvAsistencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvAsistencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvAsistencia.DefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvAsistencia.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dgvAsistencia.EnableHeadersVisualStyles = false;
 			this.dgvAsistencia.Location = new System.Drawing.Point(0, 0);
 			this.dgvAsistencia.Name = "dgvAsistencia";
 			this.dgvAsistencia.RowHeadersVisible = false;
-			this.dgvAsistencia.RowTemplate.Height = 35;
+			this.dgvAsistencia.RowTemplate.Height = 40;
 			this.dgvAsistencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvAsistencia.Size = new System.Drawing.Size(1151, 401);
 			this.dgvAsistencia.TabIndex = 2;
@@ -237,6 +259,15 @@
 			this.panel3.Size = new System.Drawing.Size(1151, 401);
 			this.panel3.TabIndex = 4;
 			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+			this.pictureBox2.Location = new System.Drawing.Point(764, 32);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(42, 50);
+			this.pictureBox2.TabIndex = 2;
+			this.pictureBox2.TabStop = false;
+			// 
 			// FrmAsistencia
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,6 +290,7 @@
 			this.panel1.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel3.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -281,5 +313,6 @@
 		private System.Windows.Forms.Button btnGuardar;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Panel panel3;
+		private System.Windows.Forms.PictureBox pictureBox2;
 	}
 }

@@ -63,10 +63,14 @@ namespace SistemaAsistenciaMagallanes.DAO
 			using (SqlConnection conn = conexionBD.ObtenerConexion())
 			{
 				string query = @"
-                SELECT DISTINCT s.IdSeccion, s.NombreSeccion
-				FROM DocenteSeccionMateria dsm
-				INNER JOIN Secciones s ON dsm.IdSeccion = s.IdSeccion
-				WHERE dsm.IdUsuario = @IdUsuario";
+								SELECT 
+									s.IdSeccion, 
+									(s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR)) AS NombreSeccion
+								FROM DocenteSeccionMateria dsm
+								INNER JOIN Secciones s ON dsm.IdSeccion = s.IdSeccion
+								WHERE dsm.IdUsuario = @IdUsuario
+								GROUP BY s.IdSeccion, s.NombreSeccion, s.Anio
+								ORDER BY s.Anio DESC, s.NombreSeccion ASC";
 
 				SqlCommand cmd = new SqlCommand(query, conn);
 				cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
@@ -162,8 +166,143 @@ namespace SistemaAsistenciaMagallanes.DAO
 			return dt;
 		}
 
+		public DataTable ObtenerReporteTareas(
+	int? idSeccion,
+	int? idMateria,
+	DateTime? desde,
+	DateTime? hasta,
+	int idDocente)
+		{
+			DataTable dt = new DataTable();
 
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				conn.Open();
 
+				string query = @"
+		SELECT 
+			e.IdEstudiante,
+			e.Nombre + ' ' + e.Apellido AS Estudiante,
+			t.IdTarea,
+			t.Titulo,
+			t.FechaEntrega,
+			ISNULL(et.Entregado, 0) AS Entregado,
+			ISNULL(et.Porcentaje, 0) AS Porcentaje
+		FROM Tareas t
+		INNER JOIN Estudiantes e ON e.IdSeccion = t.IdSeccion
+		LEFT JOIN EntregaTareas et 
+			ON et.IdTarea = t.IdTarea 
+			AND et.IdEstudiante = e.IdEstudiante
+		WHERE t.IdDocente = @IdDocente
+		AND (@IdSeccion IS NULL OR t.IdSeccion = @IdSeccion)
+		AND (@IdMateria IS NULL OR t.IdMateria = @IdMateria)
+		AND (@Desde IS NULL OR t.FechaEntrega >= @Desde)
+		AND (@Hasta IS NULL OR t.FechaEntrega <= @Hasta)";
+
+				SqlCommand cmd = new SqlCommand(query, conn);
+
+				cmd.Parameters.AddWithValue("@IdDocente", idDocente);
+				cmd.Parameters.AddWithValue("@IdSeccion", (object)idSeccion ?? DBNull.Value);
+				cmd.Parameters.AddWithValue("@IdMateria", (object)idMateria ?? DBNull.Value);
+				cmd.Parameters.AddWithValue("@Desde", (object)desde ?? DBNull.Value);
+				cmd.Parameters.AddWithValue("@Hasta", (object)hasta ?? DBNull.Value);
+
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				da.Fill(dt);
+			}
+
+			return dt;
+		}
+
+		public DataTable ObtenerReporteTareasPDF(int? idSeccion, int? idMateria, int? idEstudiante)
+		{
+			DataTable dt = new DataTable();
+
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				string query = @"
+								SELECT 
+							e.Nombre + ' ' + e.Apellido AS Estudiante,
+							m.NombreMateria,
+							s.NombreSeccion,
+							t.Titulo,
+							ISNULL(et.Porcentaje, 0) AS Nota
+						FROM Tareas t
+						INNER JOIN Materias m ON t.IdMateria = m.IdMateria
+						INNER JOIN Secciones s ON t.IdSeccion = s.IdSeccion
+						INNER JOIN Estudiantes e ON e.IdSeccion = s.IdSeccion
+						LEFT JOIN EntregaTareas et 
+							ON et.IdTarea = t.IdTarea 
+							AND et.IdEstudiante = e.IdEstudiante
+						WHERE e.Estado = 1
+						AND (@IdSeccion IS NULL OR t.IdSeccion = @IdSeccion)
+						AND (@IdMateria IS NULL OR t.IdMateria = @IdMateria)
+						AND (@IdEstudiante IS NULL OR e.IdEstudiante = @IdEstudiante)";
+
+				SqlCommand cmd = new SqlCommand(query, conn);
+
+				cmd.Parameters.AddWithValue("@IdSeccion", (object)idSeccion ?? DBNull.Value);
+				cmd.Parameters.AddWithValue("@IdMateria", (object)idMateria ?? DBNull.Value);
+				cmd.Parameters.AddWithValue("@IdEstudiante", (object)idEstudiante ?? DBNull.Value);
+
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				da.Fill(dt);
+			}
+
+			return dt;
+		}
+
+		public int ObtenerTotalEstudiantes()
+		{
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				conn.Open();
+				SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Estudiantes", conn);
+				return (int)cmd.ExecuteScalar();
+			}
+		}
+
+		public int ObtenerTotalProfesores()
+		{
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				conn.Open();
+				SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Usuarios WHERE IdRol = '3'", conn);
+				return (int)cmd.ExecuteScalar();
+			}
+		}
+
+		public int ObtenerPresentesHoy()
+		{
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				conn.Open();
+				SqlCommand cmd = new SqlCommand(@"
+            SELECT COUNT(*) 
+            FROM DetalleAsistencia da
+            INNER JOIN Clase c ON da.IdClase = c.IdClase
+            WHERE c.Fecha = CAST(GETDATE() AS DATE)
+            AND da.Estado = 'Presente'", conn);
+
+				return (int)cmd.ExecuteScalar();
+			}
+		}
+
+		public int ObtenerAusentesHoy()
+		{
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				conn.Open();
+				SqlCommand cmd = new SqlCommand(@"
+            SELECT COUNT(*) 
+            FROM DetalleAsistencia da
+            INNER JOIN Clase c ON da.IdClase = c.IdClase
+            WHERE c.Fecha = CAST(GETDATE() AS DATE)
+            AND da.Estado = 'Ausente'", conn);
+
+				return (int)cmd.ExecuteScalar();
+			}
+		}
 
 	}
 }

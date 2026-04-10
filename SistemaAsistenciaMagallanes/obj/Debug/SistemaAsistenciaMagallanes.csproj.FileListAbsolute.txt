@@ -102,3 +102,4 @@ C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagalla
 C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\bin\Debug\Microsoft.Bcl.HashCode.xml
 C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\bin\Debug\RBush.xml
 C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\bin\Debug\SixLabors.Fonts.xml
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmTareas.resources

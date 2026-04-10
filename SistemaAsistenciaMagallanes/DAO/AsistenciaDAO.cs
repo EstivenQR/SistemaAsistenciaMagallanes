@@ -14,18 +14,33 @@ namespace SistemaAsistenciaMagallanes.DAO
 
 		ConexionBD conexionBD = new ConexionBD();
 
-		public DataTable ObtenerEstudiantesPorSeccion(int idSeccion)
+		public DataTable ObtenerEstudiantesPorSeccion(int idSeccion, int idAsignacion)
 		{
 			ConexionBD conexionBD = new ConexionBD();
 			SqlConnection conexion = conexionBD.ObtenerConexion();
 
-			string consulta = @"SELECT IdEstudiante, Nombre + ' ' + Apellido AS Estudiante
-							FROM Estudiantes
-							WHERE IdSeccion = @IdSeccion
-                            AND Estado = 1";
+			string consulta = @"
+							SELECT 
+								e.IdEstudiante, 
+								e.Nombre + ' ' + e.Apellido AS Estudiante
+							FROM Estudiantes e
+							INNER JOIN DocenteSeccionMateria dsm 
+								ON dsm.IdAsignacion = @IdAsignacion
+							INNER JOIN Materias m 
+								ON dsm.IdMateria = m.IdMateria
+							WHERE e.IdSeccion = @IdSeccion
+							AND e.Estado = 1
+							AND (
+								m.NombreMateria COLLATE Latin1_General_CI_AI NOT LIKE '%religion%'
+								OR (
+									m.NombreMateria COLLATE Latin1_General_CI_AI LIKE '%religion%'
+									AND e.RecibeReligion = 1
+								)
+							)";
 
 			SqlCommand cmd = new SqlCommand(consulta, conexion);
 			cmd.Parameters.AddWithValue("@IdSeccion", idSeccion);
+			cmd.Parameters.AddWithValue("@IdAsignacion", idAsignacion);
 
 			SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 			DataTable tabla = new DataTable();
@@ -65,10 +80,16 @@ namespace SistemaAsistenciaMagallanes.DAO
 
 			using (SqlConnection conn = conexionBD.ObtenerConexion())
 			{
-				string query = @"SELECT DISTINCT s.IdSeccion, s.NombreSeccion
-                             FROM DocenteSeccionMateria dsm
-                             INNER JOIN Secciones s ON s.IdSeccion = dsm.IdSeccion
-                             WHERE dsm.IdUsuario = @IdUsuario";
+				string query = @"
+								SELECT 
+									s.IdSeccion, 
+									(s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR)) AS NombreSeccion
+								FROM DocenteSeccionMateria dsm
+								INNER JOIN Secciones s ON s.IdSeccion = dsm.IdSeccion
+								WHERE dsm.IdUsuario = @IdUsuario
+								AND s.Anio = YEAR(GETDATE())
+								GROUP BY s.IdSeccion, s.NombreSeccion, s.Anio
+								ORDER BY s.NombreSeccion ASC";
 
 				SqlCommand cmd = new SqlCommand(query, conn);
 				cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);

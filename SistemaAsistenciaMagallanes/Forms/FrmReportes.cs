@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.MonthCalendar;
 
 namespace SistemaAsistenciaMagallanes.Forms
 {
@@ -58,6 +59,8 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 			// RESUMEN
 			CalcularResumen(dt);
+			var dtTareas = service.ObtenerReporteTareas(idSeccion, idMateria, desde, hasta, Sesion.IdUsuario);
+			CalcularResumenTareas(dtTareas);
 		}
 
 		private void AnimarContador(Label lbl, int valorFinal)
@@ -250,22 +253,99 @@ namespace SistemaAsistenciaMagallanes.Forms
 			pnlTotal.Visible = true;
 			pnlJustificado.Visible = true;
 
-
 		}
+
+		private void CalcularResumenTareas(DataTable dt)
+		{
+
+
+					int total = dt.AsEnumerable()
+				.Select(r => r["IdTarea"])
+				.Distinct()
+				.Count();
+
+					int entregados = dt.AsEnumerable()
+				.Count(r => Convert.ToDecimal(r["Porcentaje"]) > 0);
+
+
+
+					int noEntregados = dt.AsEnumerable()
+				.Count(r => Convert.ToDecimal(r["Porcentaje"]) == 0);
+
+
+			// PROMEDIO
+			decimal promedio = dt.Rows.Count > 0
+				? dt.AsEnumerable().Average(r => Convert.ToDecimal(r["Porcentaje"]))
+				: 0;
+
+			// ANIMACIONES
+			AnimarContador(lblTotalTareas, total);
+			AnimarContador(lblEntregados, entregados);
+			AnimarContador(lblNoEntregados, noEntregados);
+			AnimarContador(lblPromedio, (int)Math.Round(promedio));
+
+			// TEXTOS
+			lblTotalTareas.Text = total.ToString();
+			lblEntregados.Text = entregados.ToString();
+			lblNoEntregados.Text = noEntregados.ToString();
+			lblPromedio.Text = promedio.ToString("0") + "%";
+
+			// ESTILOS
+			lblTotalTareas.Font = new Font("Arial", 28, FontStyle.Bold);
+			lblEntregados.Font = new Font("Arial", 28, FontStyle.Bold);
+			lblNoEntregados.Font = new Font("Arial", 28, FontStyle.Bold);
+			lblPromedio.Font = new Font("Arial", 28, FontStyle.Bold);
+
+			lblTotalTareas.ForeColor = Color.Black;
+			lblEntregados.ForeColor = Color.FromArgb(40, 167, 69); // verde
+			lblNoEntregados.ForeColor = Color.FromArgb(220, 53, 69); // rojo
+			lblPromedio.ForeColor = Color.FromArgb(52, 152, 219); // azul
+
+			lblTotalTareas.TextAlign = ContentAlignment.MiddleCenter;
+			lblEntregados.TextAlign = ContentAlignment.MiddleCenter;
+			lblNoEntregados.TextAlign = ContentAlignment.MiddleCenter;
+			lblPromedio.TextAlign = ContentAlignment.MiddleCenter;
+
+			lblTituloTotalTareas.Text = "Total de Tareas";
+			lblTituloEntregados.Text = "Entregados";
+			lblTituloNoEntregados.Text = "No entregados";
+			lblTituloPromedio.Text = "Promedio";
+
+			//MOSTRAR PANELES
+			pnlTareas.Visible = true;
+			pnlNoEntregados.Visible = true;
+			pnlPromedio.Visible = true;
+			pnlEntregados.Visible = true;
+		}
+
+
 
 		private void btnPDF_Click(object sender, EventArgs e)
 		{
 			PdfHelper pdf = new PdfHelper();
+			ReportesService service = new ReportesService();
 
 			if (dgvReporte.Columns.Contains("IdEstudiante"))
 				dgvReporte.Columns["IdEstudiante"].Visible = false;
 
+			int? idSeccion = cmbSeccion.SelectedValue != null ? (int?)Convert.ToInt32(cmbSeccion.SelectedValue) : null;
+			int? idMateria = cmbMateria.SelectedValue != null ? (int?)Convert.ToInt32(cmbMateria.SelectedValue) : null;
+			int? idEstudiante = cmbEstudiante.SelectedValue != null ? (int?)Convert.ToInt32(cmbEstudiante.SelectedValue) : null;
+
+			
+			DataTable dtTareas = service.ObtenerReporteTareas(idSeccion, idMateria, idEstudiante);
+
+			
+
 			pdf.GenerarPDF(
 				dgvReporte,
-				lblTotalCentro.Text,      // presentes
-				lblAusenciasCentro.Text,  // ausencias
-				lblTotalTardias.Text,	  // tardias
-				lblTotalJustificado.Text  // justificadas
+				dtTareas, 
+				lblTotalCentro.Text,
+				lblAusenciasCentro.Text,
+				lblTotalTardias.Text,
+				lblTotalJustificado.Text,
+				cmbEstudiante.Text,
+				cmbSeccion.Text
 			);
 		}
 
@@ -282,14 +362,22 @@ namespace SistemaAsistenciaMagallanes.Forms
 			CargarSecciones();
 			chartporcentaje.ChartAreas[0].BackColor = Color.Transparent;
 			pnlAusencia.Visible = false;
+			pnlTareas.Visible = false;
 			pnlTardias.Visible = false;
 			pnlTotal.Visible = false;
 			pnlJustificado.Visible = false;
+			pnlTareas.Visible = false;
+			pnlNoEntregados.Visible = false;
+			pnlPromedio.Visible = false;
+			pnlEntregados.Visible=false;
+
+
 			RedondearBoton(btnBuscar, 20);
 			RedondearBoton(btnSalir, 20);
 			RedondearBoton(btnExcel, 20);
 			RedondearBoton(btnPDF, 20);
 			RedondearBoton(btnSalir, 20);
+			RedondearBoton(btnJustificarSeleccionado, 20);
 
 		}
 
@@ -438,6 +526,11 @@ namespace SistemaAsistenciaMagallanes.Forms
 			int.Parse(lblTotalTardias.Text),
 			int.Parse(lblTotalJustificado.Text)
 			);
+		}
+
+		private void lblPromedio_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
