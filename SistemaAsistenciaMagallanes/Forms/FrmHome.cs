@@ -67,7 +67,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 	
 			tableKPIs.Top = (this.ClientSize.Height - tableKPIs.Height) / 2;
-			tableKPIs.Top = 400; // ajusta según tu diseño
+			tableKPIs.Top = 350; // ajusta según tu diseño
 
 			panel1.Margin = new Padding(10);
 			panel2.Margin = new Padding(10);

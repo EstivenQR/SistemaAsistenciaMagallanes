@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,9 +19,21 @@ namespace SistemaAsistenciaMagallanes.Forms
 		int idEstudiante;
 		string nombreEstudiante;
 		DateTime fecha;
-		
 
-		JustificacionesService service = new JustificacionesService();
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+(
+int nLeftRect,
+int nTopRect,
+int nRightRect,
+int nBottomRect,
+int nWidthEllipse,
+int nHeightEllipse
+);
+
+
+
+        JustificacionesService service = new JustificacionesService();
 		public FrmJustificar(int idEstudiante, string nombre, DateTime fecha)
 		{
 			InitializeComponent();

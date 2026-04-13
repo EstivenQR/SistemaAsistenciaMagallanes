@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,8 +19,19 @@ namespace SistemaAsistenciaMagallanes.Forms
 	{
 		private JustificacionesService service = new JustificacionesService();
 		DataTable dtOriginal;
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+(
+int nLeftRect,
+int nTopRect,
+int nRightRect,
+int nBottomRect,
+int nWidthEllipse,
+int nHeightEllipse
+);
 
-		public FrmJustificaciones()
+
+        public FrmJustificaciones()
 		{
 			InitializeComponent();
 			Cargar();
@@ -27,6 +39,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		private void FrmJustificaciones_Load(object sender, EventArgs e)
 		{
+			
 			tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
 			dgvJustificaciones.Columns["IdJustificacion"].Visible = false;
 			dgvJustificaciones.Columns["IdEstudiante"].Visible = false;
