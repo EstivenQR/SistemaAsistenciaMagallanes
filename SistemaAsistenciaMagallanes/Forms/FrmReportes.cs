@@ -191,7 +191,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			chartporcentaje.Legends[0].BackColor = Color.Transparent;
 			chartporcentaje.AntiAliasing = AntiAliasingStyles.All;
 			chartporcentaje.TextAntiAliasingQuality = TextAntiAliasingQuality.High;
-			chartporcentaje.Width = 350;
+			chartporcentaje.Width = 400;
 			chartporcentaje.Height = 200;
 			serie.IsValueShownAsLabel = false;
 
@@ -532,5 +532,32 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 
 		}
-	}
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmbEstudiante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Resize(object sender, EventArgs e)
+        {
+            tableLayoutPanel2.Left = (panel2.Width - tableLayoutPanel2.Width) / 2;
+            tableLayoutPanel2.Left = (this.ClientSize.Width - tableLayoutPanel2.Width) / 2;
+            tableLayoutPanel2.Top = (panel2.Height - tableLayoutPanel2.Height) / 2;
+        }
+    }
 }

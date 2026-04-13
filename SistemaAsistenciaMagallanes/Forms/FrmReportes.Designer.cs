@@ -29,29 +29,45 @@
 		private void InitializeComponent()
 		{
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportes));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnJustificarSeleccionado = new System.Windows.Forms.Button();
-            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
-            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbEstudiante = new System.Windows.Forms.ComboBox();
             this.cmbMateria = new System.Windows.Forms.ComboBox();
             this.cmbSeccion = new System.Windows.Forms.ComboBox();
-            this.cmbEstudiante = new System.Windows.Forms.ComboBox();
             this.pnlResumen = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.chartporcentaje = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlJustificado = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.lblJustificado = new System.Windows.Forms.Label();
+            this.lblTotalJustificado = new System.Windows.Forms.Label();
             this.pnlPromedio = new System.Windows.Forms.Panel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblPromedio = new System.Windows.Forms.Label();
             this.lblTituloPromedio = new System.Windows.Forms.Label();
+            this.pnlTardias = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lblTituloTardias = new System.Windows.Forms.Label();
+            this.lblTotalTardias = new System.Windows.Forms.Label();
+            this.pnlTotal = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblTituloTotal = new System.Windows.Forms.Label();
+            this.lblTotalCentro = new System.Windows.Forms.Label();
             this.pnlNoEntregados = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.lblTituloNoEntregados = new System.Windows.Forms.Label();
             this.lblNoEntregados = new System.Windows.Forms.Label();
+            this.pnlAusencia = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblTituloAusencias = new System.Windows.Forms.Label();
+            this.lblAusenciasCentro = new System.Windows.Forms.Label();
             this.pnlEntregados = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lblTituloEntregados = new System.Windows.Forms.Label();
@@ -60,53 +76,47 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lblTotalTareas = new System.Windows.Forms.Label();
             this.lblTituloTotalTareas = new System.Windows.Forms.Label();
-            this.pnlJustificado = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.lblJustificado = new System.Windows.Forms.Label();
-            this.lblTotalJustificado = new System.Windows.Forms.Label();
-            this.pnlTardias = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.lblTituloTardias = new System.Windows.Forms.Label();
-            this.lblTotalTardias = new System.Windows.Forms.Label();
-            this.pnlAusencia = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lblTituloAusencias = new System.Windows.Forms.Label();
-            this.lblAusenciasCentro = new System.Windows.Forms.Label();
-            this.pnlTotal = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.lblTituloTotal = new System.Windows.Forms.Label();
-            this.lblTotalCentro = new System.Windows.Forms.Label();
-            this.chartporcentaje = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dgvReporte = new System.Windows.Forms.DataGridView();
             this.pnlBotones = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnPDF = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnJustificarSeleccionado = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.pnlResumen.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartporcentaje)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.pnlJustificado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.pnlPromedio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.pnlTardias.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.pnlTotal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlNoEntregados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.pnlAusencia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlEntregados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.pnlTareas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.pnlJustificado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.pnlTardias.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.pnlAusencia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.pnlTotal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartporcentaje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporte)).BeginInit();
             this.pnlBotones.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -146,108 +156,172 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnJustificarSeleccionado);
-            this.panel2.Controls.Add(this.dtpHasta);
-            this.panel2.Controls.Add(this.dtpDesde);
-            this.panel2.Controls.Add(this.btnBuscar);
-            this.panel2.Controls.Add(this.cmbMateria);
-            this.panel2.Controls.Add(this.cmbSeccion);
-            this.panel2.Controls.Add(this.cmbEstudiante);
+            this.panel2.Controls.Add(this.panel5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1189, 126);
+            this.panel2.Size = new System.Drawing.Size(1189, 105);
             this.panel2.TabIndex = 3;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.panel2.Resize += new System.EventHandler(this.panel2_Resize);
             // 
-            // btnJustificarSeleccionado
+            // tableLayoutPanel2
             // 
-            this.btnJustificarSeleccionado.BackColor = System.Drawing.Color.Orange;
-            this.btnJustificarSeleccionado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnJustificarSeleccionado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnJustificarSeleccionado.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnJustificarSeleccionado.ForeColor = System.Drawing.Color.White;
-            this.btnJustificarSeleccionado.Image = ((System.Drawing.Image)(resources.GetObject("btnJustificarSeleccionado.Image")));
-            this.btnJustificarSeleccionado.Location = new System.Drawing.Point(824, 70);
-            this.btnJustificarSeleccionado.Name = "btnJustificarSeleccionado";
-            this.btnJustificarSeleccionado.Size = new System.Drawing.Size(112, 37);
-            this.btnJustificarSeleccionado.TabIndex = 8;
-            this.btnJustificarSeleccionado.Text = "Justificar";
-            this.btnJustificarSeleccionado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnJustificarSeleccionado.UseVisualStyleBackColor = false;
-            this.btnJustificarSeleccionado.Click += new System.EventHandler(this.btnJustificarSeleccionado_Click);
+            this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel2.AutoSize = true;
+            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.cmbEstudiante, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtpHasta, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cmbMateria, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cmbSeccion, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtpDesde, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 2, 1);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(1, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1189, 146);
+            this.tableLayoutPanel2.TabIndex = 9;
             // 
-            // dtpHasta
+            // cmbEstudiante
             // 
-            this.dtpHasta.Location = new System.Drawing.Point(472, 76);
-            this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(184, 20);
-            this.dtpHasta.TabIndex = 7;
-            // 
-            // dtpDesde
-            // 
-            this.dtpDesde.Location = new System.Drawing.Point(238, 76);
-            this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(184, 20);
-            this.dtpDesde.TabIndex = 6;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Orange;
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(706, 70);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(112, 37);
-            this.btnBuscar.TabIndex = 5;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.cmbEstudiante.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cmbEstudiante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbEstudiante.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbEstudiante.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbEstudiante.FormattingEnabled = true;
+            this.cmbEstudiante.Location = new System.Drawing.Point(232, 21);
+            this.cmbEstudiante.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbEstudiante.Name = "cmbEstudiante";
+            this.cmbEstudiante.Size = new System.Drawing.Size(184, 21);
+            this.cmbEstudiante.TabIndex = 0;
+            this.cmbEstudiante.SelectedIndexChanged += new System.EventHandler(this.cmbEstudiante_SelectedIndexChanged);
+            this.cmbEstudiante.SelectionChangeCommitted += new System.EventHandler(this.cmbEstudiante_SelectionChangeCommitted);
             // 
             // cmbMateria
             // 
+            this.cmbMateria.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cmbMateria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbMateria.FormattingEnabled = true;
-            this.cmbMateria.Location = new System.Drawing.Point(706, 23);
+            this.cmbMateria.Location = new System.Drawing.Point(884, 21);
             this.cmbMateria.Name = "cmbMateria";
             this.cmbMateria.Size = new System.Drawing.Size(230, 21);
             this.cmbMateria.TabIndex = 2;
             // 
             // cmbSeccion
             // 
+            this.cmbSeccion.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cmbSeccion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbSeccion.FormattingEnabled = true;
-            this.cmbSeccion.Location = new System.Drawing.Point(472, 23);
+            this.cmbSeccion.Location = new System.Drawing.Point(651, 21);
             this.cmbSeccion.Name = "cmbSeccion";
-            this.cmbSeccion.Size = new System.Drawing.Size(184, 21);
+            this.cmbSeccion.Size = new System.Drawing.Size(156, 21);
             this.cmbSeccion.TabIndex = 1;
             this.cmbSeccion.SelectedIndexChanged += new System.EventHandler(this.cmbSeccion_SelectedIndexChanged);
-            // 
-            // cmbEstudiante
-            // 
-            this.cmbEstudiante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbEstudiante.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbEstudiante.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbEstudiante.FormattingEnabled = true;
-            this.cmbEstudiante.Location = new System.Drawing.Point(238, 23);
-            this.cmbEstudiante.Name = "cmbEstudiante";
-            this.cmbEstudiante.Size = new System.Drawing.Size(184, 21);
-            this.cmbEstudiante.TabIndex = 0;
-            this.cmbEstudiante.SelectionChangeCommitted += new System.EventHandler(this.cmbEstudiante_SelectionChangeCommitted);
             // 
             // pnlResumen
             // 
             this.pnlResumen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlResumen.Controls.Add(this.panel4);
             this.pnlResumen.Controls.Add(this.panel3);
-            this.pnlResumen.Controls.Add(this.chartporcentaje);
             this.pnlResumen.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlResumen.Location = new System.Drawing.Point(0, 226);
+            this.pnlResumen.Location = new System.Drawing.Point(0, 205);
             this.pnlResumen.Name = "pnlResumen";
             this.pnlResumen.Size = new System.Drawing.Size(1189, 245);
             this.pnlResumen.TabIndex = 4;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.chartporcentaje);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(361, 243);
+            this.panel4.TabIndex = 18;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // chartporcentaje
+            // 
+            this.chartporcentaje.BackColor = System.Drawing.Color.Transparent;
+            this.chartporcentaje.BorderlineColor = System.Drawing.Color.Transparent;
+            chartArea9.Name = "ChartArea1";
+            this.chartporcentaje.ChartAreas.Add(chartArea9);
+            this.chartporcentaje.Dock = System.Windows.Forms.DockStyle.Right;
+            legend9.Name = "Legend1";
+            this.chartporcentaje.Legends.Add(legend9);
+            this.chartporcentaje.Location = new System.Drawing.Point(67, 0);
+            this.chartporcentaje.Name = "chartporcentaje";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.chartporcentaje.Series.Add(series9);
+            this.chartporcentaje.Size = new System.Drawing.Size(294, 243);
+            this.chartporcentaje.TabIndex = 3;
+            this.chartporcentaje.Text = "Porcentaje";
+            this.chartporcentaje.TextAntiAliasingQuality = System.Windows.Forms.DataVisualization.Charting.TextAntiAliasingQuality.Normal;
+            this.chartporcentaje.Click += new System.EventHandler(this.chartporcentaje_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pnlJustificado);
+            this.panel3.Controls.Add(this.pnlPromedio);
+            this.panel3.Controls.Add(this.pnlTardias);
+            this.panel3.Controls.Add(this.pnlTotal);
+            this.panel3.Controls.Add(this.pnlNoEntregados);
+            this.panel3.Controls.Add(this.pnlAusencia);
+            this.panel3.Controls.Add(this.pnlEntregados);
+            this.panel3.Controls.Add(this.pnlTareas);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(361, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(826, 243);
+            this.panel3.TabIndex = 17;
+            // 
+            // pnlJustificado
+            // 
+            this.pnlJustificado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlJustificado.Controls.Add(this.pictureBox5);
+            this.pnlJustificado.Controls.Add(this.lblJustificado);
+            this.pnlJustificado.Controls.Add(this.lblTotalJustificado);
+            this.pnlJustificado.Location = new System.Drawing.Point(202, 4);
+            this.pnlJustificado.Name = "pnlJustificado";
+            this.pnlJustificado.Size = new System.Drawing.Size(172, 100);
+            this.pnlJustificado.TabIndex = 11;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(16, 44);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(38, 37);
+            this.pictureBox5.TabIndex = 8;
+            this.pictureBox5.TabStop = false;
+            // 
+            // lblJustificado
+            // 
+            this.lblJustificado.AutoSize = true;
+            this.lblJustificado.Location = new System.Drawing.Point(44, 16);
+            this.lblJustificado.Name = "lblJustificado";
+            this.lblJustificado.Size = new System.Drawing.Size(0, 13);
+            this.lblJustificado.TabIndex = 6;
+            // 
+            // lblTotalJustificado
+            // 
+            this.lblTotalJustificado.AutoSize = true;
+            this.lblTotalJustificado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTotalJustificado.Location = new System.Drawing.Point(60, 44);
+            this.lblTotalJustificado.Name = "lblTotalJustificado";
+            this.lblTotalJustificado.Size = new System.Drawing.Size(0, 13);
+            this.lblTotalJustificado.TabIndex = 4;
+            this.lblTotalJustificado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlPromedio
             // 
@@ -289,6 +363,80 @@
             this.lblTituloPromedio.TabIndex = 6;
             this.lblTituloPromedio.Text = "Promedio";
             // 
+            // pnlTardias
+            // 
+            this.pnlTardias.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlTardias.Controls.Add(this.pictureBox4);
+            this.pnlTardias.Controls.Add(this.lblTituloTardias);
+            this.pnlTardias.Controls.Add(this.lblTotalTardias);
+            this.pnlTardias.Location = new System.Drawing.Point(588, 3);
+            this.pnlTardias.Name = "pnlTardias";
+            this.pnlTardias.Size = new System.Drawing.Size(172, 100);
+            this.pnlTardias.TabIndex = 12;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(19, 44);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(38, 37);
+            this.pictureBox4.TabIndex = 9;
+            this.pictureBox4.TabStop = false;
+            // 
+            // lblTituloTardias
+            // 
+            this.lblTituloTardias.AutoSize = true;
+            this.lblTituloTardias.Location = new System.Drawing.Point(63, 16);
+            this.lblTituloTardias.Name = "lblTituloTardias";
+            this.lblTituloTardias.Size = new System.Drawing.Size(0, 13);
+            this.lblTituloTardias.TabIndex = 9;
+            // 
+            // lblTotalTardias
+            // 
+            this.lblTotalTardias.AutoSize = true;
+            this.lblTotalTardias.Location = new System.Drawing.Point(65, 40);
+            this.lblTotalTardias.Name = "lblTotalTardias";
+            this.lblTotalTardias.Size = new System.Drawing.Size(0, 13);
+            this.lblTotalTardias.TabIndex = 8;
+            // 
+            // pnlTotal
+            // 
+            this.pnlTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlTotal.Controls.Add(this.pictureBox3);
+            this.pnlTotal.Controls.Add(this.lblTituloTotal);
+            this.pnlTotal.Controls.Add(this.lblTotalCentro);
+            this.pnlTotal.Location = new System.Drawing.Point(13, 4);
+            this.pnlTotal.Name = "pnlTotal";
+            this.pnlTotal.Size = new System.Drawing.Size(172, 100);
+            this.pnlTotal.TabIndex = 10;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(16, 44);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(38, 37);
+            this.pictureBox3.TabIndex = 8;
+            this.pictureBox3.TabStop = false;
+            // 
+            // lblTituloTotal
+            // 
+            this.lblTituloTotal.AutoSize = true;
+            this.lblTituloTotal.Location = new System.Drawing.Point(44, 16);
+            this.lblTituloTotal.Name = "lblTituloTotal";
+            this.lblTituloTotal.Size = new System.Drawing.Size(0, 13);
+            this.lblTituloTotal.TabIndex = 6;
+            // 
+            // lblTotalCentro
+            // 
+            this.lblTotalCentro.AutoSize = true;
+            this.lblTotalCentro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTotalCentro.Location = new System.Drawing.Point(60, 44);
+            this.lblTotalCentro.Name = "lblTotalCentro";
+            this.lblTotalCentro.Size = new System.Drawing.Size(0, 13);
+            this.lblTotalCentro.TabIndex = 4;
+            this.lblTotalCentro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pnlNoEntregados
             // 
             this.pnlNoEntregados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -327,6 +475,42 @@
             this.lblNoEntregados.Size = new System.Drawing.Size(40, 44);
             this.lblNoEntregados.TabIndex = 5;
             this.lblNoEntregados.Text = "1";
+            // 
+            // pnlAusencia
+            // 
+            this.pnlAusencia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlAusencia.Controls.Add(this.pictureBox2);
+            this.pnlAusencia.Controls.Add(this.lblTituloAusencias);
+            this.pnlAusencia.Controls.Add(this.lblAusenciasCentro);
+            this.pnlAusencia.Location = new System.Drawing.Point(392, 4);
+            this.pnlAusencia.Name = "pnlAusencia";
+            this.pnlAusencia.Size = new System.Drawing.Size(172, 100);
+            this.pnlAusencia.TabIndex = 11;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(32, 44);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(38, 37);
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblTituloAusencias
+            // 
+            this.lblTituloAusencias.AutoSize = true;
+            this.lblTituloAusencias.Location = new System.Drawing.Point(60, 11);
+            this.lblTituloAusencias.Name = "lblTituloAusencias";
+            this.lblTituloAusencias.Size = new System.Drawing.Size(0, 13);
+            this.lblTituloAusencias.TabIndex = 7;
+            // 
+            // lblAusenciasCentro
+            // 
+            this.lblAusenciasCentro.AutoSize = true;
+            this.lblAusenciasCentro.Location = new System.Drawing.Point(70, 40);
+            this.lblAusenciasCentro.Name = "lblAusenciasCentro";
+            this.lblAusenciasCentro.Size = new System.Drawing.Size(0, 13);
+            this.lblAusenciasCentro.TabIndex = 5;
             // 
             // pnlEntregados
             // 
@@ -406,183 +590,13 @@
             this.lblTituloTotalTareas.TabIndex = 0;
             this.lblTituloTotalTareas.Text = "Total de Tareas";
             // 
-            // pnlJustificado
-            // 
-            this.pnlJustificado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlJustificado.Controls.Add(this.pictureBox5);
-            this.pnlJustificado.Controls.Add(this.lblJustificado);
-            this.pnlJustificado.Controls.Add(this.lblTotalJustificado);
-            this.pnlJustificado.Location = new System.Drawing.Point(202, 4);
-            this.pnlJustificado.Name = "pnlJustificado";
-            this.pnlJustificado.Size = new System.Drawing.Size(172, 100);
-            this.pnlJustificado.TabIndex = 11;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(16, 44);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(38, 37);
-            this.pictureBox5.TabIndex = 8;
-            this.pictureBox5.TabStop = false;
-            // 
-            // lblJustificado
-            // 
-            this.lblJustificado.AutoSize = true;
-            this.lblJustificado.Location = new System.Drawing.Point(44, 16);
-            this.lblJustificado.Name = "lblJustificado";
-            this.lblJustificado.Size = new System.Drawing.Size(0, 13);
-            this.lblJustificado.TabIndex = 6;
-            // 
-            // lblTotalJustificado
-            // 
-            this.lblTotalJustificado.AutoSize = true;
-            this.lblTotalJustificado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblTotalJustificado.Location = new System.Drawing.Point(60, 44);
-            this.lblTotalJustificado.Name = "lblTotalJustificado";
-            this.lblTotalJustificado.Size = new System.Drawing.Size(0, 13);
-            this.lblTotalJustificado.TabIndex = 4;
-            this.lblTotalJustificado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlTardias
-            // 
-            this.pnlTardias.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlTardias.Controls.Add(this.pictureBox4);
-            this.pnlTardias.Controls.Add(this.lblTituloTardias);
-            this.pnlTardias.Controls.Add(this.lblTotalTardias);
-            this.pnlTardias.Location = new System.Drawing.Point(588, 3);
-            this.pnlTardias.Name = "pnlTardias";
-            this.pnlTardias.Size = new System.Drawing.Size(172, 100);
-            this.pnlTardias.TabIndex = 12;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(19, 44);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(38, 37);
-            this.pictureBox4.TabIndex = 9;
-            this.pictureBox4.TabStop = false;
-            // 
-            // lblTituloTardias
-            // 
-            this.lblTituloTardias.AutoSize = true;
-            this.lblTituloTardias.Location = new System.Drawing.Point(63, 16);
-            this.lblTituloTardias.Name = "lblTituloTardias";
-            this.lblTituloTardias.Size = new System.Drawing.Size(0, 13);
-            this.lblTituloTardias.TabIndex = 9;
-            // 
-            // lblTotalTardias
-            // 
-            this.lblTotalTardias.AutoSize = true;
-            this.lblTotalTardias.Location = new System.Drawing.Point(65, 40);
-            this.lblTotalTardias.Name = "lblTotalTardias";
-            this.lblTotalTardias.Size = new System.Drawing.Size(0, 13);
-            this.lblTotalTardias.TabIndex = 8;
-            // 
-            // pnlAusencia
-            // 
-            this.pnlAusencia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlAusencia.Controls.Add(this.pictureBox2);
-            this.pnlAusencia.Controls.Add(this.lblTituloAusencias);
-            this.pnlAusencia.Controls.Add(this.lblAusenciasCentro);
-            this.pnlAusencia.Location = new System.Drawing.Point(392, 4);
-            this.pnlAusencia.Name = "pnlAusencia";
-            this.pnlAusencia.Size = new System.Drawing.Size(172, 100);
-            this.pnlAusencia.TabIndex = 11;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(32, 44);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 37);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
-            // 
-            // lblTituloAusencias
-            // 
-            this.lblTituloAusencias.AutoSize = true;
-            this.lblTituloAusencias.Location = new System.Drawing.Point(60, 11);
-            this.lblTituloAusencias.Name = "lblTituloAusencias";
-            this.lblTituloAusencias.Size = new System.Drawing.Size(0, 13);
-            this.lblTituloAusencias.TabIndex = 7;
-            // 
-            // lblAusenciasCentro
-            // 
-            this.lblAusenciasCentro.AutoSize = true;
-            this.lblAusenciasCentro.Location = new System.Drawing.Point(70, 40);
-            this.lblAusenciasCentro.Name = "lblAusenciasCentro";
-            this.lblAusenciasCentro.Size = new System.Drawing.Size(0, 13);
-            this.lblAusenciasCentro.TabIndex = 5;
-            // 
-            // pnlTotal
-            // 
-            this.pnlTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlTotal.Controls.Add(this.pictureBox3);
-            this.pnlTotal.Controls.Add(this.lblTituloTotal);
-            this.pnlTotal.Controls.Add(this.lblTotalCentro);
-            this.pnlTotal.Location = new System.Drawing.Point(13, 4);
-            this.pnlTotal.Name = "pnlTotal";
-            this.pnlTotal.Size = new System.Drawing.Size(172, 100);
-            this.pnlTotal.TabIndex = 10;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(16, 44);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(38, 37);
-            this.pictureBox3.TabIndex = 8;
-            this.pictureBox3.TabStop = false;
-            // 
-            // lblTituloTotal
-            // 
-            this.lblTituloTotal.AutoSize = true;
-            this.lblTituloTotal.Location = new System.Drawing.Point(44, 16);
-            this.lblTituloTotal.Name = "lblTituloTotal";
-            this.lblTituloTotal.Size = new System.Drawing.Size(0, 13);
-            this.lblTituloTotal.TabIndex = 6;
-            // 
-            // lblTotalCentro
-            // 
-            this.lblTotalCentro.AutoSize = true;
-            this.lblTotalCentro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblTotalCentro.Location = new System.Drawing.Point(60, 44);
-            this.lblTotalCentro.Name = "lblTotalCentro";
-            this.lblTotalCentro.Size = new System.Drawing.Size(0, 13);
-            this.lblTotalCentro.TabIndex = 4;
-            this.lblTotalCentro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // chartporcentaje
-            // 
-            this.chartporcentaje.BackColor = System.Drawing.Color.Transparent;
-            this.chartporcentaje.BorderlineColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            this.chartporcentaje.ChartAreas.Add(chartArea2);
-            this.chartporcentaje.Dock = System.Windows.Forms.DockStyle.Left;
-            legend2.Name = "Legend1";
-            this.chartporcentaje.Legends.Add(legend2);
-            this.chartporcentaje.Location = new System.Drawing.Point(0, 0);
-            this.chartporcentaje.Name = "chartporcentaje";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartporcentaje.Series.Add(series2);
-            this.chartporcentaje.Size = new System.Drawing.Size(350, 243);
-            this.chartporcentaje.TabIndex = 3;
-            this.chartporcentaje.Text = "Porcentaje";
-            this.chartporcentaje.TextAntiAliasingQuality = System.Windows.Forms.DataVisualization.Charting.TextAntiAliasingQuality.Normal;
-            this.chartporcentaje.Click += new System.EventHandler(this.chartporcentaje_Click);
-            // 
             // dgvReporte
             // 
             this.dgvReporte.AllowUserToAddRows = false;
             this.dgvReporte.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReporte.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgvReporte.Location = new System.Drawing.Point(0, 471);
+            this.dgvReporte.Location = new System.Drawing.Point(0, 450);
             this.dgvReporte.Name = "dgvReporte";
             this.dgvReporte.ReadOnly = true;
             this.dgvReporte.Size = new System.Drawing.Size(1189, 202);
@@ -590,27 +604,44 @@
             // 
             // pnlBotones
             // 
-            this.pnlBotones.Controls.Add(this.btnSalir);
-            this.pnlBotones.Controls.Add(this.btnExcel);
-            this.pnlBotones.Controls.Add(this.btnPDF);
+            this.pnlBotones.Controls.Add(this.tableLayoutPanel1);
             this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBotones.Location = new System.Drawing.Point(0, 673);
+            this.pnlBotones.Location = new System.Drawing.Point(0, 686);
             this.pnlBotones.Name = "pnlBotones";
             this.pnlBotones.Size = new System.Drawing.Size(1189, 63);
             this.pnlBotones.TabIndex = 6;
             this.pnlBotones.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBotones_Paint);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Controls.Add(this.btnSalir, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnExcel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnPDF, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1189, 63);
+            this.tableLayoutPanel1.TabIndex = 3;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
             // btnSalir
             // 
+            this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSalir.BackColor = System.Drawing.Color.DarkOrange;
             this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-            this.btnSalir.Location = new System.Drawing.Point(672, 11);
+            this.btnSalir.Location = new System.Drawing.Point(941, 10);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(121, 43);
+            this.btnSalir.Size = new System.Drawing.Size(98, 43);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -619,15 +650,16 @@
             // 
             // btnExcel
             // 
+            this.btnExcel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnExcel.BackColor = System.Drawing.Color.YellowGreen;
             this.btnExcel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcel.ForeColor = System.Drawing.Color.White;
             this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
-            this.btnExcel.Location = new System.Drawing.Point(510, 11);
+            this.btnExcel.Location = new System.Drawing.Point(544, 10);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(121, 43);
+            this.btnExcel.Size = new System.Drawing.Size(100, 43);
             this.btnExcel.TabIndex = 1;
             this.btnExcel.Text = "Generar Excel";
             this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -636,42 +668,104 @@
             // 
             // btnPDF
             // 
+            this.btnPDF.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPDF.BackColor = System.Drawing.Color.OrangeRed;
             this.btnPDF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPDF.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPDF.ForeColor = System.Drawing.Color.White;
             this.btnPDF.Image = ((System.Drawing.Image)(resources.GetObject("btnPDF.Image")));
-            this.btnPDF.Location = new System.Drawing.Point(339, 11);
+            this.btnPDF.Location = new System.Drawing.Point(140, 10);
             this.btnPDF.Name = "btnPDF";
-            this.btnPDF.Size = new System.Drawing.Size(121, 43);
+            this.btnPDF.Size = new System.Drawing.Size(115, 43);
             this.btnPDF.TabIndex = 0;
             this.btnPDF.Text = "Generar PDF";
             this.btnPDF.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPDF.UseVisualStyleBackColor = false;
             this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
             // 
-            // panel3
+            // btnBuscar
             // 
-            this.panel3.Controls.Add(this.pnlJustificado);
-            this.panel3.Controls.Add(this.pnlPromedio);
-            this.panel3.Controls.Add(this.pnlTardias);
-            this.panel3.Controls.Add(this.pnlTotal);
-            this.panel3.Controls.Add(this.pnlNoEntregados);
-            this.panel3.Controls.Add(this.pnlAusencia);
-            this.panel3.Controls.Add(this.pnlEntregados);
-            this.panel3.Controls.Add(this.pnlTareas);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(350, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(785, 243);
-            this.panel3.TabIndex = 17;
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnBuscar.BackColor = System.Drawing.Color.Orange;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(3, 10);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(112, 37);
+            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnJustificarSeleccionado
+            // 
+            this.btnJustificarSeleccionado.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnJustificarSeleccionado.BackColor = System.Drawing.Color.Orange;
+            this.btnJustificarSeleccionado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnJustificarSeleccionado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnJustificarSeleccionado.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJustificarSeleccionado.ForeColor = System.Drawing.Color.White;
+            this.btnJustificarSeleccionado.Image = ((System.Drawing.Image)(resources.GetObject("btnJustificarSeleccionado.Image")));
+            this.btnJustificarSeleccionado.Location = new System.Drawing.Point(121, 10);
+            this.btnJustificarSeleccionado.Name = "btnJustificarSeleccionado";
+            this.btnJustificarSeleccionado.Size = new System.Drawing.Size(112, 37);
+            this.btnJustificarSeleccionado.TabIndex = 8;
+            this.btnJustificarSeleccionado.Text = "Justificar";
+            this.btnJustificarSeleccionado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnJustificarSeleccionado.UseVisualStyleBackColor = false;
+            this.btnJustificarSeleccionado.Click += new System.EventHandler(this.btnJustificarSeleccionado_Click);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.Controls.Add(this.btnJustificarSeleccionado, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnBuscar, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(795, 66);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(391, 57);
+            this.tableLayoutPanel3.TabIndex = 9;
+            // 
+            // dtpDesde
+            // 
+            this.dtpDesde.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtpDesde.Location = new System.Drawing.Point(232, 84);
+            this.dtpDesde.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(184, 20);
+            this.dtpDesde.TabIndex = 6;
+            // 
+            // dtpHasta
+            // 
+            this.dtpHasta.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtpHasta.Location = new System.Drawing.Point(651, 84);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(156, 20);
+            this.dtpHasta.TabIndex = 7;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.tableLayoutPanel2);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1189, 100);
+            this.panel5.TabIndex = 10;
             // 
             // FrmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1189, 736);
+            this.ClientSize = new System.Drawing.Size(1189, 749);
             this.Controls.Add(this.pnlBotones);
             this.Controls.Add(this.dgvReporte);
             this.Controls.Add(this.pnlResumen);
@@ -680,40 +774,47 @@
             this.Name = "FrmReportes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmReportes";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmReportes_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.pnlResumen.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartporcentaje)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.pnlJustificado.ResumeLayout(false);
+            this.pnlJustificado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.pnlPromedio.ResumeLayout(false);
             this.pnlPromedio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.pnlTardias.ResumeLayout(false);
+            this.pnlTardias.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.pnlTotal.ResumeLayout(false);
+            this.pnlTotal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlNoEntregados.ResumeLayout(false);
             this.pnlNoEntregados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.pnlAusencia.ResumeLayout(false);
+            this.pnlAusencia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlEntregados.ResumeLayout(false);
             this.pnlEntregados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.pnlTareas.ResumeLayout(false);
             this.pnlTareas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.pnlJustificado.ResumeLayout(false);
-            this.pnlJustificado.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.pnlTardias.ResumeLayout(false);
-            this.pnlTardias.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.pnlAusencia.ResumeLayout(false);
-            this.pnlAusencia.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.pnlTotal.ResumeLayout(false);
-            this.pnlTotal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartporcentaje)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporte)).EndInit();
             this.pnlBotones.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -724,9 +825,6 @@
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Panel panel2;
-		private System.Windows.Forms.DateTimePicker dtpHasta;
-		private System.Windows.Forms.DateTimePicker dtpDesde;
-		private System.Windows.Forms.Button btnBuscar;
 		private System.Windows.Forms.ComboBox cmbMateria;
 		private System.Windows.Forms.ComboBox cmbSeccion;
 		private System.Windows.Forms.ComboBox cmbEstudiante;
@@ -749,7 +847,6 @@
 		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.PictureBox pictureBox4;
 		private System.Windows.Forms.PictureBox pictureBox3;
-		private System.Windows.Forms.Button btnJustificarSeleccionado;
 		private System.Windows.Forms.Panel pnlJustificado;
 		private System.Windows.Forms.PictureBox pictureBox5;
 		private System.Windows.Forms.Label lblJustificado;
@@ -771,5 +868,14 @@
 		private System.Windows.Forms.PictureBox pictureBox6;
 		private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.DateTimePicker dtpDesde;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button btnJustificarSeleccionado;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Panel panel5;
     }
 }
