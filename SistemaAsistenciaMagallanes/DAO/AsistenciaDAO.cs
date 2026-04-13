@@ -22,7 +22,7 @@ namespace SistemaAsistenciaMagallanes.DAO
 			string consulta = @"
 							SELECT 
 								e.IdEstudiante, 
-								e.Nombre + ' ' + e.Apellido AS Estudiante
+								e.Apellido + ' ' + e.Nombre AS Estudiante
 							FROM Estudiantes e
 							INNER JOIN DocenteSeccionMateria dsm 
 								ON dsm.IdAsignacion = @IdAsignacion
@@ -36,7 +36,8 @@ namespace SistemaAsistenciaMagallanes.DAO
 									m.NombreMateria COLLATE Latin1_General_CI_AI LIKE '%religion%'
 									AND e.RecibeReligion = 1
 								)
-							)";
+							)
+							ORDER BY e.Apellido COLLATE Latin1_General_CI_AI";
 
 			SqlCommand cmd = new SqlCommand(consulta, conexion);
 			cmd.Parameters.AddWithValue("@IdSeccion", idSeccion);

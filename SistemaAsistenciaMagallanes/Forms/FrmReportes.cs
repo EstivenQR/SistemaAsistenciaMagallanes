@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -332,21 +333,41 @@ namespace SistemaAsistenciaMagallanes.Forms
 			int? idMateria = cmbMateria.SelectedValue != null ? (int?)Convert.ToInt32(cmbMateria.SelectedValue) : null;
 			int? idEstudiante = cmbEstudiante.SelectedValue != null ? (int?)Convert.ToInt32(cmbEstudiante.SelectedValue) : null;
 
-			
+
 			DataTable dtTareas = service.ObtenerReporteTareas(idSeccion, idMateria, idEstudiante);
 
-			
 
-			pdf.GenerarPDF(
-				dgvReporte,
-				dtTareas, 
-				lblTotalCentro.Text,
-				lblAusenciasCentro.Text,
-				lblTotalTardias.Text,
-				lblTotalJustificado.Text,
-				cmbEstudiante.Text,
-				cmbSeccion.Text
-			);
+			try
+			{
+				pdf.GenerarPDF(
+					dgvReporte,
+					dtTareas,
+					lblTotalCentro.Text,
+					lblAusenciasCentro.Text,
+					lblTotalTardias.Text,
+					lblTotalJustificado.Text,
+					cmbEstudiante.Text,
+					cmbSeccion.Text
+				);
+			}
+			catch (IOException)
+			{
+				MessageBox.Show(
+				"El archivo PDF está abierto. Por favor ciérrelo antes de generar uno nuevo.",
+				"Archivo en uso",
+		MessageBoxButtons.OK,
+		MessageBoxIcon.Warning
+				);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(
+					"Ocurrió un error al generar el PDF:\n" + ex.Message,
+					"Error",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Error
+				);
+			}
 		}
 
 		private void FrmReportes_Load(object sender, EventArgs e)
@@ -559,5 +580,20 @@ namespace SistemaAsistenciaMagallanes.Forms
             tableLayoutPanel2.Left = (this.ClientSize.Width - tableLayoutPanel2.Width) / 2;
             tableLayoutPanel2.Top = (panel2.Height - tableLayoutPanel2.Height) / 2;
         }
-    }
+
+		private void tableLayoutPanel2_Resize(object sender, EventArgs e)
+		{
+
+		}
+
+		private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void pictureBox10_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

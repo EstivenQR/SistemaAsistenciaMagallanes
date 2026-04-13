@@ -35,6 +35,7 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.panelLogin = new System.Windows.Forms.Panel();
+			this.btnSalir = new System.Windows.Forms.Button();
 			this.btnLogin = new System.Windows.Forms.Button();
 			this.pictureBox3 = new System.Windows.Forms.PictureBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -44,7 +45,6 @@
 			this.txtUsuario = new System.Windows.Forms.TextBox();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.timer2 = new System.Windows.Forms.Timer(this.components);
-			this.btnSalir = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panelLogin.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -115,6 +115,21 @@
 			this.panelLogin.Name = "panelLogin";
 			this.panelLogin.Size = new System.Drawing.Size(306, 284);
 			this.panelLogin.TabIndex = 4;
+			// 
+			// btnSalir
+			// 
+			this.btnSalir.BackColor = System.Drawing.Color.Orange;
+			this.btnSalir.FlatAppearance.BorderSize = 0;
+			this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnSalir.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnSalir.ForeColor = System.Drawing.Color.White;
+			this.btnSalir.Location = new System.Drawing.Point(24, 213);
+			this.btnSalir.Name = "btnSalir";
+			this.btnSalir.Size = new System.Drawing.Size(250, 45);
+			this.btnSalir.TabIndex = 7;
+			this.btnSalir.Text = "SALIR";
+			this.btnSalir.UseVisualStyleBackColor = false;
+			this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
 			// 
 			// btnLogin
 			// 
@@ -201,21 +216,6 @@
 			// 
 			this.timer2.Interval = 30;
 			this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-			// 
-			// btnSalir
-			// 
-			this.btnSalir.BackColor = System.Drawing.Color.Orange;
-			this.btnSalir.FlatAppearance.BorderSize = 0;
-			this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnSalir.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSalir.ForeColor = System.Drawing.Color.White;
-			this.btnSalir.Location = new System.Drawing.Point(24, 213);
-			this.btnSalir.Name = "btnSalir";
-			this.btnSalir.Size = new System.Drawing.Size(250, 45);
-			this.btnSalir.TabIndex = 7;
-			this.btnSalir.Text = "SALIR";
-			this.btnSalir.UseVisualStyleBackColor = false;
-			this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
 			// 
 			// FrmLogin
 			// 

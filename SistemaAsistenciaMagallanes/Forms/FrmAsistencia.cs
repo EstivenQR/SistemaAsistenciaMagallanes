@@ -35,6 +35,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			dgvAsistencia.CurrentCellDirtyStateChanged += dgvAsistencia_CurrentCellDirtyStateChanged;
 			RedondearBoton(btnGuardar, 20);
 			RedondearBoton(btnMarcarTodos, 20);
+			RedondearBoton(btnSalir, 20);
 
 		}
 
@@ -166,7 +167,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 				CargarMaterias(idSeccion);
 
-				// 🔥 ESPERAR a que cargue materias
+				// ESPERA a que cargue materias
 				if (cmbMateria.SelectedValue != null)
 				{
 					int idMateria = Convert.ToInt32(cmbMateria.SelectedValue);
@@ -277,6 +278,21 @@ namespace SistemaAsistenciaMagallanes.Forms
 		private void dgvAsistencia_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 
+		}
+
+		private void label1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void flowLayoutPanel1_Resize(object sender, EventArgs e)
+		{
+			flowLayoutPanel1.Left = (pnlfiltros.Width - flowLayoutPanel1.Width) / 2;
+		}
+
+		private void btnSalir_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 	}
 }
