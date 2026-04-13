@@ -18,18 +18,24 @@ namespace SistemaAsistenciaMagallanes.Forms
 	{
 
 		AsistenciaService service = new AsistenciaService();
-		public FrmAsistencia()
+        private bool cargandoMaterias = false;
+        public FrmAsistencia()
 		{
 			InitializeComponent();
-			
-		}
+            dgvAsistencia.Columns.Clear();
 
-		private void FrmAsistencia_Load(object sender, EventArgs e)
+        }
+
+        private bool tablaConfigurada = false;
+
+        private void FrmAsistencia_Load(object sender, EventArgs e)
 		{
-			cmbMateria.DataSource = null;
+            dgvAsistencia.AllowUserToAddRows = false;
+            cmbMateria.DataSource = null;
 			dgvAsistencia.AutoGenerateColumns = false;
 			ConfigurarTabla();
-			CargarSecciones();
+            MessageBox.Show(dgvAsistencia.Columns.Count.ToString());
+            CargarSecciones();
 			dgvAsistencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			dgvAsistencia.CellValueChanged += dgvAsistencia_CellValueChanged;
 			dgvAsistencia.CurrentCellDirtyStateChanged += dgvAsistencia_CurrentCellDirtyStateChanged;
@@ -55,38 +61,36 @@ namespace SistemaAsistenciaMagallanes.Forms
 		}
 		private void ConfigurarTabla()
 		{
-			dgvAsistencia.AutoGenerateColumns = false;
-			dgvAsistencia.Columns.Clear();
+            {
+                if (tablaConfigurada) return; // 🔥 evita duplicación
 
-			// Columna ID (oculta)
-			DataGridViewTextBoxColumn id = new DataGridViewTextBoxColumn();
-			id.Name = "IdEstudiante";
-			id.DataPropertyName = "IdEstudiante";
-			id.Visible = false;
+                dgvAsistencia.AutoGenerateColumns = false;
+                dgvAsistencia.Columns.Clear();
 
-			dgvAsistencia.Columns.Add(id);
+                DataGridViewTextBoxColumn id = new DataGridViewTextBoxColumn();
+                id.Name = "IdEstudiante";
+                id.DataPropertyName = "IdEstudiante";
+                id.Visible = false;
+                dgvAsistencia.Columns.Add(id);
 
-			// Columna Estudiante
-			DataGridViewTextBoxColumn estudiante = new DataGridViewTextBoxColumn();
-			estudiante.Name = "Estudiante";
-			estudiante.HeaderText = "Estudiante";
-			estudiante.DataPropertyName = "Estudiante";
+                DataGridViewTextBoxColumn estudiante = new DataGridViewTextBoxColumn();
+                estudiante.Name = "Estudiante";
+                estudiante.HeaderText = "Estudiante";
+                estudiante.DataPropertyName = "Estudiante";
+                dgvAsistencia.Columns.Add(estudiante);
 
-			dgvAsistencia.Columns.Add(estudiante);
+                DataGridViewComboBoxColumn estado = new DataGridViewComboBoxColumn();
+                estado.Name = "Estado";
+                estado.HeaderText = "Estado";
+                estado.Items.Add("Presente");
+                estado.Items.Add("Ausente");
+                estado.Items.Add("Tardía");
+                estado.Items.Add("Justificado");
+                dgvAsistencia.Columns.Add(estado);
 
-			// Columna Estado
-			DataGridViewComboBoxColumn estado = new DataGridViewComboBoxColumn();
-			estado.Name = "Estado";
-			estado.HeaderText = "Estado";
-
-
-			estado.Items.Add("Presente");
-			estado.Items.Add("Ausente");
-			estado.Items.Add("Tardía");
-			estado.Items.Add("Justificado");
-
-			dgvAsistencia.Columns.Add(estado);
-		}
+                tablaConfigurada = true;
+            }
+        }
 
 		private void CargarSecciones()
 		{
@@ -105,17 +109,21 @@ namespace SistemaAsistenciaMagallanes.Forms
 			cmbSeccion.ValueMember = "IdSeccion";
 		}
 
-		private void CargarMaterias(int idSeccion)
-		{
-			AsistenciaService service = new AsistenciaService();
+        private void CargarMaterias(int idSeccion)
+        {
+            cargandoMaterias = true;
 
-			cmbMateria.DataSource = service.ObtenerMateriasDocente(Sesion.IdUsuario, idSeccion);
+            AsistenciaService service = new AsistenciaService();
 
-			cmbMateria.DisplayMember = "NombreMateria";
-			cmbMateria.ValueMember = "IdAsignacion";
+            cmbMateria.DataSource = null;
+            cmbMateria.DataSource = service.ObtenerMateriasDocente(Sesion.IdUsuario, idSeccion);
 
-		}
-		private void CargarEstudiantes(int idSeccion, int IdMateria)
+            cmbMateria.DisplayMember = "NombreMateria";
+            cmbMateria.ValueMember = "IdAsignacion";
+
+            cargandoMaterias = false;
+        }
+        private void CargarEstudiantes(int idSeccion, int IdMateria)
 		{
 			AsistenciaService service = new AsistenciaService();
 
@@ -131,26 +139,6 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		}
 
-		/*private void btnGuardar_Click(object sender, EventArgs e)
-		{
-			foreach (DataGridViewRow fila in dgvAsistencia.Rows)
-			{
-				int idEstudiante = Convert.ToInt32(fila.Cells["IdEstudiante"].Value);
-
-				string estado = fila.Cells["Estado"].Value.ToString();
-
-				service.GuardarAsistencia(
-					idEstudiante,
-					Convert.ToInt32(cmbSeccion.SelectedValue),
-					Convert.ToInt32(cmbMateria.SelectedValue),
-					dtpFecha.Value,
-					estado,
-					Sesion.IdUsuario
-				);
-			}
-
-			MessageBox.Show("Asistencia guardada correctamente");
-		}*/
 
 		private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -159,21 +147,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		private void cmbSeccion_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (cmbSeccion.SelectedValue != null && cmbSeccion.SelectedValue is int)
-			{
-				int idSeccion = Convert.ToInt32(cmbSeccion.SelectedValue);
-
-				if (idSeccion == 0) return;
-
-				CargarMaterias(idSeccion);
-
-				// ESPERA a que cargue materias
-				if (cmbMateria.SelectedValue != null)
-				{
-					int idMateria = Convert.ToInt32(cmbMateria.SelectedValue);
-					CargarEstudiantes(idSeccion, idMateria);
-				}
-			}
+			
 		}
 
 		private void cmbSeccion_SelectionChangeCommitted(object sender, EventArgs e)
@@ -262,13 +236,15 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		private void cmbMateria_SelectionChangeCommitted(object sender, EventArgs e)
 		{
-			if (cmbSeccion.SelectedValue == null) return;
+            if (cargandoMaterias) return; 
 
-			int idSeccion = Convert.ToInt32(cmbSeccion.SelectedValue);
-			int idAsignacion = Convert.ToInt32(cmbMateria.SelectedValue);
+            if (cmbSeccion.SelectedValue == null) return;
 
-			CargarEstudiantes(idSeccion, idAsignacion);
-		}
+            int idSeccion = Convert.ToInt32(cmbSeccion.SelectedValue);
+            int idAsignacion = Convert.ToInt32(cmbMateria.SelectedValue);
+
+            CargarEstudiantes(idSeccion, idAsignacion);
+        }
 
 		private void btnJustificarSeleccionado_Click(object sender, EventArgs e)
 		{
@@ -294,5 +270,10 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 			this.Close();
 		}
-	}
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }

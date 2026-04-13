@@ -28,336 +28,337 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAsistencia));
-			this.pnlfiltros = new System.Windows.Forms.Panel();
-			this.label3 = new System.Windows.Forms.Label();
-			this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-			this.cmbMateria = new System.Windows.Forms.ComboBox();
-			this.lblMateria = new System.Windows.Forms.Label();
-			this.cmbSeccion = new System.Windows.Forms.ComboBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.dgvAsistencia = new System.Windows.Forms.DataGridView();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.btnMarcarTodos = new System.Windows.Forms.Button();
-			this.btnGuardar = new System.Windows.Forms.Button();
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.btnSalir = new System.Windows.Forms.Button();
-			this.paneltop = new System.Windows.Forms.Panel();
-			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-			this.pnlfiltros.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).BeginInit();
-			this.panel1.SuspendLayout();
-			this.panel2.SuspendLayout();
-			this.panel3.SuspendLayout();
-			this.paneltop.SuspendLayout();
-			this.tableLayoutPanel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-			this.tableLayoutPanel1.SuspendLayout();
-			this.flowLayoutPanel1.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// pnlfiltros
-			// 
-			this.pnlfiltros.Controls.Add(this.tableLayoutPanel1);
-			this.pnlfiltros.Dock = System.Windows.Forms.DockStyle.Top;
-			this.pnlfiltros.Location = new System.Drawing.Point(0, 99);
-			this.pnlfiltros.Name = "pnlfiltros";
-			this.pnlfiltros.Size = new System.Drawing.Size(1151, 58);
-			this.pnlfiltros.TabIndex = 1;
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(432, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(41, 17);
-			this.label3.TabIndex = 5;
-			this.label3.Text = "Fecha";
-			// 
-			// dtpFecha
-			// 
-			this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtpFecha.Location = new System.Drawing.Point(479, 3);
-			this.dtpFecha.Name = "dtpFecha";
-			this.dtpFecha.Size = new System.Drawing.Size(200, 20);
-			this.dtpFecha.TabIndex = 4;
-			// 
-			// cmbMateria
-			// 
-			this.cmbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmbMateria.FormattingEnabled = true;
-			this.cmbMateria.Location = new System.Drawing.Point(276, 3);
-			this.cmbMateria.Name = "cmbMateria";
-			this.cmbMateria.Size = new System.Drawing.Size(150, 21);
-			this.cmbMateria.TabIndex = 3;
-			this.cmbMateria.SelectedIndexChanged += new System.EventHandler(this.cmbMateria_SelectedIndexChanged);
-			this.cmbMateria.SelectionChangeCommitted += new System.EventHandler(this.cmbMateria_SelectionChangeCommitted);
-			// 
-			// lblMateria
-			// 
-			this.lblMateria.AutoSize = true;
-			this.lblMateria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblMateria.Location = new System.Drawing.Point(217, 0);
-			this.lblMateria.Name = "lblMateria";
-			this.lblMateria.Size = new System.Drawing.Size(53, 17);
-			this.lblMateria.TabIndex = 2;
-			this.lblMateria.Text = "Materia";
-			// 
-			// cmbSeccion
-			// 
-			this.cmbSeccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmbSeccion.FormattingEnabled = true;
-			this.cmbSeccion.Location = new System.Drawing.Point(61, 3);
-			this.cmbSeccion.Name = "cmbSeccion";
-			this.cmbSeccion.Size = new System.Drawing.Size(150, 21);
-			this.cmbSeccion.TabIndex = 1;
-			this.cmbSeccion.SelectedIndexChanged += new System.EventHandler(this.cmbSeccion_SelectedIndexChanged);
-			this.cmbSeccion.SelectionChangeCommitted += new System.EventHandler(this.cmbSeccion_SelectionChangeCommitted);
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(3, 0);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(52, 17);
-			this.label2.TabIndex = 0;
-			this.label2.Text = "Sección";
-			// 
-			// dgvAsistencia
-			// 
-			this.dgvAsistencia.AllowUserToAddRows = false;
-			this.dgvAsistencia.BackgroundColor = System.Drawing.Color.White;
-			this.dgvAsistencia.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Transparent;
-			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvAsistencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-			this.dgvAsistencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvAsistencia.DefaultCellStyle = dataGridViewCellStyle10;
-			this.dgvAsistencia.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvAsistencia.EnableHeadersVisualStyles = false;
-			this.dgvAsistencia.Location = new System.Drawing.Point(0, 0);
-			this.dgvAsistencia.Name = "dgvAsistencia";
-			this.dgvAsistencia.RowHeadersVisible = false;
-			this.dgvAsistencia.RowTemplate.Height = 40;
-			this.dgvAsistencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvAsistencia.Size = new System.Drawing.Size(1151, 401);
-			this.dgvAsistencia.TabIndex = 2;
-			this.dgvAsistencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAsistencia_CellContentClick);
-			this.dgvAsistencia.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAsistencia_CellValueChanged);
-			this.dgvAsistencia.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvAsistencia_CurrentCellDirtyStateChanged);
-			// 
-			// panel1
-			// 
-			this.panel1.BackColor = System.Drawing.Color.Transparent;
-			this.panel1.Controls.Add(this.panel2);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 558);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1151, 70);
-			this.panel1.TabIndex = 3;
-			// 
-			// panel2
-			// 
-			this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.panel2.Controls.Add(this.btnSalir);
-			this.panel2.Controls.Add(this.btnMarcarTodos);
-			this.panel2.Controls.Add(this.btnGuardar);
-			this.panel2.Location = new System.Drawing.Point(239, 8);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(667, 50);
-			this.panel2.TabIndex = 2;
-			// 
-			// btnMarcarTodos
-			// 
-			this.btnMarcarTodos.BackColor = System.Drawing.Color.Orange;
-			this.btnMarcarTodos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnMarcarTodos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnMarcarTodos.ForeColor = System.Drawing.Color.White;
-			this.btnMarcarTodos.Location = new System.Drawing.Point(12, 7);
-			this.btnMarcarTodos.Name = "btnMarcarTodos";
-			this.btnMarcarTodos.Size = new System.Drawing.Size(200, 40);
-			this.btnMarcarTodos.TabIndex = 0;
-			this.btnMarcarTodos.Text = "Marcar Todos Presentes";
-			this.btnMarcarTodos.UseVisualStyleBackColor = false;
-			this.btnMarcarTodos.Click += new System.EventHandler(this.btnMarcarTodos_Click);
-			// 
-			// btnGuardar
-			// 
-			this.btnGuardar.BackColor = System.Drawing.Color.YellowGreen;
-			this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGuardar.ForeColor = System.Drawing.Color.White;
-			this.btnGuardar.Location = new System.Drawing.Point(233, 7);
-			this.btnGuardar.Name = "btnGuardar";
-			this.btnGuardar.Size = new System.Drawing.Size(200, 40);
-			this.btnGuardar.TabIndex = 1;
-			this.btnGuardar.Text = "Guardar Asistencia";
-			this.btnGuardar.UseVisualStyleBackColor = false;
-			this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
-			// 
-			// panel3
-			// 
-			this.panel3.Controls.Add(this.dgvAsistencia);
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel3.Location = new System.Drawing.Point(0, 157);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(1151, 401);
-			this.panel3.TabIndex = 4;
-			// 
-			// btnSalir
-			// 
-			this.btnSalir.BackColor = System.Drawing.Color.Chocolate;
-			this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSalir.ForeColor = System.Drawing.Color.White;
-			this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-			this.btnSalir.Location = new System.Drawing.Point(455, 7);
-			this.btnSalir.Name = "btnSalir";
-			this.btnSalir.Size = new System.Drawing.Size(112, 40);
-			this.btnSalir.TabIndex = 2;
-			this.btnSalir.Text = "Salir";
-			this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.btnSalir.UseVisualStyleBackColor = false;
-			this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-			// 
-			// paneltop
-			// 
-			this.paneltop.BackColor = System.Drawing.Color.Orange;
-			this.paneltop.Controls.Add(this.tableLayoutPanel3);
-			this.paneltop.Dock = System.Windows.Forms.DockStyle.Top;
-			this.paneltop.Location = new System.Drawing.Point(0, 0);
-			this.paneltop.Name = "paneltop";
-			this.paneltop.Size = new System.Drawing.Size(1151, 99);
-			this.paneltop.TabIndex = 0;
-			// 
-			// tableLayoutPanel3
-			// 
-			this.tableLayoutPanel3.ColumnCount = 3;
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.86598F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.62628F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.50773F));
-			this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 0, 0);
-			this.tableLayoutPanel3.Controls.Add(this.label1, 1, 0);
-			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-			this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-			this.tableLayoutPanel3.RowCount = 1;
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(1151, 99);
-			this.tableLayoutPanel3.TabIndex = 4;
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(13, 3);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Padding = new System.Windows.Forms.Padding(20, 0, 10, 0);
-			this.pictureBox1.Size = new System.Drawing.Size(142, 93);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox1.TabIndex = 2;
-			this.pictureBox1.TabStop = false;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Segoe UI Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-			this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.label1.Location = new System.Drawing.Point(407, 0);
-			this.label1.Name = "label1";
-			this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-			this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.label1.Size = new System.Drawing.Size(379, 70);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "ASISTENCIA     ";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.ColumnCount = 3;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 0);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-			this.tableLayoutPanel1.RowCount = 1;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1151, 58);
-			this.tableLayoutPanel1.TabIndex = 7;
-			// 
-			// flowLayoutPanel1
-			// 
-			this.flowLayoutPanel1.AutoSize = true;
-			this.flowLayoutPanel1.Controls.Add(this.label2);
-			this.flowLayoutPanel1.Controls.Add(this.cmbSeccion);
-			this.flowLayoutPanel1.Controls.Add(this.lblMateria);
-			this.flowLayoutPanel1.Controls.Add(this.cmbMateria);
-			this.flowLayoutPanel1.Controls.Add(this.label3);
-			this.flowLayoutPanel1.Controls.Add(this.dtpFecha);
-			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(348, 11);
-			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(684, 44);
-			this.flowLayoutPanel1.TabIndex = 6;
-			this.flowLayoutPanel1.WrapContents = false;
-			this.flowLayoutPanel1.Resize += new System.EventHandler(this.flowLayoutPanel1_Resize);
-			// 
-			// FrmAsistencia
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1151, 628);
-			this.Controls.Add(this.panel3);
-			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.pnlfiltros);
-			this.Controls.Add(this.paneltop);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Name = "FrmAsistencia";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "FrmAsistencia";
-			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-			this.Load += new System.EventHandler(this.FrmAsistencia_Load);
-			this.pnlfiltros.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).EndInit();
-			this.panel1.ResumeLayout(false);
-			this.panel2.ResumeLayout(false);
-			this.panel3.ResumeLayout(false);
-			this.paneltop.ResumeLayout(false);
-			this.tableLayoutPanel3.ResumeLayout(false);
-			this.tableLayoutPanel3.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-			this.tableLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel1.PerformLayout();
-			this.flowLayoutPanel1.ResumeLayout(false);
-			this.flowLayoutPanel1.PerformLayout();
-			this.ResumeLayout(false);
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAsistencia));
+            this.pnlfiltros = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbSeccion = new System.Windows.Forms.ComboBox();
+            this.lblMateria = new System.Windows.Forms.Label();
+            this.cmbMateria = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.dgvAsistencia = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnMarcarTodos = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.paneltop = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlfiltros.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.paneltop.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pnlfiltros
+            // 
+            this.pnlfiltros.Controls.Add(this.tableLayoutPanel1);
+            this.pnlfiltros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlfiltros.Location = new System.Drawing.Point(0, 99);
+            this.pnlfiltros.Name = "pnlfiltros";
+            this.pnlfiltros.Size = new System.Drawing.Size(1151, 58);
+            this.pnlfiltros.TabIndex = 1;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1151, 58);
+            this.tableLayoutPanel1.TabIndex = 7;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Controls.Add(this.cmbSeccion);
+            this.flowLayoutPanel1.Controls.Add(this.lblMateria);
+            this.flowLayoutPanel1.Controls.Add(this.cmbMateria);
+            this.flowLayoutPanel1.Controls.Add(this.label3);
+            this.flowLayoutPanel1.Controls.Add(this.dtpFecha);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(348, 11);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(684, 44);
+            this.flowLayoutPanel1.TabIndex = 6;
+            this.flowLayoutPanel1.WrapContents = false;
+            this.flowLayoutPanel1.Resize += new System.EventHandler(this.flowLayoutPanel1_Resize);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Sección";
+            // 
+            // cmbSeccion
+            // 
+            this.cmbSeccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSeccion.FormattingEnabled = true;
+            this.cmbSeccion.Location = new System.Drawing.Point(61, 3);
+            this.cmbSeccion.Name = "cmbSeccion";
+            this.cmbSeccion.Size = new System.Drawing.Size(150, 21);
+            this.cmbSeccion.TabIndex = 1;
+            this.cmbSeccion.SelectedIndexChanged += new System.EventHandler(this.cmbSeccion_SelectedIndexChanged);
+            this.cmbSeccion.SelectionChangeCommitted += new System.EventHandler(this.cmbSeccion_SelectionChangeCommitted);
+            // 
+            // lblMateria
+            // 
+            this.lblMateria.AutoSize = true;
+            this.lblMateria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMateria.Location = new System.Drawing.Point(217, 0);
+            this.lblMateria.Name = "lblMateria";
+            this.lblMateria.Size = new System.Drawing.Size(53, 17);
+            this.lblMateria.TabIndex = 2;
+            this.lblMateria.Text = "Materia";
+            // 
+            // cmbMateria
+            // 
+            this.cmbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMateria.FormattingEnabled = true;
+            this.cmbMateria.Location = new System.Drawing.Point(276, 3);
+            this.cmbMateria.Name = "cmbMateria";
+            this.cmbMateria.Size = new System.Drawing.Size(150, 21);
+            this.cmbMateria.TabIndex = 3;
+            this.cmbMateria.SelectedIndexChanged += new System.EventHandler(this.cmbMateria_SelectedIndexChanged);
+            this.cmbMateria.SelectionChangeCommitted += new System.EventHandler(this.cmbMateria_SelectionChangeCommitted);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(432, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 17);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Fecha";
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.Location = new System.Drawing.Point(479, 3);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(200, 20);
+            this.dtpFecha.TabIndex = 4;
+            // 
+            // dgvAsistencia
+            // 
+            this.dgvAsistencia.AllowUserToAddRows = false;
+            this.dgvAsistencia.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAsistencia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAsistencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvAsistencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAsistencia.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAsistencia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAsistencia.EnableHeadersVisualStyles = false;
+            this.dgvAsistencia.Location = new System.Drawing.Point(0, 0);
+            this.dgvAsistencia.Name = "dgvAsistencia";
+            this.dgvAsistencia.RowHeadersVisible = false;
+            this.dgvAsistencia.RowTemplate.Height = 40;
+            this.dgvAsistencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAsistencia.Size = new System.Drawing.Size(1151, 401);
+            this.dgvAsistencia.TabIndex = 2;
+            this.dgvAsistencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAsistencia_CellContentClick);
+            this.dgvAsistencia.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAsistencia_CellValueChanged);
+            this.dgvAsistencia.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvAsistencia_CurrentCellDirtyStateChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 558);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1151, 70);
+            this.panel1.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel2.Controls.Add(this.btnSalir);
+            this.panel2.Controls.Add(this.btnMarcarTodos);
+            this.panel2.Controls.Add(this.btnGuardar);
+            this.panel2.Location = new System.Drawing.Point(239, 8);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(667, 50);
+            this.panel2.TabIndex = 2;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.Chocolate;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
+            this.btnSalir.Location = new System.Drawing.Point(455, 7);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(112, 40);
+            this.btnSalir.TabIndex = 2;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnMarcarTodos
+            // 
+            this.btnMarcarTodos.BackColor = System.Drawing.Color.Orange;
+            this.btnMarcarTodos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMarcarTodos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMarcarTodos.ForeColor = System.Drawing.Color.White;
+            this.btnMarcarTodos.Location = new System.Drawing.Point(12, 7);
+            this.btnMarcarTodos.Name = "btnMarcarTodos";
+            this.btnMarcarTodos.Size = new System.Drawing.Size(200, 40);
+            this.btnMarcarTodos.TabIndex = 0;
+            this.btnMarcarTodos.Text = "Marcar Todos Presentes";
+            this.btnMarcarTodos.UseVisualStyleBackColor = false;
+            this.btnMarcarTodos.Click += new System.EventHandler(this.btnMarcarTodos_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Location = new System.Drawing.Point(233, 7);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(200, 40);
+            this.btnGuardar.TabIndex = 1;
+            this.btnGuardar.Text = "Guardar Asistencia";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dgvAsistencia);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 157);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1151, 401);
+            this.panel3.TabIndex = 4;
+            // 
+            // paneltop
+            // 
+            this.paneltop.BackColor = System.Drawing.Color.Orange;
+            this.paneltop.Controls.Add(this.tableLayoutPanel3);
+            this.paneltop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.paneltop.Location = new System.Drawing.Point(0, 0);
+            this.paneltop.Name = "paneltop";
+            this.paneltop.Size = new System.Drawing.Size(1151, 99);
+            this.paneltop.TabIndex = 0;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.86598F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.62628F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.50773F));
+            this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label1, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1151, 99);
+            this.tableLayoutPanel3.TabIndex = 4;
+            this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(13, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(20, 0, 10, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(142, 93);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Location = new System.Drawing.Point(407, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label1.Size = new System.Drawing.Size(379, 70);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "ASISTENCIA     ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // FrmAsistencia
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1151, 628);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlfiltros);
+            this.Controls.Add(this.paneltop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FrmAsistencia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "FrmAsistencia";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmAsistencia_Load);
+            this.pnlfiltros.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.paneltop.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
 
 		}
 
