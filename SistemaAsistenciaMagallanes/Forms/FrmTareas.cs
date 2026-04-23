@@ -29,6 +29,10 @@ namespace SistemaAsistenciaMagallanes.Forms
 			ConfigurarTablaTareas();
 			CargarSecciones();
 			RedondearBoton(btnCrearTarea, 20);
+			RedondearBoton(btnGuardar, 20);
+			RedondearBoton(btnEliminar, 20);
+			RedondearBoton(btnEditar, 20);
+			RedondearBoton(btnSalir, 20);
 
 
 		}
@@ -470,6 +474,11 @@ namespace SistemaAsistenciaMagallanes.Forms
 			{
 				MessageBox.Show("Error: " + ex.Message);
 			}
+		}
+
+		private void btnSalir_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 	}
 }

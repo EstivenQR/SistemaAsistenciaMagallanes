@@ -170,6 +170,29 @@ namespace SistemaAsistenciaMagallanes.DAO
 			}
 		}
 
+		public bool ExisteClase(int idAsignacion, DateTime fecha)
+		{
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				conn.Open();
+
+				string query = @"
+            SELECT COUNT(*) 
+            FROM Clase
+            WHERE IdAsignacion = @IdAsignacion
+            AND CAST(Fecha AS DATE) = @Fecha";
+
+				SqlCommand cmd = new SqlCommand(query, conn);
+
+				cmd.Parameters.AddWithValue("@IdAsignacion", idAsignacion);
+				cmd.Parameters.AddWithValue("@Fecha", fecha.Date);
+
+				int count = (int)cmd.ExecuteScalar();
+
+				return count > 0;
+			}
+		}
+
 
 
 	}

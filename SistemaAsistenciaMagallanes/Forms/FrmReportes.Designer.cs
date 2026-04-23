@@ -29,13 +29,23 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportes));
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this.btnBuscar = new System.Windows.Forms.Button();
+			this.btnJustificarSeleccionado = new System.Windows.Forms.Button();
+			this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+			this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+			this.cmbMateria = new System.Windows.Forms.ComboBox();
+			this.cmbEstudiante = new System.Windows.Forms.ComboBox();
+			this.cmbSeccion = new System.Windows.Forms.ComboBox();
 			this.pnlResumen = new System.Windows.Forms.Panel();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.chartporcentaje = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -79,19 +89,12 @@
 			this.btnExcel = new System.Windows.Forms.Button();
 			this.btnPDF = new System.Windows.Forms.Button();
 			this.pnltabla = new System.Windows.Forms.Panel();
-			this.btnBuscar = new System.Windows.Forms.Button();
-			this.btnJustificarSeleccionado = new System.Windows.Forms.Button();
-			this.cmbMateria = new System.Windows.Forms.ComboBox();
-			this.cmbSeccion = new System.Windows.Forms.ComboBox();
-			this.dtpHasta = new System.Windows.Forms.DateTimePicker();
-			this.dtpDesde = new System.Windows.Forms.DateTimePicker();
-			this.cmbEstudiante = new System.Windows.Forms.ComboBox();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.panel1.SuspendLayout();
+			this.tableLayoutPanel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panel2.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
+			this.flowLayoutPanel1.SuspendLayout();
 			this.pnlResumen.SuspendLayout();
 			this.panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.chartporcentaje)).BeginInit();
@@ -116,9 +119,6 @@
 			this.pnlBotones.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.pnltabla.SuspendLayout();
-			this.tableLayoutPanel2.SuspendLayout();
-			this.flowLayoutPanel1.SuspendLayout();
-			this.tableLayoutPanel3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -130,6 +130,23 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1189, 100);
 			this.panel1.TabIndex = 2;
+			// 
+			// tableLayoutPanel3
+			// 
+			this.tableLayoutPanel3.ColumnCount = 3;
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.36364F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
+			this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 0, 0);
+			this.tableLayoutPanel3.Controls.Add(this.label1, 1, 0);
+			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+			this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+			this.tableLayoutPanel3.RowCount = 1;
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(1189, 100);
+			this.tableLayoutPanel3.TabIndex = 3;
 			// 
 			// pictureBox1
 			// 
@@ -169,6 +186,130 @@
 			this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
 			this.panel2.Resize += new System.EventHandler(this.panel2_Resize);
 			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.tableLayoutPanel2.AutoSize = true;
+			this.tableLayoutPanel2.ColumnCount = 3;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 2, 1);
+			this.tableLayoutPanel2.Controls.Add(this.dtpDesde, 0, 1);
+			this.tableLayoutPanel2.Controls.Add(this.dtpHasta, 1, 1);
+			this.tableLayoutPanel2.Controls.Add(this.cmbMateria, 2, 0);
+			this.tableLayoutPanel2.Controls.Add(this.cmbEstudiante, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.cmbSeccion, 1, 0);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(214, 0);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 2;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(740, 100);
+			this.tableLayoutPanel2.TabIndex = 9;
+			this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
+			// 
+			// flowLayoutPanel1
+			// 
+			this.flowLayoutPanel1.AutoSize = true;
+			this.flowLayoutPanel1.Controls.Add(this.btnBuscar);
+			this.flowLayoutPanel1.Controls.Add(this.btnJustificarSeleccionado);
+			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(449, 53);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(288, 44);
+			this.flowLayoutPanel1.TabIndex = 10;
+			this.flowLayoutPanel1.WrapContents = false;
+			// 
+			// btnBuscar
+			// 
+			this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.btnBuscar.BackColor = System.Drawing.Color.Orange;
+			this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnBuscar.ForeColor = System.Drawing.Color.White;
+			this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+			this.btnBuscar.Location = new System.Drawing.Point(3, 3);
+			this.btnBuscar.Name = "btnBuscar";
+			this.btnBuscar.Size = new System.Drawing.Size(112, 37);
+			this.btnBuscar.TabIndex = 5;
+			this.btnBuscar.Text = "Buscar";
+			this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.btnBuscar.UseVisualStyleBackColor = false;
+			this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+			// 
+			// btnJustificarSeleccionado
+			// 
+			this.btnJustificarSeleccionado.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.btnJustificarSeleccionado.BackColor = System.Drawing.Color.Orange;
+			this.btnJustificarSeleccionado.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnJustificarSeleccionado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnJustificarSeleccionado.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnJustificarSeleccionado.ForeColor = System.Drawing.Color.White;
+			this.btnJustificarSeleccionado.Image = ((System.Drawing.Image)(resources.GetObject("btnJustificarSeleccionado.Image")));
+			this.btnJustificarSeleccionado.Location = new System.Drawing.Point(121, 3);
+			this.btnJustificarSeleccionado.Name = "btnJustificarSeleccionado";
+			this.btnJustificarSeleccionado.Size = new System.Drawing.Size(112, 37);
+			this.btnJustificarSeleccionado.TabIndex = 8;
+			this.btnJustificarSeleccionado.Text = "Justificar";
+			this.btnJustificarSeleccionado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.btnJustificarSeleccionado.UseVisualStyleBackColor = false;
+			this.btnJustificarSeleccionado.Click += new System.EventHandler(this.btnJustificarSeleccionado_Click);
+			// 
+			// dtpDesde
+			// 
+			this.dtpDesde.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.dtpDesde.Location = new System.Drawing.Point(2, 65);
+			this.dtpDesde.Margin = new System.Windows.Forms.Padding(2);
+			this.dtpDesde.Name = "dtpDesde";
+			this.dtpDesde.Size = new System.Drawing.Size(221, 20);
+			this.dtpDesde.TabIndex = 6;
+			// 
+			// dtpHasta
+			// 
+			this.dtpHasta.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.dtpHasta.Location = new System.Drawing.Point(228, 65);
+			this.dtpHasta.Name = "dtpHasta";
+			this.dtpHasta.Size = new System.Drawing.Size(215, 20);
+			this.dtpHasta.TabIndex = 7;
+			// 
+			// cmbMateria
+			// 
+			this.cmbMateria.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.cmbMateria.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.cmbMateria.FormattingEnabled = true;
+			this.cmbMateria.Location = new System.Drawing.Point(449, 14);
+			this.cmbMateria.Name = "cmbMateria";
+			this.cmbMateria.Size = new System.Drawing.Size(230, 21);
+			this.cmbMateria.TabIndex = 2;
+			// 
+			// cmbEstudiante
+			// 
+			this.cmbEstudiante.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.cmbEstudiante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.cmbEstudiante.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.cmbEstudiante.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.cmbEstudiante.FormattingEnabled = true;
+			this.cmbEstudiante.Location = new System.Drawing.Point(2, 14);
+			this.cmbEstudiante.Margin = new System.Windows.Forms.Padding(2);
+			this.cmbEstudiante.Name = "cmbEstudiante";
+			this.cmbEstudiante.Size = new System.Drawing.Size(221, 21);
+			this.cmbEstudiante.TabIndex = 0;
+			this.cmbEstudiante.SelectedIndexChanged += new System.EventHandler(this.cmbEstudiante_SelectedIndexChanged);
+			this.cmbEstudiante.SelectionChangeCommitted += new System.EventHandler(this.cmbEstudiante_SelectionChangeCommitted);
+			// 
+			// cmbSeccion
+			// 
+			this.cmbSeccion.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.cmbSeccion.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.cmbSeccion.FormattingEnabled = true;
+			this.cmbSeccion.Location = new System.Drawing.Point(228, 14);
+			this.cmbSeccion.Name = "cmbSeccion";
+			this.cmbSeccion.Size = new System.Drawing.Size(215, 21);
+			this.cmbSeccion.TabIndex = 1;
+			this.cmbSeccion.SelectedIndexChanged += new System.EventHandler(this.cmbSeccion_SelectedIndexChanged);
+			// 
 			// pnlResumen
 			// 
 			this.pnlResumen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -194,18 +335,18 @@
 			// 
 			this.chartporcentaje.BackColor = System.Drawing.Color.Transparent;
 			this.chartporcentaje.BorderlineColor = System.Drawing.Color.Transparent;
-			chartArea1.Name = "ChartArea1";
-			this.chartporcentaje.ChartAreas.Add(chartArea1);
+			chartArea2.Name = "ChartArea1";
+			this.chartporcentaje.ChartAreas.Add(chartArea2);
 			this.chartporcentaje.Dock = System.Windows.Forms.DockStyle.Fill;
-			legend1.Name = "Legend1";
-			this.chartporcentaje.Legends.Add(legend1);
+			legend2.Name = "Legend1";
+			this.chartporcentaje.Legends.Add(legend2);
 			this.chartporcentaje.Location = new System.Drawing.Point(0, 0);
 			this.chartporcentaje.Name = "chartporcentaje";
-			series1.ChartArea = "ChartArea1";
-			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-			series1.Legend = "Legend1";
-			series1.Name = "Series1";
-			this.chartporcentaje.Series.Add(series1);
+			series2.ChartArea = "ChartArea1";
+			series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+			series2.Legend = "Legend1";
+			series2.Name = "Series1";
+			this.chartporcentaje.Series.Add(series2);
 			this.chartporcentaje.Size = new System.Drawing.Size(361, 243);
 			this.chartporcentaje.TabIndex = 3;
 			this.chartporcentaje.Text = "Porcentaje";
@@ -569,7 +710,7 @@
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(1189, 63);
 			this.tableLayoutPanel1.TabIndex = 3;
 			this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
@@ -637,147 +778,6 @@
 			this.pnltabla.Size = new System.Drawing.Size(1189, 190);
 			this.pnltabla.TabIndex = 4;
 			// 
-			// btnBuscar
-			// 
-			this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.btnBuscar.BackColor = System.Drawing.Color.Orange;
-			this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnBuscar.ForeColor = System.Drawing.Color.White;
-			this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-			this.btnBuscar.Location = new System.Drawing.Point(3, 3);
-			this.btnBuscar.Name = "btnBuscar";
-			this.btnBuscar.Size = new System.Drawing.Size(112, 37);
-			this.btnBuscar.TabIndex = 5;
-			this.btnBuscar.Text = "Buscar";
-			this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.btnBuscar.UseVisualStyleBackColor = false;
-			this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-			// 
-			// btnJustificarSeleccionado
-			// 
-			this.btnJustificarSeleccionado.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.btnJustificarSeleccionado.BackColor = System.Drawing.Color.Orange;
-			this.btnJustificarSeleccionado.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnJustificarSeleccionado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnJustificarSeleccionado.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnJustificarSeleccionado.ForeColor = System.Drawing.Color.White;
-			this.btnJustificarSeleccionado.Image = ((System.Drawing.Image)(resources.GetObject("btnJustificarSeleccionado.Image")));
-			this.btnJustificarSeleccionado.Location = new System.Drawing.Point(121, 3);
-			this.btnJustificarSeleccionado.Name = "btnJustificarSeleccionado";
-			this.btnJustificarSeleccionado.Size = new System.Drawing.Size(112, 37);
-			this.btnJustificarSeleccionado.TabIndex = 8;
-			this.btnJustificarSeleccionado.Text = "Justificar";
-			this.btnJustificarSeleccionado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.btnJustificarSeleccionado.UseVisualStyleBackColor = false;
-			this.btnJustificarSeleccionado.Click += new System.EventHandler(this.btnJustificarSeleccionado_Click);
-			// 
-			// cmbMateria
-			// 
-			this.cmbMateria.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.cmbMateria.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.cmbMateria.FormattingEnabled = true;
-			this.cmbMateria.Location = new System.Drawing.Point(449, 14);
-			this.cmbMateria.Name = "cmbMateria";
-			this.cmbMateria.Size = new System.Drawing.Size(230, 21);
-			this.cmbMateria.TabIndex = 2;
-			// 
-			// cmbSeccion
-			// 
-			this.cmbSeccion.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.cmbSeccion.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.cmbSeccion.FormattingEnabled = true;
-			this.cmbSeccion.Location = new System.Drawing.Point(228, 14);
-			this.cmbSeccion.Name = "cmbSeccion";
-			this.cmbSeccion.Size = new System.Drawing.Size(215, 21);
-			this.cmbSeccion.TabIndex = 1;
-			this.cmbSeccion.SelectedIndexChanged += new System.EventHandler(this.cmbSeccion_SelectedIndexChanged);
-			// 
-			// dtpHasta
-			// 
-			this.dtpHasta.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.dtpHasta.Location = new System.Drawing.Point(228, 65);
-			this.dtpHasta.Name = "dtpHasta";
-			this.dtpHasta.Size = new System.Drawing.Size(215, 20);
-			this.dtpHasta.TabIndex = 7;
-			// 
-			// dtpDesde
-			// 
-			this.dtpDesde.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.dtpDesde.Location = new System.Drawing.Point(2, 65);
-			this.dtpDesde.Margin = new System.Windows.Forms.Padding(2);
-			this.dtpDesde.Name = "dtpDesde";
-			this.dtpDesde.Size = new System.Drawing.Size(221, 20);
-			this.dtpDesde.TabIndex = 6;
-			// 
-			// cmbEstudiante
-			// 
-			this.cmbEstudiante.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.cmbEstudiante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.cmbEstudiante.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.cmbEstudiante.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.cmbEstudiante.FormattingEnabled = true;
-			this.cmbEstudiante.Location = new System.Drawing.Point(2, 14);
-			this.cmbEstudiante.Margin = new System.Windows.Forms.Padding(2);
-			this.cmbEstudiante.Name = "cmbEstudiante";
-			this.cmbEstudiante.Size = new System.Drawing.Size(221, 21);
-			this.cmbEstudiante.TabIndex = 0;
-			this.cmbEstudiante.SelectedIndexChanged += new System.EventHandler(this.cmbEstudiante_SelectedIndexChanged);
-			this.cmbEstudiante.SelectionChangeCommitted += new System.EventHandler(this.cmbEstudiante_SelectionChangeCommitted);
-			// 
-			// tableLayoutPanel2
-			// 
-			this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.tableLayoutPanel2.AutoSize = true;
-			this.tableLayoutPanel2.ColumnCount = 3;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 2, 1);
-			this.tableLayoutPanel2.Controls.Add(this.dtpDesde, 0, 1);
-			this.tableLayoutPanel2.Controls.Add(this.dtpHasta, 1, 1);
-			this.tableLayoutPanel2.Controls.Add(this.cmbMateria, 2, 0);
-			this.tableLayoutPanel2.Controls.Add(this.cmbEstudiante, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.cmbSeccion, 1, 0);
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(214, 0);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 2;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(740, 100);
-			this.tableLayoutPanel2.TabIndex = 9;
-			this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
-			// 
-			// flowLayoutPanel1
-			// 
-			this.flowLayoutPanel1.AutoSize = true;
-			this.flowLayoutPanel1.Controls.Add(this.btnBuscar);
-			this.flowLayoutPanel1.Controls.Add(this.btnJustificarSeleccionado);
-			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(449, 53);
-			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(288, 44);
-			this.flowLayoutPanel1.TabIndex = 10;
-			this.flowLayoutPanel1.WrapContents = false;
-			// 
-			// tableLayoutPanel3
-			// 
-			this.tableLayoutPanel3.ColumnCount = 3;
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.36364F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
-			this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 0, 0);
-			this.tableLayoutPanel3.Controls.Add(this.label1, 1, 0);
-			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-			this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-			this.tableLayoutPanel3.RowCount = 1;
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(1189, 100);
-			this.tableLayoutPanel3.TabIndex = 3;
-			// 
 			// FrmReportes
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -794,9 +794,14 @@
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.FrmReportes_Load);
 			this.panel1.ResumeLayout(false);
+			this.tableLayoutPanel3.ResumeLayout(false);
+			this.tableLayoutPanel3.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
+			this.tableLayoutPanel2.ResumeLayout(false);
+			this.tableLayoutPanel2.PerformLayout();
+			this.flowLayoutPanel1.ResumeLayout(false);
 			this.pnlResumen.ResumeLayout(false);
 			this.panel4.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.chartporcentaje)).EndInit();
@@ -829,11 +834,6 @@
 			this.pnlBotones.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.pnltabla.ResumeLayout(false);
-			this.tableLayoutPanel2.ResumeLayout(false);
-			this.tableLayoutPanel2.PerformLayout();
-			this.flowLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel3.ResumeLayout(false);
-			this.tableLayoutPanel3.PerformLayout();
 			this.ResumeLayout(false);
 
 		}

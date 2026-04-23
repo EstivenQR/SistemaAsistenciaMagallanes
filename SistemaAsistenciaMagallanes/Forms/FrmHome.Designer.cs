@@ -49,6 +49,8 @@
 			this.timerMenu = new System.Windows.Forms.Timer(this.components);
 			this.panelPrincipal = new System.Windows.Forms.Panel();
 			this.panelIndex = new System.Windows.Forms.Panel();
+			this.panelFooter = new System.Windows.Forms.Panel();
+			this.lblFooter = new System.Windows.Forms.Label();
 			this.tableKPIs = new System.Windows.Forms.TableLayoutPanel();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -67,14 +69,15 @@
 			this.lblPresentes = new System.Windows.Forms.Label();
 			this.lblTituloPresentes = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
+			this.lblMensaje2 = new System.Windows.Forms.Label();
+			this.lblMensaje = new System.Windows.Forms.Label();
 			this.subpanel.SuspendLayout();
 			this.panelAdminSubmenu.SuspendLayout();
 			this.panelLogo.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panelPrincipal.SuspendLayout();
 			this.panelIndex.SuspendLayout();
+			this.panelFooter.SuspendLayout();
 			this.tableKPIs.SuspendLayout();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -188,6 +191,7 @@
 			this.btnBoletas.Text = "Amonestaciones";
 			this.btnBoletas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnBoletas.UseVisualStyleBackColor = true;
+			this.btnBoletas.Click += new System.EventHandler(this.btnBoletas_Click);
 			// 
 			// btnAsistencia
 			// 
@@ -399,15 +403,35 @@
 			this.panelIndex.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.panelIndex.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelIndex.BackgroundImage")));
 			this.panelIndex.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.panelIndex.Controls.Add(this.panelFooter);
 			this.panelIndex.Controls.Add(this.tableKPIs);
 			this.panelIndex.Controls.Add(this.label3);
-			this.panelIndex.Controls.Add(this.label2);
-			this.panelIndex.Controls.Add(this.label1);
+			this.panelIndex.Controls.Add(this.lblMensaje2);
+			this.panelIndex.Controls.Add(this.lblMensaje);
 			this.panelIndex.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelIndex.Location = new System.Drawing.Point(267, 0);
 			this.panelIndex.Name = "panelIndex";
 			this.panelIndex.Size = new System.Drawing.Size(916, 716);
 			this.panelIndex.TabIndex = 5;
+			// 
+			// panelFooter
+			// 
+			this.panelFooter.BackColor = System.Drawing.Color.Orange;
+			this.panelFooter.Controls.Add(this.lblFooter);
+			this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panelFooter.Location = new System.Drawing.Point(0, 676);
+			this.panelFooter.Name = "panelFooter";
+			this.panelFooter.Size = new System.Drawing.Size(916, 40);
+			this.panelFooter.TabIndex = 12;
+			// 
+			// lblFooter
+			// 
+			this.lblFooter.AutoSize = true;
+			this.lblFooter.Location = new System.Drawing.Point(328, 18);
+			this.lblFooter.Name = "lblFooter";
+			this.lblFooter.Size = new System.Drawing.Size(0, 13);
+			this.lblFooter.TabIndex = 0;
+			this.lblFooter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// tableKPIs
 			// 
@@ -421,7 +445,7 @@
 			this.tableKPIs.Controls.Add(this.panel3, 0, 1);
 			this.tableKPIs.Controls.Add(this.panel4, 1, 1);
 			this.tableKPIs.Controls.Add(this.panel2, 1, 0);
-			this.tableKPIs.Location = new System.Drawing.Point(47, 304);
+			this.tableKPIs.Location = new System.Drawing.Point(47, 344);
 			this.tableKPIs.Name = "tableKPIs";
 			this.tableKPIs.RowCount = 2;
 			this.tableKPIs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -607,41 +631,41 @@
 			this.label3.Dock = System.Windows.Forms.DockStyle.Top;
 			this.label3.Font = new System.Drawing.Font("Segoe UI Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.ForeColor = System.Drawing.Color.SaddleBrown;
-			this.label3.Location = new System.Drawing.Point(0, 195);
+			this.label3.Location = new System.Drawing.Point(0, 247);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(916, 157);
+			this.label3.Size = new System.Drawing.Size(916, 94);
 			this.label3.TabIndex = 4;
 			this.label3.Text = "\"MAGALLANES ES MAGALLANES\"";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// label2
+			// lblMensaje2
 			// 
-			this.label2.BackColor = System.Drawing.Color.Transparent;
-			this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.label2.Font = new System.Drawing.Font("Segoe UI Black", 40F, System.Drawing.FontStyle.Bold);
-			this.label2.ForeColor = System.Drawing.Color.Black;
-			this.label2.Location = new System.Drawing.Point(0, 97);
-			this.label2.Name = "label2";
-			this.label2.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-			this.label2.Size = new System.Drawing.Size(916, 98);
-			this.label2.TabIndex = 6;
-			this.label2.Text = "MAGALLANES";
-			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.label2.Click += new System.EventHandler(this.label2_Click);
+			this.lblMensaje2.BackColor = System.Drawing.Color.Transparent;
+			this.lblMensaje2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.lblMensaje2.Font = new System.Drawing.Font("Engravers MT", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblMensaje2.ForeColor = System.Drawing.Color.SaddleBrown;
+			this.lblMensaje2.Location = new System.Drawing.Point(0, 149);
+			this.lblMensaje2.Name = "lblMensaje2";
+			this.lblMensaje2.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+			this.lblMensaje2.Size = new System.Drawing.Size(916, 98);
+			this.lblMensaje2.TabIndex = 6;
+			this.lblMensaje2.Text = "MAGALLANES";
+			this.lblMensaje2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lblMensaje2.Click += new System.EventHandler(this.label2_Click);
 			// 
-			// label1
+			// lblMensaje
 			// 
-			this.label1.BackColor = System.Drawing.Color.Transparent;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.label1.Font = new System.Drawing.Font("Segoe UI Black", 40F, System.Drawing.FontStyle.Bold);
-			this.label1.ForeColor = System.Drawing.Color.Black;
-			this.label1.Location = new System.Drawing.Point(0, 0);
-			this.label1.Name = "label1";
-			this.label1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-			this.label1.Size = new System.Drawing.Size(916, 97);
-			this.label1.TabIndex = 5;
-			this.label1.Text = "LICEO ";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lblMensaje.BackColor = System.Drawing.Color.Transparent;
+			this.lblMensaje.Dock = System.Windows.Forms.DockStyle.Top;
+			this.lblMensaje.Font = new System.Drawing.Font("Engravers MT", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblMensaje.ForeColor = System.Drawing.Color.Sienna;
+			this.lblMensaje.Location = new System.Drawing.Point(0, 0);
+			this.lblMensaje.Name = "lblMensaje";
+			this.lblMensaje.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
+			this.lblMensaje.Size = new System.Drawing.Size(916, 149);
+			this.lblMensaje.TabIndex = 5;
+			this.lblMensaje.Text = "LICEO ";
+			this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// FrmHome
 			// 
@@ -661,6 +685,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.panelPrincipal.ResumeLayout(false);
 			this.panelIndex.ResumeLayout(false);
+			this.panelFooter.ResumeLayout(false);
+			this.panelFooter.PerformLayout();
 			this.tableKPIs.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -696,8 +722,8 @@
 		private System.Windows.Forms.Button btnJustificacion;
 		private System.Windows.Forms.Panel panelIndex;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label lblMensaje2;
+		private System.Windows.Forms.Label lblMensaje;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Panel panel4;
 		private System.Windows.Forms.Panel panel3;
@@ -715,5 +741,7 @@
 		private System.Windows.Forms.PictureBox pictureBox5;
 		private System.Windows.Forms.PictureBox pictureBox4;
 		private System.Windows.Forms.PictureBox pictureBox2;
+		private System.Windows.Forms.Panel panelFooter;
+		private System.Windows.Forms.Label lblFooter;
 	}
 }

@@ -37,19 +37,19 @@ namespace SistemaAsistenciaMagallanes.Reportes
 								string estudiante = null,
 								string seccion = null)
 		{
-				SaveFileDialog save = new SaveFileDialog();
-				save.Filter = "PDF (*.pdf)|*.pdf";
-				save.FileName = "Reporte_Asistencia.pdf";
+			SaveFileDialog save = new SaveFileDialog();
+			save.Filter = "PDF (*.pdf)|*.pdf";
+			save.FileName = "Reporte_Asistencia.pdf";
 
-				if (save.ShowDialog() != DialogResult.OK)
-					return;
+			if (save.ShowDialog() != DialogResult.OK)
+				return;
 
-				string ruta = save.FileName;
-				
+			string ruta = save.FileName;
 
-				PdfWriter writer = new PdfWriter(ruta);
-				PdfDocument pdf = new PdfDocument(writer);
-				Document doc = new Document(pdf);
+
+			PdfWriter writer = new PdfWriter(ruta);
+			PdfDocument pdf = new PdfDocument(writer);
+			Document doc = new Document(pdf);
 
 			byte[] imagenBytes;
 
@@ -81,12 +81,12 @@ namespace SistemaAsistenciaMagallanes.Reportes
 			// Título
 			PdfFont fontBold = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
 
-				doc.Add(new Paragraph("REPORTE DE ASISTENCIA")
-					.SetFont(fontBold)
-					.SetFontSize(18)
-					.SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER));
+			doc.Add(new Paragraph("REPORTE DE ASISTENCIA")
+				.SetFont(fontBold)
+				.SetFontSize(18)
+				.SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER));
 
-				doc.Add(new Paragraph(" "));
+			doc.Add(new Paragraph(" "));
 
 			// SOLO SI HAY FILTRO
 			if (!string.IsNullOrEmpty(estudiante) || !string.IsNullOrEmpty(seccion))
@@ -97,7 +97,7 @@ namespace SistemaAsistenciaMagallanes.Reportes
 					.SetFont(fontBold);
 
 				if (!string.IsNullOrEmpty(estudiante))
-					info.Add( estudiante + "\n");
+					info.Add(estudiante + "\n");
 
 				if (!string.IsNullOrEmpty(seccion) || seccion == "-- Seleccione una sección --")
 					info.Add(seccion + "\n");
@@ -155,17 +155,17 @@ namespace SistemaAsistenciaMagallanes.Reportes
 					.Cast<DataGridViewColumn>()
 					.Count(c => c.Visible && c.Name != "IdEstudiante");
 
-				Table tabla = new Table(columnasVisibles);
-				tabla.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+			Table tabla = new Table(columnasVisibles);
+			tabla.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
 
 			// HEADERS 
 			foreach (DataGridViewColumn col in dgv.Columns)
-				{
-					if (col.Name == "IdEstudiante")
-						continue;
+			{
+				if (col.Name == "IdEstudiante")
+					continue;
 
-					if (!col.Visible)
-						continue;
+				if (!col.Visible)
+					continue;
 
 				Cell headerCell = new Cell()
 					.Add(new Paragraph(col.HeaderText))
@@ -175,46 +175,46 @@ namespace SistemaAsistenciaMagallanes.Reportes
 				tabla.AddCell(headerCell);
 			}
 
-				// FILAS 
-				foreach (DataGridViewRow row in dgv.Rows)
+			// FILAS 
+			foreach (DataGridViewRow row in dgv.Rows)
+			{
+				if (!row.IsNewRow)
 				{
-					if (!row.IsNewRow)
+					foreach (DataGridViewColumn col in dgv.Columns)
 					{
-						foreach (DataGridViewColumn col in dgv.Columns)
-						{
-							if (col.Name == "IdEstudiante")
-								continue;
+						if (col.Name == "IdEstudiante")
+							continue;
 
-							if (!col.Visible)
-								continue;
+						if (!col.Visible)
+							continue;
 
-							string valor = row.Cells[col.Name].Value?.ToString() ?? "";
+						string valor = row.Cells[col.Name].Value?.ToString() ?? "";
 
-							Color color = ColorConstants.BLACK;
-			
+						Color color = ColorConstants.BLACK;
+
 
 
 						if (col.Name == "Estado")
-							{
-								if (valor == "Ausente")
-									color = ColorConstants.RED;
-								else if (valor == "Tardía")
-									color = ColorConstants.ORANGE;
-								else if (valor == "Presente")
-									color = ColorConstants.GREEN;
-							}
+						{
+							if (valor == "Ausente")
+								color = ColorConstants.RED;
+							else if (valor == "Tardía")
+								color = ColorConstants.ORANGE;
+							else if (valor == "Presente")
+								color = ColorConstants.GREEN;
+						}
 
-							tabla.AddCell(new Cell()
-								.Add(new Paragraph(valor))
-								.SetTextAlignment(TextAlignment.CENTER)
-								.SetFontColor(color));
-					
+						tabla.AddCell(new Cell()
+							.Add(new Paragraph(valor))
+							.SetTextAlignment(TextAlignment.CENTER)
+							.SetFontColor(color));
 
-					}
+
 					}
 				}
+			}
 
-				doc.Add(tabla);
+			doc.Add(tabla);
 			doc.Add(new Paragraph("\n\n")); // espacio
 
 			// TÍTULO
@@ -246,15 +246,15 @@ namespace SistemaAsistenciaMagallanes.Reportes
 					string valor = "";
 					Color color = ColorConstants.BLACK;
 
-					
+
 					if (nombreCol == "nota")
 					{
 						if (row[col] != DBNull.Value)
 						{
 							decimal nota = Convert.ToDecimal(row[col]);
-							valor = nota.ToString("0")+"%";
+							valor = nota.ToString("0") + "%";
 
-					
+
 							if (nota >= 3)
 								color = ColorConstants.GREEN;
 							else
@@ -293,7 +293,258 @@ namespace SistemaAsistenciaMagallanes.Reportes
 			doc.Close();
 
 			MessageBox.Show("PDF generado correctamente");
+		}
+
+		public void GenerarReporteBoletas(DataTable dt)
+		{
+			SaveFileDialog save = new SaveFileDialog();
+			save.Filter = "PDF (*.pdf)|*.pdf";
+			save.FileName = "Reporte_Boletas.pdf";
+
+			if (save.ShowDialog() != DialogResult.OK)
+				return;
+
+			string ruta = save.FileName;
+
+			PdfWriter writer = new PdfWriter(ruta);
+			PdfDocument pdf = new PdfDocument(writer);
+			Document doc = new Document(pdf);
+
+			PdfFont fontBold = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+
+			// 🔥 TÍTULO
+			doc.Add(new Paragraph("REPORTE DE AMONESTACIONES")
+				.SetFont(fontBold)
+				.SetFontSize(18)
+				.SetTextAlignment(TextAlignment.CENTER));
+
+			doc.Add(new Paragraph("\n"));
+
+			// 🔥 TABLA
+			Table tabla = new Table(dt.Columns.Count);
+			tabla.SetWidth(UnitValue.CreatePercentValue(100));
+
+			// HEADERS
+			foreach (DataColumn col in dt.Columns)
+			{
+				tabla.AddCell(new Cell()
+					.Add(new Paragraph(col.ColumnName))
+					.SetBackgroundColor(ColorConstants.LIGHT_GRAY)
+					.SetTextAlignment(TextAlignment.CENTER));
 			}
 
+			// FILAS
+			foreach (DataRow row in dt.Rows)
+			{
+				foreach (DataColumn col in dt.Columns)
+				{
+					tabla.AddCell(new Cell()
+						.Add(new Paragraph(row[col]?.ToString() ?? ""))
+						.SetTextAlignment(TextAlignment.CENTER));
+				}
+			}
+
+			doc.Add(tabla);
+			doc.Close();
+
+			MessageBox.Show("Reporte generado correctamente");
 		}
+
+		public void GenerarBoletaPDF(DataRow boleta)
+		{
+			SaveFileDialog save = new SaveFileDialog();
+			save.Filter = "PDF (*.pdf)|*.pdf";
+			save.FileName = "Boleta.pdf";
+
+			if (save.ShowDialog() != DialogResult.OK)
+				return;
+
+			string ruta = save.FileName;
+
+			PdfWriter writer = new PdfWriter(ruta);
+			PdfDocument pdf = new PdfDocument(writer);
+			Document doc = new Document(pdf);
+
+			// 🔥 ENCABEZADO (igual que tu otro PDF)
+			byte[] imagenBytes;
+			using (MemoryStream ms = new MemoryStream())
+			{
+				Properties.Resources.Encabezado.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+				imagenBytes = ms.ToArray();
+			}
+
+			float ancho = pdf.GetDefaultPageSize().GetWidth();
+			float alto = pdf.GetDefaultPageSize().GetHeight();
+
+			Image img = new Image(ImageDataFactory.Create(imagenBytes));
+			img.ScaleToFit(ancho, 100);
+			img.SetFixedPosition(2, alto - 100);
+
+			doc.Add(img);
+			doc.Add(new Paragraph("\n\n\n\n"));
+
+			// 🔥 FUENTE
+			PdfFont bold = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+
+			// 🔥 TÍTULO
+			doc.Add(new Paragraph("BOLETA DE AMONESTACIÓN")
+				.SetFont(bold)
+				.SetFontSize(18)
+				.SetTextAlignment(TextAlignment.CENTER));
+
+			doc.Add(new Paragraph("\n"));
+
+			// 🔥 DATOS
+			doc.Add(new Paragraph($"Estudiante: {boleta["Estudiante"]}").SetFontSize(12));
+			doc.Add(new Paragraph($"Sección: {boleta["Seccion"]}").SetFontSize(12));
+			doc.Add(new Paragraph($"Fecha: {Convert.ToDateTime(boleta["Fecha"]).ToShortDateString()}").SetFontSize(12));
+
+			doc.Add(new Paragraph("\n"));
+
+			// 🔥 MOTIVO
+			doc.Add(new Paragraph("Motivo:")
+				.SetFont(bold)
+				.SetFontSize(12));
+
+			doc.Add(new Paragraph(boleta["Motivo"].ToString())
+				.SetFontSize(11)
+				.SetMarginBottom(10));
+
+			// 🔥 PORCENTAJE
+			doc.Add(new Paragraph($"Porcentaje de afectación: {boleta["Puntos"]}%")
+				.SetFont(bold));
+
+			doc.Add(new Paragraph("\n\n"));
+
+			// 🔥 FIRMAS
+			Table firmas = new Table(2);
+			firmas.SetWidth(UnitValue.CreatePercentValue(100));
+
+			firmas.AddCell(new Cell()
+				.Add(new Paragraph("\n\n________________________\nDocente"))
+				.SetBorder(Border.NO_BORDER)
+				.SetTextAlignment(TextAlignment.CENTER));
+
+			firmas.AddCell(new Cell()
+				.Add(new Paragraph("\n\n________________________\nDirector"))
+				.SetBorder(Border.NO_BORDER)
+				.SetTextAlignment(TextAlignment.CENTER));
+
+			doc.Add(firmas);
+
+			doc.Close();
+
+			MessageBox.Show("Boleta generada correctamente");
+		}
+
+		public void GenerarReporteBoletasFiltros(DataTable dt, string seccion = "", string estudiante = "")
+		{
+			SaveFileDialog save = new SaveFileDialog();
+			save.Filter = "PDF (*.pdf)|*.pdf";
+			save.FileName = "Reporte_Boletas.pdf";
+
+			if (save.ShowDialog() != DialogResult.OK)
+				return;
+
+			PdfWriter writer = new PdfWriter(save.FileName);
+			PdfDocument pdf = new PdfDocument(writer);
+			Document doc = new Document(pdf);
+
+			// 🔥 ENCABEZADO (igual que tu PDF de asistencia)
+			byte[] imagenBytes;
+			using (MemoryStream ms = new MemoryStream())
+			{
+				Properties.Resources.Encabezado.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+				imagenBytes = ms.ToArray();
+			}
+
+			float ancho = pdf.GetDefaultPageSize().GetWidth();
+			float alto = pdf.GetDefaultPageSize().GetHeight();
+
+			Image img = new Image(ImageDataFactory.Create(imagenBytes));
+			img.ScaleToFit(ancho, 100);
+			img.SetFixedPosition(2, alto - 100);
+
+			doc.Add(img);
+			doc.Add(new Paragraph("\n\n\n\n"));
+
+			// 🔥 FUENTE
+			PdfFont bold = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+
+			// 🔥 TÍTULO
+			doc.Add(new Paragraph("REPORTE DE AMONESTACIONES")
+				.SetFont(bold)
+				.SetFontSize(18)
+				.SetTextAlignment(TextAlignment.CENTER));
+
+			doc.Add(new Paragraph("\n"));
+
+			// 🔥 FILTROS VISUALES
+			if (!string.IsNullOrEmpty(estudiante) || !string.IsNullOrEmpty(seccion))
+			{
+				doc.Add(new Paragraph($"Estudiante: {estudiante}\nSección: {seccion}")
+					.SetTextAlignment(TextAlignment.CENTER));
+				doc.Add(new Paragraph("\n"));
+			}
+
+			// 🔥 RESUMEN
+			int total = dt.Rows.Count;
+			double promedio = dt.AsEnumerable().Any()
+				? dt.AsEnumerable().Average(r => Convert.ToDouble(r["Puntos"]))
+				: 0;
+
+			doc.Add(new Paragraph($"Total boletas: {total}"));
+			doc.Add(new Paragraph($"Promedio afectación: {promedio:F2}%"));
+
+			doc.Add(new Paragraph("\n"));
+
+			// 🔥 TABLA
+			Table tabla = new Table(dt.Columns.Count);
+			tabla.SetWidth(UnitValue.CreatePercentValue(100));
+
+			// HEADERS
+			foreach (DataColumn col in dt.Columns)
+			{
+				tabla.AddCell(new Cell()
+					.Add(new Paragraph(col.ColumnName))
+					.SetBackgroundColor(ColorConstants.LIGHT_GRAY)
+					.SetTextAlignment(TextAlignment.CENTER));
+			}
+
+			// FILAS
+			foreach (DataRow row in dt.Rows)
+			{
+				foreach (DataColumn col in dt.Columns)
+				{
+					string valor = row[col]?.ToString() ?? "";
+					Color color = ColorConstants.BLACK;
+
+					// 🔥 COLOR POR PORCENTAJE
+					if (col.ColumnName == "Puntos")
+					{
+						int p = Convert.ToInt32(row[col]);
+
+						if (p >= 50) color = ColorConstants.RED;
+						else if (p >= 20) color = ColorConstants.ORANGE;
+						else color = ColorConstants.GREEN;
+					}
+
+					tabla.AddCell(new Cell()
+						.Add(new Paragraph(valor))
+						.SetFontColor(color)
+						.SetTextAlignment(TextAlignment.CENTER));
+				}
+			}
+
+			doc.Add(tabla);
+
+			doc.Close();
+
+			MessageBox.Show("Reporte generado correctamente");
+		}
+
 	}
+
+	
+}
+

@@ -13,6 +13,21 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -175,6 +190,7 @@
     <Compile Include="Conexion_BD\Seguridad.cs" />
     <Compile Include="DAO\AsignacionDocenteDAO.cs" />
     <Compile Include="DAO\AsistenciaDAO.cs" />
+    <Compile Include="DAO\BoletasDAO.cs" />
     <Compile Include="DAO\EstudiantesDAO.cs" />
     <Compile Include="DAO\JustificacionesDAO.cs" />
     <Compile Include="DAO\MateriaDAO.cs" />
@@ -187,6 +203,12 @@
     </Compile>
     <Compile Include="Forms\FrmAsistencia.Designer.cs">
       <DependentUpon>FrmAsistencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmBoletas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmBoletas.Designer.cs">
+      <DependentUpon>FrmBoletas.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmEditarEstudiante.cs">
       <SubType>Form</SubType>
@@ -270,6 +292,7 @@
     <Compile Include="Conexion_BD\Sesion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BoletasService.cs" />
     <Compile Include="Services\JustificacionesService.cs" />
     <Compile Include="Services\TareasService.cs" />
     <Compile Include="Utils\ExcelHelper.cs" />
@@ -283,6 +306,9 @@
     <Compile Include="Services\UsuarioService.cs" />
     <EmbeddedResource Include="Forms\FrmAsistencia.resx">
       <DependentUpon>FrmAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmBoletas.resx">
+      <DependentUpon>FrmBoletas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmEditarEstudiante.resx">
       <DependentUpon>FrmEditarEstudiante.cs</DependentUpon>
@@ -347,7 +373,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <ItemGroup>
     <None Include="img\pdf\Encabezado.png" />
   </ItemGroup>

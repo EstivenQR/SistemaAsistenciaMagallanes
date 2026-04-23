@@ -22,7 +22,7 @@ namespace SistemaAsistenciaMagallanes.Forms
         public FrmAsistencia()
 		{
 			InitializeComponent();
-            dgvAsistencia.Columns.Clear();
+            
 
         }
 
@@ -34,7 +34,6 @@ namespace SistemaAsistenciaMagallanes.Forms
             cmbMateria.DataSource = null;
 			dgvAsistencia.AutoGenerateColumns = false;
 			ConfigurarTabla();
-            MessageBox.Show(dgvAsistencia.Columns.Count.ToString());
             CargarSecciones();
 			dgvAsistencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			dgvAsistencia.CellValueChanged += dgvAsistencia_CellValueChanged;
@@ -61,36 +60,44 @@ namespace SistemaAsistenciaMagallanes.Forms
 		}
 		private void ConfigurarTabla()
 		{
-            {
-                if (tablaConfigurada) return; // 🔥 evita duplicación
+			dgvAsistencia.AutoGenerateColumns = false;
 
-                dgvAsistencia.AutoGenerateColumns = false;
-                dgvAsistencia.Columns.Clear();
+			// 🔥 ID
+			if (!dgvAsistencia.Columns.Contains("IdEstudiante"))
+			{
+				dgvAsistencia.Columns.Add(new DataGridViewTextBoxColumn()
+				{
+					Name = "IdEstudiante",
+					DataPropertyName = "IdEstudiante",
+					Visible = false
+				});
+			}
 
-                DataGridViewTextBoxColumn id = new DataGridViewTextBoxColumn();
-                id.Name = "IdEstudiante";
-                id.DataPropertyName = "IdEstudiante";
-                id.Visible = false;
-                dgvAsistencia.Columns.Add(id);
+			// 🔥 Estudiante
+			if (!dgvAsistencia.Columns.Contains("Estudiante"))
+			{
+				dgvAsistencia.Columns.Add(new DataGridViewTextBoxColumn()
+				{
+					Name = "Estudiante",
+					HeaderText = "Estudiante",
+					DataPropertyName = "Estudiante"
+				});
+			}
 
-                DataGridViewTextBoxColumn estudiante = new DataGridViewTextBoxColumn();
-                estudiante.Name = "Estudiante";
-                estudiante.HeaderText = "Estudiante";
-                estudiante.DataPropertyName = "Estudiante";
-                dgvAsistencia.Columns.Add(estudiante);
-
-                DataGridViewComboBoxColumn estado = new DataGridViewComboBoxColumn();
-                estado.Name = "Estado";
-                estado.HeaderText = "Estado";
-                estado.Items.Add("Presente");
-                estado.Items.Add("Ausente");
-                estado.Items.Add("Tardía");
-                estado.Items.Add("Justificado");
-                dgvAsistencia.Columns.Add(estado);
-
-                tablaConfigurada = true;
-            }
-        }
+			// 🔥 Estado
+			if (!dgvAsistencia.Columns.Contains("Estado"))
+			{
+				dgvAsistencia.Columns.Add(new DataGridViewComboBoxColumn()
+				{
+					Name = "Estado",
+					HeaderText = "Estado",
+					DataSource = new List<string>
+			{
+				"Presente", "Ausente", "Tardía", "Justificado"
+			}
+				});
+			}
+		}
 
 		private void CargarSecciones()
 		{
@@ -111,32 +118,49 @@ namespace SistemaAsistenciaMagallanes.Forms
 
         private void CargarMaterias(int idSeccion)
         {
-            cargandoMaterias = true;
+			cargandoMaterias = true;
 
-            AsistenciaService service = new AsistenciaService();
-
-            cmbMateria.DataSource = null;
-            cmbMateria.DataSource = service.ObtenerMateriasDocente(Sesion.IdUsuario, idSeccion);
-
-            cmbMateria.DisplayMember = "NombreMateria";
-            cmbMateria.ValueMember = "IdAsignacion";
-
-            cargandoMaterias = false;
-        }
-        private void CargarEstudiantes(int idSeccion, int IdMateria)
-		{
 			AsistenciaService service = new AsistenciaService();
 
-			DataTable tabla = service.ObtenerEstudiantesPorSeccion(idSeccion,IdMateria);
+			cmbMateria.DataSource = null;
 
-			if (tabla != null)
+			// GUARDA EL DATATABLE
+			DataTable dt = service.ObtenerMateriasDocente(Sesion.IdUsuario, idSeccion);
+
+			// AGREGAR FILA POR DEFECTO
+			DataRow fila = dt.NewRow();
+			fila["IdAsignacion"] = 0;
+			fila["NombreMateria"] = "-- Seleccione una materia --";
+			dt.Rows.InsertAt(fila, 0);
+
+			cmbMateria.DataSource = dt;
+			cmbMateria.DisplayMember = "NombreMateria";
+			cmbMateria.ValueMember = "IdAsignacion";
+
+			cargandoMaterias = false;
+		}
+
+		private bool cargandoEstudiantes = false;
+		private void CargarEstudiantes(int idSeccion, int idAsignacion)
+		{
+			if (cargandoEstudiantes) return;
+			cargandoEstudiantes = true;
+
+			var tabla = service.ObtenerEstudiantesPorSeccion(idSeccion, idAsignacion);
+
+			dgvAsistencia.SuspendLayout();
+
+			dgvAsistencia.DataSource = null;
+			dgvAsistencia.DataSource = tabla;
+
+			dgvAsistencia.ResumeLayout();
+
+			foreach (DataGridViewRow fila in dgvAsistencia.Rows)
 			{
-				dgvAsistencia.AutoGenerateColumns = false;
-
-				dgvAsistencia.DataSource = null;
-				dgvAsistencia.DataSource = tabla;
+				fila.Cells["Estado"].Value = "Presente";
 			}
 
+			cargandoEstudiantes = false;
 		}
 
 
@@ -207,7 +231,13 @@ namespace SistemaAsistenciaMagallanes.Forms
 			int idAsignacion = Convert.ToInt32(cmbMateria.SelectedValue);
 			DateTime fecha = DateTime.Now;
 
-			// 1Crear la clase
+			if (service.ExisteClase(idAsignacion, fecha))
+			{
+				MessageBox.Show("Ya se registró asistencia para esta materia en esta fecha");
+				return;
+			}
+
+			// 1Crea la clase
 			int idClase = service.CrearClase(idAsignacion, fecha);
 
 			// 2Recorre el DataGridView
@@ -236,15 +266,23 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		private void cmbMateria_SelectionChangeCommitted(object sender, EventArgs e)
 		{
-            if (cargandoMaterias) return; 
+			if (cargandoMaterias) return;
 
-            if (cmbSeccion.SelectedValue == null) return;
+			if (cmbSeccion.SelectedValue == null) return;
+			if (cmbMateria.SelectedValue == null) return;
 
-            int idSeccion = Convert.ToInt32(cmbSeccion.SelectedValue);
-            int idAsignacion = Convert.ToInt32(cmbMateria.SelectedValue);
+			int idSeccion = Convert.ToInt32(cmbSeccion.SelectedValue);
+			int idAsignacion = Convert.ToInt32(cmbMateria.SelectedValue);
 
-            CargarEstudiantes(idSeccion, idAsignacion);
-        }
+			// evitar opción por defecto
+			if (idAsignacion == 0)
+			{
+				dgvAsistencia.DataSource = null; // limpia grid
+				return;
+			}
+
+			CargarEstudiantes(idSeccion, idAsignacion);
+		}
 
 		private void btnJustificarSeleccionado_Click(object sender, EventArgs e)
 		{

@@ -42,5 +42,9 @@ namespace SistemaAsistenciaMagallanes.Services
 		{
 			dao.GuardarDetalleAsistencia(idClase, idEstudiante, estado);
 		}
+		public bool ExisteClase(int idAsignacion, DateTime fecha)
+		{
+			return dao.ExisteClase(idAsignacion, fecha);
+		}
 	}
 }

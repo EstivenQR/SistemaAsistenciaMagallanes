@@ -28,10 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTareas));
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTareas));
 			this.paneltop = new System.Windows.Forms.Panel();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.pnlfiltros = new System.Windows.Forms.Panel();
@@ -55,14 +56,13 @@
 			this.btnCrearTarea = new System.Windows.Forms.Button();
 			this.txtDescripcion = new System.Windows.Forms.TextBox();
 			this.txtTitulo = new System.Windows.Forms.TextBox();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.paneltop.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.pnlfiltros.SuspendLayout();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
 			this.panel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// paneltop
@@ -77,6 +77,16 @@
 			this.paneltop.Size = new System.Drawing.Size(1143, 99);
 			this.paneltop.TabIndex = 1;
 			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+			this.pictureBox2.Location = new System.Drawing.Point(706, 12);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(119, 73);
+			this.pictureBox2.TabIndex = 2;
+			this.pictureBox2.TabStop = false;
+			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.ErrorImage = null;
@@ -89,7 +99,8 @@
 			// 
 			// label1
 			// 
-			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.ForeColor = System.Drawing.Color.White;
 			this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -109,7 +120,6 @@
 			this.pnlfiltros.Controls.Add(this.lblMateria);
 			this.pnlfiltros.Controls.Add(this.cmbSeccion);
 			this.pnlfiltros.Controls.Add(this.label2);
-			this.pnlfiltros.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlfiltros.Location = new System.Drawing.Point(0, 99);
 			this.pnlfiltros.Name = "pnlfiltros";
 			this.pnlfiltros.Size = new System.Drawing.Size(1143, 120);
@@ -121,13 +131,15 @@
 			this.cmbTarea.FormattingEnabled = true;
 			this.cmbTarea.Location = new System.Drawing.Point(767, 46);
 			this.cmbTarea.Name = "cmbTarea";
-			this.cmbTarea.Size = new System.Drawing.Size(150, 21);
+			this.cmbTarea.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.cmbTarea.Size = new System.Drawing.Size(169, 21);
 			this.cmbTarea.TabIndex = 5;
 			this.cmbTarea.SelectedIndexChanged += new System.EventHandler(this.cmbTarea_SelectedIndexChanged);
 			this.cmbTarea.SelectionChangeCommitted += new System.EventHandler(this.cmbTarea_SelectionChangeCommitted);
 			// 
 			// btnGuardar
 			// 
+			this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnGuardar.BackColor = System.Drawing.Color.YellowGreen;
 			this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,6 +160,7 @@
 			this.lblTarea.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblTarea.Location = new System.Drawing.Point(721, 46);
 			this.lblTarea.Name = "lblTarea";
+			this.lblTarea.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.lblTarea.Size = new System.Drawing.Size(40, 17);
 			this.lblTarea.TabIndex = 4;
 			this.lblTarea.Text = "Tarea";
@@ -158,7 +171,8 @@
 			this.cmbMateria.FormattingEnabled = true;
 			this.cmbMateria.Location = new System.Drawing.Point(530, 46);
 			this.cmbMateria.Name = "cmbMateria";
-			this.cmbMateria.Size = new System.Drawing.Size(150, 21);
+			this.cmbMateria.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.cmbMateria.Size = new System.Drawing.Size(169, 21);
 			this.cmbMateria.TabIndex = 3;
 			this.cmbMateria.SelectedIndexChanged += new System.EventHandler(this.cmbMateria_SelectedIndexChanged);
 			this.cmbMateria.SelectionChangeCommitted += new System.EventHandler(this.cmbMateria_SelectionChangeCommitted);
@@ -169,6 +183,7 @@
 			this.lblMateria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblMateria.Location = new System.Drawing.Point(472, 46);
 			this.lblMateria.Name = "lblMateria";
+			this.lblMateria.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.lblMateria.Size = new System.Drawing.Size(53, 17);
 			this.lblMateria.TabIndex = 2;
 			this.lblMateria.Text = "Materia";
@@ -179,7 +194,8 @@
 			this.cmbSeccion.FormattingEnabled = true;
 			this.cmbSeccion.Location = new System.Drawing.Point(272, 46);
 			this.cmbSeccion.Name = "cmbSeccion";
-			this.cmbSeccion.Size = new System.Drawing.Size(150, 21);
+			this.cmbSeccion.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.cmbSeccion.Size = new System.Drawing.Size(169, 21);
 			this.cmbSeccion.TabIndex = 1;
 			this.cmbSeccion.SelectedIndexChanged += new System.EventHandler(this.cmbSeccion_SelectedIndexChanged);
 			this.cmbSeccion.SelectionChangeCommitted += new System.EventHandler(this.cmbSeccion_SelectionChangeCommitted);
@@ -190,14 +206,16 @@
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.Location = new System.Drawing.Point(214, 46);
 			this.label2.Name = "label2";
+			this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.label2.Size = new System.Drawing.Size(52, 17);
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Sección";
 			// 
 			// panel1
 			// 
+			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.panel1.Controls.Add(this.dgvTareas);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Location = new System.Drawing.Point(0, 219);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1143, 331);
@@ -236,6 +254,9 @@
 			// 
 			// panel2
 			// 
+			this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.panel2.Controls.Add(this.btnEliminar);
 			this.panel2.Controls.Add(this.btnEditar);
 			this.panel2.Controls.Add(this.btnSalir);
@@ -246,7 +267,6 @@
 			this.panel2.Controls.Add(this.btnCrearTarea);
 			this.panel2.Controls.Add(this.txtDescripcion);
 			this.panel2.Controls.Add(this.txtTitulo);
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.panel2.Location = new System.Drawing.Point(0, 423);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(1143, 207);
@@ -298,6 +318,7 @@
 			this.btnSalir.Text = "Salir";
 			this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnSalir.UseVisualStyleBackColor = false;
+			this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
 			// 
 			// label5
 			// 
@@ -372,15 +393,6 @@
 			this.txtTitulo.TabIndex = 1;
 			this.txtTitulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
-			// pictureBox2
-			// 
-			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(706, 12);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(119, 73);
-			this.pictureBox2.TabIndex = 2;
-			this.pictureBox2.TabStop = false;
-			// 
 			// FrmTareas
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,11 +402,13 @@
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.pnlfiltros);
 			this.Controls.Add(this.paneltop);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "FrmTareas";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FrmTareas";
 			this.Load += new System.EventHandler(this.FrmTareas_Load);
 			this.paneltop.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.pnlfiltros.ResumeLayout(false);
 			this.pnlfiltros.PerformLayout();
@@ -402,7 +416,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).EndInit();
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.ResumeLayout(false);
 
 		}

@@ -23,6 +23,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 			CargarMaterias("");
 			dgvMaterias.Columns["IdMateria"].Visible = false;
+		
 
 			RedondearBoton(btnbuscar, 20);
 			RedondearBoton(btnAgregar, 20);

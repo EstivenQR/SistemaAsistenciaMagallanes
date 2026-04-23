@@ -28,6 +28,10 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		private void FrmHome_Load(object sender, EventArgs e)
 		{
+			IniciarTypewriter1("Liceo");
+			IniciarTypewriter2("Magallanes");
+			Fotter();
+
 			lblUsuario.Text = " Bienvenid@: " + Sesion.Nombre;
 			CargarTooltipTareas();
 			CargarKPIs();
@@ -45,6 +49,73 @@ namespace SistemaAsistenciaMagallanes.Forms
 			}
 
 		}
+
+		Timer timerType1 = new Timer();
+		string texto1 = "Liceo ";
+		int index1 = 0;
+		bool mostrarCursor = true;
+
+		Timer timerType2 = new Timer();
+		string texto2 = "Magallanes";
+		int index2 = 0;
+
+		private void IniciarTypewriter1(string texto)
+		{
+			timerType1.Stop();
+
+			texto1 = texto;
+			index1 = 0;
+			lblMensaje.Text = "";
+
+			timerType1.Interval = 80;
+			timerType1.Tick -= TimerType1_Tick;
+			timerType1.Tick += TimerType1_Tick;
+
+			timerType1.Start();
+		}
+
+		private void IniciarTypewriter2(string texto)
+		{
+			timerType2.Stop();
+
+			texto2 = texto;
+			index2 = 0;
+			lblMensaje2.Text = "";
+
+			timerType2.Interval = 80;
+			timerType2.Tick -= TimerType2_Tick;
+			timerType2.Tick += TimerType2_Tick;
+
+			timerType2.Start();
+		}
+		private void TimerType1_Tick(object sender, EventArgs e)
+		{
+			if (index1 < texto1.Length)
+			{
+				lblMensaje.Text = texto1.Substring(0, index1 + 1) + "|";
+				index1++;
+			}
+			else
+			{
+				timerType1.Stop();
+				lblMensaje.Text = texto1;
+			}
+		}
+
+		private void TimerType2_Tick(object sender, EventArgs e)
+		{
+			if (index2 < texto2.Length)
+			{
+				lblMensaje2.Text = texto2.Substring(0, index2 + 1) + "|";
+				index2++;
+			}
+			else
+			{
+				timerType2.Stop();
+				lblMensaje2.Text = texto2;
+			}
+		}
+
 
 
 		private void CargarKPIs()
@@ -65,7 +136,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		private void CentrarTabla()
 		{
-	
+
 			tableKPIs.Top = (this.ClientSize.Height - tableKPIs.Height) / 2;
 			tableKPIs.Top = 350; // ajusta según tu diseño
 
@@ -259,6 +330,21 @@ namespace SistemaAsistenciaMagallanes.Forms
 		private void FrmHome_Resize(object sender, EventArgs e)
 		{
 			CentrarTabla();
+		}
+
+		private void btnBoletas_Click(object sender, EventArgs e)
+		{
+			FrmBoletas frm = new FrmBoletas();
+			frm.Show();
+		}
+
+		public void Fotter()
+		{
+		
+			lblFooter.Text = $"Sistema Asistencia - Magallanes © {DateTime.Now.Year}";
+			lblFooter.AutoSize = true;
+			lblFooter.Top = 10;
+			lblFooter.Left = (panelFooter.Width - lblFooter.Width) / 2;
 		}
 	}
 }

@@ -208,3 +208,4 @@ C:\Users\estiv\Desktop\UNIVERSIDAD\TCU Magallanes\SistemaAsistenciaMagallanes\Si
 C:\Users\estiv\Desktop\UNIVERSIDAD\TCU Magallanes\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaA.F4C6F63E.Up2Date
 C:\Users\estiv\Desktop\UNIVERSIDAD\TCU Magallanes\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.exe
 C:\Users\estiv\Desktop\UNIVERSIDAD\TCU Magallanes\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.pdb
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmBoletas.resources
