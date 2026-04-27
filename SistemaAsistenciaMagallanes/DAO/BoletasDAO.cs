@@ -55,7 +55,7 @@ namespace SistemaAsistenciaMagallanes.DAO
                    b.IdEstudiante,
                    e.IdSeccion,
                    e.Nombre + ' ' + e.Apellido AS Estudiante,
-                   s.NombreSeccion AS Seccion,
+                   (s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR)) AS NombreSeccion,
                    b.Fecha,
                    b.Motivo,
                    b.Porcentaje AS Puntos
@@ -262,7 +262,7 @@ namespace SistemaAsistenciaMagallanes.DAO
             SELECT b.IdBoleta,
 				   b.IdEstudiante,
                    e.Nombre + ' ' + e.Apellido AS Estudiante,e.IdSeccion,
-                   s.NombreSeccion AS Seccion,
+                   (s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR)) AS NombreSeccion AS Seccion,
                    b.Fecha,
                    b.Motivo,
                    b.Porcentaje AS Puntos
@@ -294,7 +294,7 @@ namespace SistemaAsistenciaMagallanes.DAO
             b.IdBoleta,
 			b.IdEstudiante,
             e.Nombre + ' ' + e.Apellido AS Estudiante,e.IdSeccion,
-            s.NombreSeccion AS Seccion,
+           (s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR)) AS NombreSeccion,
             b.Fecha,
             b.Motivo,
             b.Porcentaje AS Puntos
@@ -305,28 +305,28 @@ namespace SistemaAsistenciaMagallanes.DAO
 
 				SqlCommand cmd = new SqlCommand();
 
-				// 🔥 FILTRO SECCIÓN
+				// FILTRO SECCIÓN
 				if (idSeccion.HasValue && idSeccion != 0)
 				{
 					query += " AND s.IdSeccion = @IdSeccion";
 					cmd.Parameters.AddWithValue("@IdSeccion", idSeccion);
 				}
 
-				// 🔥 FILTRO ESTUDIANTE
+				// FILTRO ESTUDIANTE
 				if (idEstudiante.HasValue && idEstudiante != 0)
 				{
 					query += " AND e.IdEstudiante = @IdEstudiante";
 					cmd.Parameters.AddWithValue("@IdEstudiante", idEstudiante);
 				}
 
-				// 🔥 FILTRO FECHA INICIO
+				// FILTRO FECHA INICIO
 				if (fechaInicio.HasValue)
 				{
 					query += " AND b.Fecha >= @FechaInicio";
 					cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio.Value.Date);
 				}
 
-				// 🔥 FILTRO FECHA FIN
+				// FILTRO FECHA FIN
 				if (fechaFin.HasValue)
 				{
 					query += " AND b.Fecha <= @FechaFin";
