@@ -277,11 +277,24 @@ namespace SistemaAsistenciaMagallanes.Forms
 			// evitar opción por defecto
 			if (idAsignacion == 0)
 			{
+				lblTotalEstudiantes.Text = "0";
 				dgvAsistencia.DataSource = null; // limpia grid
 				return;
 			}
 
 			CargarEstudiantes(idSeccion, idAsignacion);
+			ActualizarTotalEstudiantes(idSeccion, idAsignacion);
+
+
+		}
+
+		private void ActualizarTotalEstudiantes(int idSeccion, int idAsignacion)
+		{
+			DataTable dt = service.ObtenerEstudiantesPorSeccion(idSeccion, idAsignacion);
+
+			int total = dt.Rows.Count;
+
+			lblTotalEstudiantes.Text = total.ToString();
 		}
 
 		private void btnJustificarSeleccionado_Click(object sender, EventArgs e)

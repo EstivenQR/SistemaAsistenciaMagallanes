@@ -312,7 +312,7 @@ namespace SistemaAsistenciaMagallanes.Reportes
 
 			PdfFont fontBold = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
 
-			// 🔥 TÍTULO
+			// TÍTULO
 			doc.Add(new Paragraph("REPORTE DE AMONESTACIONES")
 				.SetFont(fontBold)
 				.SetFontSize(18)
@@ -320,12 +320,24 @@ namespace SistemaAsistenciaMagallanes.Reportes
 
 			doc.Add(new Paragraph("\n"));
 
-			// 🔥 TABLA
-			Table tabla = new Table(dt.Columns.Count);
+			// TABLA
+			List<string> columnasExcluir = new List<string>
+				{
+					"IdBoleta",
+					"IdEstudiante",
+					"IdSeccion"
+				};
+
+			var columnasVisibles = dt.Columns
+				.Cast<DataColumn>()
+				.Where(c => !columnasExcluir.Contains(c.ColumnName))
+				.ToList();
+
+			Table tabla = new Table(columnasVisibles.Count);
 			tabla.SetWidth(UnitValue.CreatePercentValue(100));
 
 			// HEADERS
-			foreach (DataColumn col in dt.Columns)
+			foreach (DataColumn col in columnasVisibles)
 			{
 				tabla.AddCell(new Cell()
 					.Add(new Paragraph(col.ColumnName))
@@ -336,8 +348,19 @@ namespace SistemaAsistenciaMagallanes.Reportes
 			// FILAS
 			foreach (DataRow row in dt.Rows)
 			{
-				foreach (DataColumn col in dt.Columns)
+				foreach (DataColumn col in columnasVisibles)
 				{
+
+					string valor = "";
+
+					if (col.ColumnName == "Fecha" && row[col] != DBNull.Value)
+					{
+						valor = Convert.ToDateTime(row[col]).ToString("dd/MM/yyyy");
+					}
+					else
+					{
+						valor = row[col]?.ToString() ?? "";
+					}
 					tabla.AddCell(new Cell()
 						.Add(new Paragraph(row[col]?.ToString() ?? ""))
 						.SetTextAlignment(TextAlignment.CENTER));
@@ -365,7 +388,7 @@ namespace SistemaAsistenciaMagallanes.Reportes
 			PdfDocument pdf = new PdfDocument(writer);
 			Document doc = new Document(pdf);
 
-			// 🔥 ENCABEZADO (igual que tu otro PDF)
+			// ENCABEZADO 
 			byte[] imagenBytes;
 			using (MemoryStream ms = new MemoryStream())
 			{
@@ -383,10 +406,10 @@ namespace SistemaAsistenciaMagallanes.Reportes
 			doc.Add(img);
 			doc.Add(new Paragraph("\n\n\n\n"));
 
-			// 🔥 FUENTE
+			// FUENTE
 			PdfFont bold = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
 
-			// 🔥 TÍTULO
+			// TÍTULO
 			doc.Add(new Paragraph("BOLETA DE AMONESTACIÓN")
 				.SetFont(bold)
 				.SetFontSize(18)
@@ -394,14 +417,14 @@ namespace SistemaAsistenciaMagallanes.Reportes
 
 			doc.Add(new Paragraph("\n"));
 
-			// 🔥 DATOS
+			// DATOS
 			doc.Add(new Paragraph($"Estudiante: {boleta["Estudiante"]}").SetFontSize(12));
 			doc.Add(new Paragraph($"Sección: {boleta["Seccion"]}").SetFontSize(12));
 			doc.Add(new Paragraph($"Fecha: {Convert.ToDateTime(boleta["Fecha"]).ToShortDateString()}").SetFontSize(12));
 
 			doc.Add(new Paragraph("\n"));
 
-			// 🔥 MOTIVO
+			// MOTIVO
 			doc.Add(new Paragraph("Motivo:")
 				.SetFont(bold)
 				.SetFontSize(12));
@@ -410,13 +433,13 @@ namespace SistemaAsistenciaMagallanes.Reportes
 				.SetFontSize(11)
 				.SetMarginBottom(10));
 
-			// 🔥 PORCENTAJE
+			// PORCENTAJE
 			doc.Add(new Paragraph($"Porcentaje de afectación: {boleta["Puntos"]}%")
 				.SetFont(bold));
 
 			doc.Add(new Paragraph("\n\n"));
 
-			// 🔥 FIRMAS
+			// FIRMAS
 			Table firmas = new Table(2);
 			firmas.SetWidth(UnitValue.CreatePercentValue(100));
 
@@ -450,7 +473,7 @@ namespace SistemaAsistenciaMagallanes.Reportes
 			PdfDocument pdf = new PdfDocument(writer);
 			Document doc = new Document(pdf);
 
-			// 🔥 ENCABEZADO (igual que tu PDF de asistencia)
+			// ENCABEZADO 
 			byte[] imagenBytes;
 			using (MemoryStream ms = new MemoryStream())
 			{
@@ -468,10 +491,10 @@ namespace SistemaAsistenciaMagallanes.Reportes
 			doc.Add(img);
 			doc.Add(new Paragraph("\n\n\n\n"));
 
-			// 🔥 FUENTE
+			// FUENTE
 			PdfFont bold = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
 
-			// 🔥 TÍTULO
+			// TÍTULO
 			doc.Add(new Paragraph("REPORTE DE AMONESTACIONES")
 				.SetFont(bold)
 				.SetFontSize(18)
@@ -479,7 +502,7 @@ namespace SistemaAsistenciaMagallanes.Reportes
 
 			doc.Add(new Paragraph("\n"));
 
-			// 🔥 FILTROS VISUALES
+			// FILTROS VISUALES
 			if (!string.IsNullOrEmpty(estudiante) || !string.IsNullOrEmpty(seccion))
 			{
 				doc.Add(new Paragraph($"Estudiante: {estudiante}\nSección: {seccion}")
@@ -487,7 +510,7 @@ namespace SistemaAsistenciaMagallanes.Reportes
 				doc.Add(new Paragraph("\n"));
 			}
 
-			// 🔥 RESUMEN
+			// RESUMEN
 			int total = dt.Rows.Count;
 			double promedio = dt.AsEnumerable().Any()
 				? dt.AsEnumerable().Average(r => Convert.ToDouble(r["Puntos"]))
@@ -498,12 +521,24 @@ namespace SistemaAsistenciaMagallanes.Reportes
 
 			doc.Add(new Paragraph("\n"));
 
-			// 🔥 TABLA
-			Table tabla = new Table(dt.Columns.Count);
+			// TABLA
+			List<string> columnasExcluir = new List<string>
+			{
+				"IdBoleta",
+				"IdEstudiante",
+				"IdSeccion"
+			};
+
+			var columnasVisibles = dt.Columns
+				.Cast<DataColumn>()
+				.Where(c => !columnasExcluir.Contains(c.ColumnName))
+				.ToList();
+
+			Table tabla = new Table(columnasVisibles.Count);
 			tabla.SetWidth(UnitValue.CreatePercentValue(100));
 
 			// HEADERS
-			foreach (DataColumn col in dt.Columns)
+			foreach (DataColumn col in columnasVisibles)
 			{
 				tabla.AddCell(new Cell()
 					.Add(new Paragraph(col.ColumnName))
@@ -514,19 +549,26 @@ namespace SistemaAsistenciaMagallanes.Reportes
 			// FILAS
 			foreach (DataRow row in dt.Rows)
 			{
-				foreach (DataColumn col in dt.Columns)
+				foreach (DataColumn col in columnasVisibles)
 				{
-					string valor = row[col]?.ToString() ?? "";
+					string valor = "";
+
+					if (col.ColumnName == "Fecha" && row[col] != DBNull.Value)
+					{
+						valor = Convert.ToDateTime(row[col]).ToString("dd/MM/yyyy");
+					}
+					else
+					{
+						valor = row[col]?.ToString() ?? "";
+					}
+					
 					Color color = ColorConstants.BLACK;
 
-					// 🔥 COLOR POR PORCENTAJE
+					//  COLOR POR PORCENTAJE
 					if (col.ColumnName == "Puntos")
 					{
 						int p = Convert.ToInt32(row[col]);
-
-						if (p >= 50) color = ColorConstants.RED;
-						else if (p >= 20) color = ColorConstants.ORANGE;
-						else color = ColorConstants.GREEN;
+						color = ColorConstants.BLACK;
 					}
 
 					tabla.AddCell(new Cell()

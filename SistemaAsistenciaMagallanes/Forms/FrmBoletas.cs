@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -360,8 +361,30 @@ namespace SistemaAsistenciaMagallanes.Forms
 					return;
 				}
 
-				pdf.GenerarBoletaPDF(boleta);
-				return;
+				try
+				{
+
+					pdf.GenerarBoletaPDF(boleta);
+					return;
+				}
+				catch (IOException)
+				{
+					MessageBox.Show(
+					"El archivo PDF está abierto. Por favor ciérrelo antes de generar uno nuevo.",
+					"Archivo en uso",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Warning
+					);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(
+						"Ocurrió un error al generar el PDF:\n" + ex.Message,
+						"Error",
+						MessageBoxButtons.OK,
+						MessageBoxIcon.Error
+					);
+				}
 			}
 
 		
@@ -392,7 +415,36 @@ namespace SistemaAsistenciaMagallanes.Forms
 				return;
 			}
 
-			pdf.GenerarReporteBoletasFiltros(dt, cmbSeccion.Text, cmbEstudiante.Text);
+			string textoSeccion = "Todas";
+			string textoEstudiante = "Todos";
+
+			if (CmbSeccionFiltro.SelectedValue != null && Convert.ToInt32(CmbSeccionFiltro.SelectedValue) != 0)
+				textoSeccion = CmbSeccionFiltro.Text;
+
+			if (cmbNombre.SelectedValue != null && Convert.ToInt32(cmbNombre.SelectedValue) != 0)
+				textoEstudiante = cmbNombre.Text;
+			try
+			{
+				pdf.GenerarReporteBoletasFiltros(dt, textoSeccion, textoEstudiante);
+			}
+			catch (IOException)
+			{
+				MessageBox.Show(
+				"El archivo PDF está abierto. Por favor ciérrelo antes de generar uno nuevo.",
+				"Archivo en uso",
+		MessageBoxButtons.OK,
+		MessageBoxIcon.Warning
+				);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(
+					"Ocurrió un error al generar el PDF:\n" + ex.Message,
+					"Error",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Error
+				);
+			}
 		}
 
 		private void panel1_Paint(object sender, PaintEventArgs e)
@@ -407,7 +459,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			DateTime? inicio = null;
 			DateTime? fin = null;
 
-			// 🔥 USAR LOS FILTROS (NO LOS DE CREAR)
+			// USAR LOS FILTROS 
 			if (CmbSeccionFiltro.SelectedValue != null && Convert.ToInt32(CmbSeccionFiltro.SelectedValue) != 0)
 				idSeccion = Convert.ToInt32(CmbSeccionFiltro.SelectedValue);
 

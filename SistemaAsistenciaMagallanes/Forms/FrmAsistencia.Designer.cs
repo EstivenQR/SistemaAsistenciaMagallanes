@@ -28,8 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAsistencia));
 			this.pnlfiltros = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -51,6 +51,10 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.panel4 = new System.Windows.Forms.Panel();
+			this.pnlTotalEstudiantes = new System.Windows.Forms.Panel();
+			this.lblTotalEstudiantesTitulo = new System.Windows.Forms.Label();
+			this.lblTotalEstudiantes = new System.Windows.Forms.Label();
 			this.pnlfiltros.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
@@ -61,6 +65,7 @@
 			this.paneltop.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.pnlTotalEstudiantes.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pnlfiltros
@@ -79,10 +84,11 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
 			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.pnlTotalEstudiantes, 0, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+			this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(1151, 58);
@@ -97,10 +103,11 @@
 			this.flowLayoutPanel1.Controls.Add(this.cmbMateria);
 			this.flowLayoutPanel1.Controls.Add(this.label3);
 			this.flowLayoutPanel1.Controls.Add(this.dtpFecha);
+			this.flowLayoutPanel1.Controls.Add(this.panel4);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(348, 11);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(348, 8);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(684, 44);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(684, 47);
 			this.flowLayoutPanel1.TabIndex = 6;
 			this.flowLayoutPanel1.WrapContents = false;
 			this.flowLayoutPanel1.Resize += new System.EventHandler(this.flowLayoutPanel1_Resize);
@@ -170,23 +177,23 @@
 			this.dgvAsistencia.AllowUserToAddRows = false;
 			this.dgvAsistencia.BackgroundColor = System.Drawing.Color.White;
 			this.dgvAsistencia.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvAsistencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Transparent;
+			dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvAsistencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
 			this.dgvAsistencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvAsistencia.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvAsistencia.DefaultCellStyle = dataGridViewCellStyle16;
 			this.dgvAsistencia.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvAsistencia.Location = new System.Drawing.Point(0, 0);
 			this.dgvAsistencia.Name = "dgvAsistencia";
@@ -329,6 +336,42 @@
 			this.label1.Text = "ASISTENCIA     ";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// panel4
+			// 
+			this.panel4.Location = new System.Drawing.Point(685, 3);
+			this.panel4.Name = "panel4";
+			this.panel4.Size = new System.Drawing.Size(200, 100);
+			this.panel4.TabIndex = 7;
+			// 
+			// pnlTotalEstudiantes
+			// 
+			this.pnlTotalEstudiantes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.pnlTotalEstudiantes.Controls.Add(this.lblTotalEstudiantes);
+			this.pnlTotalEstudiantes.Controls.Add(this.lblTotalEstudiantesTitulo);
+			this.pnlTotalEstudiantes.Location = new System.Drawing.Point(3, 8);
+			this.pnlTotalEstudiantes.Name = "pnlTotalEstudiantes";
+			this.pnlTotalEstudiantes.Size = new System.Drawing.Size(143, 47);
+			this.pnlTotalEstudiantes.TabIndex = 7;
+			// 
+			// lblTotalEstudiantesTitulo
+			// 
+			this.lblTotalEstudiantesTitulo.AutoSize = true;
+			this.lblTotalEstudiantesTitulo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblTotalEstudiantesTitulo.Location = new System.Drawing.Point(7, 0);
+			this.lblTotalEstudiantesTitulo.Name = "lblTotalEstudiantesTitulo";
+			this.lblTotalEstudiantesTitulo.Size = new System.Drawing.Size(128, 21);
+			this.lblTotalEstudiantesTitulo.TabIndex = 0;
+			this.lblTotalEstudiantesTitulo.Text = "Total Estudiantes:";
+			// 
+			// lblTotalEstudiantes
+			// 
+			this.lblTotalEstudiantes.AutoSize = true;
+			this.lblTotalEstudiantes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblTotalEstudiantes.Location = new System.Drawing.Point(55, 21);
+			this.lblTotalEstudiantes.Name = "lblTotalEstudiantes";
+			this.lblTotalEstudiantes.Size = new System.Drawing.Size(0, 20);
+			this.lblTotalEstudiantes.TabIndex = 1;
+			// 
 			// FrmAsistencia
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,6 +400,8 @@
 			this.tableLayoutPanel3.ResumeLayout(false);
 			this.tableLayoutPanel3.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.pnlTotalEstudiantes.ResumeLayout(false);
+			this.pnlTotalEstudiantes.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -382,5 +427,9 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.Panel panel4;
+		private System.Windows.Forms.Panel pnlTotalEstudiantes;
+		private System.Windows.Forms.Label lblTotalEstudiantes;
+		private System.Windows.Forms.Label lblTotalEstudiantesTitulo;
 	}
 }
