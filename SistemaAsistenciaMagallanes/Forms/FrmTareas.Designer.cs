@@ -46,6 +46,7 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.dgvTareas = new System.Windows.Forms.DataGridView();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.label6 = new System.Windows.Forms.Label();
 			this.btnEliminar = new System.Windows.Forms.Button();
 			this.btnEditar = new System.Windows.Forms.Button();
 			this.btnSalir = new System.Windows.Forms.Button();
@@ -56,6 +57,7 @@
 			this.btnCrearTarea = new System.Windows.Forms.Button();
 			this.txtDescripcion = new System.Windows.Forms.TextBox();
 			this.txtTitulo = new System.Windows.Forms.TextBox();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.paneltop.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -68,6 +70,7 @@
 			// paneltop
 			// 
 			this.paneltop.BackColor = System.Drawing.Color.Orange;
+			this.paneltop.Controls.Add(this.flowLayoutPanel1);
 			this.paneltop.Controls.Add(this.pictureBox2);
 			this.paneltop.Controls.Add(this.pictureBox1);
 			this.paneltop.Controls.Add(this.label1);
@@ -257,6 +260,7 @@
 			this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.panel2.Controls.Add(this.label6);
 			this.panel2.Controls.Add(this.btnEliminar);
 			this.panel2.Controls.Add(this.btnEditar);
 			this.panel2.Controls.Add(this.btnSalir);
@@ -269,8 +273,20 @@
 			this.panel2.Controls.Add(this.txtTitulo);
 			this.panel2.Location = new System.Drawing.Point(0, 423);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(1143, 207);
+			this.panel2.Size = new System.Drawing.Size(1143, 254);
 			this.panel2.TabIndex = 4;
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.Location = new System.Drawing.Point(403, 15);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(170, 32);
+			this.label6.TabIndex = 11;
+			this.label6.Text = "Asignar Tarea";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.label6.Click += new System.EventHandler(this.label6_Click);
 			// 
 			// btnEliminar
 			// 
@@ -279,7 +295,7 @@
 			this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnEliminar.ForeColor = System.Drawing.Color.White;
 			this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-			this.btnEliminar.Location = new System.Drawing.Point(684, 40);
+			this.btnEliminar.Location = new System.Drawing.Point(693, 89);
 			this.btnEliminar.Name = "btnEliminar";
 			this.btnEliminar.Size = new System.Drawing.Size(103, 56);
 			this.btnEliminar.TabIndex = 10;
@@ -295,7 +311,7 @@
 			this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnEditar.ForeColor = System.Drawing.Color.White;
 			this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-			this.btnEditar.Location = new System.Drawing.Point(575, 110);
+			this.btnEditar.Location = new System.Drawing.Point(584, 159);
 			this.btnEditar.Name = "btnEditar";
 			this.btnEditar.Size = new System.Drawing.Size(103, 56);
 			this.btnEditar.TabIndex = 9;
@@ -311,7 +327,7 @@
 			this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnSalir.ForeColor = System.Drawing.Color.White;
 			this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-			this.btnSalir.Location = new System.Drawing.Point(684, 110);
+			this.btnSalir.Location = new System.Drawing.Point(693, 159);
 			this.btnSalir.Name = "btnSalir";
 			this.btnSalir.Size = new System.Drawing.Size(103, 56);
 			this.btnSalir.TabIndex = 8;
@@ -324,7 +340,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(174, 123);
+			this.label5.Location = new System.Drawing.Point(223, 158);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(80, 17);
 			this.label5.TabIndex = 6;
@@ -335,7 +351,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(188, 73);
+			this.label4.Location = new System.Drawing.Point(237, 108);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(45, 17);
 			this.label4.TabIndex = 5;
@@ -346,7 +362,7 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(165, 17);
+			this.label3.Location = new System.Drawing.Point(214, 52);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(113, 17);
 			this.label3.TabIndex = 4;
@@ -355,7 +371,7 @@
 			// 
 			// dtpFechaEntrega
 			// 
-			this.dtpFechaEntrega.Location = new System.Drawing.Point(127, 40);
+			this.dtpFechaEntrega.Location = new System.Drawing.Point(176, 75);
 			this.dtpFechaEntrega.Name = "dtpFechaEntrega";
 			this.dtpFechaEntrega.Size = new System.Drawing.Size(200, 20);
 			this.dtpFechaEntrega.TabIndex = 3;
@@ -367,7 +383,7 @@
 			this.btnCrearTarea.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnCrearTarea.ForeColor = System.Drawing.Color.White;
 			this.btnCrearTarea.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearTarea.Image")));
-			this.btnCrearTarea.Location = new System.Drawing.Point(577, 40);
+			this.btnCrearTarea.Location = new System.Drawing.Point(586, 89);
 			this.btnCrearTarea.Name = "btnCrearTarea";
 			this.btnCrearTarea.Size = new System.Drawing.Size(103, 56);
 			this.btnCrearTarea.TabIndex = 0;
@@ -378,7 +394,7 @@
 			// 
 			// txtDescripcion
 			// 
-			this.txtDescripcion.Location = new System.Drawing.Point(127, 146);
+			this.txtDescripcion.Location = new System.Drawing.Point(176, 181);
 			this.txtDescripcion.Multiline = true;
 			this.txtDescripcion.Name = "txtDescripcion";
 			this.txtDescripcion.Size = new System.Drawing.Size(200, 47);
@@ -387,17 +403,24 @@
 			// 
 			// txtTitulo
 			// 
-			this.txtTitulo.Location = new System.Drawing.Point(127, 93);
+			this.txtTitulo.Location = new System.Drawing.Point(176, 128);
 			this.txtTitulo.Name = "txtTitulo";
 			this.txtTitulo.Size = new System.Drawing.Size(200, 20);
 			this.txtTitulo.TabIndex = 1;
 			this.txtTitulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
+			// flowLayoutPanel1
+			// 
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(335, 49);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+			this.flowLayoutPanel1.TabIndex = 3;
+			// 
 			// FrmTareas
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1143, 630);
+			this.ClientSize = new System.Drawing.Size(1143, 677);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.pnlfiltros);
@@ -447,5 +470,7 @@
 		private System.Windows.Forms.Button btnEliminar;
 		private System.Windows.Forms.Button btnEditar;
 		private System.Windows.Forms.PictureBox pictureBox2;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 	}
 }

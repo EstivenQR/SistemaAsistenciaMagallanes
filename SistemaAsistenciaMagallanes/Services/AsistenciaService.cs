@@ -46,5 +46,37 @@ namespace SistemaAsistenciaMagallanes.Services
 		{
 			return dao.ExisteClase(idAsignacion, fecha);
 		}
+
+
+		//Acá empieza lo de hisotorial asistencia
+		public DataTable ObtenerSeccionesHistorial(int idUsuario, int idRol)
+		{
+			return dao.ObtenerSeccionesHistorial(idUsuario, idRol);
+		}
+
+		public DataTable ObtenerMateriasHistorial(int idUsuario, int idRol, int idSeccion)
+		{
+			return dao.ObtenerMateriasHistorial(idUsuario, idRol, idSeccion);
+		}
+
+		public DataTable ObtenerListaAsistencia(int idAsignacion, DateTime fecha)
+		{
+			return dao.ObtenerListaAsistencia(idAsignacion, fecha);
+		}
+
+		public void ActualizarDetalleAsistencia(
+			int idDetalle,
+			string estado,
+			string observacion,
+			int idUsuario
+		)
+		{
+			dao.ActualizarDetalleAsistencia(
+				idDetalle,
+				estado,
+				observacion,
+				idUsuario
+			);
+		}
 	}
 }

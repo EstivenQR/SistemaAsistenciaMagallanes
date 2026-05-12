@@ -88,22 +88,28 @@ namespace SistemaAsistenciaMagallanes.DAO
 			return tabla;
 		}
 
-		public void EditarEstudiante(int id, string cedula, string nombre, string apellido,
-									DateTime fechaNacimiento, string numeroEncargado, int idSeccion, bool estado, int RecibeReligion)
+		public void EditarEstudiante(int id,
+									string cedula,
+									string nombre,
+									string apellido,
+									DateTime fechaNacimiento,
+									string numeroEncargado,
+									bool estado,
+									int RecibeReligion
+								)
 		{
 			ConexionBD conexionBD = new ConexionBD();
 			SqlConnection conexion = conexionBD.ObtenerConexion();
 
 			string consulta = @"UPDATE Estudiantes
-                        SET Cedula = @cedula,
-                            Nombre = @nombre,
-                            Apellido = @apellido,
-                            FechaNacimiento = @fecha,
-                            NumeroEncargado = @encargado,
-                            IdSeccion = @seccion,
-                            Estado = @estado,
-							RecibeReligion= @RecibeReligion
-                        WHERE IdEstudiante = @id";
+								SET Cedula = @cedula,
+									Nombre = @nombre,
+									Apellido = @apellido,
+									FechaNacimiento = @fecha,
+									NumeroEncargado = @encargado,
+									Estado = @estado,
+									RecibeReligion = @RecibeReligion
+								WHERE IdEstudiante = @id";
 
 			SqlCommand cmd = new SqlCommand(consulta, conexion);
 
@@ -113,13 +119,91 @@ namespace SistemaAsistenciaMagallanes.DAO
 			cmd.Parameters.AddWithValue("@apellido", apellido);
 			cmd.Parameters.AddWithValue("@fecha", fechaNacimiento);
 			cmd.Parameters.AddWithValue("@encargado", numeroEncargado);
-			cmd.Parameters.AddWithValue("@seccion", idSeccion);
 			cmd.Parameters.AddWithValue("@estado", estado);
 			cmd.Parameters.AddWithValue("@RecibeReligion", RecibeReligion);
 
 			conexion.Open();
 			cmd.ExecuteNonQuery();
 			conexion.Close();
+		}
+		public void ProgramarCambioSeccion(
+			int idEstudiante,
+			int idSeccionActual,
+			int idNuevaSeccion,
+			string motivo
+		)
+		{
+			if (idSeccionActual == idNuevaSeccion)
+				return;
+
+			using (SqlConnection conn = new ConexionBD().ObtenerConexion())
+			{
+				conn.Open();
+
+				string query = @"
+        INSERT INTO CambioSeccionPendiente
+        (
+            IdEstudiante,
+            IdSeccionActual,
+            IdNuevaSeccion,
+            FechaRegistro,
+            FechaEfectiva,
+            Estado,
+            Motivo
+        )
+        VALUES
+        (
+            @IdEstudiante,
+            @IdSeccionActual,
+            @IdNuevaSeccion,
+            CAST(GETDATE() AS DATE),
+            DATEADD(DAY, 1, CAST(GETDATE() AS DATE)),
+            'Pendiente',
+            @Motivo
+        )";
+
+				SqlCommand cmd = new SqlCommand(query, conn);
+
+				cmd.Parameters.AddWithValue("@IdEstudiante", idEstudiante);
+				cmd.Parameters.AddWithValue("@IdSeccionActual", idSeccionActual);
+				cmd.Parameters.AddWithValue("@IdNuevaSeccion", idNuevaSeccion);
+				cmd.Parameters.AddWithValue("@Motivo", motivo);
+
+				cmd.ExecuteNonQuery();
+			}
+		}
+
+		public void AplicarCambiosPendientes(int idUsuario)
+		{
+			using (SqlConnection conn = new ConexionBD().ObtenerConexion())
+			{
+				conn.Open();
+
+				string query = @"
+
+        UPDATE e
+        SET e.IdSeccion = c.IdNuevaSeccion
+        FROM Estudiantes e
+        INNER JOIN CambioSeccionPendiente c
+            ON e.IdEstudiante = c.IdEstudiante
+        WHERE c.Estado = 'Pendiente'
+        AND c.FechaEfectiva <= CAST(GETDATE() AS DATE);
+
+        UPDATE CambioSeccionPendiente
+        SET
+            Estado = 'Aplicado',
+            AplicadoPor = @IdUsuario,
+            FechaAplicacion = GETDATE()
+        WHERE Estado = 'Pendiente'
+        AND FechaEfectiva <= CAST(GETDATE() AS DATE);
+        ";
+
+				SqlCommand cmd = new SqlCommand(query, conn);
+
+				cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+
+				cmd.ExecuteNonQuery();
+			}
 		}
 	}
 }

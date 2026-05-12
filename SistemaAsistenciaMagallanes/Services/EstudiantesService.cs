@@ -28,12 +28,53 @@ namespace SistemaAsistenciaMagallanes.Services
 
 			dao.InsertarEstudiante(cedula, nombre, apellido, fechaNacimiento, numeroEncargado, idSeccion, RecibeReligion);
 		}
-		public void EditarEstudiante(int id, string cedula, string nombre, string apellido,
-									DateTime fechaNacimiento, string numeroEncargado, int idSeccion, bool estado, int RecibeReligion)
+		public void EditarEstudiante(
+			int id,
+			string cedula,
+			string nombre,
+			string apellido,
+			DateTime fechaNacimiento,
+			string numeroEncargado,
+			bool estado,
+			int recibeReligion
+		)
 		{
 			EstudiantesDAO dao = new EstudiantesDAO();
 
-			dao.EditarEstudiante(id, cedula, nombre, apellido, fechaNacimiento, numeroEncargado, idSeccion, estado, RecibeReligion);
+			dao.EditarEstudiante(
+				id,
+				cedula,
+				nombre,
+				apellido,
+				fechaNacimiento,
+				numeroEncargado,
+				estado,
+				recibeReligion
+			);
+		}
+
+		public void ProgramarCambioSeccion(
+		int idEstudiante,
+		int idSeccionActual,
+		int idNuevaSeccion,
+		string motivo
+)
+		{
+			EstudiantesDAO dao = new EstudiantesDAO();
+
+			dao.ProgramarCambioSeccion(
+				idEstudiante,
+				idSeccionActual,
+				idNuevaSeccion,
+				motivo
+			);
+		}
+
+		public void AplicarCambiosPendientes(int idUsuario)
+		{
+			EstudiantesDAO dao = new EstudiantesDAO();
+
+			dao.AplicarCambiosPendientes(idUsuario);
 		}
 
 

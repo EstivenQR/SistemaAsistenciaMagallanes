@@ -74,6 +74,9 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 			bool estado = chkEstado.Checked;
 			int recibe = chkReligion.Checked ? 1 : 0;
+
+			int nuevaSeccion = Convert.ToInt32(cmbSeccion.SelectedValue);
+
 			service.EditarEstudiante(
 				IdEstudiante,
 				txtCedula.Text,
@@ -81,14 +84,28 @@ namespace SistemaAsistenciaMagallanes.Forms
 				txtApellido.Text,
 				dtpFechaNacimiento.Value,
 				txtNumeroEncargado.Text,
-				Convert.ToInt32(cmbSeccion.SelectedValue),
 				estado,
 				recibe
-
 			);
 
-			MessageBox.Show("Estudiante actualizado");
-			LimpiarCampos();
+			if (IdSeccion != nuevaSeccion)
+			{
+				service.ProgramarCambioSeccion(
+					IdEstudiante,
+					IdSeccion,
+					nuevaSeccion,
+					txtMotivo.Text
+				);
+
+				MessageBox.Show(
+					"Datos actualizados.\nEl cambio de sección se aplicará mañana."
+				);
+			}
+			else
+			{
+				MessageBox.Show("Estudiante actualizado.");
+			}
+
 			this.DialogResult = DialogResult.OK;
 			this.Close();
 		}

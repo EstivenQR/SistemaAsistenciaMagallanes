@@ -41,6 +41,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			RedondearBoton(btnGuardar, 20);
 			RedondearBoton(btnMarcarTodos, 20);
 			RedondearBoton(btnSalir, 20);
+			RedondearBoton(BtnListas, 20);
 
 		}
 
@@ -326,5 +327,11 @@ namespace SistemaAsistenciaMagallanes.Forms
         {
 
         }
-    }
+
+		private void BtnListas_Click(object sender, EventArgs e)
+		{
+			FrmHistorialAsistencia	frm= new FrmHistorialAsistencia();
+			frm.Show();
+		}
+	}
 }

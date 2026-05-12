@@ -38,6 +38,17 @@
 			this.panel5 = new System.Windows.Forms.Panel();
 			this.dgvBoletas = new System.Windows.Forms.DataGridView();
 			this.panel3 = new System.Windows.Forms.Panel();
+			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+			this.panel10 = new System.Windows.Forms.Panel();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.CmbSeccionFiltro = new System.Windows.Forms.ComboBox();
+			this.cmbNombre = new System.Windows.Forms.ComboBox();
+			this.panel11 = new System.Windows.Forms.Panel();
+			this.label9 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.dtpFin = new System.Windows.Forms.DateTimePicker();
+			this.dtpInicio = new System.Windows.Forms.DateTimePicker();
 			this.btnbuscar = new System.Windows.Forms.Button();
 			this.txtBuscar = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
@@ -69,23 +80,15 @@
 			this.btnLimpiar = new System.Windows.Forms.Button();
 			this.pnlContainer = new System.Windows.Forms.Panel();
 			this.pnlContenido = new System.Windows.Forms.Panel();
-			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-			this.panel10 = new System.Windows.Forms.Panel();
-			this.cmbNombre = new System.Windows.Forms.ComboBox();
-			this.CmbSeccionFiltro = new System.Windows.Forms.ComboBox();
-			this.panel11 = new System.Windows.Forms.Panel();
-			this.dtpInicio = new System.Windows.Forms.DateTimePicker();
-			this.dtpFin = new System.Windows.Forms.DateTimePicker();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label9 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panel2.SuspendLayout();
 			this.panel5.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvBoletas)).BeginInit();
 			this.panel3.SuspendLayout();
+			this.tableLayoutPanel5.SuspendLayout();
+			this.panel10.SuspendLayout();
+			this.panel11.SuspendLayout();
 			this.panel6.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
@@ -98,9 +101,6 @@
 			this.panel9.SuspendLayout();
 			this.pnlContainer.SuspendLayout();
 			this.pnlContenido.SuspendLayout();
-			this.tableLayoutPanel5.SuspendLayout();
-			this.panel10.SuspendLayout();
-			this.panel11.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -202,6 +202,115 @@
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(1191, 135);
 			this.panel3.TabIndex = 0;
+			// 
+			// tableLayoutPanel5
+			// 
+			this.tableLayoutPanel5.ColumnCount = 1;
+			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel5.Controls.Add(this.panel10, 0, 0);
+			this.tableLayoutPanel5.Controls.Add(this.panel11, 0, 1);
+			this.tableLayoutPanel5.Location = new System.Drawing.Point(249, 57);
+			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+			this.tableLayoutPanel5.RowCount = 2;
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel5.Size = new System.Drawing.Size(650, 70);
+			this.tableLayoutPanel5.TabIndex = 13;
+			// 
+			// panel10
+			// 
+			this.panel10.Controls.Add(this.label11);
+			this.panel10.Controls.Add(this.label10);
+			this.panel10.Controls.Add(this.CmbSeccionFiltro);
+			this.panel10.Controls.Add(this.cmbNombre);
+			this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel10.Location = new System.Drawing.Point(3, 3);
+			this.panel10.Name = "panel10";
+			this.panel10.Size = new System.Drawing.Size(644, 29);
+			this.panel10.TabIndex = 0;
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(16, 6);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(49, 13);
+			this.label11.TabIndex = 5;
+			this.label11.Text = "Sección:";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(329, 8);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(60, 13);
+			this.label10.TabIndex = 4;
+			this.label10.Text = "Estudiante:";
+			// 
+			// CmbSeccionFiltro
+			// 
+			this.CmbSeccionFiltro.FormattingEnabled = true;
+			this.CmbSeccionFiltro.Location = new System.Drawing.Point(71, 3);
+			this.CmbSeccionFiltro.Name = "CmbSeccionFiltro";
+			this.CmbSeccionFiltro.Size = new System.Drawing.Size(144, 21);
+			this.CmbSeccionFiltro.TabIndex = 1;
+			this.CmbSeccionFiltro.SelectedIndexChanged += new System.EventHandler(this.CmbSeccionFiltro_SelectedIndexChanged);
+			this.CmbSeccionFiltro.SelectionChangeCommitted += new System.EventHandler(this.CmbSeccionFiltro_SelectionChangeCommitted);
+			// 
+			// cmbNombre
+			// 
+			this.cmbNombre.FormattingEnabled = true;
+			this.cmbNombre.Location = new System.Drawing.Point(392, 3);
+			this.cmbNombre.Name = "cmbNombre";
+			this.cmbNombre.Size = new System.Drawing.Size(144, 21);
+			this.cmbNombre.TabIndex = 0;
+			this.cmbNombre.SelectionChangeCommitted += new System.EventHandler(this.cmbNombre_SelectionChangeCommitted);
+			// 
+			// panel11
+			// 
+			this.panel11.Controls.Add(this.label9);
+			this.panel11.Controls.Add(this.label8);
+			this.panel11.Controls.Add(this.dtpFin);
+			this.panel11.Controls.Add(this.dtpInicio);
+			this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel11.Location = new System.Drawing.Point(3, 38);
+			this.panel11.Name = "panel11";
+			this.panel11.Size = new System.Drawing.Size(644, 29);
+			this.panel11.TabIndex = 1;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(302, 12);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(24, 13);
+			this.label9.TabIndex = 3;
+			this.label9.Text = "Fin:";
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(5, 12);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(35, 13);
+			this.label8.TabIndex = 2;
+			this.label8.Text = "Inicio:";
+			// 
+			// dtpFin
+			// 
+			this.dtpFin.Location = new System.Drawing.Point(332, 6);
+			this.dtpFin.Name = "dtpFin";
+			this.dtpFin.Size = new System.Drawing.Size(212, 20);
+			this.dtpFin.TabIndex = 1;
+			// 
+			// dtpInicio
+			// 
+			this.dtpInicio.Location = new System.Drawing.Point(46, 6);
+			this.dtpInicio.Name = "dtpInicio";
+			this.dtpInicio.Size = new System.Drawing.Size(212, 20);
+			this.dtpInicio.TabIndex = 0;
 			// 
 			// btnbuscar
 			// 
@@ -613,115 +722,6 @@
 			this.pnlContenido.Size = new System.Drawing.Size(1191, 684);
 			this.pnlContenido.TabIndex = 5;
 			// 
-			// tableLayoutPanel5
-			// 
-			this.tableLayoutPanel5.ColumnCount = 1;
-			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel5.Controls.Add(this.panel10, 0, 0);
-			this.tableLayoutPanel5.Controls.Add(this.panel11, 0, 1);
-			this.tableLayoutPanel5.Location = new System.Drawing.Point(249, 57);
-			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-			this.tableLayoutPanel5.RowCount = 2;
-			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel5.Size = new System.Drawing.Size(650, 70);
-			this.tableLayoutPanel5.TabIndex = 13;
-			// 
-			// panel10
-			// 
-			this.panel10.Controls.Add(this.label11);
-			this.panel10.Controls.Add(this.label10);
-			this.panel10.Controls.Add(this.CmbSeccionFiltro);
-			this.panel10.Controls.Add(this.cmbNombre);
-			this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel10.Location = new System.Drawing.Point(3, 3);
-			this.panel10.Name = "panel10";
-			this.panel10.Size = new System.Drawing.Size(644, 29);
-			this.panel10.TabIndex = 0;
-			// 
-			// cmbNombre
-			// 
-			this.cmbNombre.FormattingEnabled = true;
-			this.cmbNombre.Location = new System.Drawing.Point(392, 3);
-			this.cmbNombre.Name = "cmbNombre";
-			this.cmbNombre.Size = new System.Drawing.Size(144, 21);
-			this.cmbNombre.TabIndex = 0;
-			this.cmbNombre.SelectionChangeCommitted += new System.EventHandler(this.cmbNombre_SelectionChangeCommitted);
-			// 
-			// CmbSeccionFiltro
-			// 
-			this.CmbSeccionFiltro.FormattingEnabled = true;
-			this.CmbSeccionFiltro.Location = new System.Drawing.Point(71, 3);
-			this.CmbSeccionFiltro.Name = "CmbSeccionFiltro";
-			this.CmbSeccionFiltro.Size = new System.Drawing.Size(144, 21);
-			this.CmbSeccionFiltro.TabIndex = 1;
-			this.CmbSeccionFiltro.SelectedIndexChanged += new System.EventHandler(this.CmbSeccionFiltro_SelectedIndexChanged);
-			this.CmbSeccionFiltro.SelectionChangeCommitted += new System.EventHandler(this.CmbSeccionFiltro_SelectionChangeCommitted);
-			// 
-			// panel11
-			// 
-			this.panel11.Controls.Add(this.label9);
-			this.panel11.Controls.Add(this.label8);
-			this.panel11.Controls.Add(this.dtpFin);
-			this.panel11.Controls.Add(this.dtpInicio);
-			this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel11.Location = new System.Drawing.Point(3, 38);
-			this.panel11.Name = "panel11";
-			this.panel11.Size = new System.Drawing.Size(644, 29);
-			this.panel11.TabIndex = 1;
-			// 
-			// dtpInicio
-			// 
-			this.dtpInicio.Location = new System.Drawing.Point(46, 6);
-			this.dtpInicio.Name = "dtpInicio";
-			this.dtpInicio.Size = new System.Drawing.Size(212, 20);
-			this.dtpInicio.TabIndex = 0;
-			// 
-			// dtpFin
-			// 
-			this.dtpFin.Location = new System.Drawing.Point(332, 6);
-			this.dtpFin.Name = "dtpFin";
-			this.dtpFin.Size = new System.Drawing.Size(212, 20);
-			this.dtpFin.TabIndex = 1;
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(5, 12);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(35, 13);
-			this.label8.TabIndex = 2;
-			this.label8.Text = "Inicio:";
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(302, 12);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(24, 13);
-			this.label9.TabIndex = 3;
-			this.label9.Text = "Fin:";
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(329, 8);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(60, 13);
-			this.label10.TabIndex = 4;
-			this.label10.Text = "Estudiante:";
-			// 
-			// label11
-			// 
-			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(16, 6);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(49, 13);
-			this.label11.TabIndex = 5;
-			this.label11.Text = "Sección:";
-			// 
 			// FrmBoletas
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -742,6 +742,11 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvBoletas)).EndInit();
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
+			this.tableLayoutPanel5.ResumeLayout(false);
+			this.panel10.ResumeLayout(false);
+			this.panel10.PerformLayout();
+			this.panel11.ResumeLayout(false);
+			this.panel11.PerformLayout();
 			this.panel6.ResumeLayout(false);
 			this.panel6.PerformLayout();
 			this.tableLayoutPanel4.ResumeLayout(false);
@@ -761,11 +766,6 @@
 			this.pnlContainer.ResumeLayout(false);
 			this.pnlContainer.PerformLayout();
 			this.pnlContenido.ResumeLayout(false);
-			this.tableLayoutPanel5.ResumeLayout(false);
-			this.panel10.ResumeLayout(false);
-			this.panel10.PerformLayout();
-			this.panel11.ResumeLayout(false);
-			this.panel11.PerformLayout();
 			this.ResumeLayout(false);
 
 		}

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using SistemaAsistenciaMagallanes.Services;
+using SistemaAsistenciaMagallanes.Conexion_BD;
 
 
 namespace SistemaAsistenciaMagallanes.Forms
@@ -82,6 +83,9 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 			if (acceso)
 			{
+				EstudiantesService services = new EstudiantesService();
+				services.AplicarCambiosPendientes(Sesion.IdUsuario);
+
 				FrmHome menu = new FrmHome();
 				menu.Show();
 

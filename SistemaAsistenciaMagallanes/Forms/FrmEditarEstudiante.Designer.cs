@@ -52,10 +52,20 @@
 			this.btnSalir = new System.Windows.Forms.Button();
 			this.btnGuardar = new System.Windows.Forms.Button();
 			this.chkEstado = new System.Windows.Forms.CheckBox();
+			this.panel4 = new System.Windows.Forms.Panel();
+			this.label10 = new System.Windows.Forms.Label();
+			this.txtMotivo = new System.Windows.Forms.TextBox();
+			this.panel5 = new System.Windows.Forms.Panel();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
+			this.panel4.SuspendLayout();
+			this.panel5.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -66,7 +76,7 @@
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(910, 100);
+			this.panel1.Size = new System.Drawing.Size(1021, 100);
 			this.panel1.TabIndex = 1;
 			// 
 			// pictureBox1
@@ -97,20 +107,19 @@
 			// 
 			this.panel2.Controls.Add(this.panel3);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel2.Location = new System.Drawing.Point(0, 100);
+			this.panel2.Location = new System.Drawing.Point(0, 181);
 			this.panel2.Name = "panel2";
 			this.panel2.Padding = new System.Windows.Forms.Padding(20);
-			this.panel2.Size = new System.Drawing.Size(910, 388);
+			this.panel2.Size = new System.Drawing.Size(1021, 419);
 			this.panel2.TabIndex = 2;
 			// 
 			// panel3
 			// 
+			this.panel3.Controls.Add(this.panel4);
 			this.panel3.Controls.Add(this.label9);
 			this.panel3.Controls.Add(this.chkReligion);
 			this.panel3.Controls.Add(this.label2);
 			this.panel3.Controls.Add(this.dtpFechaNacimiento);
-			this.panel3.Controls.Add(this.cmbSeccion);
-			this.panel3.Controls.Add(this.label8);
 			this.panel3.Controls.Add(this.txtNumeroEncargado);
 			this.panel3.Controls.Add(this.label7);
 			this.panel3.Controls.Add(this.txtCedula);
@@ -123,10 +132,10 @@
 			this.panel3.Controls.Add(this.btnSalir);
 			this.panel3.Controls.Add(this.btnGuardar);
 			this.panel3.Controls.Add(this.chkEstado);
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel3.Location = new System.Drawing.Point(20, 20);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(870, 348);
+			this.panel3.Size = new System.Drawing.Size(981, 348);
 			this.panel3.TabIndex = 0;
 			this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
 			// 
@@ -134,7 +143,7 @@
 			// 
 			this.label9.AutoSize = true;
 			this.label9.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.Location = new System.Drawing.Point(496, 181);
+			this.label9.Location = new System.Drawing.Point(51, 220);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(68, 21);
 			this.label9.TabIndex = 41;
@@ -163,7 +172,7 @@
 			// 
 			this.dtpFechaNacimiento.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtpFechaNacimiento.Location = new System.Drawing.Point(624, 89);
+			this.dtpFechaNacimiento.Location = new System.Drawing.Point(624, 86);
 			this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
 			this.dtpFechaNacimiento.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.dtpFechaNacimiento.Size = new System.Drawing.Size(227, 20);
@@ -173,7 +182,7 @@
 			// cmbSeccion
 			// 
 			this.cmbSeccion.FormattingEnabled = true;
-			this.cmbSeccion.Location = new System.Drawing.Point(624, 153);
+			this.cmbSeccion.Location = new System.Drawing.Point(151, 10);
 			this.cmbSeccion.Name = "cmbSeccion";
 			this.cmbSeccion.Size = new System.Drawing.Size(227, 21);
 			this.cmbSeccion.TabIndex = 37;
@@ -182,7 +191,7 @@
 			// 
 			this.label8.AutoSize = true;
 			this.label8.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.Location = new System.Drawing.Point(490, 150);
+			this.label8.Location = new System.Drawing.Point(26, 10);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(74, 21);
 			this.label8.TabIndex = 36;
@@ -190,7 +199,7 @@
 			// 
 			// txtNumeroEncargado
 			// 
-			this.txtNumeroEncargado.Location = new System.Drawing.Point(624, 123);
+			this.txtNumeroEncargado.Location = new System.Drawing.Point(624, 120);
 			this.txtNumeroEncargado.Name = "txtNumeroEncargado";
 			this.txtNumeroEncargado.Size = new System.Drawing.Size(227, 20);
 			this.txtNumeroEncargado.TabIndex = 35;
@@ -199,7 +208,7 @@
 			// 
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(459, 120);
+			this.label7.Location = new System.Drawing.Point(459, 117);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(165, 21);
 			this.label7.TabIndex = 34;
@@ -216,7 +225,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(459, 88);
+			this.label4.Location = new System.Drawing.Point(459, 85);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(155, 21);
 			this.label4.TabIndex = 32;
@@ -306,19 +315,92 @@
 			this.chkEstado.AutoSize = true;
 			this.chkEstado.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.chkEstado.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.chkEstado.Location = new System.Drawing.Point(624, 189);
+			this.chkEstado.Location = new System.Drawing.Point(216, 227);
 			this.chkEstado.Name = "chkEstado";
 			this.chkEstado.Size = new System.Drawing.Size(15, 14);
 			this.chkEstado.TabIndex = 21;
 			this.chkEstado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.chkEstado.UseVisualStyleBackColor = true;
 			// 
+			// panel4
+			// 
+			this.panel4.Controls.Add(this.txtMotivo);
+			this.panel4.Controls.Add(this.label10);
+			this.panel4.Controls.Add(this.label8);
+			this.panel4.Controls.Add(this.cmbSeccion);
+			this.panel4.Location = new System.Drawing.Point(463, 149);
+			this.panel4.Name = "panel4";
+			this.panel4.Size = new System.Drawing.Size(388, 92);
+			this.panel4.TabIndex = 42;
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label10.Location = new System.Drawing.Point(26, 50);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(72, 21);
+			this.label10.TabIndex = 38;
+			this.label10.Text = "Motivo:";
+			// 
+			// txtMotivo
+			// 
+			this.txtMotivo.Location = new System.Drawing.Point(151, 37);
+			this.txtMotivo.Multiline = true;
+			this.txtMotivo.Name = "txtMotivo";
+			this.txtMotivo.Size = new System.Drawing.Size(227, 49);
+			this.txtMotivo.TabIndex = 39;
+			// 
+			// panel5
+			// 
+			this.panel5.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+			this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel5.Controls.Add(this.pictureBox2);
+			this.panel5.Controls.Add(this.label11);
+			this.panel5.Controls.Add(this.label12);
+			this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.panel5.Location = new System.Drawing.Point(0, 100);
+			this.panel5.Name = "panel5";
+			this.panel5.Size = new System.Drawing.Size(1021, 81);
+			this.panel5.TabIndex = 11;
+			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+			this.pictureBox2.Location = new System.Drawing.Point(54, 15);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(36, 44);
+			this.pictureBox2.TabIndex = 2;
+			this.pictureBox2.TabStop = false;
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label11.Location = new System.Drawing.Point(96, 47);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(412, 21);
+			this.label11.TabIndex = 1;
+			this.label11.Text = "* Los cambios de sección se aplican al día siguiente.";
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label12.Location = new System.Drawing.Point(96, 24);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(439, 21);
+			this.label12.TabIndex = 0;
+			this.label12.Text = "Acá puedes ver y editar la informacion de un Estudiante.";
+			// 
 			// FrmEditarEstudiante
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(910, 488);
+			this.ClientSize = new System.Drawing.Size(1021, 600);
 			this.Controls.Add(this.panel2);
+			this.Controls.Add(this.panel5);
 			this.Controls.Add(this.panel1);
 			this.Name = "FrmEditarEstudiante";
 			this.Text = "EditarEstudiante";
@@ -329,6 +411,11 @@
 			this.panel2.ResumeLayout(false);
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
+			this.panel4.ResumeLayout(false);
+			this.panel4.PerformLayout();
+			this.panel5.ResumeLayout(false);
+			this.panel5.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -358,5 +445,12 @@
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.CheckBox chkReligion;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Panel panel4;
+		private System.Windows.Forms.TextBox txtMotivo;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Panel panel5;
+		private System.Windows.Forms.PictureBox pictureBox2;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Label label12;
 	}
 }

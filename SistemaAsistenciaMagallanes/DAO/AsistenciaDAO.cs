@@ -194,6 +194,188 @@ namespace SistemaAsistenciaMagallanes.DAO
 		}
 
 
+		//Acá es para controlar el Historial de secciones
+
+		public DataTable ObtenerSeccionesHistorial(int idUsuario, int idRol)
+		{
+			DataTable dt = new DataTable();
+
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				conn.Open();
+
+				string query = "";
+
+				// ADMIN
+				if (idRol == 1 || idRol == 2 || idRol == 4)
+				{
+					query = @"
+                SELECT 
+                    IdSeccion,
+                    NombreSeccion + ' ' + CAST(Anio AS VARCHAR) AS NombreSeccion
+                FROM Secciones
+                WHERE Anio = YEAR(GETDATE())
+                ORDER BY NombreSeccion";
+				}
+
+				// DOCENTE
+				else if (idRol == 3)
+				{
+					query = @"
+                SELECT DISTINCT
+                    s.IdSeccion,
+                    s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR) AS NombreSeccion
+                FROM DocenteSeccionMateria dsm
+                INNER JOIN Secciones s 
+                    ON dsm.IdSeccion = s.IdSeccion
+                WHERE dsm.IdUsuario = @IdUsuario
+                AND s.Anio = YEAR(GETDATE())
+                ORDER BY NombreSeccion";
+				}
+
+				SqlCommand cmd = new SqlCommand(query, conn);
+
+				if (idRol == 3)
+					cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				da.Fill(dt);
+			}
+
+			return dt;
+		}
+
+		public DataTable ObtenerMateriasHistorial(int idUsuario, int idRol, int idSeccion)
+		{
+			DataTable dt = new DataTable();
+
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				conn.Open();
+
+				string query = "";
+
+				// ADMIN
+				if (idRol == 1 || idRol == 2 || idRol == 4)
+				{
+					query = @"
+                SELECT DISTINCT
+                    dsm.IdAsignacion,
+                    m.NombreMateria
+                FROM DocenteSeccionMateria dsm
+                INNER JOIN Materias m 
+                    ON dsm.IdMateria = m.IdMateria
+                WHERE dsm.IdSeccion = @IdSeccion
+                ORDER BY m.NombreMateria";
+				}
+
+				// DOCENTE
+				else if (idRol == 3)
+				{
+					query = @"
+                SELECT DISTINCT
+                    dsm.IdAsignacion,
+                    m.NombreMateria
+                FROM DocenteSeccionMateria dsm
+                INNER JOIN Materias m 
+                    ON dsm.IdMateria = m.IdMateria
+                WHERE dsm.IdUsuario = @IdUsuario
+                AND dsm.IdSeccion = @IdSeccion
+                ORDER BY m.NombreMateria";
+				}
+
+				SqlCommand cmd = new SqlCommand(query, conn);
+
+				cmd.Parameters.AddWithValue("@IdSeccion", idSeccion);
+
+				if (idRol == 3)
+					cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				da.Fill(dt);
+			}
+
+			return dt;
+		}
+
+		public DataTable ObtenerListaAsistencia(int idAsignacion, DateTime fecha)
+		{
+			DataTable dt = new DataTable();
+
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				conn.Open();
+
+				string query = @"
+				SELECT
+					da.IdDetalle,
+					da.IdEstudiante,
+					e.Apellido + ' ' + e.Nombre AS Estudiante,
+					da.Estado,
+					da.Observacion,
+					u.Nombre  AS Docente
+				FROM Clase c
+				INNER JOIN DetalleAsistencia da
+					ON c.IdClase = da.IdClase
+				INNER JOIN Estudiantes e
+					ON da.IdEstudiante = e.IdEstudiante
+				INNER JOIN DocenteSeccionMateria dsm
+					ON c.IdAsignacion = dsm.IdAsignacion
+				INNER JOIN Usuarios u
+					ON dsm.IdUsuario = u.IdUsuario
+				WHERE c.IdAsignacion = @IdAsignacion
+				AND CAST(c.Fecha AS DATE) = @Fecha
+				ORDER BY e.Apellido";
+
+				SqlCommand cmd = new SqlCommand(query, conn);
+
+				cmd.Parameters.AddWithValue("@IdAsignacion", idAsignacion);
+				cmd.Parameters.AddWithValue("@Fecha", fecha.Date);
+
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				da.Fill(dt);
+			}
+
+			return dt;
+		}
+
+
+		public void ActualizarDetalleAsistencia(
+			int idDetalle,
+			string estado,
+			string observacion,
+			int idUsuario
+		)
+		{
+			using (SqlConnection conn = conexionBD.ObtenerConexion())
+			{
+				conn.Open();
+
+				string query = @"
+            UPDATE DetalleAsistencia
+            SET
+                Estado = @Estado,
+                Observacion = @Observacion,
+                UltimaModificacionPor = @IdUsuario,
+                UltimaFechaModificacion = GETDATE()
+            WHERE IdDetalle = @IdDetalle";
+
+				SqlCommand cmd = new SqlCommand(query, conn);
+
+				cmd.Parameters.AddWithValue("@Estado", estado);
+				cmd.Parameters.AddWithValue("@Observacion",
+					string.IsNullOrWhiteSpace(observacion)
+						? DBNull.Value
+						: (object)observacion);
+
+				cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+				cmd.Parameters.AddWithValue("@IdDetalle", idDetalle);
+
+				cmd.ExecuteNonQuery();
+			}
+		}
+
+
 
 	}
 }
