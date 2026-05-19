@@ -35,6 +35,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			dgvAsistencia.AutoGenerateColumns = false;
 			ConfigurarTabla();
             CargarSecciones();
+			CargarLecciones();
 			dgvAsistencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			dgvAsistencia.CellValueChanged += dgvAsistencia_CellValueChanged;
 			dgvAsistencia.CurrentCellDirtyStateChanged += dgvAsistencia_CurrentCellDirtyStateChanged;
@@ -63,7 +64,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 			dgvAsistencia.AutoGenerateColumns = false;
 
-			// 🔥 ID
+			// ID
 			if (!dgvAsistencia.Columns.Contains("IdEstudiante"))
 			{
 				dgvAsistencia.Columns.Add(new DataGridViewTextBoxColumn()
@@ -74,7 +75,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 				});
 			}
 
-			// 🔥 Estudiante
+			// Estudiante
 			if (!dgvAsistencia.Columns.Contains("Estudiante"))
 			{
 				dgvAsistencia.Columns.Add(new DataGridViewTextBoxColumn()
@@ -85,7 +86,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 				});
 			}
 
-			// 🔥 Estado
+			// Estado
 			if (!dgvAsistencia.Columns.Contains("Estado"))
 			{
 				dgvAsistencia.Columns.Add(new DataGridViewComboBoxColumn()
@@ -117,7 +118,32 @@ namespace SistemaAsistenciaMagallanes.Forms
 			cmbSeccion.ValueMember = "IdSeccion";
 		}
 
-        private void CargarMaterias(int idSeccion)
+		private void CargarLecciones()
+		{
+			DataTable dt = new DataTable();
+
+			dt.Columns.Add("Id", typeof(int));
+			dt.Columns.Add("Texto", typeof(string));
+
+			DataRow filaDefault = dt.NewRow();
+			filaDefault["Id"] = 0;
+			filaDefault["Texto"] = "-- Seleccione lección --";
+			dt.Rows.Add(filaDefault);
+
+			for (int i = 1; i <= 8; i++)
+			{
+				DataRow fila = dt.NewRow();
+				fila["Id"] = i;
+				fila["Texto"] = i + "° Lección";
+				dt.Rows.Add(fila);
+			}
+
+			cmbLeccion.DataSource = dt;
+			cmbLeccion.DisplayMember = "Texto";
+			cmbLeccion.ValueMember = "Id";
+		}
+
+		private void CargarMaterias(int idSeccion)
         {
 			cargandoMaterias = true;
 
@@ -229,19 +255,28 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 			AsistenciaService service = new AsistenciaService();
 
-			int idAsignacion = Convert.ToInt32(cmbMateria.SelectedValue);
-			DateTime fecha = DateTime.Now;
-
-			if (service.ExisteClase(idAsignacion, fecha))
+			// VALIDAR LECCIÓN
+			if (cmbLeccion.SelectedValue == null ||
+				Convert.ToInt32(cmbLeccion.SelectedValue) == 0)
 			{
-				MessageBox.Show("Ya se registró asistencia para esta materia en esta fecha");
+				MessageBox.Show("Seleccione una lección.");
 				return;
 			}
 
-			// 1Crea la clase
-			int idClase = service.CrearClase(idAsignacion, fecha);
+			int idAsignacion = Convert.ToInt32(cmbMateria.SelectedValue);
+			int numeroLeccion = Convert.ToInt32(cmbLeccion.SelectedValue);
+			DateTime fecha = DateTime.Now.Date;
 
-			// 2Recorre el DataGridView
+			if (service.ExisteClase(idAsignacion, fecha, numeroLeccion))
+			{
+				MessageBox.Show("Ya se registró asistencia para esta materia en esta fecha y lección.");
+				return;
+			}
+
+			// Crear clase
+			int idClase = service.CrearClase(idAsignacion, fecha, numeroLeccion);
+
+			// Recorrer DataGrid
 			foreach (DataGridViewRow fila in dgvAsistencia.Rows)
 			{
 				if (fila.Cells["IdEstudiante"].Value != null)

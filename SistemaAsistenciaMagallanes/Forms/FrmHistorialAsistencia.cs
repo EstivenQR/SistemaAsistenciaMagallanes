@@ -42,7 +42,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			RedondearPanel(panelKPI2, 20);
 			RedondearPanel(panelKPI3, 20);
 			RedondearPanel(panelKPI4, 20);
-
+			CargarLecciones();
 			CargarSecciones();
 
 
@@ -66,6 +66,32 @@ namespace SistemaAsistenciaMagallanes.Forms
 			cmbSeccion.ValueMember = "IdSeccion";
 		}
 
+
+		private void CargarLecciones()
+		{
+			DataTable dt = new DataTable();
+
+			dt.Columns.Add("Id", typeof(int));
+			dt.Columns.Add("Texto", typeof(string));
+
+			DataRow filaDefault = dt.NewRow();
+			filaDefault["Id"] = 0;
+			filaDefault["Texto"] = "-- Seleccione lección --";
+			dt.Rows.Add(filaDefault);
+
+			for (int i = 1; i <= 8; i++)
+			{
+				DataRow fila = dt.NewRow();
+				fila["Id"] = i;
+				fila["Texto"] = i + "° Lección";
+				dt.Rows.Add(fila);
+			}
+
+			cmbLeccion.DataSource = dt;
+			cmbLeccion.DisplayMember = "Texto";
+			cmbLeccion.ValueMember = "Id";
+		}
+
 		private void CargarLista()
 		{
 			if (cmbSeccion.SelectedValue == null ||
@@ -75,27 +101,40 @@ namespace SistemaAsistenciaMagallanes.Forms
 				return;
 			}
 
+			// VALIDAR LECCIÓN
+			if (cmbLeccion.SelectedValue == null ||
+				Convert.ToInt32(cmbLeccion.SelectedValue) == 0)
+			{
+				MessageBox.Show("Seleccione una lección.");
+				return;
+			}
+
 			int idAsignacion = Convert.ToInt32(cmbMateria.SelectedValue);
 
 			if (idAsignacion == 0)
 				return;
 
+			int numeroLeccion = Convert.ToInt32(cmbLeccion.SelectedValue);
+
 			DataTable dt = service.ObtenerListaAsistencia(
 				idAsignacion,
-				dtpFecha.Value
+				dtpFecha.Value.Date,
+				numeroLeccion
 			);
 
 			if (dt.Rows.Count == 0)
 			{
-				MessageBox.Show("No existe asistencia registrada para esa fecha.");
+				MessageBox.Show("No existe asistencia registrada para esa fecha y lección.");
 				dgvLista.DataSource = null;
 				return;
 			}
 
 			dgvLista.DataSource = dt;
+
 			lblTotaltotalEstudiantes.Text = dt.Rows.Count.ToString();
 			lblTotalSeccion.Text = cmbSeccion.Text;
 			lblTotalMateria.Text = cmbMateria.Text;
+
 			string nombreCompleto = dt.Rows[0]["Docente"].ToString();
 			string[] partes = nombreCompleto.Split(' ');
 
@@ -295,6 +334,12 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		private void dgvLista_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
 		{
+			if (e.RowIndex < 0)
+				return;
+
+			if (!dgvLista.Columns.Contains("Estado"))
+				return;
+
 			if (dgvLista.Rows[e.RowIndex].Cells["Estado"].Value == null)
 				return;
 
@@ -336,6 +381,11 @@ namespace SistemaAsistenciaMagallanes.Forms
 				dgvLista.CommitEdit(DataGridViewDataErrorContexts.Commit);
 				dgvLista.Refresh();
 			}
+		}
+
+		private void panelHead_Paint(object sender, PaintEventArgs e)
+		{
+
 		}
 	}
 }

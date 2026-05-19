@@ -40,10 +40,10 @@
 			this.cmbMateria = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-			this.panel4 = new System.Windows.Forms.Panel();
 			this.pnlTotalEstudiantes = new System.Windows.Forms.Panel();
 			this.lblTotalEstudiantes = new System.Windows.Forms.Label();
 			this.lblTotalEstudiantesTitulo = new System.Windows.Forms.Label();
+			this.panel4 = new System.Windows.Forms.Panel();
 			this.BtnListas = new System.Windows.Forms.Button();
 			this.dgvAsistencia = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
@@ -56,11 +56,13 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.cmbLeccion = new System.Windows.Forms.ComboBox();
 			this.pnlfiltros.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
-			this.panel4.SuspendLayout();
 			this.pnlTotalEstudiantes.SuspendLayout();
+			this.panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -106,6 +108,8 @@
 			this.flowLayoutPanel1.Controls.Add(this.cmbMateria);
 			this.flowLayoutPanel1.Controls.Add(this.label3);
 			this.flowLayoutPanel1.Controls.Add(this.dtpFecha);
+			this.flowLayoutPanel1.Controls.Add(this.label4);
+			this.flowLayoutPanel1.Controls.Add(this.cmbLeccion);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(373, 8);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -174,16 +178,6 @@
 			this.dtpFecha.Size = new System.Drawing.Size(200, 20);
 			this.dtpFecha.TabIndex = 4;
 			// 
-			// panel4
-			// 
-			this.panel4.Controls.Add(this.BtnListas);
-			this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel4.Location = new System.Drawing.Point(1113, 8);
-			this.panel4.Name = "panel4";
-			this.panel4.Padding = new System.Windows.Forms.Padding(100, 0, 0, 0);
-			this.panel4.Size = new System.Drawing.Size(118, 47);
-			this.panel4.TabIndex = 7;
-			// 
 			// pnlTotalEstudiantes
 			// 
 			this.pnlTotalEstudiantes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -212,6 +206,16 @@
 			this.lblTotalEstudiantesTitulo.Size = new System.Drawing.Size(128, 21);
 			this.lblTotalEstudiantesTitulo.TabIndex = 0;
 			this.lblTotalEstudiantesTitulo.Text = "Total Estudiantes:";
+			// 
+			// panel4
+			// 
+			this.panel4.Controls.Add(this.BtnListas);
+			this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel4.Location = new System.Drawing.Point(1113, 8);
+			this.panel4.Name = "panel4";
+			this.panel4.Padding = new System.Windows.Forms.Padding(100, 0, 0, 0);
+			this.panel4.Size = new System.Drawing.Size(118, 47);
+			this.panel4.TabIndex = 7;
 			// 
 			// BtnListas
 			// 
@@ -394,6 +398,23 @@
 			this.label1.Text = "ASISTENCIA     ";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(688, 0);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(45, 13);
+			this.label4.TabIndex = 6;
+			this.label4.Text = "Lección";
+			// 
+			// cmbLeccion
+			// 
+			this.cmbLeccion.FormattingEnabled = true;
+			this.cmbLeccion.Location = new System.Drawing.Point(739, 3);
+			this.cmbLeccion.Name = "cmbLeccion";
+			this.cmbLeccion.Size = new System.Drawing.Size(121, 21);
+			this.cmbLeccion.TabIndex = 7;
+			// 
 			// FrmAsistencia
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,9 +435,9 @@
 			this.tableLayoutPanel1.PerformLayout();
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.flowLayoutPanel1.PerformLayout();
-			this.panel4.ResumeLayout(false);
 			this.pnlTotalEstudiantes.ResumeLayout(false);
 			this.pnlTotalEstudiantes.PerformLayout();
+			this.panel4.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
@@ -455,5 +476,7 @@
 		private System.Windows.Forms.Label lblTotalEstudiantes;
 		private System.Windows.Forms.Label lblTotalEstudiantesTitulo;
 		private System.Windows.Forms.Button BtnListas;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.ComboBox cmbLeccion;
 	}
 }

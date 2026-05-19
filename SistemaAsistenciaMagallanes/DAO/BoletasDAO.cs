@@ -262,7 +262,7 @@ namespace SistemaAsistenciaMagallanes.DAO
             SELECT b.IdBoleta,
 				   b.IdEstudiante,
                    e.Nombre + ' ' + e.Apellido AS Estudiante,e.IdSeccion,
-                   (s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR)) AS NombreSeccion AS Seccion,
+                   (s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR)) AS Seccion,
                    b.Fecha,
                    b.Motivo,
                    b.Porcentaje AS Puntos

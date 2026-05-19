@@ -77,6 +77,13 @@ namespace SistemaAsistenciaMagallanes.Services
 			dao.AplicarCambiosPendientes(idUsuario);
 		}
 
+		public bool ExisteEstudiantePorCedula(string cedula)
+		{
+			EstudiantesDAO dao = new EstudiantesDAO();
+
+			return dao.ExisteEstudiantePorCedula(cedula);
+		}
+
 
 	}
 }

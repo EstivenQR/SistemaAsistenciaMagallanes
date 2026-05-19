@@ -33,18 +33,18 @@ namespace SistemaAsistenciaMagallanes.Services
 			return dao.ObtenerMateriasDocente(idUsuario, idSeccion);
 		}
 
-		public int CrearClase(int idAsignacion, DateTime fecha)
+		public int CrearClase(int idAsignacion, DateTime fecha, int numeroLeccion)
 		{
-			return dao.CrearClase(idAsignacion, fecha);
+			return dao.CrearClase(idAsignacion, fecha, numeroLeccion);
 		}
 
 		public void GuardarDetalleAsistencia(int idClase, int idEstudiante, string estado)
 		{
 			dao.GuardarDetalleAsistencia(idClase, idEstudiante, estado);
 		}
-		public bool ExisteClase(int idAsignacion, DateTime fecha)
+		public bool ExisteClase(int idAsignacion, DateTime fecha, int numeroLeccion)
 		{
-			return dao.ExisteClase(idAsignacion, fecha);
+			return dao.ExisteClase(idAsignacion, fecha, numeroLeccion);
 		}
 
 
@@ -59,9 +59,13 @@ namespace SistemaAsistenciaMagallanes.Services
 			return dao.ObtenerMateriasHistorial(idUsuario, idRol, idSeccion);
 		}
 
-		public DataTable ObtenerListaAsistencia(int idAsignacion, DateTime fecha)
+		public DataTable ObtenerListaAsistencia(int idAsignacion,DateTime fecha,int numeroLeccion)
 		{
-			return dao.ObtenerListaAsistencia(idAsignacion, fecha);
+			return dao.ObtenerListaAsistencia(
+				idAsignacion,
+				fecha,
+				numeroLeccion
+			);
 		}
 
 		public void ActualizarDetalleAsistencia(

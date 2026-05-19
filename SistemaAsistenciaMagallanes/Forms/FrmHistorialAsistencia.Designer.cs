@@ -53,6 +53,7 @@
 			this.cmbMateria = new System.Windows.Forms.ComboBox();
 			this.cmbSeccion = new System.Windows.Forms.ComboBox();
 			this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+			this.cmbLeccion = new System.Windows.Forms.ComboBox();
 			this.btnBuscar = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -338,10 +339,11 @@
 			this.flowFiltros.Controls.Add(this.cmbMateria);
 			this.flowFiltros.Controls.Add(this.cmbSeccion);
 			this.flowFiltros.Controls.Add(this.dtpFecha);
+			this.flowFiltros.Controls.Add(this.cmbLeccion);
 			this.flowFiltros.Controls.Add(this.btnBuscar);
 			this.flowFiltros.Location = new System.Drawing.Point(244, 6);
 			this.flowFiltros.Name = "flowFiltros";
-			this.flowFiltros.Size = new System.Drawing.Size(680, 41);
+			this.flowFiltros.Size = new System.Drawing.Size(847, 41);
 			this.flowFiltros.TabIndex = 12;
 			this.flowFiltros.WrapContents = false;
 			// 
@@ -370,6 +372,14 @@
 			this.dtpFecha.Size = new System.Drawing.Size(200, 20);
 			this.dtpFecha.TabIndex = 2;
 			// 
+			// cmbLeccion
+			// 
+			this.cmbLeccion.FormattingEnabled = true;
+			this.cmbLeccion.Location = new System.Drawing.Point(561, 3);
+			this.cmbLeccion.Name = "cmbLeccion";
+			this.cmbLeccion.Size = new System.Drawing.Size(161, 21);
+			this.cmbLeccion.TabIndex = 4;
+			// 
 			// btnBuscar
 			// 
 			this.btnBuscar.BackColor = System.Drawing.Color.DarkOrange;
@@ -378,7 +388,7 @@
 			this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnBuscar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-			this.btnBuscar.Location = new System.Drawing.Point(561, 3);
+			this.btnBuscar.Location = new System.Drawing.Point(728, 3);
 			this.btnBuscar.Name = "btnBuscar";
 			this.btnBuscar.Size = new System.Drawing.Size(116, 35);
 			this.btnBuscar.TabIndex = 3;
@@ -441,6 +451,7 @@
 			this.panelHead.Name = "panelHead";
 			this.panelHead.Size = new System.Drawing.Size(1184, 100);
 			this.panelHead.TabIndex = 9;
+			this.panelHead.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHead_Paint);
 			// 
 			// pictureBox1
 			// 
@@ -540,5 +551,6 @@
 		private System.Windows.Forms.Label lblTotalDocente;
 		private System.Windows.Forms.Label lblTotalMateria;
 		private System.Windows.Forms.Label lblTotalSeccion;
+		private System.Windows.Forms.ComboBox cmbLeccion;
 	}
 }

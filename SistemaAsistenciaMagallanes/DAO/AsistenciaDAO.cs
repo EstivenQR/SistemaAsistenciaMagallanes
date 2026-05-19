@@ -127,7 +127,7 @@ namespace SistemaAsistenciaMagallanes.DAO
 			return tabla;
 		}
 
-		public int CrearClase(int idAsignacion, DateTime fecha)
+		public int CrearClase(int idAsignacion, DateTime fecha, int numeroLeccion)
 		{
 			int idClase = 0;
 
@@ -136,13 +136,15 @@ namespace SistemaAsistenciaMagallanes.DAO
 				conn.Open();
 
 				string query = @"
-				INSERT INTO Clase (IdAsignacion, Fecha)
-				OUTPUT INSERTED.IdClase
-				VALUES (@IdAsignacion, @Fecha)";
+        INSERT INTO Clase (IdAsignacion, Fecha, NumeroLeccion)
+        OUTPUT INSERTED.IdClase
+        VALUES (@IdAsignacion, @Fecha, @NumeroLeccion)";
 
 				SqlCommand cmd = new SqlCommand(query, conn);
+
 				cmd.Parameters.AddWithValue("@IdAsignacion", idAsignacion);
-				cmd.Parameters.AddWithValue("@Fecha", fecha);
+				cmd.Parameters.AddWithValue("@Fecha", fecha.Date);
+				cmd.Parameters.AddWithValue("@NumeroLeccion", numeroLeccion);
 
 				idClase = (int)cmd.ExecuteScalar();
 			}
@@ -170,26 +172,28 @@ namespace SistemaAsistenciaMagallanes.DAO
 			}
 		}
 
-		public bool ExisteClase(int idAsignacion, DateTime fecha)
+		public bool ExisteClase(int idAsignacion, DateTime fecha, int numeroLeccion)
 		{
 			using (SqlConnection conn = conexionBD.ObtenerConexion())
 			{
 				conn.Open();
 
 				string query = @"
-            SELECT COUNT(*) 
-            FROM Clase
-            WHERE IdAsignacion = @IdAsignacion
-            AND CAST(Fecha AS DATE) = @Fecha";
+        SELECT COUNT(*)
+        FROM Clase
+        WHERE IdAsignacion = @IdAsignacion
+        AND CAST(Fecha AS DATE) = @Fecha
+        AND NumeroLeccion = @NumeroLeccion";
 
 				SqlCommand cmd = new SqlCommand(query, conn);
 
 				cmd.Parameters.AddWithValue("@IdAsignacion", idAsignacion);
 				cmd.Parameters.AddWithValue("@Fecha", fecha.Date);
+				cmd.Parameters.AddWithValue("@NumeroLeccion", numeroLeccion);
 
-				int count = (int)cmd.ExecuteScalar();
+				int total = (int)cmd.ExecuteScalar();
 
-				return count > 0;
+				return total > 0;
 			}
 		}
 
@@ -298,7 +302,7 @@ namespace SistemaAsistenciaMagallanes.DAO
 			return dt;
 		}
 
-		public DataTable ObtenerListaAsistencia(int idAsignacion, DateTime fecha)
+		public DataTable ObtenerListaAsistencia(int idAsignacion, DateTime fecha, int numeroLeccion)
 		{
 			DataTable dt = new DataTable();
 
@@ -325,12 +329,13 @@ namespace SistemaAsistenciaMagallanes.DAO
 					ON dsm.IdUsuario = u.IdUsuario
 				WHERE c.IdAsignacion = @IdAsignacion
 				AND CAST(c.Fecha AS DATE) = @Fecha
-				ORDER BY e.Apellido";
+				AND c.NumeroLeccion = @NumeroLeccion";
 
 				SqlCommand cmd = new SqlCommand(query, conn);
 
 				cmd.Parameters.AddWithValue("@IdAsignacion", idAsignacion);
 				cmd.Parameters.AddWithValue("@Fecha", fecha.Date);
+				cmd.Parameters.AddWithValue("@NumeroLeccion", numeroLeccion);
 
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				da.Fill(dt);

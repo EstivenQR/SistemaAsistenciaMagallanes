@@ -173,6 +173,28 @@ namespace SistemaAsistenciaMagallanes.DAO
 			}
 		}
 
+		public bool ExisteEstudiantePorCedula(string cedula)
+		{
+			ConexionBD conexionBD = new ConexionBD();
+			SqlConnection conexion = conexionBD.ObtenerConexion();
+
+			string query = @"
+        SELECT COUNT(*)
+        FROM Estudiantes
+        WHERE Cedula = @Cedula";
+
+			SqlCommand cmd = new SqlCommand(query, conexion);
+			cmd.Parameters.AddWithValue("@Cedula", cedula);
+
+			conexion.Open();
+
+			int total = (int)cmd.ExecuteScalar();
+
+			conexion.Close();
+
+			return total > 0;
+		}
+
 		public void AplicarCambiosPendientes(int idUsuario)
 		{
 			using (SqlConnection conn = new ConexionBD().ObtenerConexion())

@@ -188,5 +188,12 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 			this.Close();
 		}
+
+		private void btnCargarEstudiantes_Click(object sender, EventArgs e)
+		{
+			FrmImportarEstudiantes frm = new FrmImportarEstudiantes();
+			frm.ShowDialog();
+
+		}
 	}
 }

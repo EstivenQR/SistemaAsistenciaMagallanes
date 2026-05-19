@@ -4,19 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Configuration;
+
 
 
 namespace SistemaAsistenciaMagallanes.Conexion_BD
 {
 	internal class ConexionBD
 	{
-		private string CadenaConexion = "Server=localhost;Database=BD_ASISTENCIAMAGALLANES;Trusted_Connection=True";
+		private string CadenaConexion =
+			ConfigurationManager
+			.ConnectionStrings["conexion"]
+			.ConnectionString;
 
-		public SqlConnection ObtenerConexion(){
-		
-			SqlConnection conexion = new SqlConnection(CadenaConexion);
-			return conexion;
-
+		public SqlConnection ObtenerConexion()
+		{
+			return new SqlConnection(CadenaConexion);
 		}
 	}
 }
