@@ -32,6 +32,7 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.paneltop = new System.Windows.Forms.Panel();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@
 			this.btnCrearTarea = new System.Windows.Forms.Button();
 			this.txtDescripcion = new System.Windows.Forms.TextBox();
 			this.txtTitulo = new System.Windows.Forms.TextBox();
-			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.paneltop.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,6 +79,13 @@
 			this.paneltop.Name = "paneltop";
 			this.paneltop.Size = new System.Drawing.Size(1143, 99);
 			this.paneltop.TabIndex = 1;
+			// 
+			// flowLayoutPanel1
+			// 
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(943, 0);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+			this.flowLayoutPanel1.TabIndex = 3;
 			// 
 			// pictureBox2
 			// 
@@ -408,13 +415,6 @@
 			this.txtTitulo.Size = new System.Drawing.Size(200, 20);
 			this.txtTitulo.TabIndex = 1;
 			this.txtTitulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			// 
-			// flowLayoutPanel1
-			// 
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(335, 49);
-			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
-			this.flowLayoutPanel1.TabIndex = 3;
 			// 
 			// FrmTareas
 			// 

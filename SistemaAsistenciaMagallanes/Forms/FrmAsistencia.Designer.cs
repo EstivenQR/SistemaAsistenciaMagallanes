@@ -29,8 +29,8 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAsistencia));
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.pnlfiltros = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -40,6 +40,8 @@
 			this.cmbMateria = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+			this.label4 = new System.Windows.Forms.Label();
+			this.cmbLeccion = new System.Windows.Forms.ComboBox();
 			this.pnlTotalEstudiantes = new System.Windows.Forms.Panel();
 			this.lblTotalEstudiantes = new System.Windows.Forms.Label();
 			this.lblTotalEstudiantesTitulo = new System.Windows.Forms.Label();
@@ -56,8 +58,6 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.cmbLeccion = new System.Windows.Forms.ComboBox();
 			this.pnlfiltros.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
@@ -178,6 +178,24 @@
 			this.dtpFecha.Size = new System.Drawing.Size(200, 20);
 			this.dtpFecha.TabIndex = 4;
 			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label4.Location = new System.Drawing.Point(688, 0);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(51, 17);
+			this.label4.TabIndex = 6;
+			this.label4.Text = "Lección";
+			// 
+			// cmbLeccion
+			// 
+			this.cmbLeccion.FormattingEnabled = true;
+			this.cmbLeccion.Location = new System.Drawing.Point(745, 3);
+			this.cmbLeccion.Name = "cmbLeccion";
+			this.cmbLeccion.Size = new System.Drawing.Size(150, 21);
+			this.cmbLeccion.TabIndex = 7;
+			// 
 			// pnlTotalEstudiantes
 			// 
 			this.pnlTotalEstudiantes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -239,23 +257,23 @@
 			this.dgvAsistencia.AllowUserToAddRows = false;
 			this.dgvAsistencia.BackgroundColor = System.Drawing.Color.White;
 			this.dgvAsistencia.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvAsistencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvAsistencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this.dgvAsistencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvAsistencia.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvAsistencia.DefaultCellStyle = dataGridViewCellStyle4;
 			this.dgvAsistencia.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvAsistencia.Location = new System.Drawing.Point(0, 0);
 			this.dgvAsistencia.Name = "dgvAsistencia";
@@ -397,23 +415,6 @@
 			this.label1.TabIndex = 1;
 			this.label1.Text = "ASISTENCIA     ";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(688, 0);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(45, 13);
-			this.label4.TabIndex = 6;
-			this.label4.Text = "Lección";
-			// 
-			// cmbLeccion
-			// 
-			this.cmbLeccion.FormattingEnabled = true;
-			this.cmbLeccion.Location = new System.Drawing.Point(739, 3);
-			this.cmbLeccion.Name = "cmbLeccion";
-			this.cmbLeccion.Size = new System.Drawing.Size(121, 21);
-			this.cmbLeccion.TabIndex = 7;
 			// 
 			// FrmAsistencia
 			// 
