@@ -368,5 +368,10 @@ namespace SistemaAsistenciaMagallanes.Forms
 			FrmHistorialAsistencia	frm= new FrmHistorialAsistencia();
 			frm.Show();
 		}
-	}
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }
