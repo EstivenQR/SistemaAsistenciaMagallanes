@@ -191,6 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion_BD\ConexionBD.cs" />
+    <Compile Include="Conexion_BD\Configuracion.cs" />
     <Compile Include="Conexion_BD\Seguridad.cs" />
     <Compile Include="DAO\AsignacionDocenteDAO.cs" />
     <Compile Include="DAO\AsistenciaDAO.cs" />
@@ -381,6 +382,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Content Include="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

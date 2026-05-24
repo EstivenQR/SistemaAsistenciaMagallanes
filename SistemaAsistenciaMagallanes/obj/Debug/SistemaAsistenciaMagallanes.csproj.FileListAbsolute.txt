@@ -214,3 +214,4 @@ C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagalla
 C:\Users\estiv\Desktop\UNIVERSIDAD\TCU Magallanes\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmBoletas.resources
 C:\Users\estiv\Desktop\UNIVERSIDAD\TCU Magallanes\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmHistorialAsistencia.resources
 C:\Users\estiv\Desktop\UNIVERSIDAD\TCU Magallanes\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\obj\Debug\SistemaAsistenciaMagallanes.Forms.FrmImportarEstudiantes.resources
+C:\Users\estiv\source\repos\SistemaAsistenciaMagallanes\SistemaAsistenciaMagallanes\bin\Debug\config.json
