@@ -195,5 +195,53 @@ namespace SistemaAsistenciaMagallanes.Forms
 			frm.ShowDialog();
 
 		}
+
+		private void btnEliminar_Click(object sender, EventArgs e)
+		{
+			if (dgvEstudiantes.SelectedRows.Count == 0)
+			{
+				MessageBox.Show("Seleccione un estudiante");
+				return;
+			}
+
+			DialogResult resultado = MessageBox.Show(
+				"¿Está seguro de que desea eliminar este estudiante?",
+				"Confirmar eliminación",
+				MessageBoxButtons.YesNo,
+				MessageBoxIcon.Question
+			);
+
+			if (resultado == DialogResult.Yes)
+			{
+				try
+				{
+					int idEstudiante = Convert.ToInt32(
+						dgvEstudiantes.SelectedRows[0].Cells["IdEstudiante"].Value
+					);
+
+					EstudiantesService service = new EstudiantesService();
+
+					service.EliminarEstudiante(idEstudiante);
+
+					MessageBox.Show(
+						"Estudiante eliminado correctamente",
+						"Éxito",
+						MessageBoxButtons.OK,
+						MessageBoxIcon.Information
+					);
+
+					CargarEstudiantes("");
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(
+						ex.Message,
+						"Error",
+						MessageBoxButtons.OK,
+						MessageBoxIcon.Warning
+					);
+				}
+			}
+		}
 	}
 }

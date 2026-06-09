@@ -227,5 +227,36 @@ namespace SistemaAsistenciaMagallanes.DAO
 				cmd.ExecuteNonQuery();
 			}
 		}
+
+		public void EliminarEstudiante(int idEstudiante)
+		{
+			try
+			{
+				using (SqlConnection conexion = new ConexionBD().ObtenerConexion())
+				{
+					conexion.Open();
+
+					string consulta =
+						"DELETE FROM Estudiantes WHERE IdEstudiante = @id";
+
+					using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+					{
+						cmd.Parameters.AddWithValue("@id", idEstudiante);
+						cmd.ExecuteNonQuery();
+					}
+				}
+			}
+			catch (SqlException ex)
+			{
+				if (ex.Number == 547)
+				{
+					throw new Exception(
+						"No se puede eliminar el estudiante porque tiene información asociada."
+					);
+				}
+
+				throw;
+			}
+		}
 	}
 }

@@ -83,14 +83,27 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 			if (dgvSecciones.SelectedRows.Count > 0)
 			{
-				int idSeccion = Convert.ToInt32(dgvSecciones.SelectedRows[0].Cells["IdSeccion"].Value);
+				try
+				{
+					int idSeccion = Convert.ToInt32(
+						dgvSecciones.SelectedRows[0].Cells["IdSeccion"].Value);
 
-				SeccionesService service = new SeccionesService();
-				service.EliminarSeccion(idSeccion);
+					SeccionesService service = new SeccionesService();
+					service.EliminarSeccion(idSeccion);
 
-				MessageBox.Show("Sección eliminada");
+					MessageBox.Show("Sección eliminada");
 
-				CargarSecciones("");
+					CargarSecciones("");
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(
+						ex.Message,
+						"No se puede eliminar",
+						MessageBoxButtons.OK,
+						MessageBoxIcon.Warning
+					);
+				}
 			}
 		}
 

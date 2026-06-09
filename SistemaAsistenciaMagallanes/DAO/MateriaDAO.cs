@@ -74,18 +74,33 @@ namespace SistemaAsistenciaMagallanes.DAO
 
 		public void EliminarMateria(int idMateria)
 		{
-			ConexionBD conexionBD = new ConexionBD();
-			SqlConnection conexion = conexionBD.ObtenerConexion();
+			try
+			{
+				using (SqlConnection conexion = new ConexionBD().ObtenerConexion())
+				{
+					conexion.Open();
 
-			conexion.Open();
+					string consulta =
+						"DELETE FROM Materias WHERE IdMateria = @id";
 
-			string consulta = "DELETE FROM Materias WHERE IdMateria = @id";
+					using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+					{
+						cmd.Parameters.AddWithValue("@id", idMateria);
+						cmd.ExecuteNonQuery();
+					}
+				}
+			}
+			catch (SqlException ex)
+			{
+				if (ex.Number == 547)
+				{
+					throw new Exception(
+						"No se puede eliminar la materia porque tiene registros asociados."
+					);
+				}
 
-			SqlCommand cmd = new SqlCommand(consulta, conexion);
-			cmd.Parameters.AddWithValue("@id", idMateria);
-
-			cmd.ExecuteNonQuery();
-			conexion.Close();
+				throw;
+			}
 		}
 
 	}

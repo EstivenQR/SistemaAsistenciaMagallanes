@@ -30,11 +30,12 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHistorialAsistencia));
 			this.panelMain = new System.Windows.Forms.Panel();
+			this.panelLsita = new System.Windows.Forms.Panel();
+			this.dgvLista = new System.Windows.Forms.DataGridView();
 			this.pnlFooter = new System.Windows.Forms.Panel();
 			this.flowBotones = new System.Windows.Forms.FlowLayoutPanel();
 			this.btnSalir = new System.Windows.Forms.Button();
 			this.btnGuardar = new System.Windows.Forms.Button();
-			this.dgvLista = new System.Windows.Forms.DataGridView();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.panelKPI4 = new System.Windows.Forms.Panel();
 			this.lblTotaltotalEstudiantes = new System.Windows.Forms.Label();
@@ -63,9 +64,10 @@
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panelMain.SuspendLayout();
+			this.panelLsita.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
 			this.pnlFooter.SuspendLayout();
 			this.flowBotones.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panelKPI4.SuspendLayout();
 			this.panelKPI3.SuspendLayout();
@@ -83,8 +85,8 @@
 			// 
 			this.panelMain.BackColor = System.Drawing.SystemColors.Window;
 			this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panelMain.Controls.Add(this.panelLsita);
 			this.panelMain.Controls.Add(this.pnlFooter);
-			this.panelMain.Controls.Add(this.dgvLista);
 			this.panelMain.Controls.Add(this.tableLayoutPanel1);
 			this.panelMain.Controls.Add(this.pnlFiltrosContenedor);
 			this.panelMain.Controls.Add(this.panel2);
@@ -94,6 +96,30 @@
 			this.panelMain.Name = "panelMain";
 			this.panelMain.Size = new System.Drawing.Size(1186, 625);
 			this.panelMain.TabIndex = 0;
+			// 
+			// panelLsita
+			// 
+			this.panelLsita.Controls.Add(this.dgvLista);
+			this.panelLsita.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panelLsita.Location = new System.Drawing.Point(0, 347);
+			this.panelLsita.Name = "panelLsita";
+			this.panelLsita.Size = new System.Drawing.Size(1184, 206);
+			this.panelLsita.TabIndex = 14;
+			// 
+			// dgvLista
+			// 
+			this.dgvLista.AllowUserToAddRows = false;
+			this.dgvLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvLista.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dgvLista.Location = new System.Drawing.Point(0, 0);
+			this.dgvLista.Name = "dgvLista";
+			this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgvLista.Size = new System.Drawing.Size(1184, 206);
+			this.dgvLista.TabIndex = 13;
+			this.dgvLista.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLista_CellFormatting);
+			this.dgvLista.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvLista_CurrentCellDirtyStateChanged);
+			this.dgvLista.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvLista_DataError);
 			// 
 			// pnlFooter
 			// 
@@ -155,20 +181,6 @@
 			this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnGuardar.UseVisualStyleBackColor = false;
 			this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-			// 
-			// dgvLista
-			// 
-			this.dgvLista.AllowUserToAddRows = false;
-			this.dgvLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvLista.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvLista.Location = new System.Drawing.Point(0, 347);
-			this.dgvLista.Name = "dgvLista";
-			this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvLista.Size = new System.Drawing.Size(1184, 276);
-			this.dgvLista.TabIndex = 13;
-			this.dgvLista.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLista_CellFormatting);
-			this.dgvLista.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvLista_CurrentCellDirtyStateChanged);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -491,10 +503,11 @@
 			this.Load += new System.EventHandler(this.FrmHistorialAsistencia_Load);
 			this.Resize += new System.EventHandler(this.FrmHistorialAsistencia_Resize);
 			this.panelMain.ResumeLayout(false);
+			this.panelLsita.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
 			this.pnlFooter.ResumeLayout(false);
 			this.pnlFooter.PerformLayout();
 			this.flowBotones.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.panelKPI4.ResumeLayout(false);
 			this.panelKPI4.PerformLayout();
@@ -552,5 +565,6 @@
 		private System.Windows.Forms.Label lblTotalMateria;
 		private System.Windows.Forms.Label lblTotalSeccion;
 		private System.Windows.Forms.ComboBox cmbLeccion;
+		private System.Windows.Forms.Panel panelLsita;
 	}
 }

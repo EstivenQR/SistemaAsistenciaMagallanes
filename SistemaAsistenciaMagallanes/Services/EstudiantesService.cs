@@ -85,5 +85,11 @@ namespace SistemaAsistenciaMagallanes.Services
 		}
 
 
+		public void EliminarEstudiante(int idEstudiante)
+		{
+			EstudiantesDAO dao = new EstudiantesDAO();
+			dao.EliminarEstudiante(idEstudiante);
+		}
+
 	}
 }

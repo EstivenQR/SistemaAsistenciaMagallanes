@@ -82,14 +82,41 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 			if (dgvMaterias.SelectedRows.Count > 0)
 			{
-				int idMateria = Convert.ToInt32(dgvMaterias.SelectedRows[0].Cells["IdMateria"].Value);
+				DialogResult resultado = MessageBox.Show(
+					"¿Está seguro de que desea eliminar esta materia?",
+					"Confirmar eliminación",
+					MessageBoxButtons.YesNo,
+					MessageBoxIcon.Question
+				);
 
-				MateriaService service = new MateriaService();
-				service.EliminarMateria(idMateria);
+				if (resultado == DialogResult.Yes)
+				{
+					try
+					{
+						int idMateria = Convert.ToInt32(
+							dgvMaterias.SelectedRows[0].Cells["IdMateria"].Value);
 
-				MessageBox.Show("Materia eliminada");
+						MateriaService service = new MateriaService();
+						service.EliminarMateria(idMateria);
 
-				CargarMaterias("");
+						MessageBox.Show("Materia eliminada");
+
+						CargarMaterias("");
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show(
+							ex.Message,
+							"No se puede eliminar",
+							MessageBoxButtons.OK,
+							MessageBoxIcon.Warning
+						);
+					}
+				}
+			}
+			else
+			{
+				MessageBox.Show("Seleccione una materia");
 			}
 		}
 

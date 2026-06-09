@@ -377,7 +377,11 @@ namespace SistemaAsistenciaMagallanes.Forms
 				return;
 			}
 
-			var confirm = MessageBox.Show("¿Eliminar esta tarea?", "Confirmar", MessageBoxButtons.YesNo);
+			var confirm = MessageBox.Show(
+				"¿Está seguro de eliminar esta tarea?",
+				"Confirmar eliminación",
+				MessageBoxButtons.YesNo,
+				MessageBoxIcon.Question);
 
 			if (confirm == DialogResult.Yes)
 			{
@@ -386,17 +390,25 @@ namespace SistemaAsistenciaMagallanes.Forms
 					TareasService service = new TareasService();
 					service.EliminarTarea(idTarea);
 
-					MessageBox.Show("Tarea eliminada");
+					MessageBox.Show(
+						"Tarea eliminada correctamente",
+						"Éxito",
+						MessageBoxButtons.OK,
+						MessageBoxIcon.Information);
 
 					int idSeccion = Convert.ToInt32(cmbSeccion.SelectedValue);
 					int idMateria = Convert.ToInt32(cmbMateria.SelectedValue);
 
-					CargarTareas(idSeccion, idMateria); // refresca combo
+					CargarTareas(idSeccion, idMateria);
 					LimpiarFormulario();
 				}
 				catch (Exception ex)
 				{
-					MessageBox.Show("Error: " + ex.Message);
+					MessageBox.Show(
+						ex.Message,
+						"No se puede eliminar",
+						MessageBoxButtons.OK,
+						MessageBoxIcon.Warning);
 				}
 			}
 		}

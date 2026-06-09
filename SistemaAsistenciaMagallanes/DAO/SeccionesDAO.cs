@@ -53,18 +53,32 @@ namespace SistemaAsistenciaMagallanes.DAO
 
 		public void EliminarSeccion(int idSeccion)
 		{
-			ConexionBD conexionBD = new ConexionBD();
-			SqlConnection conexion = conexionBD.ObtenerConexion();
+			try
+			{
+				ConexionBD conexionBD = new ConexionBD();
 
-			conexion.Open();
+				using (SqlConnection conexion = conexionBD.ObtenerConexion())
+				{
+					conexion.Open();
 
-			string consulta = "DELETE FROM Secciones WHERE IdSeccion = @id";
+					string consulta = "DELETE FROM Secciones WHERE IdSeccion = @id";
 
-			SqlCommand cmd = new SqlCommand(consulta, conexion);
-			cmd.Parameters.AddWithValue("@id", idSeccion);
+					using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+					{
+						cmd.Parameters.AddWithValue("@id", idSeccion);
+						cmd.ExecuteNonQuery();
+					}
+				}
+			}
+			catch (SqlException ex)
+			{
+				if (ex.Number == 547) // Violación de clave foránea
+				{
+					throw new Exception("No se puede eliminar la sección porque tiene registros relacionados.");
+				}
 
-			cmd.ExecuteNonQuery();
-			conexion.Close();
+				throw;
+			}
 		}
 	}
 }

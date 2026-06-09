@@ -35,6 +35,7 @@
 			this.panelprincipal = new System.Windows.Forms.Panel();
 			this.panelcontenido = new System.Windows.Forms.Panel();
 			this.panelformulario = new System.Windows.Forms.Panel();
+			this.btnCargarEstudiantes = new System.Windows.Forms.Button();
 			this.label9 = new System.Windows.Forms.Label();
 			this.chkReligion = new System.Windows.Forms.CheckBox();
 			this.btnEditar = new System.Windows.Forms.Button();
@@ -60,7 +61,6 @@
 			this.btnbuscar = new System.Windows.Forms.Button();
 			this.txtbuscar = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.btnCargarEstudiantes = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panelprincipal.SuspendLayout();
@@ -157,6 +157,23 @@
 			this.panelformulario.Name = "panelformulario";
 			this.panelformulario.Size = new System.Drawing.Size(1090, 251);
 			this.panelformulario.TabIndex = 2;
+			// 
+			// btnCargarEstudiantes
+			// 
+			this.btnCargarEstudiantes.BackColor = System.Drawing.Color.SkyBlue;
+			this.btnCargarEstudiantes.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnCargarEstudiantes.FlatAppearance.BorderSize = 0;
+			this.btnCargarEstudiantes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnCargarEstudiantes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnCargarEstudiantes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnCargarEstudiantes.Location = new System.Drawing.Point(311, 184);
+			this.btnCargarEstudiantes.Name = "btnCargarEstudiantes";
+			this.btnCargarEstudiantes.Size = new System.Drawing.Size(312, 35);
+			this.btnCargarEstudiantes.TabIndex = 30;
+			this.btnCargarEstudiantes.Text = "[ Cargar Estudiantes ]";
+			this.btnCargarEstudiantes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.btnCargarEstudiantes.UseVisualStyleBackColor = false;
+			this.btnCargarEstudiantes.Click += new System.EventHandler(this.btnCargarEstudiantes_Click);
 			// 
 			// label9
 			// 
@@ -335,6 +352,7 @@
 			this.btnEliminar.Text = "Eliminar";
 			this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnEliminar.UseVisualStyleBackColor = false;
+			this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
 			// 
 			// btnAgregar
 			// 
@@ -442,23 +460,6 @@
 			this.label2.Size = new System.Drawing.Size(80, 21);
 			this.label2.TabIndex = 0;
 			this.label2.Text = "BUSCAR:";
-			// 
-			// btnCargarEstudiantes
-			// 
-			this.btnCargarEstudiantes.BackColor = System.Drawing.Color.SkyBlue;
-			this.btnCargarEstudiantes.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnCargarEstudiantes.FlatAppearance.BorderSize = 0;
-			this.btnCargarEstudiantes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnCargarEstudiantes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnCargarEstudiantes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnCargarEstudiantes.Location = new System.Drawing.Point(311, 184);
-			this.btnCargarEstudiantes.Name = "btnCargarEstudiantes";
-			this.btnCargarEstudiantes.Size = new System.Drawing.Size(312, 35);
-			this.btnCargarEstudiantes.TabIndex = 30;
-			this.btnCargarEstudiantes.Text = "[ Cargar Estudiantes ]";
-			this.btnCargarEstudiantes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.btnCargarEstudiantes.UseVisualStyleBackColor = false;
-			this.btnCargarEstudiantes.Click += new System.EventHandler(this.btnCargarEstudiantes_Click);
 			// 
 			// FrmEstudiantes
 			// 

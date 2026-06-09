@@ -15,9 +15,12 @@ using System.Windows.Forms;
 
 namespace SistemaAsistenciaMagallanes.Forms
 {
+
 	public partial class FrmBoletas : Form
 	{
-		int idBoletaSeleccionada = 0;
+
+
+		int idBoletaSeleccionada = -1;
 		BoletasService service = new BoletasService();
 
 		public FrmBoletas()
@@ -65,6 +68,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 		private void CargarBoletas()
 		{
 			dtBoletas = service.ListarBoletas(Sesion.IdUsuario, Sesion.IdRol);
+		
 			dgvBoletas.DataSource = dtBoletas;
 			dgvBoletas.Columns["IdBoleta"].Visible = false;
 			dgvBoletas.Columns["IdEstudiante"].Visible = false;
@@ -225,49 +229,53 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 			DataView dv = dtBoletas.DefaultView;
 
-			dv.RowFilter = $"Estudiante LIKE '%{filtro}%' OR Seccion LIKE '%{filtro}%'";
+			dv.RowFilter = $"Estudiante LIKE '%{filtro}%' OR NombreSeccion LIKE '%{filtro}%'";
 
 			dgvBoletas.DataSource = dv;
 		}
 
 		private void dgvBoletas_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if (dgvBoletas.CurrentRow != null)
-			{
-				idBoletaSeleccionada = Convert.ToInt32(
-					dgvBoletas.CurrentRow.Cells["IdBoleta"].Value
-				);
+			if (e.RowIndex < 0) return;
 
-				txtMotivo.Text = dgvBoletas.CurrentRow.Cells["Motivo"].Value.ToString();
-				txtPorcentaje.Text = dgvBoletas.CurrentRow.Cells["Puntos"].Value.ToString();
+			DataGridViewRow fila = dgvBoletas.Rows[e.RowIndex];
 
-				dtpFecha.Value = Convert.ToDateTime(
-					dgvBoletas.CurrentRow.Cells["Fecha"].Value
-				);
+			MessageBox.Show(
+				fila.Cells["IdBoleta"].Value.ToString()
+			);
 
+			idBoletaSeleccionada = Convert.ToInt32(
+				fila.Cells["IdBoleta"].Value
+			);
 
-				int idSeccion = Convert.ToInt32(
-					dgvBoletas.CurrentRow.Cells["IdSeccion"].Value
-				);
+			txtMotivo.Text = fila.Cells["Motivo"].Value.ToString();
+			txtPorcentaje.Text = fila.Cells["Puntos"].Value.ToString();
 
-				cmbSeccion.SelectedValue = idSeccion;
+			dtpFecha.Value = Convert.ToDateTime(
+				fila.Cells["Fecha"].Value
+			);
 
-				// cargar estudiantes de esa sección primero
-				cmbEstudiante.DataSource = service.ObtenerEstudiantesPorSeccion(idSeccion);
-				cmbEstudiante.DisplayMember = "NombreCompleto";
-				cmbEstudiante.ValueMember = "IdEstudiante";
+			int idSeccion = Convert.ToInt32(
+				fila.Cells["IdSeccion"].Value
+			);
 
-				int idEstudiante = Convert.ToInt32(
-					dgvBoletas.CurrentRow.Cells["IdEstudiante"].Value
-				);
+			cmbSeccion.SelectedValue = idSeccion;
 
-				cmbEstudiante.SelectedValue = idEstudiante;
-			}
+			cmbEstudiante.DataSource =
+				service.ObtenerEstudiantesPorSeccion(idSeccion);
+			cmbEstudiante.DisplayMember = "NombreCompleto";
+			cmbEstudiante.ValueMember = "IdEstudiante";
+
+			int idEstudiante = Convert.ToInt32(
+				fila.Cells["IdEstudiante"].Value
+			);
+
+			cmbEstudiante.SelectedValue = idEstudiante;
 		}
 
 		private void BtnEditar_Click(object sender, EventArgs e)
 		{
-			if (idBoletaSeleccionada == 0)
+			if (idBoletaSeleccionada == -1)
 			{
 				MessageBox.Show("Seleccione una boleta");
 				return;
@@ -295,7 +303,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		private void BtnEliminar_Click(object sender, EventArgs e)
 		{
-			if (idBoletaSeleccionada == 0)
+			if (idBoletaSeleccionada == -1)
 			{
 				MessageBox.Show("Seleccione una boleta");
 				return;
@@ -320,7 +328,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		private void LimpiarCampos()
 		{
-			idBoletaSeleccionada = 0;
+			idBoletaSeleccionada = -1;
 
 			txtMotivo.Clear();
 			txtPorcentaje.Clear();

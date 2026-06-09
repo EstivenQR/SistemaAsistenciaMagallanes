@@ -255,7 +255,7 @@
 			this.dgvTareas.Dock = System.Windows.Forms.DockStyle.Top;
 			this.dgvTareas.Location = new System.Drawing.Point(0, 0);
 			this.dgvTareas.Name = "dgvTareas";
-			this.dgvTareas.Size = new System.Drawing.Size(1143, 206);
+			this.dgvTareas.Size = new System.Drawing.Size(1143, 198);
 			this.dgvTareas.TabIndex = 0;
 			this.dgvTareas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTareas_CellClick);
 			this.dgvTareas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTareas_CellContentClick);
@@ -278,9 +278,9 @@
 			this.panel2.Controls.Add(this.btnCrearTarea);
 			this.panel2.Controls.Add(this.txtDescripcion);
 			this.panel2.Controls.Add(this.txtTitulo);
-			this.panel2.Location = new System.Drawing.Point(0, 423);
+			this.panel2.Location = new System.Drawing.Point(0, 416);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(1143, 254);
+			this.panel2.Size = new System.Drawing.Size(1143, 261);
 			this.panel2.TabIndex = 4;
 			// 
 			// label6

@@ -229,16 +229,31 @@ namespace SistemaAsistenciaMagallanes.DAO
 
 		public void EliminarTarea(int idTarea)
 		{
-			using (SqlConnection conn = new ConexionBD().ObtenerConexion())
+			try
 			{
-				conn.Open();
+				using (SqlConnection conn = new ConexionBD().ObtenerConexion())
+				{
+					conn.Open();
 
-				string query = "DELETE FROM Tareas WHERE IdTarea = @IdTarea";
+					string query = "DELETE FROM Tareas WHERE IdTarea = @IdTarea";
 
-				SqlCommand cmd = new SqlCommand(query, conn);
-				cmd.Parameters.AddWithValue("@IdTarea", idTarea);
+					using (SqlCommand cmd = new SqlCommand(query, conn))
+					{
+						cmd.Parameters.AddWithValue("@IdTarea", idTarea);
+						cmd.ExecuteNonQuery();
+					}
+				}
+			}
+			catch (SqlException ex)
+			{
+				if (ex.Number == 547)
+				{
+					throw new Exception(
+						"No se puede eliminar la tarea porque tiene registros asociados."
+					);
+				}
 
-				cmd.ExecuteNonQuery();
+				throw;
 			}
 		}
 

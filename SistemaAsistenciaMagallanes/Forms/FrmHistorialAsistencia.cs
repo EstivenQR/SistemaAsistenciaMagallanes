@@ -35,7 +35,8 @@ namespace SistemaAsistenciaMagallanes.Forms
 			RedondearBoton(btnBuscar, 20);
 			RedondearBoton(btnGuardar, 20);
 			RedondearBoton(btnSalir, 20);
-
+			dgvLista.DataError += dgvLista_DataError;
+			
 			CentrarFiltros();
 			AjustarFooter();
 			RedondearPanel(panelKPI1, 20);
@@ -186,6 +187,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 				combo.Items.Add("Presente");
 				combo.Items.Add("Ausente");
+				combo.Items.Add("Tardía");
 				combo.Items.Add("Justificado");
 
 				combo.DataPropertyName = "Estado";
@@ -386,6 +388,26 @@ namespace SistemaAsistenciaMagallanes.Forms
 		private void panelHead_Paint(object sender, PaintEventArgs e)
 		{
 
+		}
+
+		private void dgvLista_DataError(object sender, DataGridViewDataErrorEventArgs e)
+		{
+			try
+			{
+				var valor = dgvLista.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+				MessageBox.Show(
+					$"Fila: {e.RowIndex}\n" +
+					$"Columna: {e.ColumnIndex}\n" +
+					$"Valor: {valor}\n" +
+					$"Error: {e.Exception?.Message}"
+				);
+
+				e.ThrowException = false;
+			}
+			catch
+			{
+			}
 		}
 	}
 }
