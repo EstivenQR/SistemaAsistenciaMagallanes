@@ -1,6 +1,8 @@
 {
-  "Servidor": "",
+  "Servidor": "192.168.100.59,1433",
   "Instancia": "",
   "BaseDatos": "BD_ASISTENCIAMAGALLANES",
-  "IntegratedSecurity": true
+  "IntegratedSecurity": false,
+  "Usuario": "magallanes_user",
+  "Password": "12345"
 }

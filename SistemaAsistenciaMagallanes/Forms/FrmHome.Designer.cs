@@ -413,6 +413,7 @@
 			this.panelIndex.Name = "panelIndex";
 			this.panelIndex.Size = new System.Drawing.Size(916, 716);
 			this.panelIndex.TabIndex = 5;
+			this.panelIndex.Paint += new System.Windows.Forms.PaintEventHandler(this.panelIndex_Paint);
 			// 
 			// panelFooter
 			// 
@@ -507,6 +508,7 @@
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(412, 149);
 			this.panel3.TabIndex = 8;
+			this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
 			// 
 			// pictureBox4
 			// 
@@ -527,6 +529,7 @@
 			this.lblTotalProfesores.TabIndex = 3;
 			this.lblTotalProfesores.Text = "label4";
 			this.lblTotalProfesores.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lblTotalProfesores.Click += new System.EventHandler(this.lblTotalProfesores_Click);
 			// 
 			// lblTituloProfesores
 			// 
@@ -671,6 +674,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoSize = true;
 			this.ClientSize = new System.Drawing.Size(1183, 716);
 			this.Controls.Add(this.panelPrincipal);
 			this.Name = "FrmHome";

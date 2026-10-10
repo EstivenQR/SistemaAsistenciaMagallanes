@@ -18,6 +18,8 @@ using static System.Windows.Forms.MonthCalendar;
 
 namespace SistemaAsistenciaMagallanes.Forms
 {
+
+
 	public partial class FrmReportes : Form
 	{
 		public FrmReportes()
@@ -576,10 +578,9 @@ namespace SistemaAsistenciaMagallanes.Forms
 
         private void panel2_Resize(object sender, EventArgs e)
         {
-            tableLayoutPanel2.Left = (panel2.Width - tableLayoutPanel2.Width) / 2;
-            tableLayoutPanel2.Left = (this.ClientSize.Width - tableLayoutPanel2.Width) / 2;
-            tableLayoutPanel2.Top = (panel2.Height - tableLayoutPanel2.Height) / 2;
-        }
+			tableLayoutPanel2.Left = (panel2.ClientSize.Width - tableLayoutPanel2.Width) / 2;
+			tableLayoutPanel2.Top = (panel2.ClientSize.Height - tableLayoutPanel2.Height) / 2;
+		}
 
 		private void tableLayoutPanel2_Resize(object sender, EventArgs e)
 		{

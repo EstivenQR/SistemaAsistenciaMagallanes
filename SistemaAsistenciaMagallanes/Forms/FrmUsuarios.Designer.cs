@@ -275,7 +275,7 @@
 			// chkMostrarInactivos
 			// 
 			this.chkMostrarInactivos.AutoSize = true;
-			this.chkMostrarInactivos.Location = new System.Drawing.Point(849, 23);
+			this.chkMostrarInactivos.Location = new System.Drawing.Point(869, 23);
 			this.chkMostrarInactivos.Name = "chkMostrarInactivos";
 			this.chkMostrarInactivos.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
 			this.chkMostrarInactivos.Size = new System.Drawing.Size(15, 16);

@@ -21,6 +21,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 		bool menuExpandido = false;
 		int alturaMaxima = 150;
 		ToolTip tooltip = new ToolTip();
+		private Timer timerKPIs;
 		public FrmHome()
 		{
 			InitializeComponent();
@@ -35,7 +36,10 @@ namespace SistemaAsistenciaMagallanes.Forms
 			lblUsuario.Text = " Bienvenid@: " + Sesion.Nombre;
 			CargarTooltipTareas();
 			CargarKPIs();
-
+			timerKPIs = new Timer();
+			timerKPIs.Interval = 60000; // 60 segundos
+			timerKPIs.Tick += (s, ev) => CargarKPIs();
+			timerKPIs.Start();
 
 			if (Sesion.IdRol == 1 || Sesion.IdRol == 2 || Sesion.IdRol == 4)
 			{
@@ -117,21 +121,41 @@ namespace SistemaAsistenciaMagallanes.Forms
 		}
 
 
-
-		private void CargarKPIs()
+		protected override void OnFormClosed(FormClosedEventArgs e)
 		{
-			ReportesDAO dao = new ReportesDAO();
+			timerKPIs?.Stop();
+			timerKPIs?.Dispose();
+			base.OnFormClosed(e);
+		}
 
-			lblTituloAusentes.Text = "Estudiantes Ausentes";
-			lblTituloEstudiante.Text = "Total De Estudiantes";
-			lblTituloPresentes.Text = "Estudiantes Presentes";
-			lblTituloProfesores.Text = "Cantidad De Profesores";
+		private async void CargarKPIs()
+		{
+			try
+			{
+				ReportesDAO dao = new ReportesDAO();
 
+				lblTituloAusentes.Text = "Estudiantes Ausentes";
+				lblTituloEstudiante.Text = "Total De Estudiantes";
+				lblTituloPresentes.Text = "Estudiantes Presentes";
+				lblTituloProfesores.Text = "Cantidad De Profesores";
 
-			lblTotalEstudiantes.Text = dao.ObtenerTotalEstudiantes().ToString();
-			lblTotalProfesores.Text = dao.ObtenerTotalProfesores().ToString();
-			lblPresentes.Text = dao.ObtenerPresentesHoy().ToString();
-			lblAusentes.Text = dao.ObtenerAusentesHoy().ToString();
+				var datos = await Task.Run(() => new
+				{
+					Estudiantes = dao.ObtenerTotalEstudiantes(),
+					Profesores = dao.ObtenerTotalProfesores(),
+					Presentes = dao.ObtenerPresentesHoy(),
+					Ausentes = dao.ObtenerAusentesHoy()
+				});
+
+				lblTotalEstudiantes.Text = datos.Estudiantes.ToString();
+				lblTotalProfesores.Text = datos.Profesores.ToString();
+				lblPresentes.Text = datos.Presentes.ToString();
+				lblAusentes.Text = datos.Ausentes.ToString();
+			}
+			catch (Exception)
+			{
+				// Si falla una actualización, deja los valores anteriores
+			}
 		}
 
 		private void CentrarTabla()
@@ -345,6 +369,21 @@ namespace SistemaAsistenciaMagallanes.Forms
 			lblFooter.AutoSize = true;
 			lblFooter.Top = 10;
 			lblFooter.Left = (panelFooter.Width - lblFooter.Width) / 2;
+		}
+
+		private void lblTotalProfesores_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void panel3_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void panelIndex_Paint(object sender, PaintEventArgs e)
+		{
+
 		}
 	}
 }

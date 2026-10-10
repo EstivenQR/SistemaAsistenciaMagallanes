@@ -267,8 +267,11 @@ namespace SistemaAsistenciaMagallanes.DAO
 			using (SqlConnection conn = conexionBD.ObtenerConexion())
 			{
 				conn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Usuarios WHERE IdRol = '3'", conn);
-				return (int)cmd.ExecuteScalar();
+				using (SqlCommand cmd = new SqlCommand(
+					"SELECT COUNT(*) FROM Usuarios WHERE IdRol IN (3, 4)", conn))
+				{
+					return (int)cmd.ExecuteScalar();
+				}
 			}
 		}
 

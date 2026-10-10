@@ -139,7 +139,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			UsuarioService service = new UsuarioService();
 
 			int estado = chkEstado.Checked ? 1 : 0;
-			MessageBox.Show("Estado enviado: " + estado);
+		
 			service.CrearUsuario(
 				txtNombre.Text,
 				txtUsuario.Text,
