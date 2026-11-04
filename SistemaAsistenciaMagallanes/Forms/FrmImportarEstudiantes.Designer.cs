@@ -33,17 +33,17 @@
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.cmbSeccion = new System.Windows.Forms.ComboBox();
-			this.label2 = new System.Windows.Forms.Label();
 			this.btnSeleccionarExcel = new System.Windows.Forms.Button();
+			this.label2 = new System.Windows.Forms.Label();
+			this.cmbSeccion = new System.Windows.Forms.ComboBox();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.lblArchivo = new System.Windows.Forms.Label();
 			this.lblTotalRegistros = new System.Windows.Forms.Label();
+			this.lblArchivo = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.dgvPreview = new System.Windows.Forms.DataGridView();
 			this.panel4 = new System.Windows.Forms.Panel();
-			this.btnImportar = new System.Windows.Forms.Button();
 			this.btnCancelar = new System.Windows.Forms.Button();
+			this.btnImportar = new System.Windows.Forms.Button();
 			this.panelHead.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -64,6 +64,7 @@
 			this.panelHead.Name = "panelHead";
 			this.panelHead.Size = new System.Drawing.Size(1170, 100);
 			this.panelHead.TabIndex = 10;
+			this.panelHead.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHead_Paint);
 			// 
 			// pictureBox1
 			// 
@@ -87,6 +88,7 @@
 			this.label1.TabIndex = 1;
 			this.label1.Text = "IMPORTAR ESTUDIANTES";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.label1.Click += new System.EventHandler(this.label1_Click);
 			// 
 			// panel1
 			// 
@@ -100,24 +102,6 @@
 			this.panel1.Size = new System.Drawing.Size(1170, 121);
 			this.panel1.TabIndex = 11;
 			// 
-			// cmbSeccion
-			// 
-			this.cmbSeccion.FormattingEnabled = true;
-			this.cmbSeccion.Location = new System.Drawing.Point(536, 17);
-			this.cmbSeccion.Name = "cmbSeccion";
-			this.cmbSeccion.Size = new System.Drawing.Size(211, 21);
-			this.cmbSeccion.TabIndex = 0;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(404, 17);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(126, 17);
-			this.label2.TabIndex = 1;
-			this.label2.Text = "SECCIÓN DESTINO:";
-			// 
 			// btnSeleccionarExcel
 			// 
 			this.btnSeleccionarExcel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -129,6 +113,25 @@
 			this.btnSeleccionarExcel.UseVisualStyleBackColor = true;
 			this.btnSeleccionarExcel.Click += new System.EventHandler(this.btnSeleccionarExcel_Click);
 			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(404, 17);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(126, 17);
+			this.label2.TabIndex = 1;
+			this.label2.Text = "SECCIÓN DESTINO:";
+			// 
+			// cmbSeccion
+			// 
+			this.cmbSeccion.FormattingEnabled = true;
+			this.cmbSeccion.Location = new System.Drawing.Point(536, 17);
+			this.cmbSeccion.Name = "cmbSeccion";
+			this.cmbSeccion.Size = new System.Drawing.Size(211, 21);
+			this.cmbSeccion.TabIndex = 0;
+			this.cmbSeccion.SelectedIndexChanged += new System.EventHandler(this.cmbSeccion_SelectedIndexChanged);
+			// 
 			// panel2
 			// 
 			this.panel2.Controls.Add(this.lblTotalRegistros);
@@ -139,15 +142,6 @@
 			this.panel2.Size = new System.Drawing.Size(1170, 66);
 			this.panel2.TabIndex = 12;
 			// 
-			// lblArchivo
-			// 
-			this.lblArchivo.AutoSize = true;
-			this.lblArchivo.Location = new System.Drawing.Point(534, 15);
-			this.lblArchivo.Name = "lblArchivo";
-			this.lblArchivo.Size = new System.Drawing.Size(35, 13);
-			this.lblArchivo.TabIndex = 0;
-			this.lblArchivo.Text = "label3";
-			// 
 			// lblTotalRegistros
 			// 
 			this.lblTotalRegistros.AutoSize = true;
@@ -156,6 +150,15 @@
 			this.lblTotalRegistros.Size = new System.Drawing.Size(35, 13);
 			this.lblTotalRegistros.TabIndex = 1;
 			this.lblTotalRegistros.Text = "label3";
+			// 
+			// lblArchivo
+			// 
+			this.lblArchivo.AutoSize = true;
+			this.lblArchivo.Location = new System.Drawing.Point(534, 15);
+			this.lblArchivo.Name = "lblArchivo";
+			this.lblArchivo.Size = new System.Drawing.Size(35, 13);
+			this.lblArchivo.TabIndex = 0;
+			this.lblArchivo.Text = "label3";
 			// 
 			// panel3
 			// 
@@ -191,16 +194,6 @@
 			this.panel4.Size = new System.Drawing.Size(1170, 97);
 			this.panel4.TabIndex = 14;
 			// 
-			// btnImportar
-			// 
-			this.btnImportar.Location = new System.Drawing.Point(408, 14);
-			this.btnImportar.Name = "btnImportar";
-			this.btnImportar.Size = new System.Drawing.Size(340, 30);
-			this.btnImportar.TabIndex = 0;
-			this.btnImportar.Text = "[ Importar estudiantes ]";
-			this.btnImportar.UseVisualStyleBackColor = true;
-			this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
-			// 
 			// btnCancelar
 			// 
 			this.btnCancelar.Location = new System.Drawing.Point(408, 48);
@@ -210,6 +203,16 @@
 			this.btnCancelar.Text = "[ Cancelar ]";
 			this.btnCancelar.UseVisualStyleBackColor = true;
 			this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+			// 
+			// btnImportar
+			// 
+			this.btnImportar.Location = new System.Drawing.Point(408, 14);
+			this.btnImportar.Name = "btnImportar";
+			this.btnImportar.Size = new System.Drawing.Size(340, 30);
+			this.btnImportar.TabIndex = 0;
+			this.btnImportar.Text = "[ Importar estudiantes ]";
+			this.btnImportar.UseVisualStyleBackColor = true;
+			this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
 			// 
 			// FrmImportarEstudiantes
 			// 

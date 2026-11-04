@@ -596,5 +596,10 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 
 		}
+
+		private void dgvReporte_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+
+		}
 	}
 }

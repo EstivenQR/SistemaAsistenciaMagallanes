@@ -29,9 +29,9 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportes));
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -335,18 +335,18 @@
 			// 
 			this.chartporcentaje.BackColor = System.Drawing.Color.Transparent;
 			this.chartporcentaje.BorderlineColor = System.Drawing.Color.Transparent;
-			chartArea2.Name = "ChartArea1";
-			this.chartporcentaje.ChartAreas.Add(chartArea2);
+			chartArea1.Name = "ChartArea1";
+			this.chartporcentaje.ChartAreas.Add(chartArea1);
 			this.chartporcentaje.Dock = System.Windows.Forms.DockStyle.Fill;
-			legend2.Name = "Legend1";
-			this.chartporcentaje.Legends.Add(legend2);
+			legend1.Name = "Legend1";
+			this.chartporcentaje.Legends.Add(legend1);
 			this.chartporcentaje.Location = new System.Drawing.Point(0, 0);
 			this.chartporcentaje.Name = "chartporcentaje";
-			series2.ChartArea = "ChartArea1";
-			series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-			series2.Legend = "Legend1";
-			series2.Name = "Series1";
-			this.chartporcentaje.Series.Add(series2);
+			series1.ChartArea = "ChartArea1";
+			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+			series1.Legend = "Legend1";
+			series1.Name = "Series1";
+			this.chartporcentaje.Series.Add(series1);
 			this.chartporcentaje.Size = new System.Drawing.Size(361, 243);
 			this.chartporcentaje.TabIndex = 3;
 			this.chartporcentaje.Text = "Porcentaje";
@@ -685,6 +685,7 @@
 			this.dgvReporte.ReadOnly = true;
 			this.dgvReporte.Size = new System.Drawing.Size(1189, 190);
 			this.dgvReporte.TabIndex = 5;
+			this.dgvReporte.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReporte_CellContentClick);
 			// 
 			// pnlBotones
 			// 

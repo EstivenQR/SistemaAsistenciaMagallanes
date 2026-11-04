@@ -45,6 +45,7 @@
 			this.txtUsuario = new System.Windows.Forms.TextBox();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.timer2 = new System.Windows.Forms.Timer(this.components);
+			this.btnDetectar = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panelLogin.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -217,6 +218,24 @@
 			this.timer2.Interval = 30;
 			this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
 			// 
+			// btnDetectar
+			// 
+			this.btnDetectar.AutoSize = true;
+			this.btnDetectar.BackColor = System.Drawing.Color.Transparent;
+			this.btnDetectar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnDetectar.FlatAppearance.BorderSize = 0;
+			this.btnDetectar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+			this.btnDetectar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+			this.btnDetectar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnDetectar.ForeColor = System.Drawing.Color.SandyBrown;
+			this.btnDetectar.Image = ((System.Drawing.Image)(resources.GetObject("btnDetectar.Image")));
+			this.btnDetectar.Location = new System.Drawing.Point(863, 462);
+			this.btnDetectar.Name = "btnDetectar";
+			this.btnDetectar.Size = new System.Drawing.Size(75, 59);
+			this.btnDetectar.TabIndex = 5;
+			this.btnDetectar.UseVisualStyleBackColor = false;
+			this.btnDetectar.Click += new System.EventHandler(this.btnDetectar_Click);
+			// 
 			// FrmLogin
 			// 
 			this.AcceptButton = this.btnLogin;
@@ -226,6 +245,7 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(950, 533);
+			this.Controls.Add(this.btnDetectar);
 			this.Controls.Add(this.panelLogin);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
@@ -264,5 +284,6 @@
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.Timer timer2;
 		private System.Windows.Forms.Button btnSalir;
+		private System.Windows.Forms.Button btnDetectar;
 	}
 }

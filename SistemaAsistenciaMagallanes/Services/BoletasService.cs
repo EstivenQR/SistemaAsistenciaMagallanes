@@ -12,9 +12,9 @@ namespace SistemaAsistenciaMagallanes.Services
 	{
 		BoletasDAO dao = new BoletasDAO();
 
-		public void GuardarBoleta(int idEstudiante, DateTime fecha, string motivo, int porcentaje, int idUsuario)
+		public void GuardarBoleta(int idEstudiante, DateTime fecha, string motivo, int porcentaje, int idUsuario, int? idMateria)
 		{
-			dao.InsertarBoleta(idEstudiante, fecha, motivo, porcentaje, idUsuario);
+			dao.InsertarBoleta(idEstudiante, fecha, motivo, porcentaje, idUsuario, idMateria);
 		}
 
 		public DataTable ListarBoletas(int idUsuario, int idRol)
@@ -41,9 +41,9 @@ namespace SistemaAsistenciaMagallanes.Services
 			dao.EliminarBoleta(idBoleta);
 		}
 
-		public void ActualizarBoleta(int idBoleta, int idEstudiante, DateTime fecha, string motivo, int porcentaje)
+		public void ActualizarBoleta(int idBoleta, int idEstudiante, DateTime fecha, string motivo, int porcentaje, int? idMateria)
 		{
-			dao.ActualizarBoleta(idBoleta, idEstudiante, fecha, motivo, porcentaje);
+			dao.ActualizarBoleta(idBoleta, idEstudiante, fecha, motivo, porcentaje, idMateria);
 		}
 
 		public DataRow ObtenerBoletaPorId(int idBoleta)

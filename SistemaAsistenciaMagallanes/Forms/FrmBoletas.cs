@@ -22,6 +22,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		int idBoletaSeleccionada = -1;
 		BoletasService service = new BoletasService();
+		ReportesService reportesService = new ReportesService();
 
 		public FrmBoletas()
 		{
@@ -73,6 +74,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			dgvBoletas.Columns["IdBoleta"].Visible = false;
 			dgvBoletas.Columns["IdEstudiante"].Visible = false;
 			dgvBoletas.Columns["IdSeccion"].Visible = false;
+			dgvBoletas.Columns["IdMateria"].Visible = false;
 
 		}
 
@@ -99,6 +101,20 @@ namespace SistemaAsistenciaMagallanes.Forms
 			cmbSeccion.DataSource = dt;
 			cmbSeccion.DisplayMember = "NombreSeccion";
 			cmbSeccion.ValueMember = "IdSeccion";
+		}
+
+		private void CargarMaterias(int idSeccion)
+		{
+			DataTable dt = reportesService.ObtenerMaterias(Sesion.IdUsuario, idSeccion);
+
+			DataRow fila = dt.NewRow();
+			fila["IdMateria"] = 0;
+			fila["NombreMateria"] = "-- Seleccione una Materia --";
+			dt.Rows.InsertAt(fila, 0);
+
+			cmbMaterias.DataSource = dt;
+			cmbMaterias.DisplayMember = "NombreMateria";
+			cmbMaterias.ValueMember = "IdMateria";
 		}
 
 		private void CargarSeccionesFiltro()
@@ -177,18 +193,28 @@ namespace SistemaAsistenciaMagallanes.Forms
 				return;
 			}
 
+			if (!int.TryParse(txtPorcentaje.Text, out int porcentaje))
+			{
+				MessageBox.Show("Ingrese un valor numérico válido");
+				return;
+			}
+
 			int idEstudiante = Convert.ToInt32(cmbEstudiante.SelectedValue);
 			string motivo = txtMotivo.Text;
-			int porcentaje = Convert.ToInt32(txtPorcentaje.Text);
 			DateTime fecha = dtpFecha.Value;
 
-			service.GuardarBoleta(idEstudiante, fecha, motivo, porcentaje, Sesion.IdUsuario);
+			int idMateria = Convert.ToInt32(cmbMaterias.SelectedValue);
+			int? materiaGuardar = idMateria == 0 ? (int?)null : idMateria;
+
+			service.GuardarBoleta(idEstudiante, fecha, motivo, porcentaje, Sesion.IdUsuario, materiaGuardar);
 
 			MessageBox.Show("Boleta guardada correctamente");
 
 			txtMotivo.Clear();
 			txtPorcentaje.Clear();
 			cmbEstudiante.SelectedIndex = 0;
+			if (cmbMaterias.Items.Count > 0)
+				cmbMaterias.SelectedIndex = 0;
 
 			CargarBoletas();
 		}
@@ -208,6 +234,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 			int idSeccion = Convert.ToInt32(cmbSeccion.SelectedValue);
 
 			if (idSeccion == 0) return;
+			CargarMaterias(idSeccion);   
 
 			DataTable dt = service.ObtenerEstudiantesPorSeccion(idSeccion);
 
@@ -240,9 +267,6 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 			DataGridViewRow fila = dgvBoletas.Rows[e.RowIndex];
 
-			MessageBox.Show(
-				fila.Cells["IdBoleta"].Value.ToString()
-			);
 
 			idBoletaSeleccionada = Convert.ToInt32(
 				fila.Cells["IdBoleta"].Value
@@ -287,12 +311,22 @@ namespace SistemaAsistenciaMagallanes.Forms
 				return;
 			}
 
+			if (!int.TryParse(txtPorcentaje.Text, out int porcentaje))
+			{
+				MessageBox.Show("Ingrese un valor numérico válido");
+				return;
+			}
+
+			int idMateria = Convert.ToInt32(cmbMaterias.SelectedValue);
+			int? materiaGuardar = idMateria == 0 ? (int?)null : idMateria;
+
 			service.ActualizarBoleta(
 				idBoletaSeleccionada,
 				Convert.ToInt32(cmbEstudiante.SelectedValue),
 				dtpFecha.Value,
 				txtMotivo.Text,
-				Convert.ToInt32(txtPorcentaje.Text)
+				porcentaje,
+				materiaGuardar
 			);
 
 			MessageBox.Show("Boleta actualizada");
@@ -477,7 +511,11 @@ namespace SistemaAsistenciaMagallanes.Forms
 			inicio = dtpInicio.Value.Date;
 			fin = dtpFin.Value.Date;
 
-			dgvBoletas.DataSource = service.ObtenerBoletasReporte(idSeccion, idEstudiante, inicio, fin);
+			dtBoletas = service.ObtenerBoletasReporte(idSeccion, idEstudiante, inicio, fin);
+			dgvBoletas.DataSource = dtBoletas;
+			dgvBoletas.Columns["IdBoleta"].Visible = false;
+			dgvBoletas.Columns["IdEstudiante"].Visible = false;
+			dgvBoletas.Columns["IdSeccion"].Visible = false;
 		}
 
 		private void btnbuscar_Click(object sender, EventArgs e)
@@ -502,6 +540,21 @@ namespace SistemaAsistenciaMagallanes.Forms
 		}
 
 		private void cmbNombre_SelectionChangeCommitted(object sender, EventArgs e)
+		{
+
+		}
+
+		private void panel2_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void cmbMaterias_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void cmbMaterias_SelectionChangeCommitted(object sender, EventArgs e)
 		{
 
 		}

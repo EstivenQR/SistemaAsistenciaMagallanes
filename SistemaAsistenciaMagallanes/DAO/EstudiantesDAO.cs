@@ -50,7 +50,7 @@ namespace SistemaAsistenciaMagallanes.DAO
 							e.FechaNacimiento,
 							e.NumeroEncargado,
 							e.IdSeccion,
-							s.NombreSeccion AS Seccion,
+							(s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR)) AS Sección,
 							CASE 
 								WHEN e.RecibeReligion = 1 THEN 'Si'
 								ELSE 'No'

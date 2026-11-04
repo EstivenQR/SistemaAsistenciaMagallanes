@@ -16,15 +16,15 @@ namespace SistemaAsistenciaMagallanes.DAO
 
 
 
-		public void InsertarBoleta(int idEstudiante, DateTime fecha, string motivo, int porcentaje, int idUsuario)
+		public void InsertarBoleta(int idEstudiante, DateTime fecha, string motivo, int porcentaje, int idUsuario, int? idMateria)
 		{
 			using (SqlConnection conn = conexionBD.ObtenerConexion())
 			{
 				conn.Open();
 
 				string query = @"INSERT INTO Boletas 
-                            (IdEstudiante, Fecha, Motivo, Porcentaje, IdUsuario)
-                            VALUES (@IdEstudiante, @Fecha, @Motivo, @Porcentaje, @IdUsuario)";
+                        (IdEstudiante, Fecha, Motivo, Porcentaje, IdUsuario, IdMateria)
+                        VALUES (@IdEstudiante, @Fecha, @Motivo, @Porcentaje, @IdUsuario, @IdMateria)";
 
 				SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -33,6 +33,7 @@ namespace SistemaAsistenciaMagallanes.DAO
 				cmd.Parameters.AddWithValue("@Motivo", motivo);
 				cmd.Parameters.AddWithValue("@Porcentaje", porcentaje);
 				cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+				cmd.Parameters.AddWithValue("@IdMateria", (object)idMateria ?? DBNull.Value);
 
 				cmd.ExecuteNonQuery();
 			}
@@ -51,37 +52,44 @@ namespace SistemaAsistenciaMagallanes.DAO
 				if (idRol == 2 || idRol == 4 || idRol == 1) // ADMIN
 				{
 					query = @"
-            SELECT b.IdBoleta,
-                   b.IdEstudiante,
-                   e.IdSeccion,
-                   e.Nombre + ' ' + e.Apellido AS Estudiante,
-                   (s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR)) AS NombreSeccion,
-                   b.Fecha,
-                   b.Motivo,
-                   b.Porcentaje AS Puntos
-            FROM Boletas b
-            INNER JOIN Estudiantes e ON b.IdEstudiante = e.IdEstudiante
-            INNER JOIN Secciones s ON e.IdSeccion = s.IdSeccion
-            ORDER BY b.Fecha DESC";
+					SELECT b.IdBoleta,
+						   b.IdEstudiante,
+						   e.IdSeccion,
+						   b.IdMateria,
+						   e.Nombre + ' ' + e.Apellido AS Estudiante,
+						   (s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR)) AS NombreSeccion,
+						   m.NombreMateria AS Materia,
+						   b.Fecha,
+						   b.Motivo,
+						   b.Porcentaje AS Puntos
+					FROM Boletas b
+					INNER JOIN Estudiantes e ON b.IdEstudiante = e.IdEstudiante
+					INNER JOIN Secciones s ON e.IdSeccion = s.IdSeccion
+					LEFT JOIN Materias m ON b.IdMateria = m.IdMateria
+					ORDER BY b.Fecha DESC";
 				}
 				else if (idRol == 3) // DOCENTE
 				{
 					query = @"
-            SELECT b.IdBoleta,
-                   b.IdEstudiante,
-                   e.IdSeccion,
-                   e.Nombre + ' ' + e.Apellido AS Estudiante,
-                   s.NombreSeccion AS Seccion,
-                   b.Fecha,
-                   b.Motivo,
-                   b.Porcentaje AS Puntos
-            FROM Boletas b
-            INNER JOIN Estudiantes e ON b.IdEstudiante = e.IdEstudiante
-            INNER JOIN Secciones s ON e.IdSeccion = s.IdSeccion
-            INNER JOIN DocenteSeccionMateria dsm 
-                ON e.IdSeccion = dsm.IdSeccion
-            WHERE dsm.IdUsuario = @IdUsuario
-            ORDER BY b.Fecha DESC";
+					SELECT b.IdBoleta,
+						   b.IdEstudiante,
+						   e.IdSeccion,
+						   b.IdMateria,
+						   e.Nombre + ' ' + e.Apellido AS Estudiante,
+						   (s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR)) AS NombreSeccion,
+						   m.NombreMateria AS Materia,
+						   b.Fecha,
+						   b.Motivo,
+						   b.Porcentaje AS Puntos
+					FROM Boletas b
+					INNER JOIN Estudiantes e ON b.IdEstudiante = e.IdEstudiante
+					INNER JOIN Secciones s ON e.IdSeccion = s.IdSeccion
+					LEFT JOIN Materias m ON b.IdMateria = m.IdMateria
+					WHERE EXISTS (SELECT 1
+								  FROM DocenteSeccionMateria dsm
+								  WHERE dsm.IdSeccion = e.IdSeccion
+									AND dsm.IdUsuario = @IdUsuario)
+					ORDER BY b.Fecha DESC";
 				}
 				else
 				{
@@ -225,18 +233,19 @@ namespace SistemaAsistenciaMagallanes.DAO
 		}
 
 
-		public void ActualizarBoleta(int idBoleta, int idEstudiante, DateTime fecha, string motivo, int porcentaje)
+		public void ActualizarBoleta(int idBoleta, int idEstudiante, DateTime fecha, string motivo, int porcentaje, int? idMateria)
 		{
 			using (SqlConnection conn = conexionBD.ObtenerConexion())
 			{
 				conn.Open();
 
 				string query = @"UPDATE Boletas 
-                         SET IdEstudiante = @IdEstudiante,
-                             Fecha = @Fecha,
-                             Motivo = @Motivo,
-                             Porcentaje = @Porcentaje
-                         WHERE IdBoleta = @IdBoleta";
+                     SET IdEstudiante = @IdEstudiante,
+                         Fecha = @Fecha,
+                         Motivo = @Motivo,
+                         Porcentaje = @Porcentaje,
+                         IdMateria = @IdMateria
+                     WHERE IdBoleta = @IdBoleta";
 
 				SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -245,6 +254,7 @@ namespace SistemaAsistenciaMagallanes.DAO
 				cmd.Parameters.AddWithValue("@Fecha", fecha);
 				cmd.Parameters.AddWithValue("@Motivo", motivo);
 				cmd.Parameters.AddWithValue("@Porcentaje", porcentaje);
+				cmd.Parameters.AddWithValue("@IdMateria", (object)idMateria ?? DBNull.Value);
 
 				cmd.ExecuteNonQuery();
 			}
@@ -259,17 +269,22 @@ namespace SistemaAsistenciaMagallanes.DAO
 				conn.Open();
 
 				string query = @"
-            SELECT b.IdBoleta,
-				   b.IdEstudiante,
-                   e.Nombre + ' ' + e.Apellido AS Estudiante,e.IdSeccion,
-                   (s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR)) AS Seccion,
-                   b.Fecha,
-                   b.Motivo,
-                   b.Porcentaje AS Puntos
-            FROM Boletas b
-            INNER JOIN Estudiantes e ON b.IdEstudiante = e.IdEstudiante
-            INNER JOIN Secciones s ON e.IdSeccion = s.IdSeccion
-            WHERE b.IdBoleta = @IdBoleta";
+				SELECT b.IdBoleta,
+					   b.IdEstudiante,
+					   e.Nombre + ' ' + e.Apellido AS Estudiante,
+					   e.IdSeccion,
+					   (s.NombreSeccion + ' ' + CAST(s.Anio AS VARCHAR)) AS Seccion,
+					   b.Fecha,
+					   b.Motivo,
+					   b.Porcentaje AS Puntos,
+					   u.Nombre AS Docente,
+					   m.NombreMateria AS Materia
+				FROM Boletas b
+				INNER JOIN Estudiantes e ON b.IdEstudiante = e.IdEstudiante
+				INNER JOIN Secciones s ON e.IdSeccion = s.IdSeccion
+				LEFT JOIN Usuarios u ON b.IdUsuario = u.IdUsuario
+				LEFT JOIN Materias m ON b.IdMateria = m.IdMateria
+				WHERE b.IdBoleta = @IdBoleta";
 
 				SqlCommand cmd = new SqlCommand(query, conn);
 				cmd.Parameters.AddWithValue("@IdBoleta", idBoleta);
@@ -329,10 +344,9 @@ namespace SistemaAsistenciaMagallanes.DAO
 				// FILTRO FECHA FIN
 				if (fechaFin.HasValue)
 				{
-					query += " AND b.Fecha <= @FechaFin";
-					cmd.Parameters.AddWithValue("@FechaFin", fechaFin.Value.Date);
+					query += " AND b.Fecha < @FechaFin";
+					cmd.Parameters.AddWithValue("@FechaFin", fechaFin.Value.Date.AddDays(1));
 				}
-
 				query += " ORDER BY b.Fecha DESC";
 
 				cmd.CommandText = query;

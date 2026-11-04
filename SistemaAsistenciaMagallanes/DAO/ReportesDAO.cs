@@ -280,14 +280,15 @@ namespace SistemaAsistenciaMagallanes.DAO
 			using (SqlConnection conn = conexionBD.ObtenerConexion())
 			{
 				conn.Open();
-				SqlCommand cmd = new SqlCommand(@"
-            SELECT COUNT(*) 
-            FROM DetalleAsistencia da
-            INNER JOIN Clase c ON da.IdClase = c.IdClase
-            WHERE c.Fecha = CAST(GETDATE() AS DATE)
-            AND da.Estado = 'Presente'", conn);
-
-				return (int)cmd.ExecuteScalar();
+				using (SqlCommand cmd = new SqlCommand(@"
+		SELECT COUNT(DISTINCT da.IdEstudiante)
+		FROM DetalleAsistencia da
+		INNER JOIN Clase c ON da.IdClase = c.IdClase
+		WHERE c.Fecha = CAST(GETDATE() AS DATE)
+		AND da.Estado IN ('Presente', 'Tardía', 'Justificado')", conn))
+				{
+					return (int)cmd.ExecuteScalar();
+				}
 			}
 		}
 
@@ -296,14 +297,20 @@ namespace SistemaAsistenciaMagallanes.DAO
 			using (SqlConnection conn = conexionBD.ObtenerConexion())
 			{
 				conn.Open();
-				SqlCommand cmd = new SqlCommand(@"
-            SELECT COUNT(*) 
-            FROM DetalleAsistencia da
-            INNER JOIN Clase c ON da.IdClase = c.IdClase
-            WHERE c.Fecha = CAST(GETDATE() AS DATE)
-            AND da.Estado = 'Ausente'", conn);
-
-				return (int)cmd.ExecuteScalar();
+				using (SqlCommand cmd = new SqlCommand(@"
+		SELECT COUNT(*)
+		FROM Estudiantes e
+		WHERE NOT EXISTS (
+			SELECT 1
+			FROM DetalleAsistencia da
+			INNER JOIN Clase c ON da.IdClase = c.IdClase
+			WHERE da.IdEstudiante = e.IdEstudiante
+			AND c.Fecha = CAST(GETDATE() AS DATE)
+			AND da.Estado IN ('Presente', 'Tardía', 'Justificado')
+		)", conn))
+				{
+					return (int)cmd.ExecuteScalar();
+				}
 			}
 		}
 

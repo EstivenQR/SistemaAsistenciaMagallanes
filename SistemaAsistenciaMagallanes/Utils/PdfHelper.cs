@@ -28,6 +28,8 @@ namespace SistemaAsistenciaMagallanes.Reportes
 {
 	public class PdfHelper
 	{
+		private bool EsFiltroValido(string texto)
+		=> !string.IsNullOrWhiteSpace(texto) && !texto.TrimStart().StartsWith("--");
 		public void GenerarPDF(DataGridView dgv,
 								DataTable dtTareas,
 								string presentes,
@@ -89,17 +91,17 @@ namespace SistemaAsistenciaMagallanes.Reportes
 			doc.Add(new Paragraph(" "));
 
 			// SOLO SI HAY FILTRO
-			if (!string.IsNullOrEmpty(estudiante) || !string.IsNullOrEmpty(seccion))
+			if (EsFiltroValido(estudiante) || EsFiltroValido(seccion))
 			{
 				Paragraph info = new Paragraph()
 					.SetTextAlignment(TextAlignment.CENTER)
 					.SetFontSize(18)
 					.SetFont(fontBold);
 
-				if (!string.IsNullOrEmpty(estudiante))
+				if (EsFiltroValido(estudiante))
 					info.Add(estudiante + "\n");
 
-				if (!string.IsNullOrEmpty(seccion) || seccion == "-- Seleccione una sección --")
+				if (EsFiltroValido(seccion))
 					info.Add(seccion + "\n");
 
 				doc.Add(info);
@@ -188,7 +190,13 @@ namespace SistemaAsistenciaMagallanes.Reportes
 						if (!col.Visible)
 							continue;
 
-						string valor = row.Cells[col.Name].Value?.ToString() ?? "";
+						object celda = row.Cells[col.Name].Value;
+						string valor;
+
+						if (col.Name == "Fecha" && celda != null && celda != DBNull.Value)
+							valor = Convert.ToDateTime(celda).ToString("dd/MM/yyyy");
+						else
+							valor = celda?.ToString() ?? "";
 
 						Color color = ColorConstants.BLACK;
 
@@ -420,8 +428,21 @@ namespace SistemaAsistenciaMagallanes.Reportes
 			// DATOS
 			doc.Add(new Paragraph($"Estudiante: {boleta["Estudiante"]}").SetFontSize(12));
 			doc.Add(new Paragraph($"Sección: {boleta["Seccion"]}").SetFontSize(12));
-			doc.Add(new Paragraph($"Fecha: {Convert.ToDateTime(boleta["Fecha"]).ToShortDateString()}").SetFontSize(12));
 
+			// MATERIA 
+			string materia = boleta.Table.Columns.Contains("Materia") && boleta["Materia"] != DBNull.Value
+				? boleta["Materia"].ToString()
+				: "N/A";
+
+			doc.Add(new Paragraph($"Materia: {materia}").SetFontSize(12));
+
+			// Docente 
+			string docente = boleta.Table.Columns.Contains("Docente") && boleta["Docente"] != DBNull.Value
+				? boleta["Docente"].ToString()
+				: "N/A";
+
+			doc.Add(new Paragraph($"Emitida por: {docente}").SetFontSize(12));
+			doc.Add(new Paragraph($"Fecha: {Convert.ToDateTime(boleta["Fecha"]).ToShortDateString()}").SetFontSize(12));
 			doc.Add(new Paragraph("\n"));
 
 			// MOTIVO
@@ -434,7 +455,7 @@ namespace SistemaAsistenciaMagallanes.Reportes
 				.SetMarginBottom(10));
 
 			// PORCENTAJE
-			doc.Add(new Paragraph($"Porcentaje de afectación: {boleta["Puntos"]}%")
+			doc.Add(new Paragraph($"Puntos de afectación: {boleta["Puntos"]}")
 				.SetFont(bold));
 
 			doc.Add(new Paragraph("\n\n"));
@@ -526,7 +547,8 @@ namespace SistemaAsistenciaMagallanes.Reportes
 			{
 				"IdBoleta",
 				"IdEstudiante",
-				"IdSeccion"
+				"IdSeccion",
+				"IdMateria"
 			};
 
 			var columnasVisibles = dt.Columns
