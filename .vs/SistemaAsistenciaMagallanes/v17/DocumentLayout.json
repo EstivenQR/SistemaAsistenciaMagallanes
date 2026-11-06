@@ -7,31 +7,31 @@
       "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\sistemaasistenciamagallanes\\forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\conexion_bd\\conexionbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\sistemaasistenciamagallanes\\conexion_bd\\conexionbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\conexion_bd\\conexionbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\conexion_bd\\configuracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\sistemaasistenciamagallanes\\config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\sistemaasistenciamagallanes\\conexion_bd\\configuracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\conexion_bd\\configuracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\conexion_bd\\sesion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\sistemaasistenciamagallanes\\conexion_bd\\sesion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\conexion_bd\\sesion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\conexion_bd\\seguridad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\sistemaasistenciamagallanes\\conexion_bd\\seguridad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\conexion_bd\\seguridad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|c:\\users\\estiv\\source\\repos\\sistemaasistenciamagallanes\\sistemaasistenciamagallanes\\dao\\reportesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\sistemaasistenciamagallanes\\dao\\reportesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4E6D6C40-8E11-44DB-92AB-2D5772B3DE1F}|SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes.csproj|solutionrelative:sistemaasistenciamagallanes\\dao\\reportesdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -332,9 +332,9 @@
               "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\Forms\\FrmLogin.cs",
               "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Forms\\FrmLogin.cs",
               "RelativeToolTip": "SistemaAsistenciaMagallanes\\Forms\\FrmLogin.cs",
-              "ViewState": "AgIAALMAAAAAAAAAAAAUwNUAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAqwLwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T23:19:08.286Z",
+              "WhenOpened": "2026-11-06T08:33:58.364Z",
               "EditorCaption": ""
             },
             {
@@ -351,26 +351,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "config.json",
               "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\config.json",
               "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\config.json",
               "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\config.json",
               "RelativeToolTip": "SistemaAsistenciaMagallanes\\config.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-11-04T23:03:35.413Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ConexionBD.cs",
               "DocumentMoniker": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Conexion_BD\\ConexionBD.cs",
               "RelativeDocumentMoniker": "SistemaAsistenciaMagallanes\\Conexion_BD\\ConexionBD.cs",
               "ToolTip": "C:\\Users\\estiv\\source\\repos\\SistemaAsistenciaMagallanes\\SistemaAsistenciaMagallanes\\Conexion_BD\\ConexionBD.cs",
               "RelativeToolTip": "SistemaAsistenciaMagallanes\\Conexion_BD\\ConexionBD.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCsAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAK8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-04T23:03:03.789Z",
               "EditorCaption": ""
@@ -385,8 +385,7 @@
               "RelativeToolTip": "SistemaAsistenciaMagallanes\\Conexion_BD\\Sesion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T23:03:01.853Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-04T23:03:01.853Z"
             },
             {
               "$type": "Document",
@@ -398,8 +397,7 @@
               "RelativeToolTip": "SistemaAsistenciaMagallanes\\Conexion_BD\\Seguridad.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T23:02:48.956Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-04T23:02:48.956Z"
             },
             {
               "$type": "Document",
@@ -411,8 +409,7 @@
               "RelativeToolTip": "SistemaAsistenciaMagallanes\\Conexion_BD\\Configuracion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T23:02:42.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-04T23:02:42.372Z"
             },
             {
               "$type": "Document",
@@ -436,8 +433,7 @@
               "RelativeToolTip": "SistemaAsistenciaMagallanes\\DAO\\ReportesDAO.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAAAEMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-01T08:45:39.891Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-01T08:45:39.891Z"
             },
             {
               "$type": "Document",

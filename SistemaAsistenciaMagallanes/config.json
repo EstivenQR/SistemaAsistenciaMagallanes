@@ -1,8 +1,10 @@
 {
-  "Servidor": "192.168.100.59,1433",
-  "Instancia": "",
+  "Servidores": [
+    ".\\SQLEXPRESS",
+    "localhost"
+  ],
   "BaseDatos": "BD_ASISTENCIAMAGALLANES",
-  "IntegratedSecurity": false,
-  "Usuario": "magallanes_user",
-  "Password": "12345"
+  "IntegratedSecurity": true,
+  "Usuario": "",
+  "Password": ""
 }

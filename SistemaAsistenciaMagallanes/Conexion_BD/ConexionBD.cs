@@ -16,13 +16,26 @@ namespace SistemaAsistenciaMagallanes.Conexion_BD
 		private static string cadenaActiva;
 		private static readonly object candado = new object();
 
-		private readonly string ruta;
+		private readonly string rutaUsuario;
 		private readonly JObject config;
 
 		public ConexionBD()
 		{
-			ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.json");
-			config = JObject.Parse(File.ReadAllText(ruta));
+			string rutaOriginal = Path.Combine(
+				AppDomain.CurrentDomain.BaseDirectory, "config.json");
+
+			rutaUsuario = Path.Combine(
+				Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+				"Sistema_Magallanes",
+				"config.json");
+
+			if (!File.Exists(rutaUsuario))
+			{
+				Directory.CreateDirectory(Path.GetDirectoryName(rutaUsuario));
+				File.Copy(rutaOriginal, rutaUsuario);
+			}
+
+			config = JObject.Parse(File.ReadAllText(rutaUsuario));
 		}
 
 		public SqlConnection ObtenerConexion()
@@ -43,7 +56,6 @@ namespace SistemaAsistenciaMagallanes.Conexion_BD
 			lock (candado) { cadenaActiva = null; }
 		}
 
-		// ---------- Prueba la lista del config.json ----------
 		private string BuscarServidor()
 		{
 			foreach (string servidor in ObtenerServidores())
@@ -67,7 +79,8 @@ namespace SistemaAsistenciaMagallanes.Conexion_BD
 		{
 			var lista = config["Servidores"] as JArray;
 			if (lista != null && lista.Count > 0)
-				return lista.Select(s => s.ToString().Trim()).Where(s => s != "").ToList();
+				return lista.Select(s => s.ToString().Trim())
+							.Where(s => s != "").ToList();
 
 			string servidor = config["Servidor"]?.ToString();
 			string instancia = config["Instancia"]?.ToString();
@@ -95,7 +108,6 @@ namespace SistemaAsistenciaMagallanes.Conexion_BD
 			return cadena;
 		}
 
-		// ---------- Detección automática (botón) ----------
 		public static string DetectarYGuardar()
 		{
 			var cfg = new ConexionBD();
@@ -105,26 +117,23 @@ namespace SistemaAsistenciaMagallanes.Conexion_BD
 				try
 				{
 					using (var conn = new SqlConnection(cfg.ArmarCadena(servidor, 3)))
-						conn.Open();   // valida usuario, contraseña y base de datos
+						conn.Open();
 				}
 				catch (SqlException)
 				{
-					continue;          // otro SQL Server que no es el nuestro
+					continue;
 				}
 
-				// Poner la IP encontrada de primera, sin duplicados
 				var lista = (cfg.config["Servidores"] as JArray ?? new JArray())
 					.Select(s => s.ToString())
 					.Where(s => s != servidor)
 					.ToList();
 				lista.Insert(0, servidor);
-
 				cfg.config["Servidores"] = new JArray(lista);
-				File.WriteAllText(cfg.ruta, cfg.config.ToString());
 
-				// Usar la dirección encontrada desde ya, en toda la aplicación
+				File.WriteAllText(cfg.rutaUsuario, cfg.config.ToString());
+
 				lock (candado) { cadenaActiva = cfg.ArmarCadena(servidor, 15); }
-
 				return servidor;
 			}
 

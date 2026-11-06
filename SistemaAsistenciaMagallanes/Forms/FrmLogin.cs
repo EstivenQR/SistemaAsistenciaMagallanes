@@ -178,40 +178,46 @@ namespace SistemaAsistenciaMagallanes.Forms
 		{
 			btnDetectar.Enabled = false;
 
-			// Ventana "Buscando..." (se cierra sola al terminar)
 			Form espera = new Form
 			{
 				Text = "Detectar servidor",
-				StartPosition = FormStartPosition.CenterParent,
+				StartPosition = FormStartPosition.CenterScreen,   // centro de la pantalla
 				FormBorderStyle = FormBorderStyle.FixedDialog,
 				ControlBox = false,
-				MaximizeBox = false,
-				MinimizeBox = false,
 				ShowInTaskbar = false,
 				ClientSize = new Size(320, 90)
 			};
-
 			espera.Controls.Add(new Label
 			{
 				Text = "Buscando el servidor en la red...\nEsto puede tardar unos segundos.",
 				Dock = DockStyle.Fill,
 				TextAlign = ContentAlignment.MiddleCenter
 			});
-
 			espera.Show(this);
 
-			string servidor = await Task.Run(() => ConexionBD.DetectarYGuardar());
+			try
+			{
+				string servidor = await Task.Run(() => ConexionBD.DetectarYGuardar());
 
-			espera.Close();
-			btnDetectar.Enabled = true;
+				espera.Close();
 
-			if (servidor != null)
-				MessageBox.Show("Servidor encontrado y guardado:\n" + servidor,
-					"Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			else
-				MessageBox.Show("No se encontró el servidor en esta red.\n" +
-					"Verifique que está conectado a la red correcta.",
-					"Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				if (servidor != null)
+					MessageBox.Show("Servidor encontrado y guardado:\n" + servidor,
+						"Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				else
+					MessageBox.Show("No se encontró el servidor en esta red.",
+						"Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+			catch (Exception ex)
+			{
+				espera.Close();
+				MessageBox.Show("Error al detectar el servidor:\n" + ex.Message,
+					"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			finally
+			{
+				btnDetectar.Enabled = true;
+			}
 		}
 	}
 }
