@@ -18,6 +18,12 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 	public partial class FrmHome : Form
 	{
+		private bool hayTareasPendientes = false;
+		private Timer timerRespiracion = new Timer();
+
+		private float escalaPunto = 1.0f;
+		private bool aumentando = true;
+		private int opacidadPunto = 255;
 		bool menuExpandido = false;
 		int alturaMaxima = 150;
 		ToolTip tooltip = new ToolTip();
@@ -25,6 +31,11 @@ namespace SistemaAsistenciaMagallanes.Forms
 		public FrmHome()
 		{
 			InitializeComponent();
+			btnTareas.Paint += btnTareas_Paint;
+			timerRespiracion.Interval = 40;
+			timerRespiracion.Tick += timerRespiracion_Tick;
+
+			btnTareas.Paint += btnTareas_Paint;
 		}
 
 		private void FrmHome_Load(object sender, EventArgs e)
@@ -188,10 +199,52 @@ namespace SistemaAsistenciaMagallanes.Forms
 			panel.Region = new Region(path);
 		}
 
+		private void timerRespiracion_Tick(object sender, EventArgs e)
+		{
+			if (aumentando)
+			{
+				escalaPunto += 0.025f;
+				opacidadPunto -= 5;
+
+				if (escalaPunto >= 1.5f)
+					aumentando = false;
+			}
+			else
+			{
+				escalaPunto -= 0.025f;
+				opacidadPunto += 5;
+
+				if (escalaPunto <= 1.0f)
+					aumentando = true;
+			}
+
+			btnTareas.Invalidate();
+		}
+
 		private void CargarTooltipTareas()
 		{
 			TareasService service = new TareasService();
 			DataTable dt = service.ObtenerTareasHoy(Sesion.IdUsuario);
+
+			hayTareasPendientes = dt.Rows.Count > 0;
+
+			if (hayTareasPendientes)
+			{
+				if (!timerRespiracion.Enabled)
+					timerRespiracion.Start();
+			}
+			else
+			{
+				timerRespiracion.Stop();
+
+				escalaPunto = 1.0f;
+				opacidadPunto = 255;
+				aumentando = true;
+			}
+
+	
+
+			btnTareas.Invalidate();
 
 			if (dt.Rows.Count == 0)
 			{
@@ -206,14 +259,44 @@ namespace SistemaAsistenciaMagallanes.Forms
 				mensaje += "• " + row["NombreSeccion"] + " - " +
 						   row["NombreMateria"] +
 						   " (" + row["Titulo"] + ")\n";
-
 			}
 
 			tooltip.IsBalloon = true;
 			tooltip.ToolTipIcon = ToolTipIcon.Info;
 			tooltip.AutoPopDelay = 7000;
-			tooltip.ToolTipTitle = "Tareas de hoy";
+			tooltip.ToolTipTitle = "Tareas pendientes de hoy";
 			tooltip.SetToolTip(btnTareas, mensaje);
+		}
+
+		private void btnTareas_Paint(object sender, PaintEventArgs e)
+		{
+			if (!hayTareasPendientes)
+				return;
+
+			string textoBoton = btnTareas.Text;
+
+			Size texto = TextRenderer.MeasureText(
+				textoBoton,
+				btnTareas.Font,
+				Size.Empty,
+				TextFormatFlags.NoPadding
+			);
+
+			int inicioTexto = (btnTareas.Width - texto.Width) / 2;
+
+			float tamano = 8 * escalaPunto;
+
+			float x = inicioTexto + texto.Width + 5;
+			float y = (btnTareas.Height - tamano) / 2;
+
+			e.Graphics.SmoothingMode =
+				System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+			using (SolidBrush brush = new SolidBrush(
+				Color.FromArgb(opacidadPunto, Color.Red)))
+			{
+				e.Graphics.FillEllipse(brush, x, y, tamano, tamano);
+			}
 		}
 
 		private void timerMenu_Tick(object sender, EventArgs e)

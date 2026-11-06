@@ -148,7 +148,7 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 				txtNumeroEncargado.Text = fila.Cells["NumeroEncargado"].Value.ToString();
 
-				cmbSeccion.Text = fila.Cells["Seccion"].Value.ToString();
+				cmbSeccion.Text = fila.Cells["Sección"].Value.ToString();
 				chkReligion.Checked = fila.Cells["RecibeReligion"].Value.ToString() == "Si";
 
 			}
@@ -191,8 +191,13 @@ namespace SistemaAsistenciaMagallanes.Forms
 
 		private void btnCargarEstudiantes_Click(object sender, EventArgs e)
 		{
-			FrmImportarEstudiantes frm = new FrmImportarEstudiantes();
-			frm.ShowDialog();
+			using (FrmImportarEstudiantes frm = new FrmImportarEstudiantes())
+			{
+				if (frm.ShowDialog() == DialogResult.OK)
+				{
+					CargarEstudiantes("");
+				}
+			}
 
 		}
 
